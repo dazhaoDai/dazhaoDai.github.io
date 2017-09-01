@@ -1,11 +1,11 @@
 .post pre,
 .post .highlight {
-  background: #f7f7f7;
+  background: #002451;
   margin: 20px 0;
   padding: 15px;
   overflow: auto;
   font-size: 13px;
-  color: #4d4d4c;
+  color: #fff;
   line-height: $line-height-code-block;
 }
 .post .highlight .gutter pre,
@@ -75,7 +75,7 @@
 }
 .post .highlight figcaption {
   font-size: 0.85em;
-  color: #8e908c;
+  color: #7285b7;
   line-height: 1em;
   margin-bottom: 1em;
 }
@@ -96,7 +96,7 @@
   border-style: solid;
   border-color: $border-color;
   border-width: 1px 0;
-  background: #f7f7f7;
+  background: #002451;
   padding: 15px $content-desktop-padding 15px 15px;
 }
 .post .gist .gist-file {
@@ -122,8 +122,8 @@
   border: none;
 }
 .post .gist .gist-file .gist-meta {
-  background: #f7f7f7;
-  color: #8e908c;
+  background: #002451;
+  color: #7285b7;
   font: 13px $font-family-base;
   text-shadow: 0 0;
   padding: 0;
@@ -138,7 +138,7 @@
   text-decoration: underline;
 }
 pre .comment {
-  color: #8e908c;
+  color: #7285b7;
 }
 pre .variable,
 pre .attribute,
@@ -152,7 +152,7 @@ pre .html .doctype,
 pre .css .id,
 pre .css .class,
 pre .css .pseudo {
-  color: #c82829;
+  color: #ff9da4;
 }
 pre .number,
 pre .preprocessor,
@@ -160,11 +160,11 @@ pre .built_in,
 pre .literal,
 pre .params,
 pre .constant {
-  color: #f5871f;
+  color: #ffc58f;
 }
 pre .ruby .class .title,
 pre .css .rules .attribute {
-  color: #718c00;
+  color: #d1f1a9;
 }
 pre .string,
 pre .value,
@@ -172,11 +172,11 @@ pre .inheritance,
 pre .header,
 pre .ruby .symbol,
 pre .xml .cdata {
-  color: #718c00;
+  color: #d1f1a9;
 }
 pre .title,
 pre .css .hexcolor {
-  color: #3e999f;
+  color: #9ff;
 }
 pre .function,
 pre .python .decorator,
@@ -187,12 +187,12 @@ pre .perl .sub,
 pre .javascript .title,
 pre .js .title,
 pre .coffeescript .title {
-  color: #4271ae;
+  color: #bbdaff;
 }
 pre .keyword,
 pre .javascript .function,
 pre .js .function {
-  color: #8959a8;
+  color: #ebbbff;
 }
 /* normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
@@ -1716,14 +1716,14 @@ header.header .header-cont .navigation.scrolled .nav-link {
   padding: 5px;
   line-height: 1.1em;
   font-size: 0.85rem;
-  color: #4d4d4c;
+  color: #fff;
 }
 .index-content .right-info .friend-links a:hover {
   text-decoration: underline;
   color: #3f86b5;
 }
 .index-content .right-info .friend-links .tip {
-  color: #d6d6d6;
+  color: #003f8e;
   font-size: 0.7rem;
   padding: 5px;
 }
