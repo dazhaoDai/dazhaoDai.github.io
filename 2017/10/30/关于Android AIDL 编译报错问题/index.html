@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="android aidl,android 开发错误," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="问题： 在做一个音乐项目中，使用到了AIDL跨进程通信组件，编写一个简单的AIDL时候，编译一直无法通过，报错内容 123Error:Execution failed for task &apos;:app:compileDebugAidl&apos;.java.lang.RuntimeException: com.android.ide.common.process.ProcessException: Error">
+<meta name="keywords" content="android aidl,android 开发错误">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于Android AIDL 编译报错问题">
+<meta property="og:url" content="http://outofmemory.top/2017/10/30/关于Android AIDL 编译报错问题/index.html">
+<meta property="og:site_name" content="T9&#39;S Develop Blog">
+<meta property="og:description" content="问题： 在做一个音乐项目中，使用到了AIDL跨进程通信组件，编写一个简单的AIDL时候，编译一直无法通过，报错内容 123Error:Execution failed for task &apos;:app:compileDebugAidl&apos;.java.lang.RuntimeException: com.android.ide.common.process.ProcessException: Error">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-11T09:03:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于Android AIDL 编译报错问题">
+<meta name="twitter:description" content="问题： 在做一个音乐项目中，使用到了AIDL跨进程通信组件，编写一个简单的AIDL时候，编译一直无法通过，报错内容 123Error:Execution failed for task &apos;:app:compileDebugAidl&apos;.java.lang.RuntimeException: com.android.ide.common.process.ProcessException: Error">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://outofmemory.top/2017/10/30/关于Android AIDL 编译报错问题/"/>
+
+
+
+
+
+  <title>关于Android AIDL 编译报错问题 | T9'S Develop Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">T9'S Develop Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">工作不仅仅是技术，还包括生活</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2017/10/30/关于Android AIDL 编译报错问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="daidai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="T9'S Develop Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">关于Android AIDL 编译报错问题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-30T12:53:07+08:00">
+                2017-10-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h3><p> 在做一个音乐项目中，使用到了AIDL跨进程通信组件，编写一个简单的AIDL时候，编译一直无法通过，报错内容</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Error:Execution failed <span class="keyword">for</span> task <span class="string">':app:compileDebugAidl'</span>.</div><div class="line"></div><div class="line">java.lang.RuntimeException: com.android.ide.common.process.ProcessException: Error <span class="keyword">while</span> executing process E:\SDK\build-tools\<span class="number">25.0</span>.2\aidl.exe with arguments &#123;-pE:\SDK\platforms\android-<span class="number">25</span>\framework.aidl -oE:\Project\LifeStyle\app\build\generated\source\aidl\debug -IE:\Project\LifeStyle\app\src\main\aidl -IE:\Project\LifeStyle\app\src\debug\aidl -IC:\Users\yun.android\build-cache\bd2b26450777017e058ddff21ee3c3ce84e4a7bf\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">2</span>ea784cc81ce0926ea68faf50edaf3063b660d0e\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">5</span>b0533eca8fabee2573210d5a6db0ef9c0c55098\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">4</span>aff7d24ca88b5fbfe9cecf19662277ee6b67028\output\aidl -IC:\Users\yun.android\build-cache\b99b113aa0b77b7431d57c24286f1c8e8eab3ac8\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">4529918</span>ad206e483048c7e77ddeb67757631979d\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">3044</span>c80427502394b2a5a4f143d6cff3e658c021\output\aidl -IC:\Users\yun.android\build-cache\b5f3194e152b8cd07a05991ec812dffa1d8cb041\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">38</span>ea6e0a6326b10847dbffa39bb99db561e2d206\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">8</span>b120b0a8440e62fa16bb4d6105e23babda95bac\output\aidl -IC:\Users\yun.android\build-cache\f7ecc1e5d6327684b86b316a5b8d8656ab31a562\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">555508f</span>307eda5e323eab911e97c525ed5d5df39\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">89763</span>dd7cc6d960b99b1b369e1e4cacfb0a31de4\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">7</span>ade3d874bb02876c4dbec5f11f4f6e45fb740a9\output\aidl -IC:\Users\yun.android\build-cache\d146a875e535f7ef213ac298ff9c7562980017e2\output\aidl -IC:\Users\yun.android\build-cache\b7e59e7515f5465f0bdcddcb2373d90d2f734f9e\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">7</span>d9f182c861cca1c8561cf15680698fccb00cd6b\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">700509</span>b55aea82f4d612ac1262f62676e4b903a8\output\aidl -IC:\Users\yun.android\build-cache\abe96579d37055680246e88ec8e5202f311a7682\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">6</span>a4a8f6c11eb14ee244b1c31f215a78b80a8772f\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">9</span>acdeaf56617b78c0869aec47ac34c9f74876025\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">7560</span>a7d14537f4d91e192c3bf5482b4f43fa71b7\output\aidl -IC:\Users\yun.android\build-cache\f07b74a7bc4f977ae6e648a0b0c6273da95a15d3\output\aidl -IC:\Users\yun.android\build-cache\e916c7e89b0437bc49caaa56819cb6420b1df388\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">98e02</span>d16b6f5edc105354f1b8731dbb8996766a6\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">0</span>de94c2965cbd469e50e04f8b11f3f3a54fb105c\output\aidl -IC:\Users\yun.android\build-cache\e3570cee326ac234ab7a645a61cc67e5f4aaba25\output\aidl -IC:\Users\yun.android\build-cache\af33f12b5828ec7d29cdc70bd0113ea8de920816\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">70727</span>cf612c37ae60ba16fdf9dde9dd2be59839d\output\aidl -IC:\Users\yun.android\build-cache\a70928a5a1cbea562f1bd432d010447ec910b87c\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">1e4</span>a7240c43a860a0f8c255418d94983c100aacf\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">17f</span>28128f57674af28605d6308b0c053b944c5e8\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">995</span>b0dfa92490fcf0f8815d039702fbe5bce10a8\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">15938</span>a94ee6db7edc48dcf60da42083cf7a1bc6c\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">29</span>c97a53c8bc6293d81f08917bfd65d3f697d79e\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">1005f</span>94c0d904c86565f1d4db92c798c70837c1c\output\aidl -IC:\Users\yun.android\build-cache\bf586708fe17232a5869c4b61e020557d355d3d6\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">9</span>b42fe08f88e56de3c951e7c80c399b9f94078a1\output\aidl -IC:\Users\yun.android\build-cache\cd0824ff26bcc093fac07fa62e9800ef96d334aa\output\aidl -dC:\Users\yun\AppData\Local\Temp\aidl3827942310160614195.d E:\Project\LifeStyle\app\src\main\aidl\com\ddz\lifestyle\IPlayService.aidl&#125;</div></pre></td></tr></table></figure>
+<p>绞尽脑汁，又是google又是度娘，都没有合适解决办法，最终发现有两个问题:</p>
+<ul>
+<li><p>实体类没有使用<code>in</code> 、<code>out</code> 、<code>inout</code> 中任何一种方法修饰，导致编译失败</p>
+<p>后来为添加了<code>in</code> 修饰后，依然无法通过，最终发现问题所在</p>
+</li>
+<li><p>在设置方法时候， 设置了同名不同参数方法，在AIDL中不可以这样命名，导致编译无法通过，懊恼不已，浪费大量时间</p>
+</li>
+</ul>
+<h3 id="后记："><a href="#后记：" class="headerlink" title="后记："></a>后记：</h3><p>开发中一定要够自信，够清醒，不然真是浪费时间</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android-aidl/" rel="tag"># android aidl</a>
+          
+            <a href="/tags/android-开发错误/" rel="tag"># android 开发错误</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/30/Android6.0运行时权限，化繁为简/" rel="next" title="Android6.0运行时权限，化繁为简">
+                <i class="fa fa-chevron-left"></i> Android6.0运行时权限，化繁为简
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/30/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">daidai</p>
+              <p class="site-description motion-element" itemprop="description">喜欢探索未知的领域</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题："><span class="nav-number">1.</span> <span class="nav-text">问题：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后记："><span class="nav-number">2.</span> <span class="nav-text">后记：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">daidai</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
