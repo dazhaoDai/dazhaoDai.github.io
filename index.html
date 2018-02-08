@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="喜欢探索未知的领域">
+<meta name="description" content="喜欢探索未知,保持好奇心">
 <meta property="og:type" content="website">
 <meta property="og:title" content="T9&#39;S Develop Blog">
 <meta property="og:url" content="http://outofmemory.top/index.html">
 <meta property="og:site_name" content="T9&#39;S Develop Blog">
-<meta property="og:description" content="喜欢探索未知的领域">
+<meta property="og:description" content="喜欢探索未知,保持好奇心">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="T9&#39;S Develop Blog">
-<meta name="twitter:description" content="喜欢探索未知的领域">
+<meta name="twitter:description" content="喜欢探索未知,保持好奇心">
 
 
 
@@ -160,7 +160,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">工作不仅仅是技术，还包括生活</p>
+        <p class="site-subtitle">不仅有工作，更有生活</p>
       
   </div>
 
@@ -598,6 +598,153 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2017/10/30/Git常用操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="daidai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="T9'S Develop Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/30/Git常用操作/" itemprop="url">Git常用操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-30T12:53:07+08:00">
+                2017-10-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>  Git作为日常开发的版本管理系统，功能强大，操作简单，简直不要太方便，但是，常用口令，却是我们必须要掌握的，比较AS安装Git插件，使用命令行才是最快捷方便的</p>
+<h3 id="正文："><a href="#正文：" class="headerlink" title="正文："></a>正文：</h3><p>  开发中：常用操作就那么几个，那就一一罗列出来：</p>
+<h5 id="1-从远程服务器Clone分支"><a href="#1-从远程服务器Clone分支" class="headerlink" title="1.从远程服务器Clone分支"></a>1.从远程服务器Clone分支</h5><p>见我之前文章  <a href="http://www.jianshu.com/p/1a03c3637091" target="_blank" rel="external">Git从远端服务器Clone分支到本地</a></p>
+<h5 id="2-将本地分支推送到远端新分支"><a href="#2-将本地分支推送到远端新分支" class="headerlink" title="2.将本地分支推送到远端新分支"></a>2.将本地分支推送到远端新分支</h5><p>开发中遇到一种情况，本地分支Local1是从远端某分支Remote1 Clone下来的，但是开发之后，想将本地分支保存到远端的新分支Remote2上，而远端仓库是没有这个Remote2分支的，那么执行以下命令：<code>git push origin &lt;local_branch_name&gt;:&lt;remote_branch_name&gt;</code>，<br>例如我当前操作：<code>git push origin Local1:Remote2</code></p>
+<h5 id="3-删除本地仓库某个分支"><a href="#3-删除本地仓库某个分支" class="headerlink" title="3.删除本地仓库某个分支"></a>3.删除本地仓库某个分支</h5><p>想删除本地仓库某个分支，执行：<code>git branch -D &lt;local_branch_name&gt;</code>,例如：想删除本地仓库widget2分支，执行命令：<code>git branch -D widget2</code>；</p>
+<h5 id="4-删除远端仓库某分支"><a href="#4-删除远端仓库某分支" class="headerlink" title="4.删除远端仓库某分支"></a>4.删除远端仓库某分支</h5><p>删除远端仓库分支和删除本地类似：<code>git push origin :{remote_branch_name}</code>，例如删除远端develop分支：<code>git push origin :develop</code></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2017/10/30/Android6.0运行时权限，化繁为简/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -770,153 +917,6 @@
 <p><strong>根据封装好的工具类，写个简单例子</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line">package com.ddz.lifestyle.view.activity;</div><div class="line">import android.Manifest;</div><div class="line">import android.content.Intent;</div><div class="line">import android.os.Bundle;</div><div class="line">import android.os.PersistableBundle;</div><div class="line">import android.support.annotation.NonNull;</div><div class="line">import android.support.annotation.Nullable;</div><div class="line">import android.support.v7.app.AppCompatActivity;</div><div class="line">import android.widget.Toast;</div><div class="line">import com.ddz.lifestyle.R;</div><div class="line">import com.ddz.lifestyle.utils.PermissionUtils;</div><div class="line"></div><div class="line">/**</div><div class="line"> * @Author: ddz</div><div class="line"> * Creation time: 17.8.11 16:07</div><div class="line"> * describe:()</div><div class="line"> */</div><div class="line"></div><div class="line">public class TestActivity extends AppCompatActivity &#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onCreate(@Nullable Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        initPremission();</div><div class="line">    &#125;</div><div class="line">	</div><div class="line">    private void initPremission() &#123;</div><div class="line">        if (PermissionUtils.getInstance().checkPermission(Manifest.permission.ACCESS_FINE_LOCATION)) &#123;</div><div class="line">            toast(null);</div><div class="line">        &#125; else &#123;</div><div class="line">            PermissionUtils.getInstance().requestPermissiion(this, new String[]&#123;Manifest.permission.ACCESS_FINE_LOCATION&#125;, PermissionUtils.requestCode, new PermissionUtils.RequestPermissionListener() &#123;</div><div class="line">                @Override</div><div class="line">                public void requestConfirm() &#123;</div><div class="line">                    //申请成功</div><div class="line">                    toast(null);</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                @Override</div><div class="line">                public void requestCancel() &#123;</div><div class="line">                    //用户拒绝，对用户解释申请理由</div><div class="line"></div><div class="line">                    //如果想使用封装好的弹窗提示</div><div class="line">                    PermissionUtils.getInstance().requestDialog(TestActivity.this, &quot;申请权限&quot;, &quot;需要位置权限&quot;, null, null);</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                @Override</div><div class="line">                public void requestCancelAgain() &#123;</div><div class="line">                    //用户勾选不再提示并拒绝，申请打开应用设置页面申请权限，具体逻辑自己写</div><div class="line"></div><div class="line">                    //使用默认封装好的提示,并打开设置页面</div><div class="line">                    PermissionUtils.getInstance().requestDialogAgain(TestActivity.this, &quot;申请权限&quot;, &quot;去设置页面打开位置限才能正常使用&quot;, null, null);</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                @Override</div><div class="line">                public void requestFailed() &#123;</div><div class="line">                    //申请失败</div><div class="line">                    toast(&quot;对不起，没有权限，退出&quot;);</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //一定要对权限回调进行处理</div><div class="line">    @Override</div><div class="line">    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) &#123;</div><div class="line">        PermissionUtils.getInstance().onRequestPermissionResult(TestActivity.this, requestCode, permissions, grantResults);</div><div class="line">        super.onRequestPermissionsResult(requestCode, permissions, grantResults);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //如果打开了设置页面申请权限，一定要对回调进行处理</div><div class="line">    @Override</div><div class="line">    protected void onActivityResult(int requestCode, int resultCode, Intent data) &#123;</div><div class="line">        PermissionUtils.getInstance().onActivityResult(requestCode, resultCode, data);</div><div class="line">        super.onActivityResult(requestCode, resultCode, data);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private void toast(String message) &#123;</div><div class="line">        Toast.makeText(TestActivity.this, message == null ? &quot;权限申请成功&quot; : message, Toast.LENGTH_SHORT).show();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h4><p>封装后的权限申请，结构更加清晰，根据回调结果的不同可以做出相应处理，也封装了权限申请的说明弹窗，如果没有特殊的设计要求，即可满足日常开发的权限申请工作。<br>GitHub地址：<a href="https://github.com/dazhaoDai/PermissionUtils" target="_blank" rel="external">PermissionUtils</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2017/10/30/Git常用操作/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/30/Git常用操作/" itemprop="url">Git常用操作</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-30T12:53:07+08:00">
-                2017-10-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>  Git作为日常开发的版本管理系统，功能强大，操作简单，简直不要太方便，但是，常用口令，却是我们必须要掌握的，比较AS安装Git插件，使用命令行才是最快捷方便的</p>
-<h3 id="正文："><a href="#正文：" class="headerlink" title="正文："></a>正文：</h3><p>  开发中：常用操作就那么几个，那就一一罗列出来：</p>
-<h5 id="1-从远程服务器Clone分支"><a href="#1-从远程服务器Clone分支" class="headerlink" title="1.从远程服务器Clone分支"></a>1.从远程服务器Clone分支</h5><p>见我之前文章  <a href="http://www.jianshu.com/p/1a03c3637091" target="_blank" rel="external">Git从远端服务器Clone分支到本地</a></p>
-<h5 id="2-将本地分支推送到远端新分支"><a href="#2-将本地分支推送到远端新分支" class="headerlink" title="2.将本地分支推送到远端新分支"></a>2.将本地分支推送到远端新分支</h5><p>开发中遇到一种情况，本地分支Local1是从远端某分支Remote1 Clone下来的，但是开发之后，想将本地分支保存到远端的新分支Remote2上，而远端仓库是没有这个Remote2分支的，那么执行以下命令：<code>git push origin &lt;local_branch_name&gt;:&lt;remote_branch_name&gt;</code>，<br>例如我当前操作：<code>git push origin Local1:Remote2</code></p>
-<h5 id="3-删除本地仓库某个分支"><a href="#3-删除本地仓库某个分支" class="headerlink" title="3.删除本地仓库某个分支"></a>3.删除本地仓库某个分支</h5><p>想删除本地仓库某个分支，执行：<code>git branch -D &lt;local_branch_name&gt;</code>,例如：想删除本地仓库widget2分支，执行命令：<code>git branch -D widget2</code>；</p>
-<h5 id="4-删除远端仓库某分支"><a href="#4-删除远端仓库某分支" class="headerlink" title="4.删除远端仓库某分支"></a>4.删除远端仓库某分支</h5><p>删除远端仓库分支和删除本地类似：<code>git push origin :{remote_branch_name}</code>，例如删除远端develop分支：<code>git push origin :develop</code></p>
 
           
         
@@ -1759,7 +1759,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">daidai</p>
-              <p class="site-description motion-element" itemprop="description">喜欢探索未知的领域</p>
+              <p class="site-description motion-element" itemprop="description">喜欢探索未知,保持好奇心</p>
           </div>
 
           <nav class="site-state motion-element">
