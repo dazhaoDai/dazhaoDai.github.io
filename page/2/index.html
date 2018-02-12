@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="android view,android触摸事件," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,21 +79,16 @@
 
 
 
-<meta name="description" content="关于Android触摸事件机制Android触摸事件机制，开发中都是老生常谈，但是惭愧的是，这么久开发，依然对Android触摸事件的具体流程，懵懵懂懂，趁着项目上线间隙，来重新研究一下。 准备为了尽可能简单并清晰的展示Android触摸事件的 分发–拦截–消费过程，将根据Activity、ViewGroup以及View的特点，做了一点准备工作。 触摸事件:  actionDown action">
-<meta name="keywords" content="android view,android触摸事件">
-<meta property="og:type" content="article">
-<meta property="og:title" content="关于Android触摸事件机制">
-<meta property="og:url" content="http://outofmemory.top/2017/10/30/关于Android触摸事件机制/index.html">
+<meta name="description" content="喜欢探索未知,保持好奇心">
+<meta property="og:type" content="website">
+<meta property="og:title" content="T9&#39;S Develop Blog">
+<meta property="og:url" content="http://outofmemory.top/page/2/index.html">
 <meta property="og:site_name" content="T9&#39;S Develop Blog">
-<meta property="og:description" content="关于Android触摸事件机制Android触摸事件机制，开发中都是老生常谈，但是惭愧的是，这么久开发，依然对Android触摸事件的具体流程，懵懵懂懂，趁着项目上线间隙，来重新研究一下。 准备为了尽可能简单并清晰的展示Android触摸事件的 分发–拦截–消费过程，将根据Activity、ViewGroup以及View的特点，做了一点准备工作。 触摸事件:  actionDown action">
+<meta property="og:description" content="喜欢探索未知,保持好奇心">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://badge.juejin.im/entry/598d4d526fb9a03c467c0bdc/likes.svg?style=flat-square">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2789715-adbcbe220fe66cad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-04T09:47:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于Android触摸事件机制">
-<meta name="twitter:description" content="关于Android触摸事件机制Android触摸事件机制，开发中都是老生常谈，但是惭愧的是，这么久开发，依然对Android触摸事件的具体流程，懵懵懂懂，趁着项目上线间隙，来重新研究一下。 准备为了尽可能简单并清晰的展示Android触摸事件的 分发–拦截–消费过程，将根据Activity、ViewGroup以及View的特点，做了一点准备工作。 触摸事件:  actionDown action">
-<meta name="twitter:image" content="https://badge.juejin.im/entry/598d4d526fb9a03c467c0bdc/likes.svg?style=flat-square">
+<meta name="twitter:title" content="T9&#39;S Develop Blog">
+<meta name="twitter:description" content="喜欢探索未知,保持好奇心">
 
 
 
@@ -123,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://outofmemory.top/2017/10/30/关于Android触摸事件机制/"/>
+  <link rel="canonical" href="http://outofmemory.top/page/2/"/>
 
 
 
 
 
-  <title>关于Android触摸事件机制 | T9'S Develop Blog</title>
+  <title>T9'S Develop Blog</title>
   
 
 
@@ -148,7 +143,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -221,9 +217,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -236,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2017/10/30/关于Android触摸事件机制/">
+    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2017/10/30/关于Android AIDL 编译报错问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="daidai">
@@ -253,7 +249,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">关于Android触摸事件机制</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/30/关于Android AIDL 编译报错问题/" itemprop="url">关于Android AIDL 编译报错问题</a></h1>
         
 
         <div class="post-meta">
@@ -325,7 +323,161 @@
       
 
       
-        <p><a href="https://juejin.im/entry/598d4d526fb9a03c467c0bdc/detail" target="_blank" rel="external"><img src="https://badge.juejin.im/entry/598d4d526fb9a03c467c0bdc/likes.svg?style=flat-square" alt=""></a></p>
+        
+          
+            <h3 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h3><p> 在做一个音乐项目中，使用到了AIDL跨进程通信组件，编写一个简单的AIDL时候，编译一直无法通过，报错内容</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Error:Execution failed <span class="keyword">for</span> task <span class="string">':app:compileDebugAidl'</span>.</div><div class="line"></div><div class="line">java.lang.RuntimeException: com.android.ide.common.process.ProcessException: Error <span class="keyword">while</span> executing process E:\SDK\build-tools\<span class="number">25.0</span>.2\aidl.exe with arguments &#123;-pE:\SDK\platforms\android-<span class="number">25</span>\framework.aidl -oE:\Project\LifeStyle\app\build\generated\source\aidl\debug -IE:\Project\LifeStyle\app\src\main\aidl -IE:\Project\LifeStyle\app\src\debug\aidl -IC:\Users\yun.android\build-cache\bd2b26450777017e058ddff21ee3c3ce84e4a7bf\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">2</span>ea784cc81ce0926ea68faf50edaf3063b660d0e\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">5</span>b0533eca8fabee2573210d5a6db0ef9c0c55098\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">4</span>aff7d24ca88b5fbfe9cecf19662277ee6b67028\output\aidl -IC:\Users\yun.android\build-cache\b99b113aa0b77b7431d57c24286f1c8e8eab3ac8\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">4529918</span>ad206e483048c7e77ddeb67757631979d\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">3044</span>c80427502394b2a5a4f143d6cff3e658c021\output\aidl -IC:\Users\yun.android\build-cache\b5f3194e152b8cd07a05991ec812dffa1d8cb041\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">38</span>ea6e0a6326b10847dbffa39bb99db561e2d206\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">8</span>b120b0a8440e62fa16bb4d6105e23babda95bac\output\aidl -IC:\Users\yun.android\build-cache\f7ecc1e5d6327684b86b316a5b8d8656ab31a562\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">555508f</span>307eda5e323eab911e97c525ed5d5df39\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">89763</span>dd7cc6d960b99b1b369e1e4cacfb0a31de4\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">7</span>ade3d874bb02876c4dbec5f11f4f6e45fb740a9\output\aidl -IC:\Users\yun.android\build-cache\d146a875e535f7ef213ac298ff9c7562980017e2\output\aidl -IC:\Users\yun.android\build-cache\b7e59e7515f5465f0bdcddcb2373d90d2f734f9e\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">7</span>d9f182c861cca1c8561cf15680698fccb00cd6b\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">700509</span>b55aea82f4d612ac1262f62676e4b903a8\output\aidl -IC:\Users\yun.android\build-cache\abe96579d37055680246e88ec8e5202f311a7682\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">6</span>a4a8f6c11eb14ee244b1c31f215a78b80a8772f\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">9</span>acdeaf56617b78c0869aec47ac34c9f74876025\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">7560</span>a7d14537f4d91e192c3bf5482b4f43fa71b7\output\aidl -IC:\Users\yun.android\build-cache\f07b74a7bc4f977ae6e648a0b0c6273da95a15d3\output\aidl -IC:\Users\yun.android\build-cache\e916c7e89b0437bc49caaa56819cb6420b1df388\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">98e02</span>d16b6f5edc105354f1b8731dbb8996766a6\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">0</span>de94c2965cbd469e50e04f8b11f3f3a54fb105c\output\aidl -IC:\Users\yun.android\build-cache\e3570cee326ac234ab7a645a61cc67e5f4aaba25\output\aidl -IC:\Users\yun.android\build-cache\af33f12b5828ec7d29cdc70bd0113ea8de920816\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">70727</span>cf612c37ae60ba16fdf9dde9dd2be59839d\output\aidl -IC:\Users\yun.android\build-cache\a70928a5a1cbea562f1bd432d010447ec910b87c\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">1e4</span>a7240c43a860a0f8c255418d94983c100aacf\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">17f</span>28128f57674af28605d6308b0c053b944c5e8\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">995</span>b0dfa92490fcf0f8815d039702fbe5bce10a8\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">15938</span>a94ee6db7edc48dcf60da42083cf7a1bc6c\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">29</span>c97a53c8bc6293d81f08917bfd65d3f697d79e\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">1005f</span>94c0d904c86565f1d4db92c798c70837c1c\output\aidl -IC:\Users\yun.android\build-cache\bf586708fe17232a5869c4b61e020557d355d3d6\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">9</span>b42fe08f88e56de3c951e7c80c399b9f94078a1\output\aidl -IC:\Users\yun.android\build-cache\cd0824ff26bcc093fac07fa62e9800ef96d334aa\output\aidl -dC:\Users\yun\AppData\Local\Temp\aidl3827942310160614195.d E:\Project\LifeStyle\app\src\main\aidl\com\ddz\lifestyle\IPlayService.aidl&#125;</div></pre></td></tr></table></figure>
+<p>绞尽脑汁，又是google又是度娘，都没有合适解决办法，最终发现有两个问题:</p>
+<ul>
+<li><p>实体类没有使用<code>in</code> 、<code>out</code> 、<code>inout</code> 中任何一种方法修饰，导致编译失败</p>
+<p>后来为添加了<code>in</code> 修饰后，依然无法通过，最终发现问题所在</p>
+</li>
+<li><p>在设置方法时候， 设置了同名不同参数方法，在AIDL中不可以这样命名，导致编译无法通过，懊恼不已，浪费大量时间</p>
+</li>
+</ul>
+<h3 id="后记："><a href="#后记：" class="headerlink" title="后记："></a>后记：</h3><p>开发中一定要够自信，够清醒，不然真是浪费时间</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2017/10/30/关于Android触摸事件机制/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="daidai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="T9'S Develop Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/30/关于Android触摸事件机制/" itemprop="url">关于Android触摸事件机制</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-30T12:53:07+08:00">
+                2017-10-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://juejin.im/entry/598d4d526fb9a03c467c0bdc/detail" target="_blank" rel="external"><img src="https://badge.juejin.im/entry/598d4d526fb9a03c467c0bdc/likes.svg?style=flat-square" alt=""></a></p>
 <h3 id="关于Android触摸事件机制"><a href="#关于Android触摸事件机制" class="headerlink" title="关于Android触摸事件机制"></a>关于Android触摸事件机制</h3><p>Android触摸事件机制，开发中都是老生常谈，但是惭愧的是，这么久开发，依然对Android触摸事件的具体流程，懵懵懂懂，趁着项目上线间隙，来重新研究一下。</p>
 <h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>为了尽可能简单并清晰的展示Android触摸事件的 分发–拦截–消费过程，将根据Activity、ViewGroup以及View的特点，做了一点准备工作。</p>
 <p><strong>触摸事件</strong>:</p>
@@ -513,6 +665,8 @@
 <p>所以，触摸事件的所有流程已经很清晰了</p>
 <p>对于事件分发：（dispatchTouchEvent）<br><strong>如果想事件不向下传递，自己消费掉</strong>  ：将当前的dispatchTouchEvent返回true；<br><strong>如果想事件不向下传递，返回给上层</strong>  ：将当前的dispatchTouchEvent返回false；<br>对于事件拦截：（onInterceptTouchEvent）<br><strong>如果想拦截事件，给自己的onTouchEvent方法消费</strong> ：将onInterceptTouchEvent返回true<br><strong>如果不拦截事件，默认向下传递</strong> ：将onInterceptTouchEvent返回false或者返回默认值<br>对于事件消费：（onTouchEvent）<br><strong>如果不想消费，返回给上层</strong> ：将onTouchEvent返回默认或者返回false；<br><strong>如果想消费，不再返回</strong> ：将onTouchEvent返回true；</p>
 
+          
+        
       
     </div>
     
@@ -527,38 +681,14 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/android-view/" rel="tag"># android view</a>
-          
-            <a href="/tags/android触摸事件/" rel="tag"># android触摸事件</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/30/关于Android AIDL 编译报错问题/" rel="prev" title="关于Android AIDL 编译报错问题">
-                关于Android AIDL 编译报错问题 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -568,11 +698,14 @@
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
@@ -580,10 +713,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -604,17 +733,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -674,22 +794,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于Android触摸事件机制"><span class="nav-number">1.</span> <span class="nav-text">关于Android触摸事件机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#准备"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#开始分析："><span class="nav-number">2.1.</span> <span class="nav-text">开始分析：</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -823,10 +927,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
