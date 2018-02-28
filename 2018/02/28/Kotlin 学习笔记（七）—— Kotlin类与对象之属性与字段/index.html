@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Kotlin,Kotlin学习,Kotlin开发," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Kotlin学习笔记系列教程 Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料 Kotlin 学习笔记（二）—— 基础语法Kotlin 学习笔记（三）—— 习惯用法Kotlin 学习笔记（四）—— Kotlin基础之基本类型Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入 Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承 属性">
+<meta name="keywords" content="Kotlin,Kotlin学习,Kotlin开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段">
+<meta property="og:url" content="http://outofmemory.top/2018/02/28/Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段/index.html">
+<meta property="og:site_name" content="T9&#39;S Develop Blog">
+<meta property="og:description" content="Kotlin学习笔记系列教程 Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料 Kotlin 学习笔记（二）—— 基础语法Kotlin 学习笔记（三）—— 习惯用法Kotlin 学习笔记（四）—— Kotlin基础之基本类型Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入 Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承 属性">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-28T07:59:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段">
+<meta name="twitter:description" content="Kotlin学习笔记系列教程 Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料 Kotlin 学习笔记（二）—— 基础语法Kotlin 学习笔记（三）—— 习惯用法Kotlin 学习笔记（四）—— Kotlin基础之基本类型Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入 Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承 属性">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://outofmemory.top/2018/02/28/Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段/"/>
+
+
+
+
+
+  <title>Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段 | T9'S Develop Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">T9'S Develop Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不仅有工作，更有生活</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/02/28/Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="daidai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="T9'S Develop Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-28T15:20:18+08:00">
+                2018-02-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kotlin/" itemprop="url" rel="index">
+                    <span itemprop="name">Kotlin</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h3 id="Kotlin学习笔记系列教程"><a href="#Kotlin学习笔记系列教程" class="headerlink" title="Kotlin学习笔记系列教程"></a>Kotlin学习笔记系列教程</h3><blockquote>
+<p><a href="http://blog.csdn.net/dazhaoDai/article/details/79293475" target="_blank" rel="external">Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79293555" target="_blank" rel="external"> Kotlin 学习笔记（二）—— 基础语法</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79298087" target="_blank" rel="external">Kotlin 学习笔记（三）—— 习惯用法</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79301071" target="_blank" rel="external">Kotlin 学习笔记（四）—— Kotlin基础之基本类型</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79315585" target="_blank" rel="external">Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入</a></p>
+<h2 id="Kotlin-学习笔记（六）——-Kotlin类与对象之类和继承"><a href="#Kotlin-学习笔记（六）——-Kotlin类与对象之类和继承" class="headerlink" title="Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承"></a><a href="http://blog.csdn.net/dazhaodai/article/details/79392850" target="_blank" rel="external">Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承</a></h2></blockquote>
+<h2 id="属性与字段"><a href="#属性与字段" class="headerlink" title="属性与字段"></a>属性与字段</h2><h3 id="声明属性"><a href="#声明属性" class="headerlink" title="声明属性"></a>声明属性</h3><p>Kotlin的类可以有属性，属性可以用关键词 var 声明为可变， 否则使用只读关键字 val。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">class Kotlin3 &#123;</div><div class="line">    var name: String = &quot;name&quot;</div><div class="line">    var age: Int = 5</div><div class="line">    var city: String = &quot;Beijing&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>要使用一个属性，只需要用名称引用即可，就像Java中的字段：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">fun copyKotlin3(kotlin3: Kotlin3):Kotlin3&#123;</div><div class="line">    val kotlin3 = Kotlin3()</div><div class="line">    kotlin3.age = 30</div><div class="line">    kotlin3.name = &quot;kotlin4&quot;</div><div class="line">    return kotlin3</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Getters-与-Setters"><a href="#Getters-与-Setters" class="headerlink" title="Getters 与 Setters"></a>Getters 与 Setters</h3><p>声明一个属性的完整语法是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var &lt;propertyName&gt;[: &lt;PropertyType&gt;] [= &lt;property_initializer&gt;]</div><div class="line">[&lt;getter&gt;]</div><div class="line">[&lt;setter&gt;]</div></pre></td></tr></table></figure></p>
+<p>其初始化器（initializer）、getter 和 setter 都是可选的。属性类型如果可以从初始化器（或者从其getter 返回值，如下文所示）中推断出来，也可以省略。<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var defaultSize: Int?  // 错误：需要显式初始化器，隐含默认 getter 和 setter</div><div class="line">var defaultTime = 1 // 类型 Int、默认 getter 和 setter</div></pre></td></tr></table></figure></p>
+<p>一个只读属性的语法和一个可变的属性的语法有两方面的不同：1、只读属性的用 val 开始代替 var ，2、只读属性不允许 setter<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val defaultSize: Int?  // 错误：默认 getter</div><div class="line">val defaultTime = 1 // 类型 Int、默认 getter</div></pre></td></tr></table></figure></p>
+<p>我们可以自定义访问器，非常像普通函数，刚好在属性声明内部。这里有一个自定义getter 的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var defaultName: String </div><div class="line">    get() = this.toString()</div><div class="line">    set(value) &#123;</div><div class="line">        value.toUpperCase()</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>按照惯例，setter 参数的名称是 value，如果你喜欢你可以选择其他名称。<br>自Kotlin 1.1 起，如果可以从getter 推断出属性类型，则可以省略属性类型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var defaultAge</div><div class="line">    get() = this.toString()  //省略String类型</div><div class="line">    set(value) &#123;</div><div class="line">        value.toUpperCase()</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>如果你需要改变一个访问器的可见性或者对其注解，但是不需要改变默认的实现，你可以定义访问器而不定义其实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var changeAge: String = &quot;aaa&quot;</div><div class="line">    private set  //此 setter 是私有的并且有默认实现</div><div class="line"></div><div class="line">var changeName: String? = null</div><div class="line">    @Inject set // 用 Inject 注解此 setter</div></pre></td></tr></table></figure></p>
+<h3 id="幕后字段"><a href="#幕后字段" class="headerlink" title="幕后字段"></a>幕后字段</h3><p>在kotlin 类中不能直接声明字段。然而，当一个属性需要一个幕后字段时，Kotlin 会自动提供，这个幕后字段可以使用field 标识符在访问器中引用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var count = 1</div><div class="line">    set(value) &#123;</div><div class="line">        if (value &gt; 0) field = value</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>field 标识符只能用在属性的访问器内</p>
+<p>如果属性至少一个访问器使用默认实现，或者自定义访问器通过 field 引用幕后字段，将会为该属性生成一个幕后字段</p>
+<p>例如，下面情况，就没有幕后字段：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val height: Int</div><div class="line">get() = defaultTime</div></pre></td></tr></table></figure></p>
+<h3 id="幕后属性"><a href="#幕后属性" class="headerlink" title="幕后属性"></a>幕后属性</h3><p>如果你的需求不符合这套”隐式的幕后字段”方案，那么总可以使用<em>幕后属性（backing property）</em>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">private var _table: Map&lt;String, Int&gt;? = null</div><div class="line">public val table: Map&lt;String, Int&gt;</div><div class="line">    get() &#123;</div><div class="line">        if (_table == null) &#123;</div><div class="line">            _table = HashMap() // 类型参数已推断出</div><div class="line">        &#125;</div><div class="line">        return _table ?: throw AssertionError(&quot;Set to null by another thread&quot;)</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>从各方面来看，这正是与 Java 相同的方式。因为通过默认 getter 和 setter 访问私有属性会被优化，所以不会引入函数调用开销</p>
+<h3 id="编译期常量"><a href="#编译期常量" class="headerlink" title="编译期常量"></a>编译期常量</h3><p>已知值的属性可以使用 const 修饰符标记为 <em>编译期常量</em>。这些属性需要满足以下条件：</p>
+<ul>
+<li>位于顶层或者是 object 的一个成语</li>
+<li>用 String 或原生类型 值初始化</li>
+<li>没有自定义 getter<br>这些属性可以用在注解中：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const val SUBSYSTEM_DEPRECATED: String = &quot;This subsystem is deprecated&quot;</div><div class="line"></div><div class="line">@Deprecated(SUBSYSTEM_DEPRECATED) fun foo() &#123; …… &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="延迟初始化属性与变量"><a href="#延迟初始化属性与变量" class="headerlink" title="延迟初始化属性与变量"></a>延迟初始化属性与变量</h3><p>一般地，属性声明为非空类型必须在构造函数中初始化。然而，这经常不方便。例如：属性可以通过依赖注入来初始化，或者在单元测试的setup方法中初始化，这种情况下，你不能在构造函数内提供一个非空初始器，但你仍想在类体中引用该属性时避免空检查。<br>为处理这种情况，你可以用 lateinit 修饰符标记该属性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public class MyTest &#123;</div><div class="line">    lateinit var subject: TestSubject</div><div class="line"></div><div class="line">    @SetUp fun setup() &#123;</div><div class="line">        subject = TestSubject()</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Test fun test() &#123;</div><div class="line">        subject.method()  // 直接解引用</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>该修饰符只能用于类体中的属性（如果在主构造函数中声明的 var 属性，并且仅当该属性没有自定义 getter 或 setter 时），而自 Kotlin 1.2 起，也用于顶层属性与局部变量。该属性或变量必须为非空类型，并且不能是原生类型。</p>
+<p>在初始化前访问一个 lateinit 属性会抛出一个特定异常，该异常明确标识该属性被访问及它没有初始化的事实。</p>
+<h3 id="检测一个-lateinit-var-是否已初始化（自-1-2-起）"><a href="#检测一个-lateinit-var-是否已初始化（自-1-2-起）" class="headerlink" title="检测一个 lateinit var 是否已初始化（自 1.2 起）"></a>检测一个 lateinit var 是否已初始化（自 1.2 起）</h3><p>要检测一个 lateinit var 是否经过初始化，请在该属性的引用上使用 .isInitialized：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if (foo::bar.isInitialized) &#123;</div><div class="line">    println(foo.bar)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>此检测仅对可词法级访问的属性可用，即声明位于同一个类型内、位于其中一个外围类型中或者位于相同文件的顶层的属性。</p>
+<h3 id="覆盖属性"><a href="#覆盖属性" class="headerlink" title="覆盖属性"></a>覆盖属性</h3><p>参见第<a href="http://blog.csdn.net/dazhaodai/article/details/79392850" target="_blank" rel="external"> Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承</a> —- 覆盖属性</p>
+<h3 id="委托属性"><a href="#委托属性" class="headerlink" title="委托属性"></a>委托属性</h3><p>最常见的一类属性就是简单地从幕后字段中读取（以及可能的写入）。另一方面，使用自定义getter 和 setter 可以实现属性的任何行为，介于两者之间，属性如何工作有一些常见的模式，一些例子：惰性值、通过键值从映射读取。访问数据库。访问时通知侦听器等等。</p>
+<p>这些常见行为可以通过委托属性实现为库，会在后续文章中介绍</p>
+<hr>
+<blockquote>
+<p>本篇主要介绍了Kotlin类与对象之属性与字段，下篇文章学习kotlin之接口</p>
+</blockquote>
+<hr>
+<p>个人博客地址：<a href="http://outofmemory.top/">http://outofmemory.top/</a><br>CSDN地址：<a href="http://blog.csdn.net/dazhaoDai" target="_blank" rel="external">http://blog.csdn.net/dazhaoDai</a><br>GitHub地址：<a href="https://github.com/dazhaoDai" target="_blank" rel="external">https://github.com/dazhaoDai</a></p>
+<hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Kotlin/" rel="tag"># Kotlin</a>
+          
+            <a href="/tags/Kotlin学习/" rel="tag"># Kotlin学习</a>
+          
+            <a href="/tags/Kotlin开发/" rel="tag"># Kotlin开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/27/Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承/" rel="next" title="Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承">
+                <i class="fa fa-chevron-left"></i> Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">daidai</p>
+              <p class="site-description motion-element" itemprop="description">喜欢探索未知,保持好奇心</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Kotlin学习笔记系列教程"><span class="nav-number">1.</span> <span class="nav-text">Kotlin学习笔记系列教程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kotlin-学习笔记（六）——-Kotlin类与对象之类和继承"><span class="nav-number"></span> <span class="nav-text">Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性与字段"><span class="nav-number"></span> <span class="nav-text">属性与字段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#声明属性"><span class="nav-number">1.</span> <span class="nav-text">声明属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Getters-与-Setters"><span class="nav-number">2.</span> <span class="nav-text">Getters 与 Setters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#幕后字段"><span class="nav-number">3.</span> <span class="nav-text">幕后字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#幕后属性"><span class="nav-number">4.</span> <span class="nav-text">幕后属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译期常量"><span class="nav-number">5.</span> <span class="nav-text">编译期常量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#延迟初始化属性与变量"><span class="nav-number">6.</span> <span class="nav-text">延迟初始化属性与变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检测一个-lateinit-var-是否已初始化（自-1-2-起）"><span class="nav-number">7.</span> <span class="nav-text">检测一个 lateinit var 是否已初始化（自 1.2 起）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#覆盖属性"><span class="nav-number">8.</span> <span class="nav-text">覆盖属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#委托属性"><span class="nav-number">9.</span> <span class="nav-text">委托属性</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">daidai</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

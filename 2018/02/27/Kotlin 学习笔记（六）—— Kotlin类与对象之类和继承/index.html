@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Kotlin,Kotlin学习,Kotlin开发," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Kotlin学习笔记系列教程 Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料 Kotlin 学习笔记（二）—— 基础语法Kotlin 学习笔记（三）—— 习惯用法 Kotlin 学习笔记（四）—— Kotlin基础之基本类型  Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入 类Kotlin中使用关键字class声明类12class Inv">
+<meta name="keywords" content="Kotlin,Kotlin学习,Kotlin开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承">
+<meta property="og:url" content="http://outofmemory.top/2018/02/27/Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承/index.html">
+<meta property="og:site_name" content="T9&#39;S Develop Blog">
+<meta property="og:description" content="Kotlin学习笔记系列教程 Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料 Kotlin 学习笔记（二）—— 基础语法Kotlin 学习笔记（三）—— 习惯用法 Kotlin 学习笔记（四）—— Kotlin基础之基本类型  Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入 类Kotlin中使用关键字class声明类12class Inv">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-28T07:58:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承">
+<meta name="twitter:description" content="Kotlin学习笔记系列教程 Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料 Kotlin 学习笔记（二）—— 基础语法Kotlin 学习笔记（三）—— 习惯用法 Kotlin 学习笔记（四）—— Kotlin基础之基本类型  Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入 类Kotlin中使用关键字class声明类12class Inv">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://outofmemory.top/2018/02/27/Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承/"/>
+
+
+
+
+
+  <title>Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承 | T9'S Develop Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">T9'S Develop Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不仅有工作，更有生活</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/02/27/Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="daidai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="T9'S Develop Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-27T20:57:04+08:00">
+                2018-02-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kotlin/" itemprop="url" rel="index">
+                    <span itemprop="name">Kotlin</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h3 id="Kotlin学习笔记系列教程"><a href="#Kotlin学习笔记系列教程" class="headerlink" title="Kotlin学习笔记系列教程"></a>Kotlin学习笔记系列教程</h3><blockquote>
+<p><a href="http://blog.csdn.net/dazhaoDai/article/details/79293475" target="_blank" rel="external">Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79293555" target="_blank" rel="external"> Kotlin 学习笔记（二）—— 基础语法</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79298087" target="_blank" rel="external">Kotlin 学习笔记（三）—— 习惯用法</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79301071" target="_blank" rel="external"> Kotlin 学习笔记（四）—— Kotlin基础之基本类型</a></p>
+<h2 id="Kotlin-学习笔记（五）——-Kotlin基础之控制流、返回与跳转、-包与导入"><a href="#Kotlin-学习笔记（五）——-Kotlin基础之控制流、返回与跳转、-包与导入" class="headerlink" title=" Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入"></a><a href="http://blog.csdn.net/dazhaodai/article/details/79315585" target="_blank" rel="external"> Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入</a></h2></blockquote>
+<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p>Kotlin中使用关键字class声明类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">class Invoice &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>类声明由类名、类头（指定其类型参数、主构造函数等）以及花括号包围的类体构成。类头和类体都是可选的；如果一个类没有类体，可以省略花括号。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">class Empty</div></pre></td></tr></table></figure></p>
+<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p>在Kotlin中的一个类可以有一个<strong>主构造函数</strong>和一个或多个<strong>次构造函数</strong>，主构造函数是类头的一部分：它跟在类名（和可选的类型参数）后。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">class Person constructor(firstName: String) &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果主构造函数没有任何注解或者可见性修饰符，可以省略这个constructor关键字。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">class Person(firstName: String) &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>主构造函数不能包含任何的代码。初始化代码可以放到以init关键字作为前缀的<strong>初始化块</strong>（<strong>initializer blocks</strong>）中。<br>在实例初始化期间，初始化块按照它们出现在类体重的顺序执行，与属性初始化器交织在一起：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">class Kotlin1(fileName: String)&#123;</div><div class="line"></div><div class="line">    val time = fileName</div><div class="line"></div><div class="line">    init &#123;</div><div class="line">       var size = time.length</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注意：主构造的参数可以在初始化块中使用，它们也可以在类体内声明的属性初始化器中使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val time = fileName</div></pre></td></tr></table></figure></p>
+<p>事实上，声明属性以及从主构造函数初始化属性，Kotlin有简洁的语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">class Kotlin1(fileName: String,val size: Int,var age: Int)&#123;</div><div class="line">      //.... </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>与普通属性一样，主构造函数中声明的属性可以是可变的（var）或只读的（val）。<br>如果构造函数有注解或可见性修饰符，这个constructor关键词是必须的，并且这些修饰符在它的前面：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">class Customer public @Inject constructor(name: String) &#123; …… &#125;</div></pre></td></tr></table></figure></p>
+<h3 id="次构造函数"><a href="#次构造函数" class="headerlink" title="次构造函数"></a>次构造函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">class Kotlin1&#123;</div><div class="line">    </div><div class="line">    constructor(fileName: String, size: Int, age: Int) &#123;</div><div class="line">        val time = fileName</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果类有一个主构造函数，每个次构造函数需要委托给主构造函数，可以直接委托或者通过别的次构造函数间接委托。委托到同一个类的另一个构造函数用this关键字即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">class Kotlin1(fileName: String)&#123;</div><div class="line"></div><div class="line">   constructor(fileName: String, size: Int, age: Int) : this(fileName)&#123;</div><div class="line">    </div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>请注意，初始化块中的代码实际上会成为主构造函数的一部分。委托给主构造函数会作为次构造函数的第一条语句，因此所有初始化块中的代码都会在次构造函数体之前执行。即使该类没有主构造函数，这种委托仍会隐式发生，并且仍会执行初始化块：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">class Kotlin1&#123;</div><div class="line"></div><div class="line">    init &#123;</div><div class="line">      print(&quot;first&quot;)  </div><div class="line">    &#125;</div><div class="line"></div><div class="line">    constructor(fileName: String, size: Int, age: Int)&#123;</div><div class="line">        print(&quot;second&quot;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果一个非抽象类没有声明任何（主或次）构造函数，它会有一个生成的不带参数的主构造函数，构造函数的可见性是public，如果你不希望你的类有一个公有构造函数，你需要声明一个带有非默认可见性的空的主构造函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">class Kotlin2 private constructor()&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">注意：在JVM上，如果主构造函数的所有参数都有默认值，编译器会生成一个额外的无参构造函数，它将使用默认值，这使得Kotlin更易于像Jackson或者JPA这样的通过无参构造函数创建类的实例的库。</div><div class="line"></div><div class="line">  class Kotlin2 (val  fileName: String = &quot;&quot;)&#123;</div><div class="line"></div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>###创建类的实例<br>要创建一个类的实例，我们就像普通函数一样调用构造函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val kotlin2 = Kotlin2(&quot;music&quot;)</div></pre></td></tr></table></figure></p>
+<p>注意Kotlin没有new 关键字<br>创建嵌套类、内部类和匿名内部类的类实例在嵌套类中有述。</p>
+<h3 id="类成员"><a href="#类成员" class="headerlink" title="类成员"></a>类成员</h3><p>类可以包含：</p>
+<ul>
+<li>构造函数和初始化块</li>
+<li>函数</li>
+<li>属性</li>
+<li>嵌套类和内部类</li>
+<li>对象声明</li>
+</ul>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>在Kotlin 中所有类都有一个共同的超类 <code>Any</code>,这对于没有超类型声明的类是默认超类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">class Example // 从 Any 隐式继承</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">注意：Any 并不是 java.lang.Object；尤其是，它除了 equals()、hashCode()和toString()外没有任何成员。 更多细节请查阅Java互操作性部分。</div></pre></td></tr></table></figure>
+<p>要声明一个显式的超类型，我们把类型放到类头的冒号之后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">open class Kotlin1&#123;</div><div class="line"></div><div class="line">    init &#123;</div><div class="line">      print(&quot;first&quot;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    constructor(fileName: String, size: Int, age: Int)&#123;</div><div class="line">        print(&quot;second&quot;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">class Kotlin2  : Kotlin1(&quot;music&quot;,20,20) &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">类上的 open 标注与 Java 中 final相反，它允许其他类从这个类继承。默认情况下，在Kotlin中所有的类都是final，对应于 Effective Java书中的第17条：**要么为继承而设计，并提供说明文档，要么就禁止继承**。</div></pre></td></tr></table></figure>
+<p>如果派生类有一个主构造函数，其基类型可以（并且必须）用基类的主构造函数参数就地初始化。</p>
+<p>如果累没有主构造函数，那么每个次构造函数必须使用 super 关键字初始化其基类型，或委托给另一个构造函数做到这一点。注意，在这种情况下，不同的次构造函数可以调用基类型的不同的构造函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">class MyView : View &#123;</div><div class="line">    constructor(ctx: Context) : super(ctx)</div><div class="line"></div><div class="line">    constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="覆盖方法"><a href="#覆盖方法" class="headerlink" title="覆盖方法"></a>覆盖方法</h3><p>我们之前提到过，Kotlin力求清晰显示，与Java 不同，Kotlin 需要显示标注可覆盖的成员（我们称之为开放）和覆盖后的成员：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">open class Kotlin1&#123;</div><div class="line"></div><div class="line">    init &#123;</div><div class="line">      print(&quot;first&quot;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    constructor(fileName: String, size: Int, age: Int)&#123;</div><div class="line">        print(&quot;second&quot;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    open fun addSize()&#123;&#125;</div><div class="line">    fun  addAge()&#123;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Kotlin2  : Kotlin1(&quot;music&quot;,20,20) &#123;</div><div class="line"></div><div class="line">    override  fun addSize() &#123;</div><div class="line">        super.addSize()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Kotlin2.addSize()函数上必须加上<strong>override</strong>标注，如果没写，编译器将会报错。如果函数没有标注<strong>open</strong> 和 Kotlin1.addAge()，则子类中不允许定义相同签名的函数，不论加不加 <strong>override</strong>。在一个final 类中，开放成员是禁止的。</p>
+<p>标记为 override 的成员本身是开放的，也就是说，它可以在子类中覆盖。如果你想禁止再次覆盖，使用final 关键字：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">class Kotlin2  : Kotlin1(&quot;music&quot;,20,20) &#123;</div><div class="line"></div><div class="line">    final override  fun addSize() &#123;</div><div class="line">        super.addSize()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="覆盖属性"><a href="#覆盖属性" class="headerlink" title="覆盖属性"></a>覆盖属性</h3><p>属性覆盖和方法覆盖类似：在超类中声明然后在派生类中重新声明的属性必须以override 开头，并且它们必须具有兼容的类型。每个声明的属性可以由具有初始化的属性或者具有getter方法的属性覆盖。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">open class Kotlin1&#123;</div><div class="line">    open val aa: Int get() &#123;</div><div class="line">        return 5</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Kotlin2  : Kotlin1 &#123;</div><div class="line">    override val aa: Int</div><div class="line">        get() = super.aa + 5</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>你也可以用一个 var 属性覆盖一个 val 属性，但是反之则不行。这是允许的，因为一个 val 属性本质上声明了 一个 getter 方法，而将其覆盖为 var 只是在子类中额外 声明一个 setter方法。</p>
+<p>请注意，你可以在主构造函数中使用 override 关键字作为属性声明的一部分。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">interface Foo &#123;</div><div class="line">    val count: Int</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Bar1(override val count: Int) : Foo</div><div class="line"></div><div class="line">class Bar2 : Foo &#123;</div><div class="line">    override var count: Int = 0</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="派生类初始化顺序"><a href="#派生类初始化顺序" class="headerlink" title="派生类初始化顺序"></a>派生类初始化顺序</h3><p>在构造派生类的新实例的过程中，第一步完成其基类的初始化（在之前只有对基类构造函数参数的求值），因此发生在派生类的初始化逻辑运行之前。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">open class Base(val name: String) &#123;</div><div class="line"></div><div class="line">    init &#123; println(&quot;Initializing Base&quot;) &#125;</div><div class="line"></div><div class="line">    open val size: Int = </div><div class="line">    name.length.also &#123; println(&quot;Initializing size in Base: $it&quot;) &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Derived(</div><div class="line">    name: String,</div><div class="line">    val lastName: String</div><div class="line">) : Base(name.capitalize().also &#123; println(&quot;Argument for Base: $it&quot;) &#125;) &#123;</div><div class="line"></div><div class="line">    init &#123; println(&quot;Initializing Derived&quot;) &#125;</div><div class="line"></div><div class="line">    override val size: Int =</div><div class="line">    (super.size + lastName.length).also &#123; println(&quot;Initializing size in Derived: $it&quot;) &#125;</div></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Constructing Derived(&quot;hello&quot;, &quot;world&quot;)</div><div class="line">Argument for Base: Hello</div><div class="line">Initializing Base</div><div class="line">Initializing size in Base: 5</div><div class="line">Initializing Derived</div><div class="line">Initializing size in Derived: 10</div></pre></td></tr></table></figure></p>
+<p>这意味着，基类构造函数执行时，派生类中声明或覆盖的属性都还没有初始化，如果在基类初始化逻辑中（直接或通过另一个覆盖的 open 成员的实现间接）使用了任何一个这种属性，那么都可能导致不正确的行为或者运行时故障，设计一个基类时，应该避免这种在构造函数、属性初始化器以及init 块中使用 open 成员</p>
+<h3 id="调用超类实现"><a href="#调用超类实现" class="headerlink" title="调用超类实现"></a>调用超类实现</h3><p>派生类中的代码可以使用super 关键字调用其超类的函数与属性访问器的实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">open class Kotlin1&#123;</div><div class="line"></div><div class="line">    init &#123;</div><div class="line">      print(&quot;first&quot;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    constructor(fileName: String, size: Int, age: Int)&#123;</div><div class="line">        print(&quot;second&quot;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    open fun addSize()&#123;</div><div class="line">        print(&quot;Kotlin1&quot;)</div><div class="line">    &#125;</div><div class="line">    fun  addAge()&#123;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Kotlin2  : Kotlin1(&quot;music&quot;,20,20) &#123;</div><div class="line"></div><div class="line">    override  fun addSize() &#123;</div><div class="line">        super.addSize()</div><div class="line">        print(&quot;Kotlin2&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在一个内部类中访问外部类的超类，可以通过由外部类名限定的super关键字来实现： <code>super@Outer</code>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">class Bar : Foo() &#123;</div><div class="line">    override fun f() &#123; /* …… */ &#125;</div><div class="line">    override val x: Int get() = 0</div><div class="line"></div><div class="line">    inner class Baz &#123;</div><div class="line">        fun g() &#123;</div><div class="line">            super@Bar.f() // 调用 Foo 实现的 f()</div><div class="line">            println(super@Bar.x) // 使用 Foo 实现的 x 的 getter</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="覆盖规则"><a href="#覆盖规则" class="headerlink" title="覆盖规则"></a>覆盖规则</h3><p>在Kotlin中，实现继承由下述规则规定：如果一个类从它的直接超类继承相同成员的多个实现，它必须覆盖这个成员并提供自己的实现（也许用继承来的其中之一）。为了表示采用从哪个超类型继承的实现，我们使用尖括号中超类型名限定的super，例如 <code>super&lt;Base&gt;</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">open class Kotlin1&#123;</div><div class="line">    open fun addSize()&#123;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">interface A &#123;</div><div class="line">    fun addSize()&#123;</div><div class="line">        println(&quot;aa&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Kotlin2  : Kotlin1(&quot;music&quot;,20,20),A &#123;</div><div class="line"></div><div class="line">    override  fun addSize() &#123;</div><div class="line">        super&lt;Kotlin1&gt;.addSize()</div><div class="line">        super&lt;A&gt;.addSize()</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>同时继承Kotlin1 和 A 没问题，但是addSize() 由 Kotlin2 继承了两个实现，所以我们必须在 Kotlin2 中覆盖addSize() 并且提供我们自己的实现来消除歧义。</p>
+<h3 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h3><p>类和其中的某些成员可以声明为abstract。 抽象成员在本类中可以不用实现，需要注意的是，我们并不需要用 open 标注一个抽象类火灾函数 – 因为这不言而喻</p>
+<p>我们可以用一个抽象成员覆盖一个非抽象的开放成员<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">open class Base &#123;</div><div class="line">    open fun f() &#123;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">abstract class Derived : Base() &#123;</div><div class="line">    override abstract fun f()</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="伴生对象"><a href="#伴生对象" class="headerlink" title="伴生对象"></a>伴生对象</h3><p>与Java 或者 C# 不同，在Kotlin 中类没有静态方法，在大多数情况下，它建议简单地使用包级函数。</p>
+<p>如果你需要写一个无需用一个类的实例来调用、但需要访问类内部的函数（例如，工厂方法），你可以把它写成该类内对象声明中的一员。</p>
+<p>更具体的讲，如果在你的类内部声明了一个伴生对象，你就可以使用像在Java/C# 中调用静态方法相同的语法来调用其成员，只使用类名作为限定符。</p>
+<hr>
+<h2 id="gt-以上就是类与对象的第一篇–类和继承"><a href="#gt-以上就是类与对象的第一篇–类和继承" class="headerlink" title="&gt;以上就是类与对象的第一篇–类和继承"></a>&gt;以上就是类与对象的第一篇–类和继承</h2><p>个人博客地址：<a href="http://outofmemory.top/">http://outofmemory.top/</a><br>CSDN地址：<a href="http://blog.csdn.net/dazhaoDai" target="_blank" rel="external">http://blog.csdn.net/dazhaoDai</a><br>GitHub地址：<a href="https://github.com/dazhaoDai" target="_blank" rel="external">https://github.com/dazhaoDai</a></p>
+<hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Kotlin/" rel="tag"># Kotlin</a>
+          
+            <a href="/tags/Kotlin学习/" rel="tag"># Kotlin学习</a>
+          
+            <a href="/tags/Kotlin开发/" rel="tag"># Kotlin开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/12/Kotlin基础之控制流、返回与跳转、 包与导入/" rel="next" title="Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入">
+                <i class="fa fa-chevron-left"></i> Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/28/Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段/" rel="prev" title="Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段">
+                Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">daidai</p>
+              <p class="site-description motion-element" itemprop="description">喜欢探索未知,保持好奇心</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Kotlin学习笔记系列教程"><span class="nav-number">1.</span> <span class="nav-text">Kotlin学习笔记系列教程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kotlin-学习笔记（五）——-Kotlin基础之控制流、返回与跳转、-包与导入"><span class="nav-number"></span> <span class="nav-text"> Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类"><span class="nav-number"></span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造函数"><span class="nav-number"></span> <span class="nav-text">构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#次构造函数"><span class="nav-number">1.</span> <span class="nav-text">次构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类成员"><span class="nav-number">2.</span> <span class="nav-text">类成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">3.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#覆盖方法"><span class="nav-number">4.</span> <span class="nav-text">覆盖方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#覆盖属性"><span class="nav-number">5.</span> <span class="nav-text">覆盖属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#派生类初始化顺序"><span class="nav-number">6.</span> <span class="nav-text">派生类初始化顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用超类实现"><span class="nav-number">7.</span> <span class="nav-text">调用超类实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#覆盖规则"><span class="nav-number">8.</span> <span class="nav-text">覆盖规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类"><span class="nav-number">9.</span> <span class="nav-text">抽象类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伴生对象"><span class="nav-number">10.</span> <span class="nav-text">伴生对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gt-以上就是类与对象的第一篇–类和继承"><span class="nav-number"></span> <span class="nav-text">>以上就是类与对象的第一篇–类和继承</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">daidai</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
