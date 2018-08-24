@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Android进阶," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="上一篇我介绍了Handler机制的工作原理，默认情况下，ActivityThread类为我们创建的了主线程的Looper和消息队列，所以当你创建Handler之后发送消息的时候，消息的轮训和handle都是在ui线程进行的。这种情况属于子线程给主线程发消息，通知主线程更新ui…等，那么反过来，怎么才能让主线程给子线程发消息，通知子线程做一些耗时逻辑？？ 　　之前的学习我们知道，Android的消息">
+<meta name="keywords" content="Android进阶">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 进阶  ------ Handler系列之创建子线程Handler">
+<meta property="og:url" content="http://outofmemory.top/2018/08/24/Handler系列之创建子线程Handler/index.html">
+<meta property="og:site_name" content="T9&#39;S Develop Blog">
+<meta property="og:description" content="上一篇我介绍了Handler机制的工作原理，默认情况下，ActivityThread类为我们创建的了主线程的Looper和消息队列，所以当你创建Handler之后发送消息的时候，消息的轮训和handle都是在ui线程进行的。这种情况属于子线程给主线程发消息，通知主线程更新ui…等，那么反过来，怎么才能让主线程给子线程发消息，通知子线程做一些耗时逻辑？？ 　　之前的学习我们知道，Android的消息">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-24T07:12:46.105Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 进阶  ------ Handler系列之创建子线程Handler">
+<meta name="twitter:description" content="上一篇我介绍了Handler机制的工作原理，默认情况下，ActivityThread类为我们创建的了主线程的Looper和消息队列，所以当你创建Handler之后发送消息的时候，消息的轮训和handle都是在ui线程进行的。这种情况属于子线程给主线程发消息，通知主线程更新ui…等，那么反过来，怎么才能让主线程给子线程发消息，通知子线程做一些耗时逻辑？？ 　　之前的学习我们知道，Android的消息">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://outofmemory.top/2018/08/24/Handler系列之创建子线程Handler/"/>
+
+
+
+
+
+  <title>Android 进阶  ------ Handler系列之创建子线程Handler | T9'S Develop Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">T9'S Develop Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不仅有工作，更有生活</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/08/24/Handler系列之创建子线程Handler/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="daidai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="T9'S Develop Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android 进阶  ------ Handler系列之创建子线程Handler</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:12:46+08:00">
+                2018-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>上一篇我介绍了Handler机制的工作原理，默认情况下，ActivityThread类为我们创建的了主线程的Looper和消息队列，所以当你创建Handler之后发送消息的时候，消息的轮训和handle都是在ui线程进行的。这种情况属于子线程给主线程发消息，通知主线程更新ui…等，那么反过来，怎么才能让主线程给子线程发消息，通知子线程做一些耗时逻辑？？</p>
+<p>　　之前的学习我们知道，Android的消息机制遵循三个步骤：</p>
+<ul>
+<li><p>1　创建当前线程的Looper　　</p>
+</li>
+<li><p>2　创建当前线程的Handler　</p>
+</li>
+<li><p>3　调用当前线程Looper对象的loop方法</p>
+</li>
+</ul>
+<p>　　看过之前文章的朋友会注意到，本篇我特意强调了“当前线程”。是的之前我们学习的很多都是Android未我们做好了的，譬如：创建主线程的Looper、主线程的消息队列…就连我们使用的handler也是主线程的。那么如果我想创建非主线程的Handler并且发送消息、处理消息，这一系列的操作我们应该怎么办那？？？不怎么办、凉拌～～～什么意思？？？依葫芦画瓢，依然遵循上面的三步走，直接上代码！！！！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">public class ChildThreadHandlerActivity extends Activity &#123;</div><div class="line">    private MyThread childThread;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_handler);</div><div class="line"></div><div class="line">        childThread = new MyThread();</div><div class="line">        childThread.start();</div><div class="line"></div><div class="line">        Handler childHandler = new Handler(childThread.childLooper)&#123;//这样之后，childHandler和childLooper就关联起来了。</div><div class="line">            public void handleMessage(Message msg) &#123;</div><div class="line">                </div><div class="line">            &#125;;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private class MyThread extends Thread&#123;</div><div class="line">        public Looper childLooper;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public void run() &#123;</div><div class="line">            Looper.prepare();//创建与当前线程相关的Looper</div><div class="line">            childLooper = Looper.myLooper();//获取当前线程的Looper对象</div><div class="line">            Looper.loop();//调用此方法，消息才会循环处理</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>代码如上，我们依然循序Android的三步走战略，完成了子线程Handler的创建，难道这样创建完了，就可以发消息了么？发的消息在什么线程处理？一系列的问题，怎么办？看代码！！！运行上述代码，我们发现一个问题，就是此代码一会崩溃、一会不崩溃，通过查看日志我们看到崩溃的原因是空指针。谁为空？？？查到是我们的Looper对象，怎么会那？我不是在子线程的run方法中初始化Looper对象了么？话是没错，但是你要知道，当你statr子线程的时候，虽然子线程的run方法得到执行，但是主线程中代码依然会向下执行，造成空指针的原因是当我们new Handler(childThread.childLooper)的时候，run方法中的Looper对象还没初始化。当然这种情况是随机的，所以造成偶现的崩溃。</p>
+<p>　　那怎么办？难道我们不能创建子线程Handler ？？？No!!!No!!!No!!!，你能想到的Android早就为我们实现好了，HandlerThread类就是解决这个问题的关键所在，看代码！！！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">public class HandlerThreadActivity extends Activity &#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_handler);</div><div class="line">        TextView textView = (TextView) findViewById(R.id.tv);</div><div class="line">        textView.setText(&quot;HandlerThreadActivity.class&quot;);</div><div class="line"></div><div class="line">        HandlerThread handlerThread = new HandlerThread(&quot;HandlerThread&quot;);</div><div class="line">        handlerThread.start();</div><div class="line"></div><div class="line">        Handler mHandler = new Handler(handlerThread.getLooper())&#123;</div><div class="line">            @Override</div><div class="line">            public void handleMessage(Message msg) &#123;</div><div class="line">                super.handleMessage(msg);</div><div class="line">                Log.d(&quot;HandlerThreadActivity.class&quot;,&quot;uiThread2------&quot;+Thread.currentThread());//子线程</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        Log.d(&quot;HandlerThreadActivity.class&quot;,&quot;uiThread1------&quot;+Thread.currentThread());//主线程</div><div class="line">        mHandler.sendEmptyMessage(1);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>创建HandlerThread对象的时候，有个参数，是指定线程名字的。上面的代码不管运行多少次都不会奔溃！！！并且这种方法创建的handler的handleMessage方法运行在子线程中。所以我们可以在这里处理一些耗时的逻辑。到此我们完成了主线程给子线程发通知，在子线程做耗时逻辑的操作。</p>
+<p>　　下面我们去看看源码，看看为什么使用HandlerThread就可以避免空指针那？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public Looper getLooper() &#123;</div><div class="line">    if (!isAlive()) &#123;</div><div class="line">        return null;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    // If the thread has been started, wait until the looper has been created.</div><div class="line">    synchronized (this) &#123;</div><div class="line">        while (isAlive() &amp;&amp; mLooper == null) &#123;</div><div class="line">            try &#123;</div><div class="line">                wait();</div><div class="line">            &#125; catch (InterruptedException e) &#123;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return mLooper;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>HandlerThread类的getLooper方法如上，我们看到当我们获取当前线程Looper对象的时候，会先判断当前线程是否存活，然后还要判断Looper对象是否为空，都满足之后才会返回给我Looper对象，否则处于等待状态！！既然有等待，那就有唤醒的时候，在那里那？？？我们发现HandlerThread的run方法中，有如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">public void run() &#123;</div><div class="line">    mTid = Process.myTid();</div><div class="line">    Looper.prepare();</div><div class="line">    synchronized (this) &#123;</div><div class="line">        mLooper = Looper.myLooper();</div><div class="line">        notifyAll();</div><div class="line">    &#125;</div><div class="line">    Process.setThreadPriority(mPriority);</div><div class="line">    onLooperPrepared();</div><div class="line">    Looper.loop();</div><div class="line">    mTid = -1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>说明了什么那？？？HandlerThread类start的时候，Looper对象就初始化了，并唤醒之前等待的。所以HandlerThread很好的避免了之前空指针的产生。所以以后要想创建非主线程的Handler时，我们用HandlerThread类提供的Looper对象即可。</p>
+<hr>
+<p>参考<br><a href="https://www.cnblogs.com/lang-yu/p/6228832.html" target="_blank" rel="external">https://www.cnblogs.com/lang-yu/p/6228832.html</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android进阶/" rel="tag"># Android进阶</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/24/Android 深入理解AIDL进程间通信/" rel="next" title="Android进阶 ——— Android 深入理解AIDL进程间通信">
+                <i class="fa fa-chevron-left"></i> Android进阶 ——— Android 深入理解AIDL进程间通信
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/24/Android 单元测试/" rel="prev" title="Android 进阶  ------ Android 单元测试">
+                Android 进阶  ------ Android 单元测试 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">daidai</p>
+              <p class="site-description motion-element" itemprop="description">喜欢探索未知,保持好奇心</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">daidai</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

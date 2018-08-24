@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Android进阶," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="什么是单元测试？单元测试（unit testing），是指对软件中的最小可测试单元进行检查和验证。比如我们可以测试一个类，或者一个类中的一个方法。 为什么要进行单元测试？为什么要进行单元测试？说白了就是单元测试有什么好处，其实测试的好处无非就是减少bug、提高代码质量、使代码易于维护等。 这样表达可能不太好理解，举个例子 比如我们APP启动，从初始化到启动页，再进入首页，需要很长的流程，如果主页需">
+<meta name="keywords" content="Android进阶">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 进阶  ------ Android 单元测试">
+<meta property="og:url" content="http://outofmemory.top/2018/08/24/Android 单元测试/index.html">
+<meta property="og:site_name" content="T9&#39;S Develop Blog">
+<meta property="og:description" content="什么是单元测试？单元测试（unit testing），是指对软件中的最小可测试单元进行检查和验证。比如我们可以测试一个类，或者一个类中的一个方法。 为什么要进行单元测试？为什么要进行单元测试？说白了就是单元测试有什么好处，其实测试的好处无非就是减少bug、提高代码质量、使代码易于维护等。 这样表达可能不太好理解，举个例子 比如我们APP启动，从初始化到启动页，再进入首页，需要很长的流程，如果主页需">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-24T07:13:09.529Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 进阶  ------ Android 单元测试">
+<meta name="twitter:description" content="什么是单元测试？单元测试（unit testing），是指对软件中的最小可测试单元进行检查和验证。比如我们可以测试一个类，或者一个类中的一个方法。 为什么要进行单元测试？为什么要进行单元测试？说白了就是单元测试有什么好处，其实测试的好处无非就是减少bug、提高代码质量、使代码易于维护等。 这样表达可能不太好理解，举个例子 比如我们APP启动，从初始化到启动页，再进入首页，需要很长的流程，如果主页需">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://outofmemory.top/2018/08/24/Android 单元测试/"/>
+
+
+
+
+
+  <title>Android 进阶  ------ Android 单元测试 | T9'S Develop Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">T9'S Develop Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不仅有工作，更有生活</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/08/24/Android 单元测试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="daidai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="T9'S Develop Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android 进阶  ------ Android 单元测试</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:13:09+08:00">
+                2018-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="什么是单元测试？"><a href="#什么是单元测试？" class="headerlink" title="什么是单元测试？"></a>什么是单元测试？</h5><p>单元测试（unit testing），是指对软件中的最小可测试单元进行检查和验证。比如我们可以测试一个类，或者一个类中的一个方法。</p>
+<h5 id="为什么要进行单元测试？"><a href="#为什么要进行单元测试？" class="headerlink" title="为什么要进行单元测试？"></a>为什么要进行单元测试？</h5><p>为什么要进行单元测试？说白了就是单元测试有什么好处，其实测试的好处无非就是减少bug、提高代码质量、使代码易于维护等。</p>
+<p>这样表达可能不太好理解，举个例子</p>
+<p>比如我们APP启动，从初始化到启动页，再进入首页，需要很长的流程，如果主页需要请求数据，每次都要启动APP，经过一系列流程进入主页，才能测试主页请求数据模块，效率低下。<br>当然我们也能在初始化时请求数据，但是这样需要更改代码逻辑，同样需要启动APP，而如果用单元测试，我们可以直接测试请求数据模块，不需要任何逻辑修改。提高效率</p>
+<h5 id="开始进行单元测试"><a href="#开始进行单元测试" class="headerlink" title="开始进行单元测试"></a>开始进行单元测试</h5><p>AS创建工程时，src下创建 androidTest 和 test 目录，这两个目录有什么区别呢？</p>
+<table>
+<thead>
+<tr>
+<th>src/test</th>
+<th>src/androidTest</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>位于src/tests目录下的测试是运行在本地电脑Java虚拟机上的单元测试。编写测试，实现功能使测试通过，然后再添加更多的测试…这种工作方式使快速迭代成为可能，我们称之为测试驱动开发</td>
+<td>跟src/test不同的是运行在设备上，并充分利用Android框架的测试</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>简单来说，src/test不需要你连接设备，而src/androidTest需要连接设备测试。</p>
+</blockquote>
+<h5 id="一、先说一下src-tests"><a href="#一、先说一下src-tests" class="headerlink" title="一、先说一下src/tests"></a>一、先说一下src/tests</h5><p>首先确认app下gradle中存在依赖：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    testCompile &apos;junit:junit:4.12&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里有个 快速排序的类，对一个数组进行快速排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">public class FastSort &#123;</div><div class="line"></div><div class="line">	public  void main()&#123;</div><div class="line">		int[] a = new int[]&#123;5,10,34,2,45,38,23,70,1,32,20,17,4,80,14,100&#125;;</div><div class="line">		quick_sort(a,0,a.length - 1);</div><div class="line">		for (int i : a) &#123;</div><div class="line">			System.out.println(i);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	 void quick_sort(int a[],int l,int r)&#123;</div><div class="line">		if (l &lt; r)&#123;</div><div class="line">			int i = adjustArray(a,l,r);</div><div class="line">			quick_sort(a,l,i-1);</div><div class="line">			quick_sort(a,i+1,r);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	private  int adjustArray(int a[],int l,int r)&#123;</div><div class="line">		int i = l,j = r,x = a[i];</div><div class="line">		while (i &lt; j)&#123;</div><div class="line"></div><div class="line">			while (i &lt; j &amp;&amp; a[j] &gt;= x)&#123;   //如果 a[j] &gt; x ，不用管，j-1,倒着比较下一个</div><div class="line">				j--;</div><div class="line">			&#125;</div><div class="line">			if (i &lt; j)&#123;  // a[j] &lt; x 跳出while循环</div><div class="line">				a[i] = a[j];    //将a[j]的值赋给a[i]被挖出的位置，默认是数组都一个</div><div class="line">				i++;   //i++,为后面i开始自增，提前增加</div><div class="line">			&#125;</div><div class="line"></div><div class="line"></div><div class="line">			while (i &lt; j &amp;&amp; a[i] &lt; x)&#123; //如果 a[i] &lt;  x ，不用管，x+1,比较下一个</div><div class="line">				i++;</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			if (i &lt; j)&#123;  // a[i] &gt; x 跳出while循环</div><div class="line">				a[j] = a[i];   //将a[i]的值赋给上面a[j]被挖出的位置</div><div class="line">				j--;   //j--,为后面j继续自减，提前减少</div><div class="line">			&#125;</div><div class="line"></div><div class="line">		&#125;</div><div class="line">		a[i] = x;</div><div class="line">		return i;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>既然工具类写好了，当然要测试一下排序方法对不对了，这时候直接用单元测试来检验一下。</p>
+<p>AS为我们提供了创建测试类的快捷方法：</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android进阶/" rel="tag"># Android进阶</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/24/Handler系列之创建子线程Handler/" rel="next" title="Android 进阶  ------ Handler系列之创建子线程Handler">
+                <i class="fa fa-chevron-left"></i> Android 进阶  ------ Handler系列之创建子线程Handler
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/24/JVM DVM ART对比/" rel="prev" title="Android 进阶  ------ JVM DVM ART对比">
+                Android 进阶  ------ JVM DVM ART对比 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">daidai</p>
+              <p class="site-description motion-element" itemprop="description">喜欢探索未知,保持好奇心</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是单元测试？"><span class="nav-number">1.</span> <span class="nav-text">什么是单元测试？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么要进行单元测试？"><span class="nav-number">2.</span> <span class="nav-text">为什么要进行单元测试？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#开始进行单元测试"><span class="nav-number">3.</span> <span class="nav-text">开始进行单元测试</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#一、先说一下src-tests"><span class="nav-number">4.</span> <span class="nav-text">一、先说一下src/tests</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">daidai</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
