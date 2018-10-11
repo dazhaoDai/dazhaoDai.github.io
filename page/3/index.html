@@ -1,82 +1,21 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="daidai" />
 
 
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
+    
+    
 
 
 <meta name="description" content="喜欢探索未知,保持好奇心">
@@ -90,44 +29,64 @@
 <meta name="twitter:title" content="T9&#39;S Develop Blog">
 <meta name="twitter:description" content="喜欢探索未知,保持好奇心">
 
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    <link rel="alternate" href="/atom.xml" title="T9&#39;S Develop Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <style> .article { opacity: 0;} </style>
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>T9&#39;S Develop Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: true,
+        isPost: false,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: 
     }
-  };
 </script>
 
 
-
-  <link rel="canonical" href="http://outofmemory.top/page/3/"/>
-
+    <script> yiliaConfig.jquery_ui = [false]; </script>
 
 
 
-
-  <title>T9'S Develop Blog</title>
-  
-
-
+    <script> yiliaConfig.rootUrl = "\/";</script>
 
 
 
@@ -135,197 +94,209 @@
 
 
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left 
-  page-home">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">T9'S Develop Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle">不仅有工作，更有生活</p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/02/09/Kotlin基础之基本类型/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
-    
-      <header class="post-header">
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">daidai</a></h1>
+        </hgroup>
 
         
+        <p class="header-subtitle">不仅有工作，更有生活</p>
         
-          <h1 class="post-title" itemprop="name headline">
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
                 
-                <a class="post-title-link" href="/2018/02/09/Kotlin基础之基本类型/" itemprop="url">Kotlin 学习笔记（四）—— Kotlin基础之基本类型</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-09T18:51:42+08:00">
-                2018-02-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kotlin/" itemprop="url" rel="index">
-                    <span itemprop="name">Kotlin</span>
-                  </a>
-                </span>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android官方架构/">Android官方架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android进阶/">Android进阶</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git分支操作/">Git分支操作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java进阶/">Java进阶</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/">Kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin开发/">Kotlin开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-aidl/">android aidl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-permission/">android permission</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-view/">android view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-开发错误/">android 开发错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-权限/">android 权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-自定义view/">android 自定义view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android触摸事件/">android触摸事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/privacy/">privacy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
 
                 
                 
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
         </div>
-      </header>
-    
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">daidai</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">daidai</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">不仅有工作，更有生活</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap">
+  
+    <article id="post-Kotlin基础之基本类型" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/02/09/Kotlin基础之基本类型/" class="article-date">
+      <time datetime="2018-02-09T10:51:42.000Z" itemprop="datePublished">2018-02-09</time>
+</a>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
 
-      
-      
-
-      
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/09/Kotlin基础之基本类型/">Kotlin 学习笔记（四）—— Kotlin基础之基本类型</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
           
-            <hr>
+        <hr>
 <h3 id="Kotlin学习笔记系列教程"><a href="#Kotlin学习笔记系列教程" class="headerlink" title="Kotlin学习笔记系列教程"></a>Kotlin学习笔记系列教程</h3><blockquote>
 <p><a href="http://blog.csdn.net/dazhaoDai/article/details/79293475" target="_blank" rel="external">Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79293555" target="_blank" rel="external"> Kotlin 学习笔记（二）—— 基础语法</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79298087" target="_blank" rel="external">Kotlin 学习笔记（三）—— 习惯用法</a></p>
 </blockquote>
@@ -452,147 +423,69 @@
 <p>个人博客地址：<a href="http://outofmemory.top/">http://outofmemory.top/</a><br>CSDN地址：<a href="http://blog.csdn.net/dazhaoDai" target="_blank" rel="external">http://blog.csdn.net/dazhaoDai</a><br>GitHub地址：<a href="https://github.com/dazhaoDai" target="_blank" rel="external">https://github.com/dazhaoDai</a></p>
 <hr>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Kotlin/">Kotlin</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin/">Kotlin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin开发/">Kotlin开发</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-习惯用法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/02/09/习惯用法/" class="article-date">
+      <time datetime="2018-02-09T06:16:13.000Z" itemprop="datePublished">2018-02-09</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/02/09/习惯用法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/09/习惯用法/" itemprop="url">Kotlin 学习笔记（三）—— 习惯用法</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/09/习惯用法/">Kotlin 学习笔记（三）—— 习惯用法</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-09T14:16:13+08:00">
-                2018-02-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kotlin/" itemprop="url" rel="index">
-                    <span itemprop="name">Kotlin</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <hr>
+        <hr>
 <h3 id="Kotlin学习笔记系列教程"><a href="#Kotlin学习笔记系列教程" class="headerlink" title="Kotlin学习笔记系列教程"></a>Kotlin学习笔记系列教程</h3><blockquote>
 <p><a href="http://blog.csdn.net/dazhaoDai/article/details/79293475" target="_blank" rel="external">Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79293555" target="_blank" rel="external"> Kotlin 学习笔记（二）—— 基础语法</a></p>
 </blockquote>
@@ -646,147 +539,69 @@
 <p>个人博客地址：<a href="http://outofmemory.top/">http://outofmemory.top/</a><br>CSDN地址：<a href="http://blog.csdn.net/dazhaoDai" target="_blank" rel="external">http://blog.csdn.net/dazhaoDai</a><br>GitHub地址：<a href="https://github.com/dazhaoDai" target="_blank" rel="external">https://github.com/dazhaoDai</a></p>
 <hr>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Kotlin/">Kotlin</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin/">Kotlin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin开发/">Kotlin开发</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-Kotlin 学习笔记（二）—— 基础语法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/02/08/Kotlin 学习笔记（二）—— 基础语法/" class="article-date">
+      <time datetime="2018-02-08T12:59:43.000Z" itemprop="datePublished">2018-02-08</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/02/08/Kotlin 学习笔记（二）—— 基础语法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/08/Kotlin 学习笔记（二）—— 基础语法/" itemprop="url">Kotlin 学习笔记（二）—— 基础语法</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/08/Kotlin 学习笔记（二）—— 基础语法/">Kotlin 学习笔记（二）—— 基础语法</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-08T20:59:43+08:00">
-                2018-02-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kotlin/" itemprop="url" rel="index">
-                    <span itemprop="name">Kotlin</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <hr>
+        <hr>
 <h3 id="Kotlin学习笔记系列教程"><a href="#Kotlin学习笔记系列教程" class="headerlink" title="Kotlin学习笔记系列教程"></a>Kotlin学习笔记系列教程</h3><blockquote>
 <p><a href="http://blog.csdn.net/dazhaoDai/article/details/79293475" target="_blank" rel="external">Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料</a></p>
 </blockquote>
@@ -829,147 +644,69 @@
 <h2 id="gt-以上就是第二篇的全部内容，先学习到这里，第三篇继续学习基础教程"><a href="#gt-以上就是第二篇的全部内容，先学习到这里，第三篇继续学习基础教程" class="headerlink" title="&gt;以上就是第二篇的全部内容，先学习到这里，第三篇继续学习基础教程"></a>&gt;以上就是第二篇的全部内容，先学习到这里，第三篇继续学习基础教程</h2><p>个人博客地址：<a href="http://outofmemory.top/">http://outofmemory.top/</a><br>CSDN地址：<a href="http://blog.csdn.net/dazhaoDai" target="_blank" rel="external">http://blog.csdn.net/dazhaoDai</a><br>GitHub地址：<a href="https://github.com/dazhaoDai" target="_blank" rel="external">https://github.com/dazhaoDai</a></p>
 <hr>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Kotlin/">Kotlin</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin/">Kotlin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin开发/">Kotlin开发</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/02/08/Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料/" class="article-date">
+      <time datetime="2018-02-08T06:10:39.000Z" itemprop="datePublished">2018-02-08</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/02/08/Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/08/Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料/" itemprop="url">Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/08/Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料/">Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-08T14:10:39+08:00">
-                2018-02-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kotlin/" itemprop="url" rel="index">
-                    <span itemprop="name">Kotlin</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <hr>
+        <hr>
 <h3 id="Kotlin学习笔记系列教程"><a href="#Kotlin学习笔记系列教程" class="headerlink" title="Kotlin学习笔记系列教程"></a>Kotlin学习笔记系列教程</h3><blockquote>
 <p><a href="http://blog.csdn.net/dazhaoDai/article/details/79293475" target="_blank" rel="external">Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料</a></p>
 </blockquote>
@@ -992,147 +729,69 @@
 <p>个人博客地址：<a href="http://outofmemory.top/">http://outofmemory.top/</a><br>CSDN地址：<a href="http://blog.csdn.net/dazhaoDai" target="_blank" rel="external">http://blog.csdn.net/dazhaoDai</a><br>GitHub地址：<a href="https://github.com/dazhaoDai" target="_blank" rel="external">https://github.com/dazhaoDai</a></p>
 <hr>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Kotlin/">Kotlin</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin/">Kotlin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin开发/">Kotlin开发</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-Android自定义View(八) -- 硬件加速" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/02/07/Android自定义View(八) -- 硬件加速/" class="article-date">
+      <time datetime="2018-02-07T12:33:07.000Z" itemprop="datePublished">2018-02-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/02/07/Android自定义View(八) -- 硬件加速/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/07/Android自定义View(八) -- 硬件加速/" itemprop="url">Android自定义View(八) -- 硬件加速</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/07/Android自定义View(八) -- 硬件加速/">Android自定义View(八) -- 硬件加速</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-07T20:33:07+08:00">
-                2018-02-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <p>前面学习的内容:<br><a href="https://www.jianshu.com/p/c5e5734279aa" target="_blank" rel="external">Android自定义View(一) – 初识</a><br><a href="https://www.jianshu.com/p/d7c3bbaef731" target="_blank" rel="external">Android自定义View(二) – Paint详解</a><br><a href="https://www.jianshu.com/p/89939ede6add" target="_blank" rel="external">Android自定义View(三) – drawText()</a><br><a href="https://www.jianshu.com/p/bef2482c675d" target="_blank" rel="external">Android自定义View(四) – Canvas</a><br><a href="https://www.jianshu.com/p/c186df6140b5" target="_blank" rel="external">Android自定义View(五) – 绘制顺序</a><br><a href="https://www.jianshu.com/p/6f705507097a" target="_blank" rel="external">Android自定义View(六) – 属性动画(上)</a><br><a href="https://www.jianshu.com/p/b0fc1b601f2c" target="_blank" rel="external">Android自定义View(七) – 属性动画(下)</a></p>
+        <p>前面学习的内容:<br><a href="https://www.jianshu.com/p/c5e5734279aa" target="_blank" rel="external">Android自定义View(一) – 初识</a><br><a href="https://www.jianshu.com/p/d7c3bbaef731" target="_blank" rel="external">Android自定义View(二) – Paint详解</a><br><a href="https://www.jianshu.com/p/89939ede6add" target="_blank" rel="external">Android自定义View(三) – drawText()</a><br><a href="https://www.jianshu.com/p/bef2482c675d" target="_blank" rel="external">Android自定义View(四) – Canvas</a><br><a href="https://www.jianshu.com/p/c186df6140b5" target="_blank" rel="external">Android自定义View(五) – 绘制顺序</a><br><a href="https://www.jianshu.com/p/6f705507097a" target="_blank" rel="external">Android自定义View(六) – 属性动画(上)</a><br><a href="https://www.jianshu.com/p/b0fc1b601f2c" target="_blank" rel="external">Android自定义View(七) – 属性动画(下)</a></p>
 <hr>
 <h2 id="本文计划根据HenCoder系列文章进行学习，所以代码风格及博文素材可能会摘自其中"><a href="#本文计划根据HenCoder系列文章进行学习，所以代码风格及博文素材可能会摘自其中" class="headerlink" title="本文计划根据HenCoder系列文章进行学习，所以代码风格及博文素材可能会摘自其中"></a>本文计划根据<a href="https://link.jianshu.com/?t=http%3A%2F%2Fhencoder.com%2F" target="_blank" rel="external">HenCoder</a>系列文章进行学习，所以代码风格及博文素材可能会摘自其中</h2><hr>
 <p>硬件加速经常被提及，很多人感兴趣，这个词给人的概念大概有两种：快速、不稳定。</p>
@@ -1207,288 +866,138 @@
 <p>View Layer 可以加速无 <code>invalidate()</code> 时的刷新效率，但对于需要调用 <code>invalidate()</code> 的刷新无法加速。</p>
 <p>View Layer 绘制所消耗的实际时间是比不使用 View Layer 时要高的，所以要慎重使用。</p>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-view/">android view</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-自定义view/">android 自定义view</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-Git常用操作" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/30/Git常用操作/" class="article-date">
+      <time datetime="2017-10-30T04:53:07.000Z" itemprop="datePublished">2017-10-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2017/10/30/Privacy/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/30/Privacy/" itemprop="url">Privacy Policy</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/30/Git常用操作/">Git常用操作</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-30T12:53:07+08:00">
-                2017-10-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Privacy-Policy/" itemprop="url" rel="index">
-                    <span itemprop="name">Privacy Policy</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <h1 id="隐私政策"><a href="#隐私政策" class="headerlink" title="隐私政策"></a>隐私政策</h1><h3 id="本应用尊重并保护所有使用服务用户的个人隐私权。为了给您提供更准确、更有个性化的服务，本应用会按照本隐私权政策的规定使用和披露您的个人信息。但本应用将以高度的勤勉、审慎义务对待这些信息。除本隐私权政策另有规定外，在未征得您事先许可的情况下，本应用不会将这些信息对外披露或向第三方提供。本应用会不时更新本隐私权政策。-您在同意本应用服务使用协议之时，即视为您已经同意本隐私权政策全部内容。本隐私权政策属于本应用服务使用协议不可分割的一部分。"><a href="#本应用尊重并保护所有使用服务用户的个人隐私权。为了给您提供更准确、更有个性化的服务，本应用会按照本隐私权政策的规定使用和披露您的个人信息。但本应用将以高度的勤勉、审慎义务对待这些信息。除本隐私权政策另有规定外，在未征得您事先许可的情况下，本应用不会将这些信息对外披露或向第三方提供。本应用会不时更新本隐私权政策。-您在同意本应用服务使用协议之时，即视为您已经同意本隐私权政策全部内容。本隐私权政策属于本应用服务使用协议不可分割的一部分。" class="headerlink" title="本应用尊重并保护所有使用服务用户的个人隐私权。为了给您提供更准确、更有个性化的服务，本应用会按照本隐私权政策的规定使用和披露您的个人信息。但本应用将以高度的勤勉、审慎义务对待这些信息。除本隐私权政策另有规定外，在未征得您事先许可的情况下，本应用不会将这些信息对外披露或向第三方提供。本应用会不时更新本隐私权政策。 您在同意本应用服务使用协议之时，即视为您已经同意本隐私权政策全部内容。本隐私权政策属于本应用服务使用协议不可分割的一部分。"></a>本应用尊重并保护所有使用服务用户的个人隐私权。为了给您提供更准确、更有个性化的服务，本应用会按照本隐私权政策的规定使用和披露您的个人信息。但本应用将以高度的勤勉、审慎义务对待这些信息。除本隐私权政策另有规定外，在未征得您事先许可的情况下，本应用不会将这些信息对外披露或向第三方提供。本应用会不时更新本隐私权政策。 您在同意本应用服务使用协议之时，即视为您已经同意本隐私权政策全部内容。本隐私权政策属于本应用服务使用协议不可分割的一部分。</h3><h4 id="1-适用范围"><a href="#1-适用范围" class="headerlink" title="1. 适用范围"></a>1. 适用范围</h4><h5 id="a-在您注册本应用帐号时，您根据本应用要求提供的个人注册信息；-b-在您使用本应用网络服务，或访问本应用平台网页时，本应用自动接收并记录的您的浏览器和计算机上的信息，包括但不限于您的IP地址、浏览器的类型、使用的语言、访问日期和时间、软硬件特征信息及您需求的网页记录等数据；-c-本应用通过合法途径从商业伙伴处取得的用户个人数据。您了解并同意，以下信息不适用本隐私权政策：-a-您在使用本应用平台提供的搜索服务时输入的关键字信息；-b-本应用收集到的您在本应用发布的有关信息数据，包括但不限于参与活动、成交信息及评价详情；-c-违反法律规定或违反本应用规则行为及本应用已对您采取的措施。"><a href="#a-在您注册本应用帐号时，您根据本应用要求提供的个人注册信息；-b-在您使用本应用网络服务，或访问本应用平台网页时，本应用自动接收并记录的您的浏览器和计算机上的信息，包括但不限于您的IP地址、浏览器的类型、使用的语言、访问日期和时间、软硬件特征信息及您需求的网页记录等数据；-c-本应用通过合法途径从商业伙伴处取得的用户个人数据。您了解并同意，以下信息不适用本隐私权政策：-a-您在使用本应用平台提供的搜索服务时输入的关键字信息；-b-本应用收集到的您在本应用发布的有关信息数据，包括但不限于参与活动、成交信息及评价详情；-c-违反法律规定或违反本应用规则行为及本应用已对您采取的措施。" class="headerlink" title="(a) 在您注册本应用帐号时，您根据本应用要求提供的个人注册信息；(b) 在您使用本应用网络服务，或访问本应用平台网页时，本应用自动接收并记录的您的浏览器和计算机上的信息，包括但不限于您的IP地址、浏览器的类型、使用的语言、访问日期和时间、软硬件特征信息及您需求的网页记录等数据；(c) 本应用通过合法途径从商业伙伴处取得的用户个人数据。您了解并同意，以下信息不适用本隐私权政策：(a) 您在使用本应用平台提供的搜索服务时输入的关键字信息；(b) 本应用收集到的您在本应用发布的有关信息数据，包括但不限于参与活动、成交信息及评价详情；(c) 违反法律规定或违反本应用规则行为及本应用已对您采取的措施。"></a>(a) 在您注册本应用帐号时，您根据本应用要求提供的个人注册信息；(b) 在您使用本应用网络服务，或访问本应用平台网页时，本应用自动接收并记录的您的浏览器和计算机上的信息，包括但不限于您的IP地址、浏览器的类型、使用的语言、访问日期和时间、软硬件特征信息及您需求的网页记录等数据；(c) 本应用通过合法途径从商业伙伴处取得的用户个人数据。您了解并同意，以下信息不适用本隐私权政策：(a) 您在使用本应用平台提供的搜索服务时输入的关键字信息；(b) 本应用收集到的您在本应用发布的有关信息数据，包括但不限于参与活动、成交信息及评价详情；(c) 违反法律规定或违反本应用规则行为及本应用已对您采取的措施。</h5><h4 id="2-信息使用"><a href="#2-信息使用" class="headerlink" title="2. 信息使用"></a>2. 信息使用</h4><h5 id="a-本应用不会向任何无关第三方提供、出售、出租、分享或交易您的个人信息，除非事先得到您的许可，或该第三方和本应用（含本应用关联公司）单独或共同为您提供服务，且在该服务结束后，其将被禁止访问包括其以前能够访问的所有这些资料。-b-本应用亦不允许任何第三方以任何手段收集、编辑、出售或者无偿传播您的个人信息。任何本应用平台用户如从事上述活动，一经发现，本应用有权立即终止与该用户的服务协议。-c-为服务用户的目的，本应用可能通过使用您的个人信息，向您提供您感兴趣的信息，包括但不限于向您发出产品和服务信息，或者与本应用合作伙伴共享信息以便他们向您发送有关其产品和服务的信息（后者需要您的事先同意）。"><a href="#a-本应用不会向任何无关第三方提供、出售、出租、分享或交易您的个人信息，除非事先得到您的许可，或该第三方和本应用（含本应用关联公司）单独或共同为您提供服务，且在该服务结束后，其将被禁止访问包括其以前能够访问的所有这些资料。-b-本应用亦不允许任何第三方以任何手段收集、编辑、出售或者无偿传播您的个人信息。任何本应用平台用户如从事上述活动，一经发现，本应用有权立即终止与该用户的服务协议。-c-为服务用户的目的，本应用可能通过使用您的个人信息，向您提供您感兴趣的信息，包括但不限于向您发出产品和服务信息，或者与本应用合作伙伴共享信息以便他们向您发送有关其产品和服务的信息（后者需要您的事先同意）。" class="headerlink" title="(a)本应用不会向任何无关第三方提供、出售、出租、分享或交易您的个人信息，除非事先得到您的许可，或该第三方和本应用（含本应用关联公司）单独或共同为您提供服务，且在该服务结束后，其将被禁止访问包括其以前能够访问的所有这些资料。(b) 本应用亦不允许任何第三方以任何手段收集、编辑、出售或者无偿传播您的个人信息。任何本应用平台用户如从事上述活动，一经发现，本应用有权立即终止与该用户的服务协议。(c) 为服务用户的目的，本应用可能通过使用您的个人信息，向您提供您感兴趣的信息，包括但不限于向您发出产品和服务信息，或者与本应用合作伙伴共享信息以便他们向您发送有关其产品和服务的信息（后者需要您的事先同意）。"></a>(a)本应用不会向任何无关第三方提供、出售、出租、分享或交易您的个人信息，除非事先得到您的许可，或该第三方和本应用（含本应用关联公司）单独或共同为您提供服务，且在该服务结束后，其将被禁止访问包括其以前能够访问的所有这些资料。(b) 本应用亦不允许任何第三方以任何手段收集、编辑、出售或者无偿传播您的个人信息。任何本应用平台用户如从事上述活动，一经发现，本应用有权立即终止与该用户的服务协议。(c) 为服务用户的目的，本应用可能通过使用您的个人信息，向您提供您感兴趣的信息，包括但不限于向您发出产品和服务信息，或者与本应用合作伙伴共享信息以便他们向您发送有关其产品和服务的信息（后者需要您的事先同意）。</h5><h4 id="3-信息披露"><a href="#3-信息披露" class="headerlink" title="3. 信息披露"></a>3. 信息披露</h4><h5 id="在如下情况下，本应用将依据您的个人意愿或法律的规定全部或部分的披露您的个人信息：-a-经您事先同意，向第三方披露；-b-为提供您所要求的产品和服务，而必须和第三方分享您的个人信息；-c-根据法律的有关规定，或者行政或司法机构的要求，向第三方或者行政、司法机构披露；-d-如您出现违反中国有关法律、法规或者本应用服务协议或相关规则的情况，需要向第三方披露；-e-如您是适格的知识产权投诉人并已提起投诉，应被投诉人要求，向被投诉人披露，以便双方处理可能的权利纠纷；-f-在本应用平台上创建的某一交易中，如交易任何一方履行或部分履行了交易义务并提出信息披露请求的，本应用有权决定向该用户提供其交易对方的联络方式等必要信息，以促成交易的完成或纠纷的解决。-g-其它本应用根据法律、法规或者网站政策认为合适的披露。"><a href="#在如下情况下，本应用将依据您的个人意愿或法律的规定全部或部分的披露您的个人信息：-a-经您事先同意，向第三方披露；-b-为提供您所要求的产品和服务，而必须和第三方分享您的个人信息；-c-根据法律的有关规定，或者行政或司法机构的要求，向第三方或者行政、司法机构披露；-d-如您出现违反中国有关法律、法规或者本应用服务协议或相关规则的情况，需要向第三方披露；-e-如您是适格的知识产权投诉人并已提起投诉，应被投诉人要求，向被投诉人披露，以便双方处理可能的权利纠纷；-f-在本应用平台上创建的某一交易中，如交易任何一方履行或部分履行了交易义务并提出信息披露请求的，本应用有权决定向该用户提供其交易对方的联络方式等必要信息，以促成交易的完成或纠纷的解决。-g-其它本应用根据法律、法规或者网站政策认为合适的披露。" class="headerlink" title="在如下情况下，本应用将依据您的个人意愿或法律的规定全部或部分的披露您的个人信息：(a) 经您事先同意，向第三方披露；(b)为提供您所要求的产品和服务，而必须和第三方分享您的个人信息；(c) 根据法律的有关规定，或者行政或司法机构的要求，向第三方或者行政、司法机构披露；(d) 如您出现违反中国有关法律、法规或者本应用服务协议或相关规则的情况，需要向第三方披露；(e) 如您是适格的知识产权投诉人并已提起投诉，应被投诉人要求，向被投诉人披露，以便双方处理可能的权利纠纷；(f) 在本应用平台上创建的某一交易中，如交易任何一方履行或部分履行了交易义务并提出信息披露请求的，本应用有权决定向该用户提供其交易对方的联络方式等必要信息，以促成交易的完成或纠纷的解决。(g) 其它本应用根据法律、法规或者网站政策认为合适的披露。"></a>在如下情况下，本应用将依据您的个人意愿或法律的规定全部或部分的披露您的个人信息：(a) 经您事先同意，向第三方披露；(b)为提供您所要求的产品和服务，而必须和第三方分享您的个人信息；(c) 根据法律的有关规定，或者行政或司法机构的要求，向第三方或者行政、司法机构披露；(d) 如您出现违反中国有关法律、法规或者本应用服务协议或相关规则的情况，需要向第三方披露；(e) 如您是适格的知识产权投诉人并已提起投诉，应被投诉人要求，向被投诉人披露，以便双方处理可能的权利纠纷；(f) 在本应用平台上创建的某一交易中，如交易任何一方履行或部分履行了交易义务并提出信息披露请求的，本应用有权决定向该用户提供其交易对方的联络方式等必要信息，以促成交易的完成或纠纷的解决。(g) 其它本应用根据法律、法规或者网站政策认为合适的披露。</h5><h4 id="4-信息存储和交换"><a href="#4-信息存储和交换" class="headerlink" title="4. 信息存储和交换"></a>4. 信息存储和交换</h4><h5 id="本应用收集的有关您的信息和资料将保存在本应用及（或）其关联公司的服务器上，这些信息和资料可能传送至您所在国家、地区或本应用收集信息和资料所在地的境外并在境外被访问、存储和展示。"><a href="#本应用收集的有关您的信息和资料将保存在本应用及（或）其关联公司的服务器上，这些信息和资料可能传送至您所在国家、地区或本应用收集信息和资料所在地的境外并在境外被访问、存储和展示。" class="headerlink" title="本应用收集的有关您的信息和资料将保存在本应用及（或）其关联公司的服务器上，这些信息和资料可能传送至您所在国家、地区或本应用收集信息和资料所在地的境外并在境外被访问、存储和展示。"></a>本应用收集的有关您的信息和资料将保存在本应用及（或）其关联公司的服务器上，这些信息和资料可能传送至您所在国家、地区或本应用收集信息和资料所在地的境外并在境外被访问、存储和展示。</h5><h4 id="5-Cookie的使用"><a href="#5-Cookie的使用" class="headerlink" title="5. Cookie的使用"></a>5. Cookie的使用</h4><h5 id="a-在您未拒绝接受cookies的情况下，本应用会在您的计算机上设定或取用cookies-，以便您能登录或使用依赖于cookies的本应用平台服务或功能。本应用使用cookies可为您提供更加周到的个性化服务，包括推广服务。-b-您有权选择接受或拒绝接受cookies。您可以通过修改浏览器设置的方式拒绝接受cookies。但如果您选择拒绝接受cookies，则您可能无法登录或使用依赖于cookies的本应用网络服务或功能。-c-通过本应用所设cookies所取得的有关信息，将适用本政策。"><a href="#a-在您未拒绝接受cookies的情况下，本应用会在您的计算机上设定或取用cookies-，以便您能登录或使用依赖于cookies的本应用平台服务或功能。本应用使用cookies可为您提供更加周到的个性化服务，包括推广服务。-b-您有权选择接受或拒绝接受cookies。您可以通过修改浏览器设置的方式拒绝接受cookies。但如果您选择拒绝接受cookies，则您可能无法登录或使用依赖于cookies的本应用网络服务或功能。-c-通过本应用所设cookies所取得的有关信息，将适用本政策。" class="headerlink" title="(a) 在您未拒绝接受cookies的情况下，本应用会在您的计算机上设定或取用cookies ，以便您能登录或使用依赖于cookies的本应用平台服务或功能。本应用使用cookies可为您提供更加周到的个性化服务，包括推广服务。(b) 您有权选择接受或拒绝接受cookies。您可以通过修改浏览器设置的方式拒绝接受cookies。但如果您选择拒绝接受cookies，则您可能无法登录或使用依赖于cookies的本应用网络服务或功能。(c) 通过本应用所设cookies所取得的有关信息，将适用本政策。"></a>(a) 在您未拒绝接受cookies的情况下，本应用会在您的计算机上设定或取用cookies ，以便您能登录或使用依赖于cookies的本应用平台服务或功能。本应用使用cookies可为您提供更加周到的个性化服务，包括推广服务。(b) 您有权选择接受或拒绝接受cookies。您可以通过修改浏览器设置的方式拒绝接受cookies。但如果您选择拒绝接受cookies，则您可能无法登录或使用依赖于cookies的本应用网络服务或功能。(c) 通过本应用所设cookies所取得的有关信息，将适用本政策。</h5><h4 id="6-信息安全"><a href="#6-信息安全" class="headerlink" title="6. 信息安全"></a>6. 信息安全</h4><h5 id="a-本应用帐号均有安全保护功能，请妥善保管您的用户名及密码信息。本应用将通过对用户密码进行加密等安全措施确保您的信息不丢失，不被滥用和变造。尽管有前述安全措施，但同时也请您注意在信息网络上不存在“完善的安全措施”。-b-在使用本应用网络服务进行网上交易时，您不可避免的要向交易对方或潜在的交易对"><a href="#a-本应用帐号均有安全保护功能，请妥善保管您的用户名及密码信息。本应用将通过对用户密码进行加密等安全措施确保您的信息不丢失，不被滥用和变造。尽管有前述安全措施，但同时也请您注意在信息网络上不存在“完善的安全措施”。-b-在使用本应用网络服务进行网上交易时，您不可避免的要向交易对方或潜在的交易对" class="headerlink" title="(a) 本应用帐号均有安全保护功能，请妥善保管您的用户名及密码信息。本应用将通过对用户密码进行加密等安全措施确保您的信息不丢失，不被滥用和变造。尽管有前述安全措施，但同时也请您注意在信息网络上不存在“完善的安全措施”。(b) 在使用本应用网络服务进行网上交易时，您不可避免的要向交易对方或潜在的交易对"></a>(a) 本应用帐号均有安全保护功能，请妥善保管您的用户名及密码信息。本应用将通过对用户密码进行加密等安全措施确保您的信息不丢失，不被滥用和变造。尽管有前述安全措施，但同时也请您注意在信息网络上不存在“完善的安全措施”。(b) 在使用本应用网络服务进行网上交易时，您不可避免的要向交易对方或潜在的交易对</h5><h4 id="7-本隐私政策的更改"><a href="#7-本隐私政策的更改" class="headerlink" title="7.本隐私政策的更改"></a>7.本隐私政策的更改</h4><h5 id="a-如果决定更改隐私政策，我们会在本政策中、本公司网站中以及我们认为适当的位置发布这些更改，以便您了解我们如何收集、使用您的个人信息，哪些人可以访问这些信息，以及在什么情况下我们会透露这些信息。-b-本公司保留随时修改本政策的权利，因此请经常查看。如对本政策作出重大更改，本公司会通过网站通知的形式告知。"><a href="#a-如果决定更改隐私政策，我们会在本政策中、本公司网站中以及我们认为适当的位置发布这些更改，以便您了解我们如何收集、使用您的个人信息，哪些人可以访问这些信息，以及在什么情况下我们会透露这些信息。-b-本公司保留随时修改本政策的权利，因此请经常查看。如对本政策作出重大更改，本公司会通过网站通知的形式告知。" class="headerlink" title="(a)如果决定更改隐私政策，我们会在本政策中、本公司网站中以及我们认为适当的位置发布这些更改，以便您了解我们如何收集、使用您的个人信息，哪些人可以访问这些信息，以及在什么情况下我们会透露这些信息。(b)本公司保留随时修改本政策的权利，因此请经常查看。如对本政策作出重大更改，本公司会通过网站通知的形式告知。"></a>(a)如果决定更改隐私政策，我们会在本政策中、本公司网站中以及我们认为适当的位置发布这些更改，以便您了解我们如何收集、使用您的个人信息，哪些人可以访问这些信息，以及在什么情况下我们会透露这些信息。(b)本公司保留随时修改本政策的权利，因此请经常查看。如对本政策作出重大更改，本公司会通过网站通知的形式告知。</h5><h4 id="方披露自己的个人信息，如联络方式或者邮政地址。请您妥善保护自己的个人信息，仅在必要的情形下向他人提供。如您发现自己的个人信息泄密，尤其是本应用用户名及密码发生泄露，请您立即联络本应用客服，以便本应用采取相应措施。"><a href="#方披露自己的个人信息，如联络方式或者邮政地址。请您妥善保护自己的个人信息，仅在必要的情形下向他人提供。如您发现自己的个人信息泄密，尤其是本应用用户名及密码发生泄露，请您立即联络本应用客服，以便本应用采取相应措施。" class="headerlink" title="方披露自己的个人信息，如联络方式或者邮政地址。请您妥善保护自己的个人信息，仅在必要的情形下向他人提供。如您发现自己的个人信息泄密，尤其是本应用用户名及密码发生泄露，请您立即联络本应用客服，以便本应用采取相应措施。"></a>方披露自己的个人信息，如联络方式或者邮政地址。请您妥善保护自己的个人信息，仅在必要的情形下向他人提供。如您发现自己的个人信息泄密，尤其是本应用用户名及密码发生泄露，请您立即联络本应用客服，以便本应用采取相应措施。</h4>
-          
-        
+        <h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>  Git作为日常开发的版本管理系统，功能强大，操作简单，简直不要太方便，但是，常用口令，却是我们必须要掌握的，比较AS安装Git插件，使用命令行才是最快捷方便的</p>
+<h3 id="正文："><a href="#正文：" class="headerlink" title="正文："></a>正文：</h3><p>  开发中：常用操作就那么几个，那就一一罗列出来：</p>
+<h5 id="1-从远程服务器Clone分支"><a href="#1-从远程服务器Clone分支" class="headerlink" title="1.从远程服务器Clone分支"></a>1.从远程服务器Clone分支</h5><p>见我之前文章  <a href="http://www.jianshu.com/p/1a03c3637091" target="_blank" rel="external">Git从远端服务器Clone分支到本地</a></p>
+<h5 id="2-将本地分支推送到远端新分支"><a href="#2-将本地分支推送到远端新分支" class="headerlink" title="2.将本地分支推送到远端新分支"></a>2.将本地分支推送到远端新分支</h5><p>开发中遇到一种情况，本地分支Local1是从远端某分支Remote1 Clone下来的，但是开发之后，想将本地分支保存到远端的新分支Remote2上，而远端仓库是没有这个Remote2分支的，那么执行以下命令：<code>git push origin &lt;local_branch_name&gt;:&lt;remote_branch_name&gt;</code>，<br>例如我当前操作：<code>git push origin Local1:Remote2</code></p>
+<h5 id="3-删除本地仓库某个分支"><a href="#3-删除本地仓库某个分支" class="headerlink" title="3.删除本地仓库某个分支"></a>3.删除本地仓库某个分支</h5><p>想删除本地仓库某个分支，执行：<code>git branch -D &lt;local_branch_name&gt;</code>,例如：想删除本地仓库widget2分支，执行命令：<code>git branch -D widget2</code>；</p>
+<h5 id="4-删除远端仓库某分支"><a href="#4-删除远端仓库某分支" class="headerlink" title="4.删除远端仓库某分支"></a>4.删除远端仓库某分支</h5><p>删除远端仓库分支和删除本地类似：<code>git push origin :{remote_branch_name}</code>，例如删除远端develop分支：<code>git push origin :develop</code></p>
+
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Git/">Git</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git分支操作/">Git分支操作</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/30/hello-world/" class="article-date">
+      <time datetime="2017-10-30T04:53:07.000Z" itemprop="datePublished">2017-10-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2017/10/30/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/30/hello-world/" itemprop="url">Hello World</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/30/hello-world/">Hello World</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-30T12:53:07+08:00">
-                2017-10-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/测试/" itemprop="url" rel="index">
-                    <span itemprop="name">测试</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
@@ -1498,147 +1007,69 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/测试/">测试</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-Android6.0运行时权限，化繁为简" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/30/Android6.0运行时权限，化繁为简/" class="article-date">
+      <time datetime="2017-10-30T04:53:07.000Z" itemprop="datePublished">2017-10-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2017/10/30/Android6.0运行时权限，化繁为简/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/30/Android6.0运行时权限，化繁为简/" itemprop="url">Android6.0运行时权限，化繁为简</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/30/Android6.0运行时权限，化繁为简/">Android6.0运行时权限，化繁为简</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-30T12:53:07+08:00">
-                2017-10-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>权限申请效果</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>权限申请效果</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/2789715-d887dece89fa9748.gif?imageMogr2/auto-orient/strip" alt="GIF.gif"></p>
 <p><strong>GitHub地址</strong>：<a href="https://github.com/dazhaoDai/PermissionUtils" target="_blank" rel="external">PermissionUtils</a></p>
 <p>Android8.0昨天已经发布，但是关于Android版本的最新统计，来看看图</p>
@@ -1718,294 +1149,132 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line">package com.ddz.lifestyle.view.activity;</div><div class="line">import android.Manifest;</div><div class="line">import android.content.Intent;</div><div class="line">import android.os.Bundle;</div><div class="line">import android.os.PersistableBundle;</div><div class="line">import android.support.annotation.NonNull;</div><div class="line">import android.support.annotation.Nullable;</div><div class="line">import android.support.v7.app.AppCompatActivity;</div><div class="line">import android.widget.Toast;</div><div class="line">import com.ddz.lifestyle.R;</div><div class="line">import com.ddz.lifestyle.utils.PermissionUtils;</div><div class="line"></div><div class="line">/**</div><div class="line"> * @Author: ddz</div><div class="line"> * Creation time: 17.8.11 16:07</div><div class="line"> * describe:()</div><div class="line"> */</div><div class="line"></div><div class="line">public class TestActivity extends AppCompatActivity &#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onCreate(@Nullable Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        initPremission();</div><div class="line">    &#125;</div><div class="line">	</div><div class="line">    private void initPremission() &#123;</div><div class="line">        if (PermissionUtils.getInstance().checkPermission(Manifest.permission.ACCESS_FINE_LOCATION)) &#123;</div><div class="line">            toast(null);</div><div class="line">        &#125; else &#123;</div><div class="line">            PermissionUtils.getInstance().requestPermissiion(this, new String[]&#123;Manifest.permission.ACCESS_FINE_LOCATION&#125;, PermissionUtils.requestCode, new PermissionUtils.RequestPermissionListener() &#123;</div><div class="line">                @Override</div><div class="line">                public void requestConfirm() &#123;</div><div class="line">                    //申请成功</div><div class="line">                    toast(null);</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                @Override</div><div class="line">                public void requestCancel() &#123;</div><div class="line">                    //用户拒绝，对用户解释申请理由</div><div class="line"></div><div class="line">                    //如果想使用封装好的弹窗提示</div><div class="line">                    PermissionUtils.getInstance().requestDialog(TestActivity.this, &quot;申请权限&quot;, &quot;需要位置权限&quot;, null, null);</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                @Override</div><div class="line">                public void requestCancelAgain() &#123;</div><div class="line">                    //用户勾选不再提示并拒绝，申请打开应用设置页面申请权限，具体逻辑自己写</div><div class="line"></div><div class="line">                    //使用默认封装好的提示,并打开设置页面</div><div class="line">                    PermissionUtils.getInstance().requestDialogAgain(TestActivity.this, &quot;申请权限&quot;, &quot;去设置页面打开位置限才能正常使用&quot;, null, null);</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                @Override</div><div class="line">                public void requestFailed() &#123;</div><div class="line">                    //申请失败</div><div class="line">                    toast(&quot;对不起，没有权限，退出&quot;);</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //一定要对权限回调进行处理</div><div class="line">    @Override</div><div class="line">    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) &#123;</div><div class="line">        PermissionUtils.getInstance().onRequestPermissionResult(TestActivity.this, requestCode, permissions, grantResults);</div><div class="line">        super.onRequestPermissionsResult(requestCode, permissions, grantResults);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //如果打开了设置页面申请权限，一定要对回调进行处理</div><div class="line">    @Override</div><div class="line">    protected void onActivityResult(int requestCode, int resultCode, Intent data) &#123;</div><div class="line">        PermissionUtils.getInstance().onActivityResult(requestCode, resultCode, data);</div><div class="line">        super.onActivityResult(requestCode, resultCode, data);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private void toast(String message) &#123;</div><div class="line">        Toast.makeText(TestActivity.this, message == null ? &quot;权限申请成功&quot; : message, Toast.LENGTH_SHORT).show();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h4><p>封装后的权限申请，结构更加清晰，根据回调结果的不同可以做出相应处理，也封装了权限申请的说明弹窗，如果没有特殊的设计要求，即可满足日常开发的权限申请工作。<br>GitHub地址：<a href="https://github.com/dazhaoDai/PermissionUtils" target="_blank" rel="external">PermissionUtils</a></p>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-permission/">android permission</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-权限/">android 权限</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-Privacy" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/30/Privacy/" class="article-date">
+      <time datetime="2017-10-30T04:53:07.000Z" itemprop="datePublished">2017-10-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2017/10/30/Git常用操作/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/30/Git常用操作/" itemprop="url">Git常用操作</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/30/Privacy/">Privacy Policy</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-30T12:53:07+08:00">
-                2017-10-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>  Git作为日常开发的版本管理系统，功能强大，操作简单，简直不要太方便，但是，常用口令，却是我们必须要掌握的，比较AS安装Git插件，使用命令行才是最快捷方便的</p>
-<h3 id="正文："><a href="#正文：" class="headerlink" title="正文："></a>正文：</h3><p>  开发中：常用操作就那么几个，那就一一罗列出来：</p>
-<h5 id="1-从远程服务器Clone分支"><a href="#1-从远程服务器Clone分支" class="headerlink" title="1.从远程服务器Clone分支"></a>1.从远程服务器Clone分支</h5><p>见我之前文章  <a href="http://www.jianshu.com/p/1a03c3637091" target="_blank" rel="external">Git从远端服务器Clone分支到本地</a></p>
-<h5 id="2-将本地分支推送到远端新分支"><a href="#2-将本地分支推送到远端新分支" class="headerlink" title="2.将本地分支推送到远端新分支"></a>2.将本地分支推送到远端新分支</h5><p>开发中遇到一种情况，本地分支Local1是从远端某分支Remote1 Clone下来的，但是开发之后，想将本地分支保存到远端的新分支Remote2上，而远端仓库是没有这个Remote2分支的，那么执行以下命令：<code>git push origin &lt;local_branch_name&gt;:&lt;remote_branch_name&gt;</code>，<br>例如我当前操作：<code>git push origin Local1:Remote2</code></p>
-<h5 id="3-删除本地仓库某个分支"><a href="#3-删除本地仓库某个分支" class="headerlink" title="3.删除本地仓库某个分支"></a>3.删除本地仓库某个分支</h5><p>想删除本地仓库某个分支，执行：<code>git branch -D &lt;local_branch_name&gt;</code>,例如：想删除本地仓库widget2分支，执行命令：<code>git branch -D widget2</code>；</p>
-<h5 id="4-删除远端仓库某分支"><a href="#4-删除远端仓库某分支" class="headerlink" title="4.删除远端仓库某分支"></a>4.删除远端仓库某分支</h5><p>删除远端仓库分支和删除本地类似：<code>git push origin :{remote_branch_name}</code>，例如删除远端develop分支：<code>git push origin :develop</code></p>
-
-          
-        
+        <h1 id="隐私政策"><a href="#隐私政策" class="headerlink" title="隐私政策"></a>隐私政策</h1><h3 id="本应用尊重并保护所有使用服务用户的个人隐私权。为了给您提供更准确、更有个性化的服务，本应用会按照本隐私权政策的规定使用和披露您的个人信息。但本应用将以高度的勤勉、审慎义务对待这些信息。除本隐私权政策另有规定外，在未征得您事先许可的情况下，本应用不会将这些信息对外披露或向第三方提供。本应用会不时更新本隐私权政策。-您在同意本应用服务使用协议之时，即视为您已经同意本隐私权政策全部内容。本隐私权政策属于本应用服务使用协议不可分割的一部分。"><a href="#本应用尊重并保护所有使用服务用户的个人隐私权。为了给您提供更准确、更有个性化的服务，本应用会按照本隐私权政策的规定使用和披露您的个人信息。但本应用将以高度的勤勉、审慎义务对待这些信息。除本隐私权政策另有规定外，在未征得您事先许可的情况下，本应用不会将这些信息对外披露或向第三方提供。本应用会不时更新本隐私权政策。-您在同意本应用服务使用协议之时，即视为您已经同意本隐私权政策全部内容。本隐私权政策属于本应用服务使用协议不可分割的一部分。" class="headerlink" title="本应用尊重并保护所有使用服务用户的个人隐私权。为了给您提供更准确、更有个性化的服务，本应用会按照本隐私权政策的规定使用和披露您的个人信息。但本应用将以高度的勤勉、审慎义务对待这些信息。除本隐私权政策另有规定外，在未征得您事先许可的情况下，本应用不会将这些信息对外披露或向第三方提供。本应用会不时更新本隐私权政策。 您在同意本应用服务使用协议之时，即视为您已经同意本隐私权政策全部内容。本隐私权政策属于本应用服务使用协议不可分割的一部分。"></a>本应用尊重并保护所有使用服务用户的个人隐私权。为了给您提供更准确、更有个性化的服务，本应用会按照本隐私权政策的规定使用和披露您的个人信息。但本应用将以高度的勤勉、审慎义务对待这些信息。除本隐私权政策另有规定外，在未征得您事先许可的情况下，本应用不会将这些信息对外披露或向第三方提供。本应用会不时更新本隐私权政策。 您在同意本应用服务使用协议之时，即视为您已经同意本隐私权政策全部内容。本隐私权政策属于本应用服务使用协议不可分割的一部分。</h3><h4 id="1-适用范围"><a href="#1-适用范围" class="headerlink" title="1. 适用范围"></a>1. 适用范围</h4><h5 id="a-在您注册本应用帐号时，您根据本应用要求提供的个人注册信息；-b-在您使用本应用网络服务，或访问本应用平台网页时，本应用自动接收并记录的您的浏览器和计算机上的信息，包括但不限于您的IP地址、浏览器的类型、使用的语言、访问日期和时间、软硬件特征信息及您需求的网页记录等数据；-c-本应用通过合法途径从商业伙伴处取得的用户个人数据。您了解并同意，以下信息不适用本隐私权政策：-a-您在使用本应用平台提供的搜索服务时输入的关键字信息；-b-本应用收集到的您在本应用发布的有关信息数据，包括但不限于参与活动、成交信息及评价详情；-c-违反法律规定或违反本应用规则行为及本应用已对您采取的措施。"><a href="#a-在您注册本应用帐号时，您根据本应用要求提供的个人注册信息；-b-在您使用本应用网络服务，或访问本应用平台网页时，本应用自动接收并记录的您的浏览器和计算机上的信息，包括但不限于您的IP地址、浏览器的类型、使用的语言、访问日期和时间、软硬件特征信息及您需求的网页记录等数据；-c-本应用通过合法途径从商业伙伴处取得的用户个人数据。您了解并同意，以下信息不适用本隐私权政策：-a-您在使用本应用平台提供的搜索服务时输入的关键字信息；-b-本应用收集到的您在本应用发布的有关信息数据，包括但不限于参与活动、成交信息及评价详情；-c-违反法律规定或违反本应用规则行为及本应用已对您采取的措施。" class="headerlink" title="(a) 在您注册本应用帐号时，您根据本应用要求提供的个人注册信息；(b) 在您使用本应用网络服务，或访问本应用平台网页时，本应用自动接收并记录的您的浏览器和计算机上的信息，包括但不限于您的IP地址、浏览器的类型、使用的语言、访问日期和时间、软硬件特征信息及您需求的网页记录等数据；(c) 本应用通过合法途径从商业伙伴处取得的用户个人数据。您了解并同意，以下信息不适用本隐私权政策：(a) 您在使用本应用平台提供的搜索服务时输入的关键字信息；(b) 本应用收集到的您在本应用发布的有关信息数据，包括但不限于参与活动、成交信息及评价详情；(c) 违反法律规定或违反本应用规则行为及本应用已对您采取的措施。"></a>(a) 在您注册本应用帐号时，您根据本应用要求提供的个人注册信息；(b) 在您使用本应用网络服务，或访问本应用平台网页时，本应用自动接收并记录的您的浏览器和计算机上的信息，包括但不限于您的IP地址、浏览器的类型、使用的语言、访问日期和时间、软硬件特征信息及您需求的网页记录等数据；(c) 本应用通过合法途径从商业伙伴处取得的用户个人数据。您了解并同意，以下信息不适用本隐私权政策：(a) 您在使用本应用平台提供的搜索服务时输入的关键字信息；(b) 本应用收集到的您在本应用发布的有关信息数据，包括但不限于参与活动、成交信息及评价详情；(c) 违反法律规定或违反本应用规则行为及本应用已对您采取的措施。</h5><h4 id="2-信息使用"><a href="#2-信息使用" class="headerlink" title="2. 信息使用"></a>2. 信息使用</h4><h5 id="a-本应用不会向任何无关第三方提供、出售、出租、分享或交易您的个人信息，除非事先得到您的许可，或该第三方和本应用（含本应用关联公司）单独或共同为您提供服务，且在该服务结束后，其将被禁止访问包括其以前能够访问的所有这些资料。-b-本应用亦不允许任何第三方以任何手段收集、编辑、出售或者无偿传播您的个人信息。任何本应用平台用户如从事上述活动，一经发现，本应用有权立即终止与该用户的服务协议。-c-为服务用户的目的，本应用可能通过使用您的个人信息，向您提供您感兴趣的信息，包括但不限于向您发出产品和服务信息，或者与本应用合作伙伴共享信息以便他们向您发送有关其产品和服务的信息（后者需要您的事先同意）。"><a href="#a-本应用不会向任何无关第三方提供、出售、出租、分享或交易您的个人信息，除非事先得到您的许可，或该第三方和本应用（含本应用关联公司）单独或共同为您提供服务，且在该服务结束后，其将被禁止访问包括其以前能够访问的所有这些资料。-b-本应用亦不允许任何第三方以任何手段收集、编辑、出售或者无偿传播您的个人信息。任何本应用平台用户如从事上述活动，一经发现，本应用有权立即终止与该用户的服务协议。-c-为服务用户的目的，本应用可能通过使用您的个人信息，向您提供您感兴趣的信息，包括但不限于向您发出产品和服务信息，或者与本应用合作伙伴共享信息以便他们向您发送有关其产品和服务的信息（后者需要您的事先同意）。" class="headerlink" title="(a)本应用不会向任何无关第三方提供、出售、出租、分享或交易您的个人信息，除非事先得到您的许可，或该第三方和本应用（含本应用关联公司）单独或共同为您提供服务，且在该服务结束后，其将被禁止访问包括其以前能够访问的所有这些资料。(b) 本应用亦不允许任何第三方以任何手段收集、编辑、出售或者无偿传播您的个人信息。任何本应用平台用户如从事上述活动，一经发现，本应用有权立即终止与该用户的服务协议。(c) 为服务用户的目的，本应用可能通过使用您的个人信息，向您提供您感兴趣的信息，包括但不限于向您发出产品和服务信息，或者与本应用合作伙伴共享信息以便他们向您发送有关其产品和服务的信息（后者需要您的事先同意）。"></a>(a)本应用不会向任何无关第三方提供、出售、出租、分享或交易您的个人信息，除非事先得到您的许可，或该第三方和本应用（含本应用关联公司）单独或共同为您提供服务，且在该服务结束后，其将被禁止访问包括其以前能够访问的所有这些资料。(b) 本应用亦不允许任何第三方以任何手段收集、编辑、出售或者无偿传播您的个人信息。任何本应用平台用户如从事上述活动，一经发现，本应用有权立即终止与该用户的服务协议。(c) 为服务用户的目的，本应用可能通过使用您的个人信息，向您提供您感兴趣的信息，包括但不限于向您发出产品和服务信息，或者与本应用合作伙伴共享信息以便他们向您发送有关其产品和服务的信息（后者需要您的事先同意）。</h5><h4 id="3-信息披露"><a href="#3-信息披露" class="headerlink" title="3. 信息披露"></a>3. 信息披露</h4><h5 id="在如下情况下，本应用将依据您的个人意愿或法律的规定全部或部分的披露您的个人信息：-a-经您事先同意，向第三方披露；-b-为提供您所要求的产品和服务，而必须和第三方分享您的个人信息；-c-根据法律的有关规定，或者行政或司法机构的要求，向第三方或者行政、司法机构披露；-d-如您出现违反中国有关法律、法规或者本应用服务协议或相关规则的情况，需要向第三方披露；-e-如您是适格的知识产权投诉人并已提起投诉，应被投诉人要求，向被投诉人披露，以便双方处理可能的权利纠纷；-f-在本应用平台上创建的某一交易中，如交易任何一方履行或部分履行了交易义务并提出信息披露请求的，本应用有权决定向该用户提供其交易对方的联络方式等必要信息，以促成交易的完成或纠纷的解决。-g-其它本应用根据法律、法规或者网站政策认为合适的披露。"><a href="#在如下情况下，本应用将依据您的个人意愿或法律的规定全部或部分的披露您的个人信息：-a-经您事先同意，向第三方披露；-b-为提供您所要求的产品和服务，而必须和第三方分享您的个人信息；-c-根据法律的有关规定，或者行政或司法机构的要求，向第三方或者行政、司法机构披露；-d-如您出现违反中国有关法律、法规或者本应用服务协议或相关规则的情况，需要向第三方披露；-e-如您是适格的知识产权投诉人并已提起投诉，应被投诉人要求，向被投诉人披露，以便双方处理可能的权利纠纷；-f-在本应用平台上创建的某一交易中，如交易任何一方履行或部分履行了交易义务并提出信息披露请求的，本应用有权决定向该用户提供其交易对方的联络方式等必要信息，以促成交易的完成或纠纷的解决。-g-其它本应用根据法律、法规或者网站政策认为合适的披露。" class="headerlink" title="在如下情况下，本应用将依据您的个人意愿或法律的规定全部或部分的披露您的个人信息：(a) 经您事先同意，向第三方披露；(b)为提供您所要求的产品和服务，而必须和第三方分享您的个人信息；(c) 根据法律的有关规定，或者行政或司法机构的要求，向第三方或者行政、司法机构披露；(d) 如您出现违反中国有关法律、法规或者本应用服务协议或相关规则的情况，需要向第三方披露；(e) 如您是适格的知识产权投诉人并已提起投诉，应被投诉人要求，向被投诉人披露，以便双方处理可能的权利纠纷；(f) 在本应用平台上创建的某一交易中，如交易任何一方履行或部分履行了交易义务并提出信息披露请求的，本应用有权决定向该用户提供其交易对方的联络方式等必要信息，以促成交易的完成或纠纷的解决。(g) 其它本应用根据法律、法规或者网站政策认为合适的披露。"></a>在如下情况下，本应用将依据您的个人意愿或法律的规定全部或部分的披露您的个人信息：(a) 经您事先同意，向第三方披露；(b)为提供您所要求的产品和服务，而必须和第三方分享您的个人信息；(c) 根据法律的有关规定，或者行政或司法机构的要求，向第三方或者行政、司法机构披露；(d) 如您出现违反中国有关法律、法规或者本应用服务协议或相关规则的情况，需要向第三方披露；(e) 如您是适格的知识产权投诉人并已提起投诉，应被投诉人要求，向被投诉人披露，以便双方处理可能的权利纠纷；(f) 在本应用平台上创建的某一交易中，如交易任何一方履行或部分履行了交易义务并提出信息披露请求的，本应用有权决定向该用户提供其交易对方的联络方式等必要信息，以促成交易的完成或纠纷的解决。(g) 其它本应用根据法律、法规或者网站政策认为合适的披露。</h5><h4 id="4-信息存储和交换"><a href="#4-信息存储和交换" class="headerlink" title="4. 信息存储和交换"></a>4. 信息存储和交换</h4><h5 id="本应用收集的有关您的信息和资料将保存在本应用及（或）其关联公司的服务器上，这些信息和资料可能传送至您所在国家、地区或本应用收集信息和资料所在地的境外并在境外被访问、存储和展示。"><a href="#本应用收集的有关您的信息和资料将保存在本应用及（或）其关联公司的服务器上，这些信息和资料可能传送至您所在国家、地区或本应用收集信息和资料所在地的境外并在境外被访问、存储和展示。" class="headerlink" title="本应用收集的有关您的信息和资料将保存在本应用及（或）其关联公司的服务器上，这些信息和资料可能传送至您所在国家、地区或本应用收集信息和资料所在地的境外并在境外被访问、存储和展示。"></a>本应用收集的有关您的信息和资料将保存在本应用及（或）其关联公司的服务器上，这些信息和资料可能传送至您所在国家、地区或本应用收集信息和资料所在地的境外并在境外被访问、存储和展示。</h5><h4 id="5-Cookie的使用"><a href="#5-Cookie的使用" class="headerlink" title="5. Cookie的使用"></a>5. Cookie的使用</h4><h5 id="a-在您未拒绝接受cookies的情况下，本应用会在您的计算机上设定或取用cookies-，以便您能登录或使用依赖于cookies的本应用平台服务或功能。本应用使用cookies可为您提供更加周到的个性化服务，包括推广服务。-b-您有权选择接受或拒绝接受cookies。您可以通过修改浏览器设置的方式拒绝接受cookies。但如果您选择拒绝接受cookies，则您可能无法登录或使用依赖于cookies的本应用网络服务或功能。-c-通过本应用所设cookies所取得的有关信息，将适用本政策。"><a href="#a-在您未拒绝接受cookies的情况下，本应用会在您的计算机上设定或取用cookies-，以便您能登录或使用依赖于cookies的本应用平台服务或功能。本应用使用cookies可为您提供更加周到的个性化服务，包括推广服务。-b-您有权选择接受或拒绝接受cookies。您可以通过修改浏览器设置的方式拒绝接受cookies。但如果您选择拒绝接受cookies，则您可能无法登录或使用依赖于cookies的本应用网络服务或功能。-c-通过本应用所设cookies所取得的有关信息，将适用本政策。" class="headerlink" title="(a) 在您未拒绝接受cookies的情况下，本应用会在您的计算机上设定或取用cookies ，以便您能登录或使用依赖于cookies的本应用平台服务或功能。本应用使用cookies可为您提供更加周到的个性化服务，包括推广服务。(b) 您有权选择接受或拒绝接受cookies。您可以通过修改浏览器设置的方式拒绝接受cookies。但如果您选择拒绝接受cookies，则您可能无法登录或使用依赖于cookies的本应用网络服务或功能。(c) 通过本应用所设cookies所取得的有关信息，将适用本政策。"></a>(a) 在您未拒绝接受cookies的情况下，本应用会在您的计算机上设定或取用cookies ，以便您能登录或使用依赖于cookies的本应用平台服务或功能。本应用使用cookies可为您提供更加周到的个性化服务，包括推广服务。(b) 您有权选择接受或拒绝接受cookies。您可以通过修改浏览器设置的方式拒绝接受cookies。但如果您选择拒绝接受cookies，则您可能无法登录或使用依赖于cookies的本应用网络服务或功能。(c) 通过本应用所设cookies所取得的有关信息，将适用本政策。</h5><h4 id="6-信息安全"><a href="#6-信息安全" class="headerlink" title="6. 信息安全"></a>6. 信息安全</h4><h5 id="a-本应用帐号均有安全保护功能，请妥善保管您的用户名及密码信息。本应用将通过对用户密码进行加密等安全措施确保您的信息不丢失，不被滥用和变造。尽管有前述安全措施，但同时也请您注意在信息网络上不存在“完善的安全措施”。-b-在使用本应用网络服务进行网上交易时，您不可避免的要向交易对方或潜在的交易对"><a href="#a-本应用帐号均有安全保护功能，请妥善保管您的用户名及密码信息。本应用将通过对用户密码进行加密等安全措施确保您的信息不丢失，不被滥用和变造。尽管有前述安全措施，但同时也请您注意在信息网络上不存在“完善的安全措施”。-b-在使用本应用网络服务进行网上交易时，您不可避免的要向交易对方或潜在的交易对" class="headerlink" title="(a) 本应用帐号均有安全保护功能，请妥善保管您的用户名及密码信息。本应用将通过对用户密码进行加密等安全措施确保您的信息不丢失，不被滥用和变造。尽管有前述安全措施，但同时也请您注意在信息网络上不存在“完善的安全措施”。(b) 在使用本应用网络服务进行网上交易时，您不可避免的要向交易对方或潜在的交易对"></a>(a) 本应用帐号均有安全保护功能，请妥善保管您的用户名及密码信息。本应用将通过对用户密码进行加密等安全措施确保您的信息不丢失，不被滥用和变造。尽管有前述安全措施，但同时也请您注意在信息网络上不存在“完善的安全措施”。(b) 在使用本应用网络服务进行网上交易时，您不可避免的要向交易对方或潜在的交易对</h5><h4 id="7-本隐私政策的更改"><a href="#7-本隐私政策的更改" class="headerlink" title="7.本隐私政策的更改"></a>7.本隐私政策的更改</h4><h5 id="a-如果决定更改隐私政策，我们会在本政策中、本公司网站中以及我们认为适当的位置发布这些更改，以便您了解我们如何收集、使用您的个人信息，哪些人可以访问这些信息，以及在什么情况下我们会透露这些信息。-b-本公司保留随时修改本政策的权利，因此请经常查看。如对本政策作出重大更改，本公司会通过网站通知的形式告知。"><a href="#a-如果决定更改隐私政策，我们会在本政策中、本公司网站中以及我们认为适当的位置发布这些更改，以便您了解我们如何收集、使用您的个人信息，哪些人可以访问这些信息，以及在什么情况下我们会透露这些信息。-b-本公司保留随时修改本政策的权利，因此请经常查看。如对本政策作出重大更改，本公司会通过网站通知的形式告知。" class="headerlink" title="(a)如果决定更改隐私政策，我们会在本政策中、本公司网站中以及我们认为适当的位置发布这些更改，以便您了解我们如何收集、使用您的个人信息，哪些人可以访问这些信息，以及在什么情况下我们会透露这些信息。(b)本公司保留随时修改本政策的权利，因此请经常查看。如对本政策作出重大更改，本公司会通过网站通知的形式告知。"></a>(a)如果决定更改隐私政策，我们会在本政策中、本公司网站中以及我们认为适当的位置发布这些更改，以便您了解我们如何收集、使用您的个人信息，哪些人可以访问这些信息，以及在什么情况下我们会透露这些信息。(b)本公司保留随时修改本政策的权利，因此请经常查看。如对本政策作出重大更改，本公司会通过网站通知的形式告知。</h5><h4 id="方披露自己的个人信息，如联络方式或者邮政地址。请您妥善保护自己的个人信息，仅在必要的情形下向他人提供。如您发现自己的个人信息泄密，尤其是本应用用户名及密码发生泄露，请您立即联络本应用客服，以便本应用采取相应措施。"><a href="#方披露自己的个人信息，如联络方式或者邮政地址。请您妥善保护自己的个人信息，仅在必要的情形下向他人提供。如您发现自己的个人信息泄密，尤其是本应用用户名及密码发生泄露，请您立即联络本应用客服，以便本应用采取相应措施。" class="headerlink" title="方披露自己的个人信息，如联络方式或者邮政地址。请您妥善保护自己的个人信息，仅在必要的情形下向他人提供。如您发现自己的个人信息泄密，尤其是本应用用户名及密码发生泄露，请您立即联络本应用客服，以便本应用采取相应措施。"></a>方披露自己的个人信息，如联络方式或者邮政地址。请您妥善保护自己的个人信息，仅在必要的情形下向他人提供。如您发现自己的个人信息泄密，尤其是本应用用户名及密码发生泄露，请您立即联络本应用客服，以便本应用采取相应措施。</h4>
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Privacy-Policy/">Privacy Policy</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/privacy/">privacy</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-关于Android AIDL 编译报错问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/30/关于Android AIDL 编译报错问题/" class="article-date">
+      <time datetime="2017-10-30T04:53:07.000Z" itemprop="datePublished">2017-10-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2017/10/30/关于Android AIDL 编译报错问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/30/关于Android AIDL 编译报错问题/" itemprop="url">关于Android AIDL 编译报错问题</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/30/关于Android AIDL 编译报错问题/">关于Android AIDL 编译报错问题</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-30T12:53:07+08:00">
-                2017-10-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <h3 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h3><p> 在做一个音乐项目中，使用到了AIDL跨进程通信组件，编写一个简单的AIDL时候，编译一直无法通过，报错内容</p>
+        <h3 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h3><p> 在做一个音乐项目中，使用到了AIDL跨进程通信组件，编写一个简单的AIDL时候，编译一直无法通过，报错内容</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Error:Execution failed <span class="keyword">for</span> task <span class="string">':app:compileDebugAidl'</span>.</div><div class="line"></div><div class="line">java.lang.RuntimeException: com.android.ide.common.process.ProcessException: Error <span class="keyword">while</span> executing process E:\SDK\build-tools\<span class="number">25.0</span>.2\aidl.exe with arguments &#123;-pE:\SDK\platforms\android-<span class="number">25</span>\framework.aidl -oE:\Project\LifeStyle\app\build\generated\source\aidl\debug -IE:\Project\LifeStyle\app\src\main\aidl -IE:\Project\LifeStyle\app\src\debug\aidl -IC:\Users\yun.android\build-cache\bd2b26450777017e058ddff21ee3c3ce84e4a7bf\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">2</span>ea784cc81ce0926ea68faf50edaf3063b660d0e\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">5</span>b0533eca8fabee2573210d5a6db0ef9c0c55098\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">4</span>aff7d24ca88b5fbfe9cecf19662277ee6b67028\output\aidl -IC:\Users\yun.android\build-cache\b99b113aa0b77b7431d57c24286f1c8e8eab3ac8\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">4529918</span>ad206e483048c7e77ddeb67757631979d\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">3044</span>c80427502394b2a5a4f143d6cff3e658c021\output\aidl -IC:\Users\yun.android\build-cache\b5f3194e152b8cd07a05991ec812dffa1d8cb041\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">38</span>ea6e0a6326b10847dbffa39bb99db561e2d206\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">8</span>b120b0a8440e62fa16bb4d6105e23babda95bac\output\aidl -IC:\Users\yun.android\build-cache\f7ecc1e5d6327684b86b316a5b8d8656ab31a562\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">555508f</span>307eda5e323eab911e97c525ed5d5df39\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">89763</span>dd7cc6d960b99b1b369e1e4cacfb0a31de4\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">7</span>ade3d874bb02876c4dbec5f11f4f6e45fb740a9\output\aidl -IC:\Users\yun.android\build-cache\d146a875e535f7ef213ac298ff9c7562980017e2\output\aidl -IC:\Users\yun.android\build-cache\b7e59e7515f5465f0bdcddcb2373d90d2f734f9e\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">7</span>d9f182c861cca1c8561cf15680698fccb00cd6b\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">700509</span>b55aea82f4d612ac1262f62676e4b903a8\output\aidl -IC:\Users\yun.android\build-cache\abe96579d37055680246e88ec8e5202f311a7682\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">6</span>a4a8f6c11eb14ee244b1c31f215a78b80a8772f\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">9</span>acdeaf56617b78c0869aec47ac34c9f74876025\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">7560</span>a7d14537f4d91e192c3bf5482b4f43fa71b7\output\aidl -IC:\Users\yun.android\build-cache\f07b74a7bc4f977ae6e648a0b0c6273da95a15d3\output\aidl -IC:\Users\yun.android\build-cache\e916c7e89b0437bc49caaa56819cb6420b1df388\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">98e02</span>d16b6f5edc105354f1b8731dbb8996766a6\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">0</span>de94c2965cbd469e50e04f8b11f3f3a54fb105c\output\aidl -IC:\Users\yun.android\build-cache\e3570cee326ac234ab7a645a61cc67e5f4aaba25\output\aidl -IC:\Users\yun.android\build-cache\af33f12b5828ec7d29cdc70bd0113ea8de920816\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">70727</span>cf612c37ae60ba16fdf9dde9dd2be59839d\output\aidl -IC:\Users\yun.android\build-cache\a70928a5a1cbea562f1bd432d010447ec910b87c\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">1e4</span>a7240c43a860a0f8c255418d94983c100aacf\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">17f</span>28128f57674af28605d6308b0c053b944c5e8\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">995</span>b0dfa92490fcf0f8815d039702fbe5bce10a8\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">15938</span>a94ee6db7edc48dcf60da42083cf7a1bc6c\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">29</span>c97a53c8bc6293d81f08917bfd65d3f697d79e\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">1005f</span>94c0d904c86565f1d4db92c798c70837c1c\output\aidl -IC:\Users\yun.android\build-cache\bf586708fe17232a5869c4b61e020557d355d3d6\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">9</span>b42fe08f88e56de3c951e7c80c399b9f94078a1\output\aidl -IC:\Users\yun.android\build-cache\cd0824ff26bcc093fac07fa62e9800ef96d334aa\output\aidl -dC:\Users\yun\AppData\Local\Temp\aidl3827942310160614195.d E:\Project\LifeStyle\app\src\main\aidl\com\ddz\lifestyle\IPlayService.aidl&#125;</div></pre></td></tr></table></figure>
 <p>绞尽脑汁，又是google又是度娘，都没有合适解决办法，最终发现有两个问题:</p>
 <ul>
@@ -2017,329 +1286,130 @@
 </ul>
 <h3 id="后记："><a href="#后记：" class="headerlink" title="后记："></a>后记：</h3><p>开发中一定要够自信，够清醒，不然真是浪费时间</p>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-aidl/">android aidl</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-开发错误/">android 开发错误</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
+</article>
+
+
+
+
+
+
+
+
+
   
   
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">daidai</p>
-              <p class="site-description motion-element" itemprop="description">喜欢探索未知,保持好奇心</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">31</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">daidai</span>
-
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+    </nav>
   
 </div>
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
-
-
-
-
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2018 daidai
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
         
-
-
-
-
-
-
-
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
         
-      </div>
-    </footer>
-
+    </div>
+</footer>
+    </div>
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
     
-
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
     
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
 </script>
 
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
 </body>
 </html>

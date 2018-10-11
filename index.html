@@ -1,82 +1,21 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="daidai" />
 
 
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
+    
+    
 
 
 <meta name="description" content="喜欢探索未知,保持好奇心">
@@ -90,44 +29,64 @@
 <meta name="twitter:title" content="T9&#39;S Develop Blog">
 <meta name="twitter:description" content="喜欢探索未知,保持好奇心">
 
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    <link rel="alternate" href="/atom.xml" title="T9&#39;S Develop Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <style> .article { opacity: 0;} </style>
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>T9&#39;S Develop Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: true,
+        isPost: false,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: 
     }
-  };
 </script>
 
 
-
-  <link rel="canonical" href="http://outofmemory.top/"/>
-
+    <script> yiliaConfig.jquery_ui = [false]; </script>
 
 
 
-
-  <title>T9'S Develop Blog</title>
-  
-
-
+    <script> yiliaConfig.rootUrl = "\/";</script>
 
 
 
@@ -135,344 +94,278 @@
 
 
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left 
-  page-home">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">T9'S Develop Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle">不仅有工作，更有生活</p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/08/24/Android进阶 ——— Android 深入理解AIDL进程间通信/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
-    
-      <header class="post-header">
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">daidai</a></h1>
+        </hgroup>
 
         
+        <p class="header-subtitle">不仅有工作，更有生活</p>
         
-          <h1 class="post-title" itemprop="name headline">
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
                 
-                <a class="post-title-link" href="/2018/08/24/Android进阶 ——— Android 深入理解AIDL进程间通信/" itemprop="url">Android进阶 ——— Android 深入理解AIDL进程间通信</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:23:07+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android官方架构/">Android官方架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android进阶/">Android进阶</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git分支操作/">Git分支操作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java进阶/">Java进阶</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/">Kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin开发/">Kotlin开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-aidl/">android aidl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-permission/">android permission</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-view/">android view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-开发错误/">android 开发错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-权限/">android 权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-自定义view/">android 自定义view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android触摸事件/">android触摸事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/privacy/">privacy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
 
                 
                 
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
         </div>
-      </header>
-    
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">daidai</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">daidai</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">不仅有工作，更有生活</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap">
+  
+    <article id="post-Android进阶 ——— Android 深入理解AIDL进程间通信" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/24/Android进阶 ——— Android 深入理解AIDL进程间通信/" class="article-date">
+      <time datetime="2018-08-24T07:23:07.051Z" itemprop="datePublished">2018-08-24</time>
+</a>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
 
-      
-      
-
-      
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/24/Android进阶 ——— Android 深入理解AIDL进程间通信/">Android进阶 ——— Android 深入理解AIDL进程间通信</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
           
-            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>关于AIDL的资料，层出不穷，但是能让人简单明了理解的文章不多，那么我们就自己撸一遍，清晰明了的理解一下AIDL的原理。</p>
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>关于AIDL的资料，层出不穷，但是能让人简单明了理解的文章不多，那么我们就自己撸一遍，清晰明了的理解一下AIDL的原理。</p>
 <h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><p>在理解AIDL原理之前，先写一个简单的使用AIDL进行进程间通信的例子，根据这个例子来由浅及深的理解AIDL。</p>
 <p>先来定义实体类：UserBean.java<br>注意：<strong>如果要在AIDL中使用实体类，实体类必须要实现序列化接口，这里实现的是Android自带的Parcelable接口</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">package com.t9.news.Model;</div><div class="line"></div><div class="line">import android.os.Parcel;</div><div class="line">import android.os.Parcelable;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Created by dai</div><div class="line"> * Created time 2018/5/11</div><div class="line"> * function:com.t9.news.Model</div><div class="line"> */</div><div class="line"></div><div class="line">public class UserBean implements Parcelable&#123;</div><div class="line"></div><div class="line">	private int age;</div><div class="line">	private String name;</div><div class="line"></div><div class="line">	public int getAge() &#123;</div><div class="line">		return age;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setAge(int age) &#123;</div><div class="line">		this.age = age;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String getName() &#123;</div><div class="line">		return name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setName(String name) &#123;</div><div class="line">		this.name = name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	protected UserBean(Parcel in) &#123;</div><div class="line">		age = in.readInt();</div><div class="line">		name = in.readString();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void writeToParcel(Parcel dest, int flags) &#123;</div><div class="line">		dest.writeInt(age);</div><div class="line">		dest.writeString(name);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public int describeContents() &#123;</div><div class="line">		return 0;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public static final Creator&lt;UserBean&gt; CREATOR = new Creator&lt;UserBean&gt;() &#123;</div><div class="line">		@Override</div><div class="line">		public UserBean createFromParcel(Parcel in) &#123;</div><div class="line">			return new UserBean(in);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		@Override</div><div class="line">		public UserBean[] newArray(int size) &#123;</div><div class="line">			return new UserBean[size];</div><div class="line">		&#125;</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>声明好了实体类，就需要额外在AIDL中声明实体类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// UserBean.aidl</div><div class="line">package com.t9.news.Model;</div><div class="line"></div><div class="line">parcelable UserBean;</div></pre></td></tr></table></figure></p>
 <p>在AIDL 中使用实体类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// IMyAidlInterface.aidl</div><div class="line">package com.t9.news;</div><div class="line"></div><div class="line">// Declare any non-default types here with import statements</div><div class="line">import com.t9.news.Model.UserBean;</div><div class="line">interface IUser &#123;</div><div class="line"></div><div class="line">    List&lt;UserBean&gt; getUser();</div><div class="line"></div><div class="line">    void addUser(in UserBean user);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>看一下项目的结构</p>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android进阶/">Android进阶</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-Android 进阶  ------ Android 单元测试" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/24/Android 进阶  ------ Android 单元测试/" class="article-date">
+      <time datetime="2018-08-24T07:22:56.164Z" itemprop="datePublished">2018-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/08/24/Android 进阶  ------ Android 单元测试/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/Android 进阶  ------ Android 单元测试/" itemprop="url">Android 进阶  ------ Android 单元测试</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/24/Android 进阶  ------ Android 单元测试/">Android 进阶  ------ Android 单元测试</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:22:56+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <h5 id="什么是单元测试？"><a href="#什么是单元测试？" class="headerlink" title="什么是单元测试？"></a>什么是单元测试？</h5><p>单元测试（unit testing），是指对软件中的最小可测试单元进行检查和验证。比如我们可以测试一个类，或者一个类中的一个方法。</p>
+        <h5 id="什么是单元测试？"><a href="#什么是单元测试？" class="headerlink" title="什么是单元测试？"></a>什么是单元测试？</h5><p>单元测试（unit testing），是指对软件中的最小可测试单元进行检查和验证。比如我们可以测试一个类，或者一个类中的一个方法。</p>
 <h5 id="为什么要进行单元测试？"><a href="#为什么要进行单元测试？" class="headerlink" title="为什么要进行单元测试？"></a>为什么要进行单元测试？</h5><p>为什么要进行单元测试？说白了就是单元测试有什么好处，其实测试的好处无非就是减少bug、提高代码质量、使代码易于维护等。</p>
 <p>这样表达可能不太好理解，举个例子</p>
 <p>比如我们APP启动，从初始化到启动页，再进入首页，需要很长的流程，如果主页需要请求数据，每次都要启动APP，经过一系列流程进入主页，才能测试主页请求数据模块，效率低下。<br>当然我们也能在初始化时请求数据，但是这样需要更改代码逻辑，同样需要启动APP，而如果用单元测试，我们可以直接测试请求数据模块，不需要任何逻辑修改。提高效率</p>
@@ -500,147 +393,69 @@
 <p>既然工具类写好了，当然要测试一下排序方法对不对了，这时候直接用单元测试来检验一下。</p>
 <p>AS为我们提供了创建测试类的快捷方法：</p>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android进阶/">Android进阶</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-Flutter初体验（二）---- 创建第一个Flutter APP" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/24/Flutter初体验（二）---- 创建第一个Flutter APP/" class="article-date">
+      <time datetime="2018-08-24T07:22:24.197Z" itemprop="datePublished">2018-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/08/24/Flutter初体验（二）---- 创建第一个Flutter APP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/Flutter初体验（二）---- 创建第一个Flutter APP/" itemprop="url">Flutter初体验（二）---- 创建第一个Flutter APP</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/24/Flutter初体验（二）---- 创建第一个Flutter APP/">Flutter初体验（二）---- 创建第一个Flutter APP</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:22:24+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <p>在第一篇文章<a href="http://blog.csdn.net/dazhaodai/article/details/79526401" target="_blank" rel="external"> Flutter初体验（一）—Mac 安装配置</a>，学习了配置 Flutter 开发环境，并运行了Demo项目，本篇根据官方教程，学习创建自己的第一个Flutter APP。</p>
+        <p>在第一篇文章<a href="http://blog.csdn.net/dazhaodai/article/details/79526401" target="_blank" rel="external"> Flutter初体验（一）—Mac 安装配置</a>，学习了配置 Flutter 开发环境，并运行了Demo项目，本篇根据官方教程，学习创建自己的第一个Flutter APP。</p>
 <hr>
 <pre><code>参考文档 https://flutter.io/get-started/codelab/
 </code></pre><hr>
@@ -770,147 +585,69 @@
 <hr>
 <p>第一篇文章：<a href="http://blog.csdn.net/dazhaodai/article/details/79526401" target="_blank" rel="external"> Flutter初体验（一）—Mac 安装配置</a></p>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android进阶/">Android进阶</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-Flutter初体验（一）---- 配置安装Flutter" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/24/Flutter初体验（一）---- 配置安装Flutter/" class="article-date">
+      <time datetime="2018-08-24T07:20:51.234Z" itemprop="datePublished">2018-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/08/24/Flutter初体验（一）---- 配置安装Flutter/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/Flutter初体验（一）---- 配置安装Flutter/" itemprop="url">Flutter初体验（一）---- 配置安装Flutter</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/24/Flutter初体验（一）---- 配置安装Flutter/">Flutter初体验（一）---- 配置安装Flutter</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:20:51+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <hr>
+        <hr>
 <p>参考文档：<br>    <a href="https://flutter.io/setup-macos/" target="_blank" rel="external">https://flutter.io/setup-macos/</a>          <a href="http://blog.csdn.net/zhangxiangliang2/article/details/75566412" target="_blank" rel="external">http://blog.csdn.net/zhangxiangliang2/article/details/75566412</a></p>
 <hr>
 <h3 id="1-获取-Flutter-SDK"><a href="#1-获取-Flutter-SDK" class="headerlink" title="1. 获取 Flutter SDK"></a>1. 获取 Flutter SDK</h3><ul>
@@ -944,147 +681,69 @@
 </ul>
 <p>至此，Flutter环境配置完成，示例也能运行，后续继续学习Flutter的开发。</p>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android进阶/">Android进阶</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-Java进阶 ——— 面试常见问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/24/Java进阶 ——— 面试常见问题/" class="article-date">
+      <time datetime="2018-08-24T07:18:02.162Z" itemprop="datePublished">2018-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/08/24/Java进阶 ——— 面试常见问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/Java进阶 ——— 面试常见问题/" itemprop="url">Java进阶 ——— 面试常见问题</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/24/Java进阶 ——— 面试常见问题/">Java进阶 ——— 面试常见问题</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:18:02+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <h3 id="1-java中-和equals和hashCode的区别"><a href="#1-java中-和equals和hashCode的区别" class="headerlink" title="1. java中==和equals和hashCode的区别"></a>1. java中==和equals和hashCode的区别</h3><ul>
+        <h3 id="1-java中-和equals和hashCode的区别"><a href="#1-java中-和equals和hashCode的区别" class="headerlink" title="1. java中==和equals和hashCode的区别"></a>1. java中==和equals和hashCode的区别</h3><ul>
 <li>1.关系操作符“==”到底比较的是什么？ </li>
 </ul>
 <p>“关系操作符生成的是一个boolean结果，它们计算的是操作数的值之间的关系”。</p>
@@ -1343,147 +1002,69 @@ http://blog.csdn.net/xiaoliuliu2050/article/details/61931498
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"> public static int parseInt(String s, int radix)</div><div class="line">            throws NumberFormatException</div><div class="line">&#123;</div><div class="line">    int result = 0;</div><div class="line">    boolean negative = false;</div><div class="line">    int i = 0, len = s.length();</div><div class="line">    int limit = -Integer.MAX_VALUE;</div><div class="line">    int multmin;</div><div class="line">    int digit;</div><div class="line"></div><div class="line">    if (len &gt; 0) &#123;</div><div class="line">        char firstChar = s.charAt(0);</div><div class="line">        if (firstChar &lt; &apos;0&apos;) &#123; // Possible leading &quot;+&quot; or &quot;-&quot;  //基本不用管</div><div class="line">            if (firstChar == &apos;-&apos;) &#123;</div><div class="line">                negative = true;</div><div class="line">                limit = Integer.MIN_VALUE;</div><div class="line">            &#125; else if (firstChar != &apos;+&apos;)</div><div class="line">                throw NumberFormatException.forInputString(s);</div><div class="line"></div><div class="line">            if (len == 1) // Cannot have lone &quot;+&quot; or &quot;-&quot;</div><div class="line">                throw NumberFormatException.forInputString(s);</div><div class="line">            i++;  // i自增</div><div class="line">        &#125;</div><div class="line">        multmin = limit / radix;   // multmin = limit/10；</div><div class="line">        while (i &lt; len) &#123;</div><div class="line">            // Accumulating negatively avoids surprises near MAX_VALUE</div><div class="line">            digit = Character.digit(s.charAt(i++),radix);</div><div class="line">            if (digit &lt; 0) &#123;</div><div class="line">                throw NumberFormatException.forInputString(s);</div><div class="line">            &#125;</div><div class="line">            if (result &lt; multmin) &#123;</div><div class="line">                throw NumberFormatException.forInputString(s);</div><div class="line">            &#125;</div><div class="line">            result *= radix;</div><div class="line">            if (result &lt; limit + digit) &#123;</div><div class="line">                throw NumberFormatException.forInputString(s);</div><div class="line">            &#125;</div><div class="line">            result -= digit;</div><div class="line">        &#125;</div><div class="line">    &#125; else &#123;</div><div class="line">        throw NumberFormatException.forInputString(s);</div><div class="line">    &#125;</div><div class="line">    return negative ? result : -result;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
 </ul>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java进阶/">Java进阶</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-Java进阶 ——— HTTP概述" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/24/Java进阶 ——— HTTP概述/" class="article-date">
+      <time datetime="2018-08-24T07:17:32.860Z" itemprop="datePublished">2018-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/08/24/Java进阶 ——— HTTP概述/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/Java进阶 ——— HTTP概述/" itemprop="url">Java进阶 ——— HTTP概述</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/24/Java进阶 ——— HTTP概述/">Java进阶 ——— HTTP概述</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:17:32+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <h2 id="HTTP概述"><a href="#HTTP概述" class="headerlink" title="HTTP概述"></a>HTTP概述</h2><p>Web浏览器、服务器和相关的Web应用程序都是通过HTTP相互通信。HTTP是现代全球因特网中使用的公共语言。</p>
+        <h2 id="HTTP概述"><a href="#HTTP概述" class="headerlink" title="HTTP概述"></a>HTTP概述</h2><p>Web浏览器、服务器和相关的Web应用程序都是通过HTTP相互通信。HTTP是现代全球因特网中使用的公共语言。</p>
 <h4 id="HTTP-因特网的多媒体信使"><a href="#HTTP-因特网的多媒体信使" class="headerlink" title="HTTP-因特网的多媒体信使"></a>HTTP-因特网的多媒体信使</h4><hr>
 <p>每天都有数亿JPEG图片、HTML页面、文本文件、MPEG电影、WAV音频文件、java小程序和其他资源在因特网游弋。HTTP可以从全世界的Web服务器上将这些信息迅速、便捷、可靠的传输到Web浏览器上。<br>HTTP使用的是可靠的数据传输协议，它能够确保数据在传输过程中不会被损坏或者产生混乱。对开发人员来说，无需担心HTTP通信会在传输过程中被破坏、复制或者产生畸变。开发人员可以专注于程序特有细节的编写，而不是考虑因特网中存在的一些缺陷和问题。</p>
 <h4 id="Web客户端和服务器"><a href="#Web客户端和服务器" class="headerlink" title="Web客户端和服务器"></a>Web客户端和服务器</h4><hr>
@@ -1755,147 +1336,69 @@ http://blog.csdn.net/xiaoliuliu2050/article/details/61931498
 <hr>
 <p>参考<br><a href="http://www.cnblogs.com/qcssmd/p/5508150.html" target="_blank" rel="external">http://www.cnblogs.com/qcssmd/p/5508150.html</a><br><a href="https://blog.csdn.net/u011318165/article/details/48102939" target="_blank" rel="external">https://blog.csdn.net/u011318165/article/details/48102939</a></p>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java进阶/">Java进阶</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-Java设计模式  ------ 代理模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/24/Java设计模式  ------ 代理模式/" class="article-date">
+      <time datetime="2018-08-24T07:16:54.381Z" itemprop="datePublished">2018-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/08/24/Java设计模式  ------ 代理模式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/Java设计模式  ------ 代理模式/" itemprop="url">Java设计模式  ------ 代理模式</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/24/Java设计模式  ------ 代理模式/">Java设计模式  ------ 代理模式</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:16:54+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <p>代理模式是常用的Java设计模式，它的特征是代理类与委托类有同样的接口，代理类主要负责为委托类预处理消息、过滤消息、把消息转发给委托类，以及事后处理消息等。代理类与委托类之间通常会存在关联关系，一个代理类的对象与一个委托类的对象关联，代理类的对象本身并不真正实现服务，而是通过调用委托类的对象的相关方法，来提供特定的服务。按照代理类的创建时期，代理类可分为两种。</p>
+        <p>代理模式是常用的Java设计模式，它的特征是代理类与委托类有同样的接口，代理类主要负责为委托类预处理消息、过滤消息、把消息转发给委托类，以及事后处理消息等。代理类与委托类之间通常会存在关联关系，一个代理类的对象与一个委托类的对象关联，代理类的对象本身并不真正实现服务，而是通过调用委托类的对象的相关方法，来提供特定的服务。按照代理类的创建时期，代理类可分为两种。</p>
 <p>静态代理类：由程序员创建或由特定工具自动生成源代码，再对其编译。在程序运行前，代理类的.class文件就已经存在了。实现类和代理类实现同一个接口，将实现类对象传递给代理类，代理类的实现方法实际是由实现类完成操作的。</p>
 <p>动态代理类：在程序运行时，运用反射机制动态创建而成。</p>
 <p>静态代理通常只代理一个类，动态代理是代理一个接口下的多个实现类。<br> 静态代理事先知道要代理的是什么，而动态代理不知道要代理什么东西，只有在运行时才知道。</p>
@@ -1903,147 +1406,69 @@ http://blog.csdn.net/xiaoliuliu2050/article/details/61931498
 <p>还有一种动态代理CGLIB，代理的是类，不需要业务类继承接口，通过派生的子类来实现代理。通过在运行时，动态修改字节码达到修改类的目的。<br>静态代理Demo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">public interface Iuser &#123;</div><div class="line"> 　　void eat(String s);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">public class UserImpl implements Iuser &#123;</div><div class="line">　　@Override</div><div class="line">　　public void eat(String s) &#123;</div><div class="line">　　　　System.out.println(&quot;我要吃&quot;+s);</div><div class="line">　　&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">public class DynamicProxy implements InvocationHandler &#123;</div><div class="line">　　private Object object;//用于接收具体实现类的实例对象</div><div class="line">　　//使用带参数的构造器来传递具体实现类的对象</div><div class="line">　　public DynamicProxy(Object obj)&#123;</div><div class="line">　　　　this.object = obj;</div><div class="line">　　&#125;</div><div class="line">　　@Override</div><div class="line">　　public Object invoke(Object proxy, Method method, Object[] args)throws Throwable &#123;</div><div class="line">　　　　System.out.println(&quot;前置内容&quot;);</div><div class="line">　　　　method.invoke(object, args);</div><div class="line">　　　　System.out.println(&quot;后置内容&quot;);</div><div class="line">　　　　return null;</div><div class="line">　　&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">public class ProxyTest &#123;</div><div class="line">　　public static void main(String[] args) &#123;</div><div class="line">　　　　Iuser user = new UserImpl();</div><div class="line">　　　　InvocationHandler h = new DynamicProxy(user);</div><div class="line">　　　　Iuser proxy = (Iuser) Proxy.newProxyInstance(Iuser.class.getClassLoader(), new Class[]&#123;Iuser.class&#125;, h);</div><div class="line">　　　　proxy.eat(&quot;苹果&quot;);</div><div class="line">　　&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>动态代理Demo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">public interface Iuser &#123;</div><div class="line"> 　　void eat(String s);</div><div class="line"> &#125;</div><div class="line"> </div><div class="line"></div><div class="line">public class UserImpl implements Iuser &#123;</div><div class="line">　　@Override</div><div class="line">　　public void eat(String s) &#123;</div><div class="line">　　　　System.out.println(&quot;我要吃&quot;+s);</div><div class="line">　　&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class DynamicProxy implements InvocationHandler &#123;</div><div class="line">　　private Object object;//用于接收具体实现类的实例对象</div><div class="line">　　//使用带参数的构造器来传递具体实现类的对象</div><div class="line">　　public DynamicProxy(Object obj)&#123;</div><div class="line">　　　　this.object = obj;</div><div class="line">　　&#125;</div><div class="line">　　@Override</div><div class="line">　　public Object invoke(Object proxy, Method method, Object[] args)throws Throwable &#123;</div><div class="line">　　　　System.out.println(&quot;前置内容&quot;);</div><div class="line">　　　　method.invoke(object, args);</div><div class="line">　　　　System.out.println(&quot;后置内容&quot;);</div><div class="line">　　　　return null;</div><div class="line">　　&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class ProxyTest &#123;</div><div class="line">　　public static void main(String[] args) &#123;</div><div class="line">　　　　Iuser user = new UserImpl();</div><div class="line">　　　　InvocationHandler h = new DynamicProxy(user);</div><div class="line">　　　　Iuser proxy = (Iuser) Proxy.newProxyInstance(Iuser.class.getClassLoader(), new Class[]&#123;Iuser.class&#125;, h);</div><div class="line">　　　　proxy.eat(&quot;苹果&quot;);</div><div class="line">　　&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java进阶/">Java进阶</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-Java 进阶  ------ 垃圾回收机制" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/24/Java 进阶  ------ 垃圾回收机制/" class="article-date">
+      <time datetime="2018-08-24T07:15:25.786Z" itemprop="datePublished">2018-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/08/24/Java 进阶  ------ 垃圾回收机制/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/Java 进阶  ------ 垃圾回收机制/" itemprop="url">Java 进阶  ------ 垃圾回收机制</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/24/Java 进阶  ------ 垃圾回收机制/">Java 进阶  ------ 垃圾回收机制</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:15:25+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <h3 id="1-垃圾回收机制"><a href="#1-垃圾回收机制" class="headerlink" title="1. 垃圾回收机制"></a>1. 垃圾回收机制</h3><ul>
+        <h3 id="1-垃圾回收机制"><a href="#1-垃圾回收机制" class="headerlink" title="1. 垃圾回收机制"></a>1. 垃圾回收机制</h3><ul>
 <li><p>垃圾回收的意义<br>当没有对象引用指向原先分配给某个对象的内存时，该内存便成为垃圾，JVM的一个系统级线程会自动释放该内存块。垃圾回收意味着程序不再需要的对象是”无用信息”，这些信息将被丢弃。当一个对象不再被引用的时候，内存回收它占领的空间，以便空间被后来的新对象使用。事实上，除了释放没用的对象，垃圾回收也可以清除内存记录碎片。</p>
 </li>
 <li><p>垃圾收集的算法分析<br>1.为什么会有年轻代</p>
@@ -2145,147 +1570,69 @@ https://www.cnblogs.com/E-star/p/5556188.html
 <pre><code>原文: http://www.sczyh30.com/posts/Java/java-reflection-1/　　作者: sczyh30
 </code></pre><hr>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java进阶/">Java进阶</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-Java 进阶  ------ 时间复杂度对比" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/24/Java 进阶  ------ 时间复杂度对比/" class="article-date">
+      <time datetime="2018-08-24T07:14:50.300Z" itemprop="datePublished">2018-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/08/24/Java 进阶  ------ 时间复杂度对比/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/Java 进阶  ------ 时间复杂度对比/" itemprop="url">Java 进阶  ------ 时间复杂度对比</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/24/Java 进阶  ------ 时间复杂度对比/">Java 进阶  ------ 时间复杂度对比</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:14:50+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>  通常，对于一个给定的算法，我们要做 两项分析。第一是从数学上证明算法的正确性，这一步主要用到形式化证明的方法及相关推理模式，如循环不变式、数学归纳法等。而在证明算法是正确的基础上，第二部就是分析算法的时间复杂度。算法的时间复杂度反映了程序执行时间随输入规模增长而增长的量级，在很大程度上能很好反映出算法的优劣与否。因此，作为程序员，掌握基本的算法时间复杂度分析方法是很有必要的。<br>       算法执行时间需通过依据该算法编制的程序在计算机上运行时所消耗的时间来度量。而度量一个程序的执行时间通常有两种方法。</p>
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>  通常，对于一个给定的算法，我们要做 两项分析。第一是从数学上证明算法的正确性，这一步主要用到形式化证明的方法及相关推理模式，如循环不变式、数学归纳法等。而在证明算法是正确的基础上，第二部就是分析算法的时间复杂度。算法的时间复杂度反映了程序执行时间随输入规模增长而增长的量级，在很大程度上能很好反映出算法的优劣与否。因此，作为程序员，掌握基本的算法时间复杂度分析方法是很有必要的。<br>       算法执行时间需通过依据该算法编制的程序在计算机上运行时所消耗的时间来度量。而度量一个程序的执行时间通常有两种方法。</p>
 <h3 id="1-算法的效率"><a href="#1-算法的效率" class="headerlink" title="1.算法的效率"></a>1.算法的效率</h3><p>虽然计算机能快速的完成运算处理，但实际上，它也需要根据输入数据的大小和算法效率来消耗一定的处理器资源。要想编写出能高效运行的程序，我们就需要考虑到算法的效率。<br>算法的效率主要由以下两个复杂度来评估：<br>时间复杂度：评估执行程序所需的时间。可以估算出程序对处理器的使用程度。<br>空间复杂度：评估执行程序所需的存储空间。可以估算出程序对计算机内存的使用程度。</p>
 <p>设计算法时，一般是要先考虑系统环境，然后权衡时间复杂度和空间复杂度，选取一个平衡点。不过，时间复杂度要比空间复杂度更容易产生问题，因此算法研究的主要也是时间复杂度，不特别说明的情况下，复杂度就是指时间复杂度。</p>
 <h3 id="2-时间复杂度"><a href="#2-时间复杂度" class="headerlink" title="2.时间复杂度"></a>2.时间复杂度</h3><p>时间频度<br>一个算法执行所耗费的时间，从理论上是不能算出来的，必须上机运行测试才能知道。但我们不可能也没有必要对每个算法都上机测试，只需知道哪个算法花费的时间多，哪个算法花费的时间少就可以了。并且一个算法花费的时间与算法中语句的执行次数成正比例，哪个算法中语句执行次数多，它花费时间就多。一个算法中的语句执行次数称为语句频度或时间频度。记为T(n)。</p>
@@ -2379,147 +1726,69 @@ https://www.cnblogs.com/E-star/p/5556188.html
 <p>O(1)&lt;O(logn)&lt;O(n)&lt;O(nlogn)&lt;O(n²)&lt;O(n³)&lt;O(2ⁿ)&lt;O(n!)</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/itachi85/article/details/54882603" target="_blank" rel="external">https://blog.csdn.net/itachi85/article/details/54882603</a></p>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java进阶/">Java进阶</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-JVM DVM ART对比" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/24/JVM DVM ART对比/" class="article-date">
+      <time datetime="2018-08-24T07:14:07.614Z" itemprop="datePublished">2018-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/08/24/JVM DVM ART对比/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/JVM DVM ART对比/" itemprop="url">Android 进阶  ------ JVM DVM ART对比</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/24/JVM DVM ART对比/">Android 进阶  ------ JVM DVM ART对比</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:14:07+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <p>Android系统使用Dalvik Virtual Machine (DVM)作为其虚拟机，所有安卓程序都运行在安卓系统进程里，每个进程对应着一个Dalvik虚拟机实例。他们都提供了对象生命周期管理、堆栈管理、线程管理、安全和异常管理以及垃圾回收等重要功能，各自拥有一套完整的指令系统。</p>
+        <p>Android系统使用Dalvik Virtual Machine (DVM)作为其虚拟机，所有安卓程序都运行在安卓系统进程里，每个进程对应着一个Dalvik虚拟机实例。他们都提供了对象生命周期管理、堆栈管理、线程管理、安全和异常管理以及垃圾回收等重要功能，各自拥有一套完整的指令系统。</p>
 <p>Android之所以不直接使用JVM作为其虚拟机的原因有很多，版权问题我们暂且搁置一边，本文将首先在技术上对DVM和JVM进行比较，然后重点对Dalvik虚拟机的垃圾回收机制进行介绍，文章末尾再对Android5.0之后使用的新型虚拟机——ART虚拟机进行简单介绍</p>
 <h3 id="DVM-vs-JVM"><a href="#DVM-vs-JVM" class="headerlink" title="DVM vs JVM"></a>DVM vs JVM</h3><h5 id="共同点："><a href="#共同点：" class="headerlink" title="共同点："></a>共同点：</h5><ul>
 <li>都是解释执行</li>
@@ -2558,329 +1827,130 @@ https://www.cnblogs.com/E-star/p/5556188.html
 <p>Mark阶段使用了两个Bitmap来描述堆的对象，一个称为Live Bitmap，另一个称为Mark Bitmap。Live Bitmap用来标记上一次GC时被引用的对象，也就是没有被回收的对象，而Mark Bitmap用来标记当前GC有被引用的对象。当Live Bitmap被标记为1，但是在Mark Bitmap中标记为0的对象表明该对象需要被回收。</p>
 <p>此外在Mark阶段往往要求其它线程处于停止状态，因此Mark又分为并行和串行两种方式，并行的Mark分为两个阶段：1)、只标记gc_root对象，即在GC开始的瞬间被全局变量、栈变量、寄存器等所引用的对象，该阶段不允许垃圾回收线程之外的线程处于运行状态。2)、有条件的并行运行其它线程，使用Card<br> Table记录在垃圾收集过程中对象的引用情况。整个Mark 阶段都是通过Mark Stack来实现递归检查被引用的对象，即在当前GC中存活的对象。标记过程类似用一个栈把第一阶段得到的gc_root放入栈底，然后依次遍历它们所引用的对象(通过出栈入栈)，即用栈数据结构实现了对每个gc_root的递归。</p>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android进阶/">Android进阶</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
+</article>
+
+
+
+
+
+
+
+
+
   
   
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">daidai</p>
-              <p class="site-description motion-element" itemprop="description">喜欢探索未知,保持好奇心</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">31</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">daidai</span>
-
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
-
-
-
-
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2018 daidai
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
         
-
-
-
-
-
-
-
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
         
-      </div>
-    </footer>
-
+    </div>
+</footer>
+    </div>
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
     
-
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
     
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
 </script>
 
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
 </body>
 </html>

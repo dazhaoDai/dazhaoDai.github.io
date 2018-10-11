@@ -1,82 +1,21 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="daidai" />
 
 
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
+    
+    
 
 
 <meta name="description" content="喜欢探索未知,保持好奇心">
@@ -90,44 +29,64 @@
 <meta name="twitter:title" content="T9&#39;S Develop Blog">
 <meta name="twitter:description" content="喜欢探索未知,保持好奇心">
 
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    <link rel="alternate" href="/atom.xml" title="T9&#39;S Develop Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <style> .article { opacity: 0;} </style>
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>T9&#39;S Develop Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: true,
+        isPost: false,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: 
     }
-  };
 </script>
 
 
-
-  <link rel="canonical" href="http://outofmemory.top/page/2/"/>
-
+    <script> yiliaConfig.jquery_ui = [false]; </script>
 
 
 
-
-  <title>T9'S Develop Blog</title>
-  
-
-
+    <script> yiliaConfig.rootUrl = "\/";</script>
 
 
 
@@ -135,197 +94,209 @@
 
 
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left 
-  page-home">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">T9'S Develop Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle">不仅有工作，更有生活</p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/08/24/Handler系列之创建子线程Handler/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
-    
-      <header class="post-header">
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">daidai</a></h1>
+        </hgroup>
 
         
+        <p class="header-subtitle">不仅有工作，更有生活</p>
         
-          <h1 class="post-title" itemprop="name headline">
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
                 
-                <a class="post-title-link" href="/2018/08/24/Handler系列之创建子线程Handler/" itemprop="url">Android 进阶  ------ Handler系列之创建子线程Handler</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:12:46+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android官方架构/">Android官方架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android进阶/">Android进阶</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git分支操作/">Git分支操作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java进阶/">Java进阶</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/">Kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin开发/">Kotlin开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-aidl/">android aidl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-permission/">android permission</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-view/">android view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-开发错误/">android 开发错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-权限/">android 权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-自定义view/">android 自定义view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android触摸事件/">android触摸事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/privacy/">privacy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
 
                 
                 
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
         </div>
-      </header>
-    
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">daidai</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">daidai</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">不仅有工作，更有生活</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap">
+  
+    <article id="post-Handler系列之创建子线程Handler" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/24/Handler系列之创建子线程Handler/" class="article-date">
+      <time datetime="2018-08-24T07:12:46.105Z" itemprop="datePublished">2018-08-24</time>
+</a>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
 
-      
-      
-
-      
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/24/Handler系列之创建子线程Handler/">Android 进阶  ------ Handler系列之创建子线程Handler</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
           
-            <p>上一篇我介绍了Handler机制的工作原理，默认情况下，ActivityThread类为我们创建的了主线程的Looper和消息队列，所以当你创建Handler之后发送消息的时候，消息的轮训和handle都是在ui线程进行的。这种情况属于子线程给主线程发消息，通知主线程更新ui…等，那么反过来，怎么才能让主线程给子线程发消息，通知子线程做一些耗时逻辑？？</p>
+        <p>上一篇我介绍了Handler机制的工作原理，默认情况下，ActivityThread类为我们创建的了主线程的Looper和消息队列，所以当你创建Handler之后发送消息的时候，消息的轮训和handle都是在ui线程进行的。这种情况属于子线程给主线程发消息，通知主线程更新ui…等，那么反过来，怎么才能让主线程给子线程发消息，通知子线程做一些耗时逻辑？？</p>
 <p>　　之前的学习我们知道，Android的消息机制遵循三个步骤：</p>
 <ul>
 <li><p>1　创建当前线程的Looper　　</p>
@@ -349,147 +320,69 @@
 <hr>
 <p>参考<br><a href="https://www.cnblogs.com/lang-yu/p/6228832.html" target="_blank" rel="external">https://www.cnblogs.com/lang-yu/p/6228832.html</a></p>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android进阶/">Android进阶</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/24/Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap/" class="article-date">
+      <time datetime="2018-08-24T07:06:38.651Z" itemprop="datePublished">2018-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/08/24/Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap/" itemprop="url">Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/24/Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap/">Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:06:38+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <p>在Android开发时，我们使用的大部分都是Java的api，比如HashMap这个api，使用率非常高，但是对于Android这种对内存非常敏感的移动平台，很多时候使用一些java的api并不能达到更好的性能，相反反而更消耗内存，所以针对Android这种移动平台，也推出了更符合自己的api，比如SparseArray、ArrayMap用来代替HashMap在有些情况下能带来更好的性能提升。</p>
+        <p>在Android开发时，我们使用的大部分都是Java的api，比如HashMap这个api，使用率非常高，但是对于Android这种对内存非常敏感的移动平台，很多时候使用一些java的api并不能达到更好的性能，相反反而更消耗内存，所以针对Android这种移动平台，也推出了更符合自己的api，比如SparseArray、ArrayMap用来代替HashMap在有些情况下能带来更好的性能提升。</p>
 <p>介绍它们之前先来介绍一下HashMap的内部存储结构，就明白为什么推荐使用SparseArray和ArrayMap</p>
 <h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><p>HashMap内部是使用一个默认容量为16的数组来存储数据的，而数组中每一个元素却又是一个链表的头结点，所以，更准确的来说，HashMap内部存储结构是使用哈希表的拉链结构（数组+链表），如图：<br>这种存储数据的方法叫做拉链法 </p>
 <p><img src="https://img-blog.csdn.net/20150820130200565" alt=""></p>
@@ -539,147 +432,69 @@
 <hr>
 <p><a href="https://blog.csdn.net/u010687392/article/details/47809295" target="_blank" rel="external">https://blog.csdn.net/u010687392/article/details/47809295</a></p>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android进阶/">Android进阶</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-Java设计模式 ——— 工厂模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/24/Java设计模式 ——— 工厂模式/" class="article-date">
+      <time datetime="2018-08-24T07:05:45.715Z" itemprop="datePublished">2018-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/08/24/Java设计模式 ——— 工厂模式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/Java设计模式 ——— 工厂模式/" itemprop="url">Java设计模式 ——— 工厂模式</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/24/Java设计模式 ——— 工厂模式/">Java设计模式 ——— 工厂模式</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T15:05:45+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <h3 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h3><p>简单工厂模式的模型非常简单，定义一个抽象类及抽象方法，具体产品类继承抽象类，在简单工厂类中提供具体产品，供给客户端使用<br><img src="https://images2015.cnblogs.com/blog/364303/201608/364303-20160818224552500-264215677.png" alt=""></p>
+        <h3 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h3><p>简单工厂模式的模型非常简单，定义一个抽象类及抽象方法，具体产品类继承抽象类，在简单工厂类中提供具体产品，供给客户端使用<br><img src="https://images2015.cnblogs.com/blog/364303/201608/364303-20160818224552500-264215677.png" alt=""></p>
 <p>例如，一家餐馆，可以提供多种食品，供用户选择：</p>
 <ul>
 <li><p>定义抽象类</p>
@@ -731,147 +546,69 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public class DrinkFactory extends RestaurantFactory &#123;</div><div class="line">	@Override</div><div class="line">	public Food getFood(String type) &#123;</div><div class="line">		return null;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public IDrinks getDrink(int price) &#123;</div><div class="line">		if(price &lt; 3 )&#123;</div><div class="line">			return new WaterDrinks();</div><div class="line">		&#125;else  if (price &gt;= 3)&#123;</div><div class="line">			return new ColaDrinks();</div><div class="line">		&#125;</div><div class="line">		return null;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
 </ul>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java进阶/">Java进阶</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-Android进阶 ——— Android官方架构组件Lifecycle" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/24/Android进阶 ——— Android官方架构组件Lifecycle/" class="article-date">
+      <time datetime="2018-08-24T06:15:50.616Z" itemprop="datePublished">2018-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/08/24/Android进阶 ——— Android官方架构组件Lifecycle/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/Android进阶 ——— Android官方架构组件Lifecycle/" itemprop="url">Android进阶 ——— Android官方架构组件Lifecycle</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/24/Android进阶 ——— Android官方架构组件Lifecycle/">Android进阶 ——— Android官方架构组件Lifecycle</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T14:15:50+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <h2 id="初探"><a href="#初探" class="headerlink" title="初探"></a>初探</h2><p>Lifecycle是Android官方推出的架构组件，在谷歌开发者官微发布的<a href="https://mp.weixin.qq.com/s/9rC_5GhdAA_EMEbWKJT5vQ" target="_blank" rel="external">正式发布 Android 架构组件 1.0 稳定版 | 附带中文介绍视频</a><br>简明扼要的阐述了推出的架构组件的作用及使用，也可以查看<a href="https://developer.android.com/reference/androidx/lifecycle/package-summary" target="_blank" rel="external">Android开发者官网</a>。</p>
+        <h2 id="初探"><a href="#初探" class="headerlink" title="初探"></a>初探</h2><p>Lifecycle是Android官方推出的架构组件，在谷歌开发者官微发布的<a href="https://mp.weixin.qq.com/s/9rC_5GhdAA_EMEbWKJT5vQ" target="_blank" rel="external">正式发布 Android 架构组件 1.0 稳定版 | 附带中文介绍视频</a><br>简明扼要的阐述了推出的架构组件的作用及使用，也可以查看<a href="https://developer.android.com/reference/androidx/lifecycle/package-summary" target="_blank" rel="external">Android开发者官网</a>。</p>
 <p>先来看看架构组件的第一部分Lifecycle。<br>在长篇大论之前，先要了解它的作用，为什么谷歌要推出Lifecycle？</p>
 <p>就是为了解决常见架构模式中，声明周期管理的痛点，例如MVP模式：<br>为了管理声明周期：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public interface IPresenter &#123;</div><div class="line"></div><div class="line">	void onCreate();</div><div class="line"></div><div class="line">	void onStart();</div><div class="line"></div><div class="line">	void onResume();</div><div class="line"></div><div class="line">	void onPause();</div><div class="line"></div><div class="line">	void onStop();</div><div class="line"></div><div class="line">	void onDestroy();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>继承Ipresenter接口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">public class MainPresenter implements IPresenter &#123;</div><div class="line"></div><div class="line">	public void xxx()&#123;</div><div class="line">		</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void onCreate() &#123;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void onStart() &#123;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void onResume() &#123;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void onPause() &#123;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void onStop() &#123;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void onDestroy() &#123;</div><div class="line"></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -902,147 +639,69 @@
 <p>两种实现方式：<br>1）、实现DefultLifecyceObserver接口，然后重写里面生命周期方法；<br>2）、直接实现LifecycleObserver接口，然后通过注解的方式来接收生命周期的变化；<br>Lifecycle.java文档中是建议使用第一种方式，因为文档中说明了，随着Java8成为主流，注解的方式会被弃用。DefaultLifecycleObserver是需要另外声明的java8 ，所以上面我们添加了Java8的依赖，再回顾上面的例子：</p>
 <p>IPrestener继承<code>DefaultLifecycleObserver</code>,MainPresenter实现IPresenter接口，并实现<code>DefaultLifecycleObserver</code>中定义的方法，而Activity默认实现了<code>LifecycleOwner</code>接口，持有声明周期，最后调用<code>getLifecycle().addObserver(presenter)</code>注册了LifecycleObserver。</p>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android官方架构/">Android官方架构</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-Android进阶 ——— Android官方架构组件LiveData" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/24/Android进阶 ——— Android官方架构组件LiveData/" class="article-date">
+      <time datetime="2018-08-24T06:15:06.506Z" itemprop="datePublished">2018-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/08/24/Android进阶 ——— Android官方架构组件LiveData/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/Android进阶 ——— Android官方架构组件LiveData/" itemprop="url">Android进阶 ——— Android官方架构组件LiveData</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/24/Android进阶 ——— Android官方架构组件LiveData/">Android进阶 ——— Android官方架构组件LiveData</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T14:15:06+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <blockquote>
+        <blockquote>
 <p>上一篇文章，学习了Android官方架构组件的第一部分<a href="https://blog.csdn.net/dazhaoDai/article/details/81902704" target="_blank" rel="external">Android进阶 ——— Android官方架构组件Lifecycle</a></p>
 </blockquote>
 <h2 id="初探"><a href="#初探" class="headerlink" title="初探"></a>初探</h2><p>LiveData 是一个可以感知 Activity 、Fragment生命周期的数据容器。当 LiveData 所持有的数据改变时，它会通知相应的界面代码进行更新。同时，LiveData 持有界面代码 Lifecycle 的引用，这意味着它会在界面代码（LifecycleOwner）的生命周期处于 started 或 resumed 时作出相应更新，而在 LifecycleOwner 被销毁时停止更新。</p>
@@ -1103,147 +762,69 @@
 <p>最让人头疼的源码，这里只抽取出常用方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">  //添加观察者，普通模式，只在LifecycleOwner处于活跃状态，监听LiveData的变化</div><div class="line">@MainThread</div><div class="line">  public void observe(@NonNull LifecycleOwner owner, @NonNull Observer&lt;T&gt; observer) &#123;</div><div class="line">        if (owner.getLifecycle().getCurrentState() == DESTROYED) &#123;</div><div class="line">            // ignore</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        //将LifecycleOwner对象和Observer对象封装成LifecycleBoundObserver对象。</div><div class="line">        LifecycleBoundObserver wrapper = new LifecycleBoundObserver(owner, observer);</div><div class="line">        // mObservers可以理解成一个类似Map的容器，putIfAbsent()方法是判断容器中的observer（key）</div><div class="line">        // 是否有已经和wrapper(value)关联，如果已经关联则返回关联值，否则关联并返回wrapper。</div><div class="line">        LifecycleBoundObserver existing = mObservers.putIfAbsent(observer, wrapper);</div><div class="line">        if (existing != null &amp;&amp; existing.owner != wrapper.owner) &#123;</div><div class="line">            throw new IllegalArgumentException(&quot;Cannot add the same observer&quot;</div><div class="line">                    + &quot; with different lifecycles&quot;);</div><div class="line">        &#125;</div><div class="line">        if (existing != null) &#123;</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        owner.getLifecycle().addObserver(wrapper); </div><div class="line">        //条件LifecycleOwner的生命周期观察者</div><div class="line"></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  /**通过observeForever()添加观察者，观察者会一直受到数</div><div class="line">  据的变化回到，而不是在组件处于STARTED和RESUMED状态下才</div><div class="line">  会收到，因为这是LifecycleOwner对象就不再是组件了，而是</div><div class="line">  ALWAYS_ON；另外通过该方法添加观察者后，要手动调用</div><div class="line">  removeObserver()方法来停止观察者接收回调通知。</div><div class="line">  observeForever()方法体很简单，调用了observe()方法</div><div class="line">  ，传入的一个参数是ALWAYS_ON常量</div><div class="line">  */</div><div class="line">  @MainThread</div><div class="line">  public void observeForever(@NonNull Observer&lt;T&gt; observer) &#123;</div><div class="line"></div><div class="line">  &#125;</div><div class="line"></div><div class="line">    /**移除观察者，如果不是主线程，则会警告，然后根据</div><div class="line">    observer取出对应的ObserverWrapper(SafeIterableMap中存储Observer和</div><div class="line">    ObserverWrapper)，真正实现移除是在</div><div class="line">    removed.activeStateChanged(false)中</div><div class="line">    */</div><div class="line">  @MainThread</div><div class="line">  public void removeObserver(@NonNull final Observer&lt;T&gt; observer) &#123;</div><div class="line">      assertMainThread(&quot;removeObserver&quot;);</div><div class="line">      //mObservers是一个SafeIterableMap对象</div><div class="line">      ObserverWrapper removed = mObservers.remove(observer);</div><div class="line">      if (removed == null) &#123;</div><div class="line">          return;</div><div class="line">      &#125;</div><div class="line">      removed.detachObserver();</div><div class="line">      //真正移除Observer的监听</div><div class="line">      removed.activeStateChanged(false);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">    移除全部观察者，同样必须主线程，然后遍历所有Observer，调用removeObserver移除Observer</div><div class="line">    */</div><div class="line">  @MainThread</div><div class="line">  public void removeObservers(@NonNull final LifecycleOwner owner) &#123;</div><div class="line">      assertMainThread(&quot;removeObservers&quot;);</div><div class="line">      for (Map.Entry&lt;Observer&lt;T&gt;, ObserverWrapper&gt; entry : mObservers) &#123;</div><div class="line">          if (entry.getValue().isAttachedTo(owner)) &#123;</div><div class="line">              removeObserver(entry.getKey());</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">    //主/分线程都可以调用，如果主线程多次调用，只调度最后一个值</div><div class="line">  protected void postValue(T value) &#123;</div><div class="line">      boolean postTask;</div><div class="line">      synchronized (mDataLock) &#123;</div><div class="line">          postTask = mPendingData == NOT_SET;</div><div class="line">          mPendingData = value;</div><div class="line">      &#125;</div><div class="line">      if (!postTask) &#123;</div><div class="line">          return;</div><div class="line">      &#125;</div><div class="line">     // 会在主线程中执行  mPostValueRunnable中的内容。</div><div class="line">     ArchTaskExecutor.getInstance().postToMainThread(mPostValueRunnable);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">    //判断主线程，</div><div class="line">  @MainThread</div><div class="line">  protected void setValue(T value) &#123;</div><div class="line">      assertMainThread(&quot;setValue&quot;);</div><div class="line">      mVersion++;</div><div class="line">      mData = value;</div><div class="line">      dispatchingValue(null);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">    //获取数据，很简单</div><div class="line">  public T getValue() &#123;</div><div class="line">        Object data = mData;</div><div class="line">      if (data != NOT_SET) &#123;</div><div class="line">          //noinspection unchecked</div><div class="line">          return (T) data;</div><div class="line">      &#125;</div><div class="line">      return null;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">    //活跃状态，空方法，子类实现</div><div class="line">  protected void onActive() &#123;</div><div class="line"></div><div class="line">  &#125;</div><div class="line">    //非活跃状态，空方法，子类实现</div><div class="line">  protected void onInactive() &#123;</div><div class="line"></div><div class="line">  &#125;</div><div class="line">    //是否有观察者</div><div class="line">  public boolean hasObservers() &#123;</div><div class="line">      return mObservers.size() &gt; 0;</div><div class="line">  &#125;</div><div class="line">    //是否有活跃观察者</div><div class="line">  public boolean hasActiveObservers() &#123;</div><div class="line">      return mActiveCount &gt; 0;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  private abstract class ObserverWrapper &#123;</div><div class="line">      final Observer&lt;T&gt; mObserver;</div><div class="line">      boolean mActive;</div><div class="line">      int mLastVersion = START_VERSION;</div><div class="line"></div><div class="line">      ObserverWrapper(Observer&lt;T&gt; observer) &#123;</div><div class="line">          mObserver = observer;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      abstract boolean shouldBeActive();</div><div class="line"></div><div class="line">      boolean isAttachedTo(LifecycleOwner owner) &#123;</div><div class="line">          return false;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      void detachObserver() &#123;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      void activeStateChanged(boolean newActive) &#123;</div><div class="line">          if (newActive == mActive) &#123;</div><div class="line">              return;</div><div class="line">          &#125;</div><div class="line">          // immediately set active state, so we&apos;d never dispatch anything to inactive</div><div class="line">          // owner</div><div class="line">          mActive = newActive;</div><div class="line">          //是否有活跃状态的观察者</div><div class="line">          boolean wasInactive = LiveData.this.mActiveCount == 0;</div><div class="line">          //增加或减少活跃状态观察者数量</div><div class="line">          LiveData.this.mActiveCount += mActive ? 1 : -1;     </div><div class="line">          //存在活跃状态观察者且新增观察者，则是活跃状态</div><div class="line">          if (wasInactive &amp;&amp; mActive) &#123;</div><div class="line">              onActive();</div><div class="line">          &#125;</div><div class="line">          //如果活跃状态观察者为0，且移除观察者，则非活跃状态</div><div class="line">          if (LiveData.this.mActiveCount == 0 &amp;&amp; !mActive) &#123;</div><div class="line">              onInactive();</div><div class="line">          &#125;</div><div class="line">          if (mActive) &#123;</div><div class="line">              dispatchingValue(this);</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>简单了解LiveData的使用以及原理，发现内部并不太复杂，一直是维护一个观察者和观察者管理对象的 SafeIterableMap，现在就可以在轻松的开始尝试了。</p>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android官方架构/">Android官方架构</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-iOS 自定义View 中跳转UIViewController" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/24/iOS 自定义View 中跳转UIViewController/" class="article-date">
+      <time datetime="2018-08-24T04:33:38.958Z" itemprop="datePublished">2018-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/08/24/iOS 自定义View 中跳转UIViewController/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/iOS 自定义View 中跳转UIViewController/" itemprop="url">iOS 自定义View 中跳转UIViewController</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/24/iOS 自定义View 中跳转UIViewController/">iOS 自定义View 中跳转UIViewController</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T12:33:38+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <p>自定义View中实现控制器的跳转，可以有多种实现方式：</p>
+        <p>自定义View中实现控制器的跳转，可以有多种实现方式：</p>
 <ul>
 <li><h5 id="1-使用Notification"><a href="#1-使用Notification" class="headerlink" title="1 使用Notification"></a>1 使用Notification</h5><p>使用Notification，在父控制器打开需要跳转的控制器</p>
 </li>
@@ -1257,147 +838,69 @@
 <p>Swift<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let nav = UIApplication.shared.keyWindow?.rootViewController as! UIViewController</div><div class="line">let feedVC  = FeedBackViewController.init()</div><div class="line">nav.present(feedVC!, animated: true, completion: nil)</div></pre></td></tr></table></figure></p>
 <p> OC<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UIViewController *root = [UIApplication sharedApplication].keyWindow.rootViewController;</div><div class="line">[root presentViewController:&lt;#(nonnull UIViewController *)#&gt; animated:YES completion:nil];</div></pre></td></tr></table></figure></p>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-Kotlin 学习笔记（八）—— Kotlin类与对象之接口" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/02/28/Kotlin 学习笔记（八）—— Kotlin类与对象之接口/" class="article-date">
+      <time datetime="2018-02-28T08:28:07.000Z" itemprop="datePublished">2018-02-28</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/02/28/Kotlin 学习笔记（八）—— Kotlin类与对象之接口/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/28/Kotlin 学习笔记（八）—— Kotlin类与对象之接口/" itemprop="url">Kotlin 学习笔记（八）—— Kotlin类与对象之接口</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/28/Kotlin 学习笔记（八）—— Kotlin类与对象之接口/">Kotlin 学习笔记（八）—— Kotlin类与对象之接口</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-28T16:28:07+08:00">
-                2018-02-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kotlin/" itemprop="url" rel="index">
-                    <span itemprop="name">Kotlin</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <hr>
+        <hr>
 <h3 id="Kotlin学习笔记系列教程"><a href="#Kotlin学习笔记系列教程" class="headerlink" title="Kotlin学习笔记系列教程"></a>Kotlin学习笔记系列教程</h3><blockquote>
 <p><a href="http://blog.csdn.net/dazhaoDai/article/details/79293475" target="_blank" rel="external">Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79293555" target="_blank" rel="external"> Kotlin 学习笔记（二）—— 基础语法</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79298087" target="_blank" rel="external">Kotlin 学习笔记（三）—— 习惯用法</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79301071" target="_blank" rel="external">Kotlin 学习笔记（四）—— Kotlin基础之基本类型</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79315585" target="_blank" rel="external">Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79392850" target="_blank" rel="external">Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79401080" target="_blank" rel="external">Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段</a>  </p>
 </blockquote>
@@ -1417,147 +920,69 @@
 <p>个人博客地址：<a href="http://outofmemory.top/">http://outofmemory.top/</a><br>CSDN地址：<a href="http://blog.csdn.net/dazhaoDai" target="_blank" rel="external">http://blog.csdn.net/dazhaoDai</a><br>GitHub地址：<a href="https://github.com/dazhaoDai" target="_blank" rel="external">https://github.com/dazhaoDai</a>  </p>
 <hr>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Kotlin/">Kotlin</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin/">Kotlin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin开发/">Kotlin开发</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/02/28/Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段/" class="article-date">
+      <time datetime="2018-02-28T07:20:18.000Z" itemprop="datePublished">2018-02-28</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/02/28/Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/28/Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段/" itemprop="url">Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/28/Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段/">Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-28T15:20:18+08:00">
-                2018-02-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kotlin/" itemprop="url" rel="index">
-                    <span itemprop="name">Kotlin</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <hr>
+        <hr>
 <h3 id="Kotlin学习笔记系列教程"><a href="#Kotlin学习笔记系列教程" class="headerlink" title="Kotlin学习笔记系列教程"></a>Kotlin学习笔记系列教程</h3><blockquote>
 <p><a href="http://blog.csdn.net/dazhaoDai/article/details/79293475" target="_blank" rel="external">Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79293555" target="_blank" rel="external"> Kotlin 学习笔记（二）—— 基础语法</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79298087" target="_blank" rel="external">Kotlin 学习笔记（三）—— 习惯用法</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79301071" target="_blank" rel="external">Kotlin 学习笔记（四）—— Kotlin基础之基本类型</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79315585" target="_blank" rel="external">Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79392850" target="_blank" rel="external">Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承</a></p>
 </blockquote>
@@ -1599,147 +1024,69 @@
 <p>个人博客地址：<a href="http://outofmemory.top/">http://outofmemory.top/</a><br>CSDN地址：<a href="http://blog.csdn.net/dazhaoDai" target="_blank" rel="external">http://blog.csdn.net/dazhaoDai</a><br>GitHub地址：<a href="https://github.com/dazhaoDai" target="_blank" rel="external">https://github.com/dazhaoDai</a></p>
 <hr>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Kotlin/">Kotlin</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin/">Kotlin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin开发/">Kotlin开发</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/02/27/Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承/" class="article-date">
+      <time datetime="2018-02-27T12:57:04.000Z" itemprop="datePublished">2018-02-27</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/02/27/Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/27/Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承/" itemprop="url">Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/27/Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承/">Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-27T20:57:04+08:00">
-                2018-02-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kotlin/" itemprop="url" rel="index">
-                    <span itemprop="name">Kotlin</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <hr>
+        <hr>
 <h3 id="Kotlin学习笔记系列教程"><a href="#Kotlin学习笔记系列教程" class="headerlink" title="Kotlin学习笔记系列教程"></a>Kotlin学习笔记系列教程</h3><blockquote>
 <p><a href="http://blog.csdn.net/dazhaoDai/article/details/79293475" target="_blank" rel="external">Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79293555" target="_blank" rel="external"> Kotlin 学习笔记（二）—— 基础语法</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79298087" target="_blank" rel="external">Kotlin 学习笔记（三）—— 习惯用法</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79301071" target="_blank" rel="external"> Kotlin 学习笔记（四）—— Kotlin基础之基本类型</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79315585" target="_blank" rel="external"> Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入</a></p>
 </blockquote>
@@ -1795,147 +1142,69 @@
 <h2 id="gt-以上就是类与对象的第一篇–类和继承"><a href="#gt-以上就是类与对象的第一篇–类和继承" class="headerlink" title="&gt;以上就是类与对象的第一篇–类和继承"></a>&gt;以上就是类与对象的第一篇–类和继承</h2><p>个人博客地址：<a href="http://outofmemory.top/">http://outofmemory.top/</a><br>CSDN地址：<a href="http://blog.csdn.net/dazhaoDai" target="_blank" rel="external">http://blog.csdn.net/dazhaoDai</a><br>GitHub地址：<a href="https://github.com/dazhaoDai" target="_blank" rel="external">https://github.com/dazhaoDai</a></p>
 <hr>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Kotlin/">Kotlin</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin/">Kotlin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin开发/">Kotlin开发</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
-  
-  
-  </article>
+</article>
 
 
+
+
+
+
+
+
+
+  
+    <article id="post-Kotlin基础之控制流、返回与跳转、 包与导入" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/02/12/Kotlin基础之控制流、返回与跳转、 包与导入/" class="article-date">
+      <time datetime="2018-02-12T03:22:20.000Z" itemprop="datePublished">2018-02-12</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://outofmemory.top/2018/02/12/Kotlin基础之控制流、返回与跳转、 包与导入/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="daidai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T9'S Develop Blog">
-    </span>
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/12/Kotlin基础之控制流、返回与跳转、 包与导入/" itemprop="url">Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入</a></h1>
-        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/12/Kotlin基础之控制流、返回与跳转、 包与导入/">Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-12T11:22:20+08:00">
-                2018-02-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kotlin/" itemprop="url" rel="index">
-                    <span itemprop="name">Kotlin</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
       </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
+    
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
           
-            <hr>
+        <hr>
 <h3 id="Kotlin学习笔记系列教程"><a href="#Kotlin学习笔记系列教程" class="headerlink" title="Kotlin学习笔记系列教程"></a>Kotlin学习笔记系列教程</h3><blockquote>
 <p><a href="http://blog.csdn.net/dazhaoDai/article/details/79293475" target="_blank" rel="external">Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79293555" target="_blank" rel="external"> Kotlin 学习笔记（二）—— 基础语法</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79298087" target="_blank" rel="external">Kotlin 学习笔记（三）—— 习惯用法</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79301071" target="_blank" rel="external"> Kotlin 学习笔记（四）—— Kotlin基础之基本类型</a></p>
 </blockquote>
@@ -2021,329 +1290,130 @@
 <p>与 Java 不同，Kotlin 没有单独的“import static”语法； 所有这些声明都用 import 关键字导入。</p>
 <h4 id="顶层声明的可见性"><a href="#顶层声明的可见性" class="headerlink" title="顶层声明的可见性"></a>顶层声明的可见性</h4><p>如果顶层声明是 private 的，它是声明它的文件所私有的（参见 可见性修饰符）。</p>
 
-          
-        
       
     </div>
     
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Kotlin/">Kotlin</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin/">Kotlin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin开发/">Kotlin开发</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
+</article>
+
+
+
+
+
+
+
+
+
   
   
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">daidai</p>
-              <p class="site-description motion-element" itemprop="description">喜欢探索未知,保持好奇心</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">31</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">daidai</span>
-
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    </nav>
   
 </div>
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
-
-
-
-
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2018 daidai
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
         
-
-
-
-
-
-
-
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
         
-      </div>
-    </footer>
-
+    </div>
+</footer>
+    </div>
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
     
-
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
     
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
 </script>
 
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
 </body>
 </html>
