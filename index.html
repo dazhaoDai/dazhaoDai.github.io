@@ -274,75 +274,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-Android进阶 ——— Android 深入理解AIDL进程间通信" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/08/24/Android进阶 ——— Android 深入理解AIDL进程间通信/" class="article-date">
-      <time datetime="2018-08-24T07:23:07.051Z" itemprop="datePublished">2018-08-24</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/24/Android进阶 ——— Android 深入理解AIDL进程间通信/">Android进阶 ——— Android 深入理解AIDL进程间通信</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>关于AIDL的资料，层出不穷，但是能让人简单明了理解的文章不多，那么我们就自己撸一遍，清晰明了的理解一下AIDL的原理。</p>
-<h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><p>在理解AIDL原理之前，先写一个简单的使用AIDL进行进程间通信的例子，根据这个例子来由浅及深的理解AIDL。</p>
-<p>先来定义实体类：UserBean.java<br>注意：<strong>如果要在AIDL中使用实体类，实体类必须要实现序列化接口，这里实现的是Android自带的Parcelable接口</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">package com.t9.news.Model;</div><div class="line"></div><div class="line">import android.os.Parcel;</div><div class="line">import android.os.Parcelable;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Created by dai</div><div class="line"> * Created time 2018/5/11</div><div class="line"> * function:com.t9.news.Model</div><div class="line"> */</div><div class="line"></div><div class="line">public class UserBean implements Parcelable&#123;</div><div class="line"></div><div class="line">	private int age;</div><div class="line">	private String name;</div><div class="line"></div><div class="line">	public int getAge() &#123;</div><div class="line">		return age;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setAge(int age) &#123;</div><div class="line">		this.age = age;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String getName() &#123;</div><div class="line">		return name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setName(String name) &#123;</div><div class="line">		this.name = name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	protected UserBean(Parcel in) &#123;</div><div class="line">		age = in.readInt();</div><div class="line">		name = in.readString();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void writeToParcel(Parcel dest, int flags) &#123;</div><div class="line">		dest.writeInt(age);</div><div class="line">		dest.writeString(name);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public int describeContents() &#123;</div><div class="line">		return 0;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public static final Creator&lt;UserBean&gt; CREATOR = new Creator&lt;UserBean&gt;() &#123;</div><div class="line">		@Override</div><div class="line">		public UserBean createFromParcel(Parcel in) &#123;</div><div class="line">			return new UserBean(in);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		@Override</div><div class="line">		public UserBean[] newArray(int size) &#123;</div><div class="line">			return new UserBean[size];</div><div class="line">		&#125;</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>声明好了实体类，就需要额外在AIDL中声明实体类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// UserBean.aidl</div><div class="line">package com.t9.news.Model;</div><div class="line"></div><div class="line">parcelable UserBean;</div></pre></td></tr></table></figure></p>
-<p>在AIDL 中使用实体类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// IMyAidlInterface.aidl</div><div class="line">package com.t9.news;</div><div class="line"></div><div class="line">// Declare any non-default types here with import statements</div><div class="line">import com.t9.news.Model.UserBean;</div><div class="line">interface IUser &#123;</div><div class="line"></div><div class="line">    List&lt;UserBean&gt; getUser();</div><div class="line"></div><div class="line">    void addUser(in UserBean user);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>看一下项目的结构</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Android/">Android</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android进阶/">Android进阶</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-Android 进阶  ------ Android 单元测试" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1894,9 +1825,95 @@ https://www.cnblogs.com/E-star/p/5556188.html
 
 
   
+    <article id="post-Handler系列之创建子线程Handler" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/24/Handler系列之创建子线程Handler/" class="article-date">
+      <time datetime="2018-08-24T07:12:46.105Z" itemprop="datePublished">2018-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/24/Handler系列之创建子线程Handler/">Android 进阶  ------ Handler系列之创建子线程Handler</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>上一篇我介绍了Handler机制的工作原理，默认情况下，ActivityThread类为我们创建的了主线程的Looper和消息队列，所以当你创建Handler之后发送消息的时候，消息的轮训和handle都是在ui线程进行的。这种情况属于子线程给主线程发消息，通知主线程更新ui…等，那么反过来，怎么才能让主线程给子线程发消息，通知子线程做一些耗时逻辑？？</p>
+<p>　　之前的学习我们知道，Android的消息机制遵循三个步骤：</p>
+<ul>
+<li><p>1　创建当前线程的Looper　　</p>
+</li>
+<li><p>2　创建当前线程的Handler　</p>
+</li>
+<li><p>3　调用当前线程Looper对象的loop方法</p>
+</li>
+</ul>
+<p>　　看过之前文章的朋友会注意到，本篇我特意强调了“当前线程”。是的之前我们学习的很多都是Android未我们做好了的，譬如：创建主线程的Looper、主线程的消息队列…就连我们使用的handler也是主线程的。那么如果我想创建非主线程的Handler并且发送消息、处理消息，这一系列的操作我们应该怎么办那？？？不怎么办、凉拌～～～什么意思？？？依葫芦画瓢，依然遵循上面的三步走，直接上代码！！！！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">public class ChildThreadHandlerActivity extends Activity &#123;</div><div class="line">    private MyThread childThread;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_handler);</div><div class="line"></div><div class="line">        childThread = new MyThread();</div><div class="line">        childThread.start();</div><div class="line"></div><div class="line">        Handler childHandler = new Handler(childThread.childLooper)&#123;//这样之后，childHandler和childLooper就关联起来了。</div><div class="line">            public void handleMessage(Message msg) &#123;</div><div class="line">                </div><div class="line">            &#125;;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private class MyThread extends Thread&#123;</div><div class="line">        public Looper childLooper;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public void run() &#123;</div><div class="line">            Looper.prepare();//创建与当前线程相关的Looper</div><div class="line">            childLooper = Looper.myLooper();//获取当前线程的Looper对象</div><div class="line">            Looper.loop();//调用此方法，消息才会循环处理</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>代码如上，我们依然循序Android的三步走战略，完成了子线程Handler的创建，难道这样创建完了，就可以发消息了么？发的消息在什么线程处理？一系列的问题，怎么办？看代码！！！运行上述代码，我们发现一个问题，就是此代码一会崩溃、一会不崩溃，通过查看日志我们看到崩溃的原因是空指针。谁为空？？？查到是我们的Looper对象，怎么会那？我不是在子线程的run方法中初始化Looper对象了么？话是没错，但是你要知道，当你statr子线程的时候，虽然子线程的run方法得到执行，但是主线程中代码依然会向下执行，造成空指针的原因是当我们new Handler(childThread.childLooper)的时候，run方法中的Looper对象还没初始化。当然这种情况是随机的，所以造成偶现的崩溃。</p>
+<p>　　那怎么办？难道我们不能创建子线程Handler ？？？No!!!No!!!No!!!，你能想到的Android早就为我们实现好了，HandlerThread类就是解决这个问题的关键所在，看代码！！！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">public class HandlerThreadActivity extends Activity &#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_handler);</div><div class="line">        TextView textView = (TextView) findViewById(R.id.tv);</div><div class="line">        textView.setText(&quot;HandlerThreadActivity.class&quot;);</div><div class="line"></div><div class="line">        HandlerThread handlerThread = new HandlerThread(&quot;HandlerThread&quot;);</div><div class="line">        handlerThread.start();</div><div class="line"></div><div class="line">        Handler mHandler = new Handler(handlerThread.getLooper())&#123;</div><div class="line">            @Override</div><div class="line">            public void handleMessage(Message msg) &#123;</div><div class="line">                super.handleMessage(msg);</div><div class="line">                Log.d(&quot;HandlerThreadActivity.class&quot;,&quot;uiThread2------&quot;+Thread.currentThread());//子线程</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        Log.d(&quot;HandlerThreadActivity.class&quot;,&quot;uiThread1------&quot;+Thread.currentThread());//主线程</div><div class="line">        mHandler.sendEmptyMessage(1);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>创建HandlerThread对象的时候，有个参数，是指定线程名字的。上面的代码不管运行多少次都不会奔溃！！！并且这种方法创建的handler的handleMessage方法运行在子线程中。所以我们可以在这里处理一些耗时的逻辑。到此我们完成了主线程给子线程发通知，在子线程做耗时逻辑的操作。</p>
+<p>　　下面我们去看看源码，看看为什么使用HandlerThread就可以避免空指针那？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public Looper getLooper() &#123;</div><div class="line">    if (!isAlive()) &#123;</div><div class="line">        return null;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    // If the thread has been started, wait until the looper has been created.</div><div class="line">    synchronized (this) &#123;</div><div class="line">        while (isAlive() &amp;&amp; mLooper == null) &#123;</div><div class="line">            try &#123;</div><div class="line">                wait();</div><div class="line">            &#125; catch (InterruptedException e) &#123;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return mLooper;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>HandlerThread类的getLooper方法如上，我们看到当我们获取当前线程Looper对象的时候，会先判断当前线程是否存活，然后还要判断Looper对象是否为空，都满足之后才会返回给我Looper对象，否则处于等待状态！！既然有等待，那就有唤醒的时候，在那里那？？？我们发现HandlerThread的run方法中，有如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">public void run() &#123;</div><div class="line">    mTid = Process.myTid();</div><div class="line">    Looper.prepare();</div><div class="line">    synchronized (this) &#123;</div><div class="line">        mLooper = Looper.myLooper();</div><div class="line">        notifyAll();</div><div class="line">    &#125;</div><div class="line">    Process.setThreadPriority(mPriority);</div><div class="line">    onLooperPrepared();</div><div class="line">    Looper.loop();</div><div class="line">    mTid = -1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>说明了什么那？？？HandlerThread类start的时候，Looper对象就初始化了，并唤醒之前等待的。所以HandlerThread很好的避免了之前空指针的产生。所以以后要想创建非主线程的Handler时，我们用HandlerThread类提供的Looper对象即可。</p>
+<hr>
+<p>参考<br><a href="https://www.cnblogs.com/lang-yu/p/6228832.html" target="_blank" rel="external">https://www.cnblogs.com/lang-yu/p/6228832.html</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android进阶/">Android进阶</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>
