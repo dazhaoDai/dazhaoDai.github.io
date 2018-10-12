@@ -274,6 +274,92 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Handler系列之创建子线程Handler" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/24/Handler系列之创建子线程Handler/" class="article-date">
+      <time datetime="2018-08-24T07:12:46.105Z" itemprop="datePublished">2018-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/24/Handler系列之创建子线程Handler/">Android 进阶  ------ Handler系列之创建子线程Handler</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>上一篇我介绍了Handler机制的工作原理，默认情况下，ActivityThread类为我们创建的了主线程的Looper和消息队列，所以当你创建Handler之后发送消息的时候，消息的轮训和handle都是在ui线程进行的。这种情况属于子线程给主线程发消息，通知主线程更新ui…等，那么反过来，怎么才能让主线程给子线程发消息，通知子线程做一些耗时逻辑？？</p>
+<p>　　之前的学习我们知道，Android的消息机制遵循三个步骤：</p>
+<ul>
+<li><p>1　创建当前线程的Looper　　</p>
+</li>
+<li><p>2　创建当前线程的Handler　</p>
+</li>
+<li><p>3　调用当前线程Looper对象的loop方法</p>
+</li>
+</ul>
+<p>　　看过之前文章的朋友会注意到，本篇我特意强调了“当前线程”。是的之前我们学习的很多都是Android未我们做好了的，譬如：创建主线程的Looper、主线程的消息队列…就连我们使用的handler也是主线程的。那么如果我想创建非主线程的Handler并且发送消息、处理消息，这一系列的操作我们应该怎么办那？？？不怎么办、凉拌～～～什么意思？？？依葫芦画瓢，依然遵循上面的三步走，直接上代码！！！！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">public class ChildThreadHandlerActivity extends Activity &#123;</div><div class="line">    private MyThread childThread;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_handler);</div><div class="line"></div><div class="line">        childThread = new MyThread();</div><div class="line">        childThread.start();</div><div class="line"></div><div class="line">        Handler childHandler = new Handler(childThread.childLooper)&#123;//这样之后，childHandler和childLooper就关联起来了。</div><div class="line">            public void handleMessage(Message msg) &#123;</div><div class="line">                </div><div class="line">            &#125;;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private class MyThread extends Thread&#123;</div><div class="line">        public Looper childLooper;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public void run() &#123;</div><div class="line">            Looper.prepare();//创建与当前线程相关的Looper</div><div class="line">            childLooper = Looper.myLooper();//获取当前线程的Looper对象</div><div class="line">            Looper.loop();//调用此方法，消息才会循环处理</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>代码如上，我们依然循序Android的三步走战略，完成了子线程Handler的创建，难道这样创建完了，就可以发消息了么？发的消息在什么线程处理？一系列的问题，怎么办？看代码！！！运行上述代码，我们发现一个问题，就是此代码一会崩溃、一会不崩溃，通过查看日志我们看到崩溃的原因是空指针。谁为空？？？查到是我们的Looper对象，怎么会那？我不是在子线程的run方法中初始化Looper对象了么？话是没错，但是你要知道，当你statr子线程的时候，虽然子线程的run方法得到执行，但是主线程中代码依然会向下执行，造成空指针的原因是当我们new Handler(childThread.childLooper)的时候，run方法中的Looper对象还没初始化。当然这种情况是随机的，所以造成偶现的崩溃。</p>
+<p>　　那怎么办？难道我们不能创建子线程Handler ？？？No!!!No!!!No!!!，你能想到的Android早就为我们实现好了，HandlerThread类就是解决这个问题的关键所在，看代码！！！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">public class HandlerThreadActivity extends Activity &#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_handler);</div><div class="line">        TextView textView = (TextView) findViewById(R.id.tv);</div><div class="line">        textView.setText(&quot;HandlerThreadActivity.class&quot;);</div><div class="line"></div><div class="line">        HandlerThread handlerThread = new HandlerThread(&quot;HandlerThread&quot;);</div><div class="line">        handlerThread.start();</div><div class="line"></div><div class="line">        Handler mHandler = new Handler(handlerThread.getLooper())&#123;</div><div class="line">            @Override</div><div class="line">            public void handleMessage(Message msg) &#123;</div><div class="line">                super.handleMessage(msg);</div><div class="line">                Log.d(&quot;HandlerThreadActivity.class&quot;,&quot;uiThread2------&quot;+Thread.currentThread());//子线程</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        Log.d(&quot;HandlerThreadActivity.class&quot;,&quot;uiThread1------&quot;+Thread.currentThread());//主线程</div><div class="line">        mHandler.sendEmptyMessage(1);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>创建HandlerThread对象的时候，有个参数，是指定线程名字的。上面的代码不管运行多少次都不会奔溃！！！并且这种方法创建的handler的handleMessage方法运行在子线程中。所以我们可以在这里处理一些耗时的逻辑。到此我们完成了主线程给子线程发通知，在子线程做耗时逻辑的操作。</p>
+<p>　　下面我们去看看源码，看看为什么使用HandlerThread就可以避免空指针那？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public Looper getLooper() &#123;</div><div class="line">    if (!isAlive()) &#123;</div><div class="line">        return null;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    // If the thread has been started, wait until the looper has been created.</div><div class="line">    synchronized (this) &#123;</div><div class="line">        while (isAlive() &amp;&amp; mLooper == null) &#123;</div><div class="line">            try &#123;</div><div class="line">                wait();</div><div class="line">            &#125; catch (InterruptedException e) &#123;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return mLooper;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>HandlerThread类的getLooper方法如上，我们看到当我们获取当前线程Looper对象的时候，会先判断当前线程是否存活，然后还要判断Looper对象是否为空，都满足之后才会返回给我Looper对象，否则处于等待状态！！既然有等待，那就有唤醒的时候，在那里那？？？我们发现HandlerThread的run方法中，有如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">public void run() &#123;</div><div class="line">    mTid = Process.myTid();</div><div class="line">    Looper.prepare();</div><div class="line">    synchronized (this) &#123;</div><div class="line">        mLooper = Looper.myLooper();</div><div class="line">        notifyAll();</div><div class="line">    &#125;</div><div class="line">    Process.setThreadPriority(mPriority);</div><div class="line">    onLooperPrepared();</div><div class="line">    Looper.loop();</div><div class="line">    mTid = -1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>说明了什么那？？？HandlerThread类start的时候，Looper对象就初始化了，并唤醒之前等待的。所以HandlerThread很好的避免了之前空指针的产生。所以以后要想创建非主线程的Handler时，我们用HandlerThread类提供的Looper对象即可。</p>
+<hr>
+<p>参考<br><a href="https://www.cnblogs.com/lang-yu/p/6228832.html" target="_blank" rel="external">https://www.cnblogs.com/lang-yu/p/6228832.html</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android进阶/">Android进阶</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1244,198 +1330,9 @@
 
 
   
-    <article id="post-Kotlin基础之基本类型" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/02/09/Kotlin基础之基本类型/" class="article-date">
-      <time datetime="2018-02-09T10:51:42.000Z" itemprop="datePublished">2018-02-09</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/09/Kotlin基础之基本类型/">Kotlin 学习笔记（四）—— Kotlin基础之基本类型</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <hr>
-<h3 id="Kotlin学习笔记系列教程"><a href="#Kotlin学习笔记系列教程" class="headerlink" title="Kotlin学习笔记系列教程"></a>Kotlin学习笔记系列教程</h3><blockquote>
-<p><a href="http://blog.csdn.net/dazhaoDai/article/details/79293475" target="_blank" rel="external">Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79293555" target="_blank" rel="external"> Kotlin 学习笔记（二）—— 基础语法</a><br><a href="http://blog.csdn.net/dazhaodai/article/details/79298087" target="_blank" rel="external">Kotlin 学习笔记（三）—— 习惯用法</a></p>
-</blockquote>
-<hr>
-<p>在Kotlin中，所有东西都是对象，在这个意义上讲我们可以在任何变量上调用成员函数和属性，一些类型可以有特殊的内部表示–例如，数字、字符和布尔值可以在运行时表示为原生类型值，但是对于用户来说，他们看起来就像普通类，在本篇中，将描述Kotlin中使用的基本类型：数字、字符、布尔值、数组与字符串。</p>
-<h3 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h3><p>Kotlin处理数字在某种程度上接近Java，但是不完全相同，例如，对于数字没有隐式拓宽转换（例如Java中int 可以隐式转换为long），另外有些情况的字面值略有不同。</p>
-<p>Kotlin 提供了如下的内置类型来表示数字：</p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Bit Width</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Double</td>
-<td>64</td>
-</tr>
-<tr>
-<td>Float</td>
-<td>32</td>
-</tr>
-<tr>
-<td>Long</td>
-<td>64</td>
-</tr>
-<tr>
-<td>Int</td>
-<td>32</td>
-</tr>
-<tr>
-<td>Short</td>
-<td>16</td>
-</tr>
-<tr>
-<td>Byte</td>
-<td>8</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>Kotlin中字符不是数字</p>
-</blockquote>
-<h4 id="字面常量"><a href="#字面常量" class="headerlink" title="字面常量"></a>字面常量</h4><p>数值常量字面值有以下几种：</p>
-<ul>
-<li>十进制<br> -Long 类型用大写L标记：<code>32L</code></li>
-<li>十六进制：<code>0x0F</code></li>
-<li>二进制：<code>0b00001011</code><blockquote>
-<p>注意：不支持八进制<br>Kotlin同样支持浮点数的常规表示方法：<br>  –默认double：<code>22.2</code>、<code>240.5e10</code><br>  – Float用 <code>f</code> 或者 <code>F</code> 标记：<code>234.5f</code></p>
-</blockquote>
-</li>
-</ul>
-<p>数字字面值的下划线（自1.1起）<br>可以使用下划线使数字常量更具有可读性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">val sixMillion = 6_000_000</div><div class="line">val phoneNumber = 138_0013_8000</div><div class="line">val creditCardNumber = 1234_5678_9012_3456L</div></pre></td></tr></table></figure></p>
-<h4 id="表达方式"><a href="#表达方式" class="headerlink" title="表达方式"></a>表达方式</h4><p>在Java平台数字是物理存储为JVM的原生类型，除非我们需要一个可空的引用（如<code>Int？</code>） 或泛型，后者情况下会把数字装箱。<br>注意数字装箱不必保留同一性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">val a: Int = 10000</div><div class="line">print(a === a) // 输出“true”</div><div class="line">val boxedA: Int? = a</div><div class="line">val anotherBoxedA: Int? = a</div><div class="line">print(boxedA === anotherBoxedA) // ！！！输   出“false”！！！</div></pre></td></tr></table></figure></p>
-<p>另一方面，保留了相等性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">val a: Int = 10000</div><div class="line">print(a == a) // 输出“true”</div><div class="line">val boxedA: Int? = a</div><div class="line">val anotherBoxedA: Int? = a</div><div class="line">print(boxedA == anotherBoxedA) // 输出“true”</div></pre></td></tr></table></figure></p>
-<h4 id="显式转换"><a href="#显式转换" class="headerlink" title="显式转换"></a>显式转换</h4><p>由于不同的表达方式，较小类型并不是较大类型的子类型。如果它们是的话，就会出现下面问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 假想的代码，实际上并不能编译：</div><div class="line">val a: Int? = 1 // 一个装箱的 Int (java.lang.Integer)</div><div class="line">val b: Long? = a // 隐式转换产生一个装箱的 Long (java.lang.Long)</div><div class="line">print(a == b) // 惊！这将输出“false”鉴于 Long 的 equals() 检测其他部分也是 Long</div></pre></td></tr></table></figure></p>
-<p>所以同一性还有相等性都会在所有地方悄无声息地失去</p>
-<p>因此较小的类型不能隐式转换为较大的类型。这意味着在不进行显式转换的情况下我们不能把<code>byte</code>类型赋值给一个<code>Int</code>类型变量：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val a: Byte = 1 </div><div class="line">val b: Int = b //错误，无法赋值</div></pre></td></tr></table></figure></p>
-<p>不过，我们可以通过显式转换来拓宽数字：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val c: Int = a.toInt()  //OK：显式拓宽</div></pre></td></tr></table></figure></p>
-<p>每个数字类型都支持如下的转换：</p>
-<ul>
-<li><code>toByte(): Byte</code></li>
-<li><code>toShort(): Short</code></li>
-<li><code>toInt(): Int</code></li>
-<li><code>toLong(): Long</code></li>
-<li><code>toFloat(): Float</code></li>
-<li><code>toDouble(): Double</code></li>
-<li><code>toChar(): Char</code><br>缺乏隐式类型转换并不显著，因此类型会从上下文来推断出来，而算术运算会有重载做适当转换，例如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val l = 1L + 3 // Long + Int =&gt; Long</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h4><p>Kotlin 支持数字运算的标准集，运算被定义为相应的类成员（但编译器会将函数调用优化为相应的指令）。<br>对于运算符，没有特殊字符表示，而只可用中椎方式调用命令函数，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val x = (1 shl 2) and 0x000FF000</div></pre></td></tr></table></figure></p>
-<p>这是完整的位运算列表（只用于 <code>Int</code> 和 <code>Long</code>）：</p>
-<ul>
-<li><code>shl(bits)</code> – 有符号左移 (Java 的 &lt;&lt;)</li>
-<li><code>shr(bits)</code> – 有符号右移 (Java 的 &gt;&gt;)</li>
-<li><code>ushr(bits)</code> – 无符号右移 (Java 的 &gt;&gt;&gt;)</li>
-<li><code>and(bits)</code> – 位与</li>
-<li><code>or(bits)</code> – 位或</li>
-<li><code>xor(bits)</code> – 位异或</li>
-<li><code>inv()</code> – 位非</li>
-</ul>
-<h4 id="浮点数比较"><a href="#浮点数比较" class="headerlink" title="浮点数比较"></a>浮点数比较</h4><p>本节讨论的浮点数操作如下：</p>
-<ul>
-<li>相等性检测：<code>a == b</code> 与 <code>a != b</code></li>
-<li>比较操作符：<code>a &lt; b</code> 、<code>a &gt; b</code>、<code>a &lt;= b</code>、<code>a &gt;= b</code></li>
-<li>区间实例以及区间检测：<code>a..b</code>、<code>x in a..b</code>、 <code>x !in a..b</code></li>
-</ul>
-<p>其中的操作数<code>a</code>、<code>b</code>都是静态已知的<code>FLoat</code> 或 <code>Double</code> 或者它们对呀的可空类型（声明为该类型，或者推断为该类型，或者智能类型转换的结果是该类型），两数字所形成的操作或者区间遵循IEEE 754浮点运算标准。</p>
-<p>然而，为了支持泛型场景并提供全序支持，当这些操作符并非静态类型为浮点数（例如是 Any、 Comparable&lt;……&gt;、 类型参数）时，这些操作使用为 Float 与 Double 实现的不符合标准的 equals 与 compareTo，这会出现：</p>
-<ul>
-<li>认为 NaN 与其自身相等</li>
-<li>认为 NaN 比包括正无穷大（POSITIVE_INFINITY）在内的任何其他元素都大</li>
-<li>认为 -0.0 小于 0.0</li>
-</ul>
-<h3 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h3><p>字符使用<code>Char</code>类型表示。它们不能直接当作数字<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fun check(char : Char)&#123;</div><div class="line">    if (char == 1)&#123;  //❎，类型不兼容</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>字符字面值要用单引号括起来 <code>&#39;1&#39;</code>,特殊字符可以用反斜杠转义。支持以下转义序列：<code>\t</code> 、<code>\b</code> 、<code>\n</code> 、<code>\r</code>、 <code>\&#39;</code>、 <code>\&quot;</code>、 <code>\\</code> 、<code>\$</code>。编码其他字符要用Unicode转义序列语法： <code>&#39;\uFF00&#39;</code><br>我们可以显式把字符转为Int数字：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">fun chartoInt(char: Char) : Int &#123;</div><div class="line">    if (char in &apos;0&apos;..&apos;9&apos;)&#123;</div><div class="line">        return char.toInt() - &apos;0&apos;.toInt()</div><div class="line">    &#125;</div><div class="line">    throw IllegalArgumentException(&quot;out of range&quot;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>当需要可空引用时，像数字、字符会被装箱。装箱操作不会保留同一性</p>
-<h3 id="布尔"><a href="#布尔" class="headerlink" title="布尔"></a>布尔</h3><p>布尔使用<code>Boolean</code>类型表示，只有两个值：<code>true</code> 和 <code>false</code><br>布尔运算符：</p>
-<ul>
-<li><code>||</code>  -短路逻辑或</li>
-<li><code>&amp;&amp;</code>  -短路逻辑与</li>
-<li><code>！</code>  -逻辑非</li>
-</ul>
-<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>数组在Kotlin中使用<code>Array</code>类来表示，它定义了<code>get</code>和<code>set</code>函数（按照运算符重载约定这会转变为[]）和<code>size</code>属性，以及一些其他有用的成员函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">class Array&lt;T&gt; private constructor() &#123;</div><div class="line">    val size: Int</div><div class="line">    operator fun get(index: Int): T</div><div class="line">    operator fun set(index: Int, value: T): Unit</div><div class="line"></div><div class="line">    operator fun iterator(): Iterator&lt;T&gt;</div><div class="line">    // ……</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>我们可以使用库函数<code>arrayOf()</code>来创建一个数组并传递元素值给它，这样<code>arrayOf(1, 2, 3)</code>创建了array[1, 2, 3]。或者，库函数<code>arrayOfNulls()</code>可以创建一个制定大小的、所有元素都为空的数组。</p>
-<p>另一个选项是用接受数组大小和一个函数参数的<code>Array</code>构造函数，用作参数的函数能够返回给定索引的每个元素初始值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//创建一个 Array&lt;Int&gt; 初始值为[0，1，4，9]数组</div><div class="line">val intArray = Array(4,&#123;i -&gt; i * i &#125;)</div></pre></td></tr></table></figure></p>
-<p>如上所述，<code>[]</code>运算符代表调用成员函数<code>get()</code>和<code>set()</code>。</p>
-<p>注意：与Java不同的是，Kotlin中数组是不型变的（invariant），这意味着不能把<code>Array&lt;String&gt;</code> 赋值给 <code>Array&lt;Any&gt;</code>,以防止可能的运行时失败（但是你可以用<code>Array&lt;Out Any&gt;</code>）</p>
-<p>Kotlin 也有无装箱开销的专门的类来表示原生类型数组：<code>ByteAray</code> 、<code>ShortArray</code>、<code>IntArray</code> 等等。这些类和<code>Array</code>并没有继承关系，但是它们有相同的方法属性集。它们也有相应的工厂方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val intArray1 = intArrayOf(1,1,1,1)</div><div class="line">intArray1[0] = intArray1[1] + intArray1[2]</div></pre></td></tr></table></figure></p>
-<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>字符串用 <code>String</code> 类型来表示，字符串是不可变的，字符串的元素 – 字符 可以使用索引运算符访问：<code>s[i]</code>，可以用for循环迭代字符串：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">val str = &quot;Kotlin and Java&quot;</div><div class="line"></div><div class="line">fun sortStr()&#123;</div><div class="line">    for (s in str)&#123;</div><div class="line">        print(s)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="字符串字面值"><a href="#字符串字面值" class="headerlink" title="字符串字面值"></a>字符串字面值</h4><p>Kotlin 有两种类型的字符串字面值：转义字符串可以有转义字符，以及原生字符串可以包含换行和任意文本。转义字符串很像Java字符串：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val s = &quot;Hello, world!\n&quot;</div></pre></td></tr></table></figure></p>
-<p>转义采用传统的反斜杠方式。参见上面的 字符 查看支持的转义序列。<br>原生字符串 使用三个引号(“””)分解符括起来，内部没有转义并且可以包含换行和其他字符：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">val text = &quot;&quot;&quot;</div><div class="line">   for (c in &quot;foo&quot;)</div><div class="line">       print(c)</div><div class="line">&quot;&quot;&quot;</div></pre></td></tr></table></figure></p>
-<p>你可以通过 trimMargin() 函数去除前导空格：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">val text = &quot;&quot;&quot;</div><div class="line">  |Tell me and I forget.</div><div class="line">  |Teach me and I remember.</div><div class="line">  |Involve me and I learn.</div><div class="line">  |(Benjamin Franklin)</div><div class="line">  &quot;&quot;&quot;.trimMargin()</div></pre></td></tr></table></figure></p>
-<p>默认使用<code>|</code>用作边界前缀，但你可以选择其他字符作为参数传入，例如trimMargin(“a”)。</p>
-<h4 id="字符串模板"><a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h4><p>字符串可以包含模板表达式，即一些小段代码，会求值并把结果合并到字符串中。模板表达式以美元符(<code>$</code>)开头，由一个简单的名字构成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val str = &quot;Kotlin and Java&quot;</div><div class="line">val newStr = &quot;i = $str&quot;</div></pre></td></tr></table></figure></p>
-<p>或者使用花括号括起来的任意表达式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val str = &quot;Kotlin and Java&quot;</div><div class="line">val newStr = &quot;$str.length is $&#123;str.length&#125;&quot;  //&quot;Kotlin and Java.length is 15&quot;</div></pre></td></tr></table></figure></p>
-<p>原生字符串和转义字符串内部都支持模板，如果你需要在原生字符串中表示字面值<code>$</code>字符（它不支持反斜杠转义），你可以用下列语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">val price = &quot;&quot;&quot;</div><div class="line">    $&#123;&apos;$&apos;&#125;0.88</div><div class="line">    &quot;&quot;&quot;</div></pre></td></tr></table></figure></p>
-<hr>
-<blockquote>
-<p>本篇主要学习Kotlin基本类型，包括 数字、字符、布尔、数组字符串</p>
-</blockquote>
-<hr>
-<p>个人博客地址：<a href="http://outofmemory.top/">http://outofmemory.top/</a><br>CSDN地址：<a href="http://blog.csdn.net/dazhaoDai" target="_blank" rel="external">http://blog.csdn.net/dazhaoDai</a><br>GitHub地址：<a href="https://github.com/dazhaoDai" target="_blank" rel="external">https://github.com/dazhaoDai</a></p>
-<hr>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Kotlin/">Kotlin</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin/">Kotlin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin开发/">Kotlin开发</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>
