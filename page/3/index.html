@@ -77,7 +77,7 @@
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: 
+        search: true
     }
 </script>
 
@@ -111,6 +111,13 @@
         <p class="header-subtitle">不仅有工作，更有生活</p>
         
 
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
         
 
 
@@ -211,7 +218,7 @@
                 
                 <section class="switch-part switch-part4">
                 
-                    <div id="js-aboutme">专注于前端</div>
+                    <div id="js-aboutme">Developer</div>
                 </section>
                 
             </div>
@@ -1034,6 +1041,75 @@
 
 
   
+    <article id="post-Git常用操作" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/30/Git常用操作/" class="article-date">
+      <time datetime="2017-10-30T04:53:07.000Z" itemprop="datePublished">2017-10-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/30/Git常用操作/">Git常用操作</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>  Git作为日常开发的版本管理系统，功能强大，操作简单，简直不要太方便，但是，常用口令，却是我们必须要掌握的，比较AS安装Git插件，使用命令行才是最快捷方便的</p>
+<h3 id="正文："><a href="#正文：" class="headerlink" title="正文："></a>正文：</h3><p>  开发中：常用操作就那么几个，那就一一罗列出来：</p>
+<h5 id="1-从远程服务器Clone分支"><a href="#1-从远程服务器Clone分支" class="headerlink" title="1.从远程服务器Clone分支"></a>1.从远程服务器Clone分支</h5><p>见我之前文章  <a href="http://www.jianshu.com/p/1a03c3637091" target="_blank" rel="external">Git从远端服务器Clone分支到本地</a></p>
+<h5 id="2-将本地分支推送到远端新分支"><a href="#2-将本地分支推送到远端新分支" class="headerlink" title="2.将本地分支推送到远端新分支"></a>2.将本地分支推送到远端新分支</h5><p>开发中遇到一种情况，本地分支Local1是从远端某分支Remote1 Clone下来的，但是开发之后，想将本地分支保存到远端的新分支Remote2上，而远端仓库是没有这个Remote2分支的，那么执行以下命令：<code>git push origin &lt;local_branch_name&gt;:&lt;remote_branch_name&gt;</code>，<br>例如我当前操作：<code>git push origin Local1:Remote2</code></p>
+<h5 id="3-删除本地仓库某个分支"><a href="#3-删除本地仓库某个分支" class="headerlink" title="3.删除本地仓库某个分支"></a>3.删除本地仓库某个分支</h5><p>想删除本地仓库某个分支，执行：<code>git branch -D &lt;local_branch_name&gt;</code>,例如：想删除本地仓库widget2分支，执行命令：<code>git branch -D widget2</code>；</p>
+<h5 id="4-删除远端仓库某分支"><a href="#4-删除远端仓库某分支" class="headerlink" title="4.删除远端仓库某分支"></a>4.删除远端仓库某分支</h5><p>删除远端仓库分支和删除本地类似：<code>git push origin :{remote_branch_name}</code>，例如删除远端develop分支：<code>git push origin :develop</code></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Git/">Git</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git分支操作/">Git分支操作</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Android6.0运行时权限，化繁为简" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1157,75 +1233,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-permission/">android permission</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-权限/">android 权限</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Git常用操作" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/10/30/Git常用操作/" class="article-date">
-      <time datetime="2017-10-30T04:53:07.000Z" itemprop="datePublished">2017-10-30</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/30/Git常用操作/">Git常用操作</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>  Git作为日常开发的版本管理系统，功能强大，操作简单，简直不要太方便，但是，常用口令，却是我们必须要掌握的，比较AS安装Git插件，使用命令行才是最快捷方便的</p>
-<h3 id="正文："><a href="#正文：" class="headerlink" title="正文："></a>正文：</h3><p>  开发中：常用操作就那么几个，那就一一罗列出来：</p>
-<h5 id="1-从远程服务器Clone分支"><a href="#1-从远程服务器Clone分支" class="headerlink" title="1.从远程服务器Clone分支"></a>1.从远程服务器Clone分支</h5><p>见我之前文章  <a href="http://www.jianshu.com/p/1a03c3637091" target="_blank" rel="external">Git从远端服务器Clone分支到本地</a></p>
-<h5 id="2-将本地分支推送到远端新分支"><a href="#2-将本地分支推送到远端新分支" class="headerlink" title="2.将本地分支推送到远端新分支"></a>2.将本地分支推送到远端新分支</h5><p>开发中遇到一种情况，本地分支Local1是从远端某分支Remote1 Clone下来的，但是开发之后，想将本地分支保存到远端的新分支Remote2上，而远端仓库是没有这个Remote2分支的，那么执行以下命令：<code>git push origin &lt;local_branch_name&gt;:&lt;remote_branch_name&gt;</code>，<br>例如我当前操作：<code>git push origin Local1:Remote2</code></p>
-<h5 id="3-删除本地仓库某个分支"><a href="#3-删除本地仓库某个分支" class="headerlink" title="3.删除本地仓库某个分支"></a>3.删除本地仓库某个分支</h5><p>想删除本地仓库某个分支，执行：<code>git branch -D &lt;local_branch_name&gt;</code>,例如：想删除本地仓库widget2分支，执行命令：<code>git branch -D widget2</code>；</p>
-<h5 id="4-删除远端仓库某分支"><a href="#4-删除远端仓库某分支" class="headerlink" title="4.删除远端仓库某分支"></a>4.删除远端仓库某分支</h5><p>删除远端仓库分支和删除本地类似：<code>git push origin :{remote_branch_name}</code>，例如删除远端develop分支：<code>git push origin :develop</code></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Git/">Git</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git分支操作/">Git分支操作</a></li></ul>
     </div>
 
       
