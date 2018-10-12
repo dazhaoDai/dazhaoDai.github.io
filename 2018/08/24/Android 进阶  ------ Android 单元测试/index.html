@@ -23,15 +23,15 @@
 <meta property="og:site_name" content="T9&#39;S Develop Blog">
 <meta property="og:description" content="什么是单元测试？单元测试（unit testing），是指对软件中的最小可测试单元进行检查和验证。比如我们可以测试一个类，或者一个类中的一个方法。 为什么要进行单元测试？为什么要进行单元测试？说白了就是单元测试有什么好处，其实测试的好处无非就是减少bug、提高代码质量、使代码易于维护等。 这样表达可能不太好理解，举个例子 比如我们APP启动，从初始化到启动页，再进入首页，需要很长的流程，如果主页需">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img-blog.csdn.net/20180510114603222?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Rhemhhb0RhaQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="https://img-blog.csdn.net/20180510114745545?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Rhemhhb0RhaQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="https://img-blog.csdn.net/20180510115339617?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Rhemhhb0RhaQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="https://img-blog.csdn.net/20180510115619666?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Rhemhhb0RhaQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:updated_time" content="2018-10-12T02:06:19.202Z">
+<meta property="og:image" content="https://s1.ax1x.com/2018/10/12/iNpzwD.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/10/12/iN9CYd.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/10/12/iN9PfA.md.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/10/12/iN99FH.md.png">
+<meta property="og:updated_time" content="2018-10-12T06:23:16.979Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 进阶  ------ Android 单元测试">
 <meta name="twitter:description" content="什么是单元测试？单元测试（unit testing），是指对软件中的最小可测试单元进行检查和验证。比如我们可以测试一个类，或者一个类中的一个方法。 为什么要进行单元测试？为什么要进行单元测试？说白了就是单元测试有什么好处，其实测试的好处无非就是减少bug、提高代码质量、使代码易于维护等。 这样表达可能不太好理解，举个例子 比如我们APP启动，从初始化到启动页，再进入首页，需要很长的流程，如果主页需">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20180510114603222?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Rhemhhb0RhaQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/10/12/iNpzwD.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -164,7 +164,7 @@
                     <nav class="header-menu">
                         <ul>
                         
-                            <li><a href="/">主页</a></li>
+                            <li><a href="/archives/">主页</a></li>
                         
                             <li><a href="/archives/">所有文章</a></li>
                         
@@ -177,11 +177,9 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" href="/daidazhao@gmail.com" title="Email"></a>
                             
-                                <a class="fa GitHub" href="#" title="GitHub"></a>
-                            
-                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                                <a class="fa GitHub" href="https://github.com/dazhaoDai" title="GitHub"></a>
                             
                         </ul>
                     </nav>
@@ -241,7 +239,7 @@
             <nav class="header-menu">
                 <ul>
                 
-                    <li><a href="/">主页</a></li>
+                    <li><a href="/archives/">主页</a></li>
                 
                     <li><a href="/archives/">所有文章</a></li>
                 
@@ -255,11 +253,9 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="/daidazhao@gmail.com" title="Email"></a>
                             
-                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
-                            
-                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                                <a class="fa GitHub" target="_blank" href="https://github.com/dazhaoDai" title="GitHub"></a>
                             
                         </ul>
             </nav>
@@ -340,9 +336,9 @@
 <ul>
 <li>AS为我们提供了创建测试类的快捷方法：</li>
 </ul>
-<p><img src="https://img-blog.csdn.net/20180510114603222?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Rhemhhb0RhaQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p><img src="https://s1.ax1x.com/2018/10/12/iNpzwD.png" alt="这里写图片描述"></p>
 <ul>
-<li><p>右键 –&gt;  Go To –&gt; Test<br><img src="https://img-blog.csdn.net/20180510114745545?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Rhemhhb0RhaQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<li><p>右键 –&gt;  Go To –&gt; Test<br><img src="https://s1.ax1x.com/2018/10/12/iN9CYd.png" alt="这里写图片描述"></p>
 </li>
 <li><p>勾选上所有方法，点击 OK，一路点击OK，完成测试类创建</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public class FastSortTest extends TestCase &#123;</div><div class="line">	public void setUp() throws Exception &#123;</div><div class="line">		super.setUp();</div><div class="line">	&#125;</div><div class="line">	public void tearDown() throws Exception &#123;</div><div class="line">	&#125;</div><div class="line">	public void testMain() throws Exception &#123;</div><div class="line">	&#125;</div><div class="line">	public void testQuick_sort() throws Exception &#123;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -360,9 +356,10 @@
 <li>开始测试<br>右键点击FastSortTest类 —&gt; ‘Run FastSortTest’，也可以通过命令行运行测试，在工程目录内输入：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./gradlew test</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><img src="https://img-blog.csdn.net/20180510115339617?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Rhemhhb0RhaQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
-<p>测试结束，可以看到，sortMain()方法通过测试<br><img src="https://img-blog.csdn.net/20180510115619666?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Rhemhhb0RhaQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p><img src="https://s1.ax1x.com/2018/10/12/iN9PfA.md.png" alt="这里写图片描述"></p>
+<p>测试结束，可以看到，sortMain()方法通过测试<br><img src="https://s1.ax1x.com/2018/10/12/iN99FH.md.png" alt="这里写图片描述"></p>
 <p>成功完成了 src/test  单元测试，</p>
+<hr>
 <p>这里简单介绍了 src/test 测试，关于其他用法，大家可以去深入研究一下</p>
 
       
@@ -375,7 +372,7 @@
         <p><span>本文标题:</span><a href="/2018/08/24/Android 进阶  ------ Android 单元测试/">Android 进阶  ------ Android 单元测试</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">daidai</a></p>
         <p><span>发布时间:</span>2018-08-24, 15:22:56</p>
-        <p><span>最后更新:</span>2018-10-12, 10:06:19</p>
+        <p><span>最后更新:</span>2018-10-12, 14:23:16</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/08/24/Android 进阶  ------ Android 单元测试/" title="Android 进阶  ------ Android 单元测试">http://outofmemory.top/2018/08/24/Android 进阶  ------ Android 单元测试/</a>
             <span class="copy-path" data-clipboard-text="原文: http://outofmemory.top/2018/08/24/Android 进阶  ------ Android 单元测试/　　作者: daidai" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -481,7 +478,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— Android 深入理解AIDL进程间通信/">Android进阶 ——— Android 深入理解AIDL进程间通信</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android 进阶  ------ Android 单元测试/">Android 进阶  ------ Android 单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Flutter初体验（二）---- 创建第一个Flutter APP/">Flutter初体验（二）---- 创建第一个Flutter APP</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Flutter初体验（一）---- 配置安装Flutter/">Flutter初体验（一）---- 配置安装Flutter</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java进阶 ——— 面试常见问题/">Java进阶 ——— 面试常见问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java进阶 ——— HTTP概述/">Java进阶 ——— HTTP概述</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java设计模式  ------ 代理模式/">Java设计模式  ------ 代理模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java 进阶  ------ 垃圾回收机制/">Java 进阶  ------ 垃圾回收机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java 进阶  ------ 时间复杂度对比/">Java 进阶  ------ 时间复杂度对比</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/JVM DVM ART对比/">Android 进阶  ------ JVM DVM ART对比</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Handler系列之创建子线程Handler/">Android 进阶  ------ Handler系列之创建子线程Handler</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap/">Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java设计模式 ——— 工厂模式/">Java设计模式 ——— 工厂模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— Android官方架构组件Lifecycle/">Android进阶 ——— Android官方架构组件Lifecycle</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— Android官方架构组件LiveData/">Android进阶 ——— Android官方架构组件LiveData</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/iOS 自定义View 中跳转UIViewController/">iOS 自定义View 中跳转UIViewController</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/28/Kotlin 学习笔记（八）—— Kotlin类与对象之接口/">Kotlin 学习笔记（八）—— Kotlin类与对象之接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/28/Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段/">Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/27/Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承/">Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/12/Kotlin基础之控制流、返回与跳转、 包与导入/">Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/09/Kotlin基础之基本类型/">Kotlin 学习笔记（四）—— Kotlin基础之基本类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/09/习惯用法/">Kotlin 学习笔记（三）—— 习惯用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/08/Kotlin 学习笔记（二）—— 基础语法/">Kotlin 学习笔记（二）—— 基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/08/Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料/">Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/07/Android自定义View(八) -- 硬件加速/">Android自定义View(八) -- 硬件加速</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Git常用操作/">Git常用操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Android6.0运行时权限，化繁为简/">Android6.0运行时权限，化繁为简</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Privacy/">Privacy Policy</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/关于Android AIDL 编译报错问题/">关于Android AIDL 编译报错问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/关于Android触摸事件机制/">关于Android触摸事件机制</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— Android 深入理解AIDL进程间通信/">Android进阶 ——— Android 深入理解AIDL进程间通信</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android 进阶  ------ Android 单元测试/">Android 进阶  ------ Android 单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Flutter初体验（二）---- 创建第一个Flutter APP/">Flutter初体验（二）---- 创建第一个Flutter APP</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Flutter初体验（一）---- 配置安装Flutter/">Flutter初体验（一）---- 配置安装Flutter</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java进阶 ——— 面试常见问题/">Java进阶 ——— 面试常见问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java进阶 ——— HTTP概述/">Java进阶 ——— HTTP概述</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java设计模式  ------ 代理模式/">Java设计模式  ------ 代理模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java 进阶  ------ 垃圾回收机制/">Java 进阶  ------ 垃圾回收机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java 进阶  ------ 时间复杂度对比/">Java 进阶  ------ 时间复杂度对比</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/JVM DVM ART对比/">Android 进阶  ------ JVM DVM ART对比</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Handler系列之创建子线程Handler/">Android 进阶  ------ Handler系列之创建子线程Handler</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap/">Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java设计模式 ——— 工厂模式/">Java设计模式 ——— 工厂模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— Android官方架构组件Lifecycle/">Android进阶 ——— Android官方架构组件Lifecycle</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— Android官方架构组件LiveData/">Android进阶 ——— Android官方架构组件LiveData</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/iOS 自定义View 中跳转UIViewController/">iOS 自定义View 中跳转UIViewController</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/28/Kotlin 学习笔记（八）—— Kotlin类与对象之接口/">Kotlin 学习笔记（八）—— Kotlin类与对象之接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/28/Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段/">Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/27/Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承/">Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/12/Kotlin基础之控制流、返回与跳转、 包与导入/">Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/09/Kotlin基础之基本类型/">Kotlin 学习笔记（四）—— Kotlin基础之基本类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/09/习惯用法/">Kotlin 学习笔记（三）—— 习惯用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/08/Kotlin 学习笔记（二）—— 基础语法/">Kotlin 学习笔记（二）—— 基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/08/Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料/">Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/07/Android自定义View(八) -- 硬件加速/">Android自定义View(八) -- 硬件加速</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Privacy/">Privacy Policy</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Git常用操作/">Git常用操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Android6.0运行时权限，化繁为简/">Android6.0运行时权限，化繁为简</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/关于Android AIDL 编译报错问题/">关于Android AIDL 编译报错问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/关于Android触摸事件机制/">关于Android触摸事件机制</a></li></ul>
 
 
 
