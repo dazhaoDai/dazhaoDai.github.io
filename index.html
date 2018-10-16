@@ -325,7 +325,7 @@
 </li>
 </ul>
 <p>InnerClass类编译后，在文件夹会出现InnerClass.class和InnerClass$1NewAge.class，这说明外部类的方法 和内部类处于同一级。</p>
-<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>局部内部类引用局部变量，不添加final，会出现</p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>局部内部类引用局部变量，不添加final，会出现生命周期不同，导致非法引用问题，而且直接拷贝会出现数据不同步问题，所以使用final，保证了合法引用，而且数据不可修改</p>
 
       
     </div>
