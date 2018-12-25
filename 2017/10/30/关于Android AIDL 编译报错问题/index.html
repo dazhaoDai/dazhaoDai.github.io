@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="daidai" />
+
+
+
+<meta name="description" content="问题： 在做一个音乐项目中，使用到了AIDL跨进程通信组件，编写一个简单的AIDL时候，编译一直无法通过，报错内容 123Error:Execution failed for task &apos;:app:compileDebugAidl&apos;.java.lang.RuntimeException: com.android.ide.common.process.ProcessException: Error">
+<meta name="keywords" content="android aidl,android 开发错误">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于Android AIDL 编译报错问题">
+<meta property="og:url" content="http://outofmemory.top/2017/10/30/关于Android AIDL 编译报错问题/index.html">
+<meta property="og:site_name" content="T9&#39;S Develop Blog">
+<meta property="og:description" content="问题： 在做一个音乐项目中，使用到了AIDL跨进程通信组件，编写一个简单的AIDL时候，编译一直无法通过，报错内容 123Error:Execution failed for task &apos;:app:compileDebugAidl&apos;.java.lang.RuntimeException: com.android.ide.common.process.ProcessException: Error">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-11T09:03:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于Android AIDL 编译报错问题">
+<meta name="twitter:description" content="问题： 在做一个音乐项目中，使用到了AIDL跨进程通信组件，编写一个简单的AIDL时候，编译一直无法通过，报错内容 123Error:Execution failed for task &apos;:app:compileDebugAidl&apos;.java.lang.RuntimeException: com.android.ide.common.process.ProcessException: Error">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="T9&#39;S Develop Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="https://s1.ax1x.com/2018/10/12/iNnhCV.gif">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>关于Android AIDL 编译报错问题 | T9&#39;S Develop Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="https://s1.ax1x.com/2018/10/12/iNnhCV.gif" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">daidai</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">不仅有工作，更有生活</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/archives/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="https://daidazhao@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/dazhaoDai" title="GitHub"></a>
+                            
+                                <a class="fa CSDN" href="https://blog.csdn.net/dazhaoDai" title="CSDN"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android官方架构/">Android官方架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android进阶/">Android进阶</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git分支操作/">Git分支操作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java进阶/">Java进阶</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/">Kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin开发/">Kotlin开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-aidl/">android aidl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-permission/">android permission</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-view/">android view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-开发错误/">android 开发错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-权限/">android 权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-自定义view/">android 自定义view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android触摸事件/">android触摸事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/privacy/">privacy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">Developer</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">daidai</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="https://s1.ax1x.com/2018/10/12/iNnhCV.gif" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">daidai</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">不仅有工作，更有生活</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="https://daidazhao@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/dazhaoDai" title="GitHub"></a>
+                            
+                                <a class="fa CSDN" target="_blank" href="https://blog.csdn.net/dazhaoDai" title="CSDN"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-关于Android AIDL 编译报错问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/30/关于Android AIDL 编译报错问题/" class="article-date">
+      <time datetime="2017-10-30T04:53:07.000Z" itemprop="datePublished">2017-10-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      关于Android AIDL 编译报错问题
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-aidl/">android aidl</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-开发错误/">android 开发错误</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h3><p> 在做一个音乐项目中，使用到了AIDL跨进程通信组件，编写一个简单的AIDL时候，编译一直无法通过，报错内容</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Error:Execution failed <span class="keyword">for</span> task <span class="string">':app:compileDebugAidl'</span>.</div><div class="line"></div><div class="line">java.lang.RuntimeException: com.android.ide.common.process.ProcessException: Error <span class="keyword">while</span> executing process E:\SDK\build-tools\<span class="number">25.0</span>.2\aidl.exe with arguments &#123;-pE:\SDK\platforms\android-<span class="number">25</span>\framework.aidl -oE:\Project\LifeStyle\app\build\generated\source\aidl\debug -IE:\Project\LifeStyle\app\src\main\aidl -IE:\Project\LifeStyle\app\src\debug\aidl -IC:\Users\yun.android\build-cache\bd2b26450777017e058ddff21ee3c3ce84e4a7bf\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">2</span>ea784cc81ce0926ea68faf50edaf3063b660d0e\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">5</span>b0533eca8fabee2573210d5a6db0ef9c0c55098\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">4</span>aff7d24ca88b5fbfe9cecf19662277ee6b67028\output\aidl -IC:\Users\yun.android\build-cache\b99b113aa0b77b7431d57c24286f1c8e8eab3ac8\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">4529918</span>ad206e483048c7e77ddeb67757631979d\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">3044</span>c80427502394b2a5a4f143d6cff3e658c021\output\aidl -IC:\Users\yun.android\build-cache\b5f3194e152b8cd07a05991ec812dffa1d8cb041\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">38</span>ea6e0a6326b10847dbffa39bb99db561e2d206\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">8</span>b120b0a8440e62fa16bb4d6105e23babda95bac\output\aidl -IC:\Users\yun.android\build-cache\f7ecc1e5d6327684b86b316a5b8d8656ab31a562\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">555508f</span>307eda5e323eab911e97c525ed5d5df39\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">89763</span>dd7cc6d960b99b1b369e1e4cacfb0a31de4\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">7</span>ade3d874bb02876c4dbec5f11f4f6e45fb740a9\output\aidl -IC:\Users\yun.android\build-cache\d146a875e535f7ef213ac298ff9c7562980017e2\output\aidl -IC:\Users\yun.android\build-cache\b7e59e7515f5465f0bdcddcb2373d90d2f734f9e\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">7</span>d9f182c861cca1c8561cf15680698fccb00cd6b\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">700509</span>b55aea82f4d612ac1262f62676e4b903a8\output\aidl -IC:\Users\yun.android\build-cache\abe96579d37055680246e88ec8e5202f311a7682\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">6</span>a4a8f6c11eb14ee244b1c31f215a78b80a8772f\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">9</span>acdeaf56617b78c0869aec47ac34c9f74876025\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">7560</span>a7d14537f4d91e192c3bf5482b4f43fa71b7\output\aidl -IC:\Users\yun.android\build-cache\f07b74a7bc4f977ae6e648a0b0c6273da95a15d3\output\aidl -IC:\Users\yun.android\build-cache\e916c7e89b0437bc49caaa56819cb6420b1df388\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">98e02</span>d16b6f5edc105354f1b8731dbb8996766a6\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">0</span>de94c2965cbd469e50e04f8b11f3f3a54fb105c\output\aidl -IC:\Users\yun.android\build-cache\e3570cee326ac234ab7a645a61cc67e5f4aaba25\output\aidl -IC:\Users\yun.android\build-cache\af33f12b5828ec7d29cdc70bd0113ea8de920816\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">70727</span>cf612c37ae60ba16fdf9dde9dd2be59839d\output\aidl -IC:\Users\yun.android\build-cache\a70928a5a1cbea562f1bd432d010447ec910b87c\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">1e4</span>a7240c43a860a0f8c255418d94983c100aacf\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">17f</span>28128f57674af28605d6308b0c053b944c5e8\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">995</span>b0dfa92490fcf0f8815d039702fbe5bce10a8\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">15938</span>a94ee6db7edc48dcf60da42083cf7a1bc6c\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">29</span>c97a53c8bc6293d81f08917bfd65d3f697d79e\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">1005f</span>94c0d904c86565f1d4db92c798c70837c1c\output\aidl -IC:\Users\yun.android\build-cache\bf586708fe17232a5869c4b61e020557d355d3d6\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">9</span>b42fe08f88e56de3c951e7c80c399b9f94078a1\output\aidl -IC:\Users\yun.android\build-cache\cd0824ff26bcc093fac07fa62e9800ef96d334aa\output\aidl -dC:\Users\yun\AppData\Local\Temp\aidl3827942310160614195.d E:\Project\LifeStyle\app\src\main\aidl\com\ddz\lifestyle\IPlayService.aidl&#125;</div></pre></td></tr></table></figure>
+<p>绞尽脑汁，又是google又是度娘，都没有合适解决办法，最终发现有两个问题:</p>
+<ul>
+<li><p>实体类没有使用<code>in</code> 、<code>out</code> 、<code>inout</code> 中任何一种方法修饰，导致编译失败</p>
+<p>后来为添加了<code>in</code> 修饰后，依然无法通过，最终发现问题所在</p>
+</li>
+<li><p>在设置方法时候， 设置了同名不同参数方法，在AIDL中不可以这样命名，导致编译无法通过，懊恼不已，浪费大量时间</p>
+</li>
+</ul>
+<h3 id="后记："><a href="#后记：" class="headerlink" title="后记："></a>后记：</h3><p>开发中一定要够自信，够清醒，不然真是浪费时间</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/10/30/关于Android AIDL 编译报错问题/">关于Android AIDL 编译报错问题</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">daidai</a></p>
+        <p><span>发布时间:</span>2017-10-30, 12:53:07</p>
+        <p><span>最后更新:</span>2017-09-11, 17:03:02</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/10/30/关于Android AIDL 编译报错问题/" title="关于Android AIDL 编译报错问题">http://outofmemory.top/2017/10/30/关于Android AIDL 编译报错问题/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://outofmemory.top/2017/10/30/关于Android AIDL 编译报错问题/　　作者: daidai" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/10/30/Git常用操作/">
+                    Git常用操作
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/10/30/Android6.0运行时权限，化繁为简/">
+                    Android6.0运行时权限，化繁为简
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题："><span class="toc-number">1.</span> <span class="toc-text">问题：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后记："><span class="toc-number">2.</span> <span class="toc-text">后记：</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"关于Android AIDL 编译报错问题　| T9'S Develop Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/10/30/Git常用操作/" title="上一篇: Git常用操作">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/10/30/Android6.0运行时权限，化繁为简/" title="下一篇: Android6.0运行时权限，化繁为简">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/18/Java进阶 ——— Java多线程（三）之多线程同步问题/">Java进阶 ——— Java多线程（三）之多线程同步问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/18/Java进阶 ——— Java多线程（二）之如何开启多线程/">Java进阶 ——— Java多线程（二）之如何开启多线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/17/Java进阶 ——— Java多线程（一）之进程和线程/">Java进阶 ——— Java多线程（一）之进程和线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/16/Java进阶 ——— 局部内部类访问局部变量为什么必须加final关键字/">Java进阶 ——— 局部内部类访问局部变量为什么必须加final关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/16/Java进阶 ——— 如何查看字节码/">Java进阶 ——— 如何查看字节码</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/15/Java进阶 ——— 面试必备 Java单链表反转/">Java进阶 ——— 面试必备 Java单链表反转</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— Android 深入理解AIDL进程间通信/">Android进阶 ——— Android 深入理解AIDL进程间通信</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android 进阶  ------ Android 单元测试/">Android 进阶  ------ Android 单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Flutter初体验（二）---- 创建第一个Flutter APP/">Flutter初体验（二）---- 创建第一个Flutter APP</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Flutter初体验（一）---- 配置安装Flutter/">Flutter初体验（一）---- 配置安装Flutter</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java进阶 ——— 面试常见问题/">Java进阶 ——— 面试常见问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java进阶 ——— HTTP概述/">Java进阶 ——— HTTP概述</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java设计模式  ------ 代理模式/">Java设计模式  ------ 代理模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java 进阶  ------ 垃圾回收机制/">Java 进阶  ------ 垃圾回收机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java 进阶  ------ 时间复杂度对比/">Java 进阶  ------ 时间复杂度对比</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/JVM DVM ART对比/">Android 进阶  ------ JVM DVM ART对比</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Handler系列之创建子线程Handler/">Android 进阶  ------ Handler系列之创建子线程Handler</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap/">Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java设计模式 ——— 工厂模式/">Java设计模式 ——— 工厂模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— Android官方架构组件Lifecycle/">Android进阶 ——— Android官方架构组件Lifecycle</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— Android官方架构组件LiveData/">Android进阶 ——— Android官方架构组件LiveData</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/iOS 自定义View 中跳转UIViewController/">iOS 自定义View 中跳转UIViewController</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/28/Kotlin 学习笔记（八）—— Kotlin类与对象之接口/">Kotlin 学习笔记（八）—— Kotlin类与对象之接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/28/Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段/">Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/27/Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承/">Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/12/Kotlin基础之控制流、返回与跳转、 包与导入/">Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/09/Kotlin基础之基本类型/">Kotlin 学习笔记（四）—— Kotlin基础之基本类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/09/习惯用法/">Kotlin 学习笔记（三）—— 习惯用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/08/Kotlin 学习笔记（二）—— 基础语法/">Kotlin 学习笔记（二）—— 基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/08/Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料/">Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/07/Android自定义View(八) -- 硬件加速/">Android自定义View(八) -- 硬件加速</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Privacy/">Privacy Policy</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/关于Android触摸事件机制/">关于Android触摸事件机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Git常用操作/">Git常用操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/关于Android AIDL 编译报错问题/">关于Android AIDL 编译报错问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Android6.0运行时权限，化繁为简/">Android6.0运行时权限，化繁为简</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2018 daidai
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="daidai" />
+
+
+
+<meta name="description" content="引言接上一篇，Java进阶 ——— Java多线程（二）之如何开启多线程介绍了Java多线程的开启方法，但是多线程运行的安全问题，将是本篇的重点 延伸阅读,Java多线程系列文章  Java进阶 ——— Java多线程（一）之进程和线程Java进阶 ——— Java多线程（二）之如何开启多线程  在第一篇文章中，提到要实现多线程安全，就要实现线程同步，那么线程同步有哪些方法呢？ 介绍线程同步之前，">
+<meta name="keywords" content="Java进阶">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java进阶 ——— Java多线程（三）之多线程同步问题">
+<meta property="og:url" content="http://outofmemory.top/2018/10/18/Java进阶 ——— Java多线程（三）之多线程同步问题/index.html">
+<meta property="og:site_name" content="T9&#39;S Develop Blog">
+<meta property="og:description" content="引言接上一篇，Java进阶 ——— Java多线程（二）之如何开启多线程介绍了Java多线程的开启方法，但是多线程运行的安全问题，将是本篇的重点 延伸阅读,Java多线程系列文章  Java进阶 ——— Java多线程（一）之进程和线程Java进阶 ——— Java多线程（二）之如何开启多线程  在第一篇文章中，提到要实现多线程安全，就要实现线程同步，那么线程同步有哪些方法呢？ 介绍线程同步之前，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-18T15:06:53.582Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java进阶 ——— Java多线程（三）之多线程同步问题">
+<meta name="twitter:description" content="引言接上一篇，Java进阶 ——— Java多线程（二）之如何开启多线程介绍了Java多线程的开启方法，但是多线程运行的安全问题，将是本篇的重点 延伸阅读,Java多线程系列文章  Java进阶 ——— Java多线程（一）之进程和线程Java进阶 ——— Java多线程（二）之如何开启多线程  在第一篇文章中，提到要实现多线程安全，就要实现线程同步，那么线程同步有哪些方法呢？ 介绍线程同步之前，">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="T9&#39;S Develop Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="https://s1.ax1x.com/2018/10/12/iNnhCV.gif">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Java进阶 ——— Java多线程（三）之多线程同步问题 | T9&#39;S Develop Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="https://s1.ax1x.com/2018/10/12/iNnhCV.gif" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">daidai</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">不仅有工作，更有生活</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/archives/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="https://daidazhao@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/dazhaoDai" title="GitHub"></a>
+                            
+                                <a class="fa CSDN" href="https://blog.csdn.net/dazhaoDai" title="CSDN"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android官方架构/">Android官方架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android进阶/">Android进阶</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git分支操作/">Git分支操作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java进阶/">Java进阶</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/">Kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin开发/">Kotlin开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-aidl/">android aidl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-permission/">android permission</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-view/">android view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-开发错误/">android 开发错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-权限/">android 权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-自定义view/">android 自定义view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android触摸事件/">android触摸事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/privacy/">privacy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">Developer</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">daidai</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="https://s1.ax1x.com/2018/10/12/iNnhCV.gif" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">daidai</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">不仅有工作，更有生活</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="https://daidazhao@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/dazhaoDai" title="GitHub"></a>
+                            
+                                <a class="fa CSDN" target="_blank" href="https://blog.csdn.net/dazhaoDai" title="CSDN"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-Java进阶 ——— Java多线程（三）之多线程同步问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/10/18/Java进阶 ——— Java多线程（三）之多线程同步问题/" class="article-date">
+      <time datetime="2018-10-18T15:06:53.581Z" itemprop="datePublished">2018-10-18</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java进阶 ——— Java多线程（三）之多线程同步问题
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java进阶/">Java进阶</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>接上一篇，<a href="https://blog.csdn.net/dazhaoDai/article/details/83120326" target="_blank" rel="external">Java进阶 ——— Java多线程（二）之如何开启多线程</a><br>介绍了Java多线程的开启方法，但是多线程运行的安全问题，将是本篇的重点</p>
+<p><strong>延伸阅读,Java多线程系列文章</strong></p>
+<blockquote>
+<p><a href="https://blog.csdn.net/dazhaoDai/article/details/83117618" target="_blank" rel="external">Java进阶 ——— Java多线程（一）之进程和线程</a><br><a href="https://blog.csdn.net/dazhaoDai/article/details/83120326" target="_blank" rel="external">Java进阶 ——— Java多线程（二）之如何开启多线程</a></p>
+</blockquote>
+<p>在第一篇文章中，提到要实现多线程安全，就要实现线程同步，那么线程同步有哪些方法呢？</p>
+<p>介绍线程同步之前，先大概了解一下多线程的原理。</p>
+<blockquote>
+<p>线程的执行是CPU随机调度的，比如我们开启N个线程，这N个线程并不是同时执行的，而是CPU快速的在这N个线程之间切换执行，由于切换速度极快使我们感觉同时执行罢了。发生上面问题的本质就是<code>CPU对线程执行的随机调度</code>，比如A线程此时正在打印信息还没打印完毕此时CPU切换到B线程执行了，B线程执行完了又切换回A线程执行就会导致第一篇文章中打印错乱问题。</p>
+</blockquote>
+<p>线程同步问题往往发生在多个线程调用同一方法或者操作同一变量，但是我们要知道其本质就是CPU对线程的随机调度，CPU无法保证一个线程执行完其逻辑才去调用另一个线程执行。</p>
+<h3 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h3><p>所以解决线程同步的思路就是：保证一个线程在执行方法的时候如果没执行完那么另一个线程不能执行此方法，换句话说就是只能等待别的线程执行完毕才能执行，确保数据在任何时刻只有一个线程可以操作，保证数据完整性</p>
+<p>为了解决线程同步问题，引入<code>锁</code>的概念</p>
+<h4 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h4><p>synchronized同步有两种方式，同步代码块和同步方法</p>
+<h5 id="synchronized-同步方法"><a href="#synchronized-同步方法" class="headerlink" title="synchronized 同步方法"></a>synchronized 同步方法</h5><p>在方法上加上synchronized关键字，实际上锁的是this，即当前类对象,<br>如下列代码，例如外部要调用run方法，则需要创建ThreadRunnable对象实例，此时添加在run方法上的锁，实际是对实例对象加锁。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">class  ThreadRunnable implements Runnable &#123;</div><div class="line">		@Override</div><div class="line">		public synchronized void run() &#123;</div><div class="line">				age++;</div><div class="line">				System.out.println(Thread.currentThread().getName() + &quot;----&quot; + age);</div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h5 id="synchronized-同步代码块"><a href="#synchronized-同步代码块" class="headerlink" title="synchronized 同步代码块"></a>synchronized 同步代码块</h5><p>同步代码块写法：synchronized(obj){}，其中obj为锁对象，此处我们传入this，同样方法的锁也为当前对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">class  ThreadRunnable implements Runnable &#123;</div><div class="line">	@Override</div><div class="line">	public void run() &#123;</div><div class="line">		synchronized (this)&#123;  //对代码块添加锁，保证线程同步</div><div class="line">			age++;</div><div class="line">			System.out.println(Thread.currentThread().getName() + &quot;----&quot; + age);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="synchronized-修饰静态类或静态方法"><a href="#synchronized-修饰静态类或静态方法" class="headerlink" title="synchronized 修饰静态类或静态方法"></a>synchronized 修饰静态类或静态方法</h5><p>我们知道静态方法是属于类的而不属于对象的。同样的，synchronized修饰的静态方法锁定的是这个类的所有对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">private static int count = 0;</div><div class="line">public synchronized static void staticMethod()&#123;</div><div class="line">	for (int i = 0; i &lt; 10; i++) &#123;</div><div class="line">		count++;</div><div class="line">		System.out.println(count);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="synchronized修饰一个类"><a href="#synchronized修饰一个类" class="headerlink" title="synchronized修饰一个类"></a>synchronized修饰一个类</h5><p>synchronized作用于一个类T时，是给这个类T加锁，T的所有对象用的是同一把锁。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">class  ThreadRunnable implements Runnable &#123;</div><div class="line">	int a = 0;</div><div class="line">	@Override</div><div class="line">	public synchronized void run() &#123;</div><div class="line">		synchronized (ThreadRunnable.class)&#123;</div><div class="line">			a++;</div><div class="line">			System.out.println(Thread.currentThread().getName() + &quot;----&quot; + a);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>synchronized总结：</strong></p>
+<ul>
+<li>无论synchronized关键字加在方法上还是对象上，如果它作用的对象是非静态的，则它取得的锁是对象；如果synchronized作用的对象是一个静态方法或一个类，则它取得的锁是对类，该类所有的对象同一把锁。</li>
+<li>每个对象只有一个锁（lock）与之相关联，谁拿到这个锁谁就可以运行它所控制的那段代码。</li>
+<li>实现同步是要很大的系统开销作为代价的，甚至可能造成死锁（接下来会将到死锁的形成和解决方式），所以尽量避免无谓的同步控制。<h4 id="Lock"><a href="#Lock" class="headerlink" title="Lock"></a>Lock</h4>Lock与synchronized有什么区别呢？Lock是在Java1.6被引入进来的，Lock的引入让锁有了可操作性，<br>可操作性：就是我们在需要的时候去手动的获取锁和释放锁，甚至我们还可以中断获取以及超时获取的同步特性，但是从使用上说Lock明显没有synchronized使用起来方便快捷。</li>
+</ul>
+<p>Lock接口的实现子类之一ReentrantLock，翻译过来就是重入锁，就是支持重新进入的锁，该锁能够支持一个线程对资源的重复加锁，也就是说在调用lock()方法时，已经获取到锁的线程，能够再次调用lock()方法获取锁而不被阻塞，同时还支持获取锁的公平性和非公平性，所谓公平性就是多个线程发起lock()请求，先发起的线程优先获取执行权，非公平性就是获取锁与是否优先发起lock()操作无关。默认情况下是不公平的锁，为什么要这样设计呢？现实生活中我们都希望公平的啊？我们想一下，现实生活中要保证公平就必须额外开销，比如地铁站保证有序公平进站就必须配备额外人员维持秩序，程序中也是一样保证公平就必须需要额外开销，这样性能就下降了，所以公平与性能是有一定矛盾的，除非公平策略对你的程序很重要，比如必须按照顺序执行线程，否则还是使用不公平锁为好。</p>
+<p>先通过代码了解 Lock的使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">public class ThreadTest &#123;</div><div class="line"></div><div class="line">	private ReentrantLock lock = new ReentrantLock();</div><div class="line">	public void threadTest() &#123;</div><div class="line"></div><div class="line">		ThreadRunnable runnable = new ThreadRunnable();</div><div class="line">		Thread thread = new Thread();</div><div class="line">		Thread thread1 = new Thread(runnable);</div><div class="line">		Thread thread2 = new Thread(runnable);</div><div class="line">		Thread thread3 = new Thread(runnable);</div><div class="line">		Thread thread4 = new Thread(runnable);</div><div class="line">		Thread thread5 = new Thread(runnable);</div><div class="line">		Thread thread6 = new Thread(runnable);</div><div class="line">		Thread thread7 = new Thread(runnable);</div><div class="line">		thread.start();</div><div class="line">		thread1.start();</div><div class="line">		thread2.start();</div><div class="line">		thread3.start();</div><div class="line">		thread4.start();</div><div class="line">		thread5.start();</div><div class="line">		thread6.start();</div><div class="line">		thread7.start();</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">	class  ThreadRunnable implements Runnable &#123;</div><div class="line">		int a = 0;</div><div class="line">		@Override</div><div class="line">		public void run() &#123;</div><div class="line">			lock.lock(); // 获取锁对象</div><div class="line">			try &#123;</div><div class="line">				a++;</div><div class="line">				System.out.println(Thread.currentThread().getName() + &quot;----&quot; + a);</div><div class="line">			&#125; finally &#123;</div><div class="line">        //为了防止我们代码出现异常，所以我们的释放锁操作放在finally中，因为finally中的代码无论如何都是会执行的</div><div class="line">				lock.unlock(); //释放锁对象</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>看一下运行结果，程序执行是没有问题的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">10-18 14:40:33.985 2847-3642/com.t9.news I/System.out: Thread-14----1</div><div class="line">10-18 14:40:33.987 2847-3641/com.t9.news I/System.out: Thread-13----2</div><div class="line">10-18 14:40:33.990 2847-3643/com.t9.news I/System.out: Thread-15----3</div><div class="line">10-18 14:40:33.994 2847-3645/com.t9.news I/System.out: Thread-17----4</div><div class="line">10-18 14:40:33.995 2847-3640/com.t9.news I/System.out: Thread-12----5</div><div class="line">10-18 14:40:33.997 2847-3639/com.t9.news I/System.out: Thread-11----6</div><div class="line">10-18 14:40:33.998 2847-3644/com.t9.news I/System.out: Thread-16----7</div></pre></td></tr></table></figure></p>
+<p>其实在Lock还有几种获取锁的方式，我们这里再说一种就是tryLock()这个方法跟Lock()是有区别的，Lock在获取锁的时候如果拿不到锁就一直处于等待状态，直到拿到锁，但是tryLock()却不是这样的，tryLock是有一个Boolean的返回值的，如果没有拿到锁直接返回false，停止等待，它不会像Lock()那样去一直等待获取锁。</p>
+<p>修改代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">class  ThreadRunnable implements Runnable &#123;</div><div class="line">		int a = 0;</div><div class="line">		@Override</div><div class="line">		public void run() &#123;</div><div class="line">			if (lock.tryLock())&#123; //获取锁对象</div><div class="line">				try &#123;</div><div class="line">					a++;</div><div class="line">					System.out.println(Thread.currentThread().getName() + &quot;----&quot; + a);</div><div class="line">				&#125; finally &#123;</div><div class="line">					lock.unlock(); //释放锁对象</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<p>运行程序，查看结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">10-18 14:43:21.365 3846-3867/com.t9.news I/System.out: Thread-5----1</div><div class="line">10-18 14:43:21.368 3846-3866/com.t9.news I/System.out: Thread-4----2</div><div class="line">10-18 14:43:21.370 3846-3870/com.t9.news I/System.out: Thread-8----3</div><div class="line">10-18 14:43:21.374 3846-3869/com.t9.news I/System.out: Thread-7----4</div><div class="line">10-18 14:43:21.375 3846-3871/com.t9.news I/System.out: Thread-9----5</div></pre></td></tr></table></figure></p>
+<p>很明显，有三个线程没有获取到锁对象，这时候就不等待了。那么这种方法肯定不完美，想让所有线程获取对象，但是线程发现获取不到就放弃了，<br>其实tryLock()方法还可以设置获取的等待时长。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">	class ThreadRunnable implements Runnable &#123;</div><div class="line">		int a = 0;</div><div class="line"></div><div class="line">		@Override</div><div class="line">		public void run() &#123;</div><div class="line">			try &#123;</div><div class="line">				// 如果5秒内获取不到锁对象，那就不再等待</div><div class="line">				if (lock.tryLock(5, TimeUnit.SECONDS)) &#123; </div><div class="line">					try &#123;</div><div class="line">						a++;</div><div class="line">						System.out.println(Thread.currentThread().getName() + &quot;----&quot; + a);</div><div class="line">					&#125; finally &#123;</div><div class="line">						lock.unlock(); //释放锁对象</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125; catch (InterruptedException e) &#123;</div><div class="line">				e.printStackTrace();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>查看结果：所有线程都获取到锁对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">10-18 14:50:48.466 4031-4053/com.t9.news I/System.out: Thread-5----1</div><div class="line">10-18 14:50:48.466 4031-4057/com.t9.news I/System.out: Thread-9----2</div><div class="line">10-18 14:50:48.470 4031-4056/com.t9.news I/System.out: Thread-8----3</div><div class="line">10-18 14:50:48.473 4031-4054/com.t9.news I/System.out: Thread-6----4</div><div class="line">10-18 14:50:48.476 4031-4055/com.t9.news I/System.out: Thread-7----5</div><div class="line">10-18 14:50:48.477 4031-4052/com.t9.news I/System.out: Thread-4----6</div><div class="line">10-18 14:50:48.481 4031-4051/com.t9.news I/System.out: Thread-3----7</div></pre></td></tr></table></figure></p>
+<h4 id="Lock与synchronized同步方式优缺点"><a href="#Lock与synchronized同步方式优缺点" class="headerlink" title="Lock与synchronized同步方式优缺点"></a>Lock与synchronized同步方式优缺点</h4><ul>
+<li><p>实现<br>Lock 的锁定是通过代码实现的，而 synchronized 是在 JVM 层面上实现的(所有对象都自动含有单一的锁。JVM负责跟踪对象被加锁的次数。如果一个对象被解锁，其计数变为0。在线程第一次给对象加锁的时候，计数变为1。每当这个相同的线程在此对象上获得锁时，计数会递增。只有首先获得锁的线程才能继续获取该对象上的多个锁。每当线程离开一个synchronized方法，计数递减，当计数为0的时候，锁被完全释放，此时别的线程就可以使用此资源)。</p>
+</li>
+<li><p>释放<br>synchronized 在锁定时如果方法块抛出异常，JVM 会自动将锁释放掉，不会因为出了异常没有释放锁造成线程死锁。但是 Lock 的话就享受不到 JVM 带来自动的功能，出现异常时必须在 finally 将锁释放掉，否则将会引起死锁。</p>
+</li>
+<li><p>资源<br>在资源竞争不是很激烈的情况下，偶尔会有同步的情形下，synchronized是很合适的。原因在于，编译程序通常会尽可能的进行优化synchronized，另外可读性非常好。在资源竞争激烈情况下，Lock同步机制性能会更好一些。</p>
+<h4 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h4></li>
+</ul>
+<hr>
+<p><a href="https://www.cnblogs.com/leipDao/p/8295766.html" target="_blank" rel="external">https://www.cnblogs.com/leipDao/p/8295766.html</a><br><a href="http://www.importnew.com/21866.html" target="_blank" rel="external">http://www.importnew.com/21866.html</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/10/18/Java进阶 ——— Java多线程（三）之多线程同步问题/">Java进阶 ——— Java多线程（三）之多线程同步问题</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">daidai</a></p>
+        <p><span>发布时间:</span>2018-10-18, 23:06:53</p>
+        <p><span>最后更新:</span>2018-10-18, 23:06:53</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/10/18/Java进阶 ——— Java多线程（三）之多线程同步问题/" title="Java进阶 ——— Java多线程（三）之多线程同步问题">http://outofmemory.top/2018/10/18/Java进阶 ——— Java多线程（三）之多线程同步问题/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://outofmemory.top/2018/10/18/Java进阶 ——— Java多线程（三）之多线程同步问题/　　作者: daidai" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/10/18/Java进阶 ——— Java多线程（二）之如何开启多线程/">
+                    Java进阶 ——— Java多线程（二）之如何开启多线程
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程同步"><span class="toc-number">2.</span> <span class="toc-text">线程同步</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#synchronized"><span class="toc-number">2.1.</span> <span class="toc-text">synchronized</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#synchronized-同步方法"><span class="toc-number">2.1.1.</span> <span class="toc-text">synchronized 同步方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#synchronized-同步代码块"><span class="toc-number">2.1.2.</span> <span class="toc-text">synchronized 同步代码块</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#synchronized-修饰静态类或静态方法"><span class="toc-number">2.1.3.</span> <span class="toc-text">synchronized 修饰静态类或静态方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#synchronized修饰一个类"><span class="toc-number">2.1.4.</span> <span class="toc-text">synchronized修饰一个类</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Lock"><span class="toc-number">2.2.</span> <span class="toc-text">Lock</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Lock与synchronized同步方式优缺点"><span class="toc-number">2.3.</span> <span class="toc-text">Lock与synchronized同步方式优缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#感谢"><span class="toc-number">2.4.</span> <span class="toc-text">感谢</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Java进阶 ——— Java多线程（三）之多线程同步问题　| T9'S Develop Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/10/18/Java进阶 ——— Java多线程（二）之如何开启多线程/" title="下一篇: Java进阶 ——— Java多线程（二）之如何开启多线程">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/18/Java进阶 ——— Java多线程（三）之多线程同步问题/">Java进阶 ——— Java多线程（三）之多线程同步问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/18/Java进阶 ——— Java多线程（二）之如何开启多线程/">Java进阶 ——— Java多线程（二）之如何开启多线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/17/Java进阶 ——— Java多线程（一）之进程和线程/">Java进阶 ——— Java多线程（一）之进程和线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/16/Java进阶 ——— 局部内部类访问局部变量为什么必须加final关键字/">Java进阶 ——— 局部内部类访问局部变量为什么必须加final关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/16/Java进阶 ——— 如何查看字节码/">Java进阶 ——— 如何查看字节码</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/15/Java进阶 ——— 面试必备 Java单链表反转/">Java进阶 ——— 面试必备 Java单链表反转</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— Android 深入理解AIDL进程间通信/">Android进阶 ——— Android 深入理解AIDL进程间通信</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android 进阶  ------ Android 单元测试/">Android 进阶  ------ Android 单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Flutter初体验（二）---- 创建第一个Flutter APP/">Flutter初体验（二）---- 创建第一个Flutter APP</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Flutter初体验（一）---- 配置安装Flutter/">Flutter初体验（一）---- 配置安装Flutter</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java进阶 ——— 面试常见问题/">Java进阶 ——— 面试常见问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java进阶 ——— HTTP概述/">Java进阶 ——— HTTP概述</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java设计模式  ------ 代理模式/">Java设计模式  ------ 代理模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java 进阶  ------ 垃圾回收机制/">Java 进阶  ------ 垃圾回收机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java 进阶  ------ 时间复杂度对比/">Java 进阶  ------ 时间复杂度对比</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/JVM DVM ART对比/">Android 进阶  ------ JVM DVM ART对比</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Handler系列之创建子线程Handler/">Android 进阶  ------ Handler系列之创建子线程Handler</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap/">Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java设计模式 ——— 工厂模式/">Java设计模式 ——— 工厂模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— Android官方架构组件Lifecycle/">Android进阶 ——— Android官方架构组件Lifecycle</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— Android官方架构组件LiveData/">Android进阶 ——— Android官方架构组件LiveData</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/iOS 自定义View 中跳转UIViewController/">iOS 自定义View 中跳转UIViewController</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/28/Kotlin 学习笔记（八）—— Kotlin类与对象之接口/">Kotlin 学习笔记（八）—— Kotlin类与对象之接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/28/Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段/">Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/27/Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承/">Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/12/Kotlin基础之控制流、返回与跳转、 包与导入/">Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/09/Kotlin基础之基本类型/">Kotlin 学习笔记（四）—— Kotlin基础之基本类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/09/习惯用法/">Kotlin 学习笔记（三）—— 习惯用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/08/Kotlin 学习笔记（二）—— 基础语法/">Kotlin 学习笔记（二）—— 基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/08/Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料/">Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/07/Android自定义View(八) -- 硬件加速/">Android自定义View(八) -- 硬件加速</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Privacy/">Privacy Policy</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/关于Android触摸事件机制/">关于Android触摸事件机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Git常用操作/">Git常用操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/关于Android AIDL 编译报错问题/">关于Android AIDL 编译报错问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Android6.0运行时权限，化繁为简/">Android6.0运行时权限，化繁为简</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2018 daidai
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

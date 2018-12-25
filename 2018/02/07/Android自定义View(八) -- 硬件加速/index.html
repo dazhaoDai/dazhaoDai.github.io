@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="daidai" />
+
+
+
+<meta name="description" content="前面学习的内容:Android自定义View(一) – 初识Android自定义View(二) – Paint详解Android自定义View(三) – drawText()Android自定义View(四) – CanvasAndroid自定义View(五) – 绘制顺序Android自定义View(六) – 属性动画(上)Android自定义View(七) – 属性动画(下)  本文计划根据H">
+<meta name="keywords" content="android 自定义view,android view">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android自定义View(八) -- 硬件加速">
+<meta property="og:url" content="http://outofmemory.top/2018/02/07/Android自定义View(八) -- 硬件加速/index.html">
+<meta property="og:site_name" content="T9&#39;S Develop Blog">
+<meta property="og:description" content="前面学习的内容:Android自定义View(一) – 初识Android自定义View(二) – Paint详解Android自定义View(三) – drawText()Android自定义View(四) – CanvasAndroid自定义View(五) – 绘制顺序Android自定义View(六) – 属性动画(上)Android自定义View(七) – 属性动画(下)  本文计划根据H">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fjmybsw31fj30nb0iywfq.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fjmygtwiutj30nb0o2ta8.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fjn0huxdm5j30lr0q0n25.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcgy1fjnhdt0s41j3069069wep.jpg">
+<meta property="og:updated_time" content="2018-02-08T06:54:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android自定义View(八) -- 硬件加速">
+<meta name="twitter:description" content="前面学习的内容:Android自定义View(一) – 初识Android自定义View(二) – Paint详解Android自定义View(三) – drawText()Android自定义View(四) – CanvasAndroid自定义View(五) – 绘制顺序Android自定义View(六) – 属性动画(上)Android自定义View(七) – 属性动画(下)  本文计划根据H">
+<meta name="twitter:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fjmybsw31fj30nb0iywfq.jpg">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="T9&#39;S Develop Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="https://s1.ax1x.com/2018/10/12/iNnhCV.gif">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Android自定义View(八) -- 硬件加速 | T9&#39;S Develop Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="https://s1.ax1x.com/2018/10/12/iNnhCV.gif" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">daidai</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">不仅有工作，更有生活</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/archives/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="https://daidazhao@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/dazhaoDai" title="GitHub"></a>
+                            
+                                <a class="fa CSDN" href="https://blog.csdn.net/dazhaoDai" title="CSDN"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android官方架构/">Android官方架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android进阶/">Android进阶</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git分支操作/">Git分支操作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java进阶/">Java进阶</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/">Kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin开发/">Kotlin开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-aidl/">android aidl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-permission/">android permission</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-view/">android view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-开发错误/">android 开发错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-权限/">android 权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-自定义view/">android 自定义view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android触摸事件/">android触摸事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/privacy/">privacy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">Developer</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">daidai</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="https://s1.ax1x.com/2018/10/12/iNnhCV.gif" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">daidai</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">不仅有工作，更有生活</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="https://daidazhao@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/dazhaoDai" title="GitHub"></a>
+                            
+                                <a class="fa CSDN" target="_blank" href="https://blog.csdn.net/dazhaoDai" title="CSDN"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-Android自定义View(八) -- 硬件加速" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/02/07/Android自定义View(八) -- 硬件加速/" class="article-date">
+      <time datetime="2018-02-07T12:33:07.000Z" itemprop="datePublished">2018-02-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android自定义View(八) -- 硬件加速
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-view/">android view</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-自定义view/">android 自定义view</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>前面学习的内容:<br><a href="https://www.jianshu.com/p/c5e5734279aa" target="_blank" rel="external">Android自定义View(一) – 初识</a><br><a href="https://www.jianshu.com/p/d7c3bbaef731" target="_blank" rel="external">Android自定义View(二) – Paint详解</a><br><a href="https://www.jianshu.com/p/89939ede6add" target="_blank" rel="external">Android自定义View(三) – drawText()</a><br><a href="https://www.jianshu.com/p/bef2482c675d" target="_blank" rel="external">Android自定义View(四) – Canvas</a><br><a href="https://www.jianshu.com/p/c186df6140b5" target="_blank" rel="external">Android自定义View(五) – 绘制顺序</a><br><a href="https://www.jianshu.com/p/6f705507097a" target="_blank" rel="external">Android自定义View(六) – 属性动画(上)</a><br><a href="https://www.jianshu.com/p/b0fc1b601f2c" target="_blank" rel="external">Android自定义View(七) – 属性动画(下)</a></p>
+<hr>
+<h2 id="本文计划根据HenCoder系列文章进行学习，所以代码风格及博文素材可能会摘自其中"><a href="#本文计划根据HenCoder系列文章进行学习，所以代码风格及博文素材可能会摘自其中" class="headerlink" title="本文计划根据HenCoder系列文章进行学习，所以代码风格及博文素材可能会摘自其中"></a>本文计划根据<a href="https://link.jianshu.com/?t=http%3A%2F%2Fhencoder.com%2F" target="_blank" rel="external">HenCoder</a>系列文章进行学习，所以代码风格及博文素材可能会摘自其中</h2><hr>
+<p>硬件加速经常被提及，很多人感兴趣，这个词给人的概念大概有两种：快速、不稳定。</p>
+<p>对很多人来说，硬件加速似乎是一个只可远观而不可亵玩的高科技：是，听说很牛逼，但是不敢乱用，甚至不知道什么时候使用</p>
+<p>今天就试着把硬件加速的原理和应用，好好了解一下：</p>
+<p>  1.硬件加速的本质和原理；</p>
+<p>   2.硬件加速在Android中的应用；</p>
+<p>   3.硬件加速在Android正宗的限制。</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>在正式开始之前需要说明一下，作为绘制部分的最后一期，本期内容只是为了内容的完整性做一个补充，因为之前好几期的内容里都有涉及硬件加速的技术点，而一些读者因为不了解硬件加速而产生了一些疑问。所以仅仅从难度上来讲，这期的内容并不难，并且本期的大部分内容你都可以从这两个页面中找到：</p>
+<ol>
+<li><a href="https://developer.android.google.cn/guide/topics/graphics/hardware-accel.html" target="_blank" rel="external">Hardware Acceleration | Android Developers</a></li>
+<li><a href="https://www.youtube.com/watch?v=v9S5EO7CLjo" target="_blank" rel="external">Google I/O 2011: Accelerated Android Rendering</a></li>
+</ol>
+<p>下面进入正题。</p>
+<p>所谓硬件加速，指的是把某些计算工作交给专门的硬件来做，而不是和普通的计算工作一样交给 CPU 来处理。这样不仅减轻了 CPU 的压力，而且由于有了「专人」的处理，这份计算工作的速度也被加快了。这就是「硬件加速」。</p>
+<p>而对于 Android 来说，硬件加速有它专属的意思：在 Android 里，硬件加速专指把 View 中绘制的计算工作交给 GPU 来处理。进一步地再明确一下，这个「绘制的计算工作」指的就是把绘制方法中的那些 <code>Canvas.drawXXX()</code> 变成实际的像素这件事。</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>在硬件加速关闭的时候，<code>Canvas</code> 绘制的工作方式是：把要绘制的内容写进一个 <code>Bitmap</code>，然后在之后的渲染过程中，这个 <code>Bitmap</code> 的像素内容被直接用于渲染到屏幕。这种绘制方式的主要计算工作在于把绘制操作转换为像素的过程（例如由一句 <code>Canvas.drawCircle()</code> 来获得一个具体的圆的像素信息），这个过程的计算是由 CPU 来完成的。大致就像这样：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fjmybsw31fj30nb0iywfq.jpg" alt=""></p>
+<p>而开启硬件加速后，Canvas的工作方式改变了：它把绘制的内容转为GPU的操作保存下来，然后交给GPU来完成显示工作。大致过程：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fjmygtwiutj30nb0o2ta8.jpg" alt=""></p>
+<blockquote>
+<p>如图，硬件加速开启时，CPU的工作是把绘制工作转换为GPU的操作，这个工作量相对来说还是非常小的。</p>
+</blockquote>
+<h2 id="怎么「加速」了"><a href="#怎么「加速」了" class="headerlink" title="怎么「加速」了"></a>怎么「加速」了</h2><p>从上图可以看出，开启硬件加速后，绘制的计算工作有CPU交给GPU，不过这怎么就能起到加速作用，让绘制变快了呢？</p>
+<p>硬件加速能够让绘制变快，主要有三个原因：</p>
+<ol>
+<li>本来CPU的工作，分摊一部分给GPU，自然可以提高效率；</li>
+<li>相对于CPU来说，GPU自身的设计本来就对于很多常见类型内容的计算(例如简单的圆形、方形)具有优势；</li>
+<li>由于绘制流程的不同；硬件加速在界面内容发生重绘的时候绘制流程可以得到优化，避免一些重复操作，从而大幅提升绘制效率。</li>
+</ol>
+<p>其中前两点可以总结为一句话：<strong>用了GPU，绘制就是快</strong>，原因很直观，不再多说。</p>
+<p>关于第三点，它的原理大致说一下：</p>
+<p>前面说到，关闭硬件加速时，绘制内容会被CPU转为实际的像素，然后直接渲染到屏幕，具体来说，这个[实际的像素]，是由bitmap承载的，在界面的某个View由于内容发生改变而调用invalidat()方法时，如果没有开启硬件加速，为了正确计算bitmap的像素，这个View的父View、父View的父View乃至一直向上知道最顶级的View，以及所有和它相交的View，都需要被调用invalidate()来重绘，一个View的改变使得大半个界面甚至整个界面重绘一遍，这个工作量是非常大的。</p>
+<p>而在开启硬件加速时，前面说过，绘制的内容会被转换成GPU的操作保存下来(承载的形式成为displaylist,对应的类也叫作DisplayList)，再转交给GPU。由于所有绘制的内容都没有变成最终的像素，所以它们之间是相互独立的，那么在界面内容发生改变时，只需把发生了改变的View调用invalidate()方法以更新它所对应的GPU就好，至于它的父View和兄弟View，只需要保持原样，那么这个工作量就很小了。</p>
+<p>正是由于上面的原因，硬件加速不仅是由于GPU的引入提高效率，而且因为<strong>绘制机制的改变，而极大的提高了界面内容改变时的刷新效率</strong></p>
+<p>所以把上面三条压缩总结一下，硬件加速更快的原因有两条：</p>
+<ol>
+<li>用了GPU，绘制更快了</li>
+<li>绘制机制的改变，导致界面内容改变时的刷新效率极大提高。</li>
+</ol>
+<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p>如果仅仅是这样，硬件加速只有好处没有坏处，那大家不必要关心其他问题，直接使用就行了，那这篇文章也没有必要了，既然是好东西，关心那么多原理干嘛？</p>
+<p>可事实就是，硬件加速不止有好处，也有限制：收到GPU绘制方式的限制，Canvas的有些方法在硬件加速开启时会失效或者无法正常工作，比如：开启硬件加速，clipPath()在 API 18及以上系统中才有效，具体的 API 限制和 API 版本的关系如下图：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fjn0huxdm5j30lr0q0n25.jpg" alt=""></p>
+<p>所以，如果你对自定义控件有自定义绘制的内容，最好参照一下表格，确保你的绘制操作可以正确地在所有用户手机中正常显示，而不是只在你最新Android系统的 Nexus 或 Pixel 里测试一遍没问题就发布。那就小心被祭天了。</p>
+<p>不过有一点可以放心的是，所有的原生自带控件，都没有用到 API 版本不兼容的绘制操作，可以放心使用。所以你只要检查你写的自定义绘制就好。</p>
+<h2 id="View-Layer"><a href="#View-Layer" class="headerlink" title="View Layer"></a>View Layer</h2><p>在之前几期的内容里我提到过几次，如果你的绘制操作不支持硬件加速，你需要手动关闭硬件加速来绘制界面，关闭的方式是通过这行代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">view.setLayerType(LAYER_TYPE_SOFTWARE, null);</div></pre></td></tr></table></figure>
+<p>很多人有过疑问：什么是layer type？如果这个方法是关闭硬件加速的开关，那么它的参数为什么不是一个LAYER_TYPE_SOFTWARE来关闭硬件加速以及一个LAYER_TYPE_HARDWARE来开启硬件加速，这两个参数，而是三个参数，第三个参数为LAYER_TYPE_NONE，难道还能既不用软件绘制又不用硬件绘制吗？</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcgy1fjnhdt0s41j3069069wep.jpg" alt=""></p>
+<p>事实上，<code>view.setLayerType(LAYER_TYPE_SOFTWARE, null)</code>这个方法的作用并不是关闭硬件加速，只是当它的参数为LAYER_TYPE_SOFTWARE的时候，可以<strong>顺便</strong>把硬件加速关掉而已；并且除了这个方法外，Android并没有提供专门的View级别的硬件加速开关，所以它就<strong>顺便</strong>成了一个开关硬件加速的方法。</p>
+<p><code>setLayerType()</code> 这个方法，它的作用其实就是字面的意思：设置View Layer的类型。所谓ViewLayer，又称为离屏缓冲（off-screen Buffer），它的作用就是单独启用一块地方来绘制这个View，而不是使用绘制软件的Bitmap或者通过硬件加速的GPU，这块地方可能是一块单独的bitmap，也可能是一块OpenGL的纹理（texture，OpenGL的纹理可以简单理解为图像的意思），具体取决于硬件加速是否开启。采取什么来绘制View不是关键，关键在于当设置了View Layer的时候，它的绘制会被缓存下来，而且缓存的是最终的绘制结果，而不是像硬件加速那样只是把GPU的操作保存下来再交给GPU去计算。通过这样更进一步的缓存方式，View的重绘效率进一步提高了:只要绘制的内容没变，那么不论是CPU绘制还是GPU绘制，都不用重新计算，只要用之前缓存的结果就可以了。</p>
+<blockquote>
+<p>多说一句，其实这个离屏缓冲（Off-screen Buffer），更准确的说应该叫做离屏缓存（Off-screen Cache）会更合适一点。原因在上面这一段里已经说过了，因为它其实是缓存而不是缓冲。（这段话仅代表个人意见）</p>
+</blockquote>
+<p>基于这样的原理，在进行移动、旋转等（无需调用 <code>invalidate()</code>）的属性动画的时候开启 Hardware Layer 将会极大地提升动画的效率，因为在动画过程中 View 本身并没有发生改变，只是它的位置或角度改变了，而这种改变是可以由 GPU 通过简单计算就完成的，并不需要重绘整个 View。所以在这种动画的过程中开启 Hardware Layer，可以让本来就依靠硬件加速而变流畅了的动画变得更加流畅。实现方式大概是这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">view.setLayerType(LAYER_TYPE_HARDWARE, null);  </div><div class="line">ObjectAnimator animator = ObjectAnimator.ofFloat(view, &quot;rotationY&quot;, 180);</div><div class="line"></div><div class="line">animator.addListener(new AnimatorListenerAdapter() &#123;  </div><div class="line">    @Override</div><div class="line">    public void onAnimationEnd(Animator animation) &#123;</div><div class="line">        view.setLayerType(LAYER_TYPE_NONE, null);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">animator.start();</div></pre></td></tr></table></figure>
+<p>或者如果是使用 <code>ViewPropertyAnimator</code>，那么更简单：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">view.animate()  </div><div class="line">        .rotationY(90)</div><div class="line">        .withLayer(); // withLayer() 可以自动完成上面这段代码的复杂操作</div></pre></td></tr></table></figure>
+<p>不过一定要注意，只有你在对 <code>translationX</code> <code>translationY</code> <code>rotation</code> <code>alpha</code> 等无需调用 <code>invalidate()</code> 的属性做动画的时候，这种方法才适用，因为这种方法本身利用的就是当界面不发生时，缓存未更新所带来的时间的节省。所以简单地说——</p>
+<p><strong>这种方式不适用于基于自定义属性绘制的动画。</strong>一定记得这句话。</p>
+<p>另外，除了用于关闭硬件加速和辅助属性动画这两项功能外，Layer 还可以用于给 View 增加一些绘制效果，例如设置一个 <code>ColorMatrixColorFilter</code> 来让 View 变成黑白的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ColorMatrix colorMatrix = new ColorMatrix();  </div><div class="line">colorMatrix.setSaturation(0);</div><div class="line"></div><div class="line">Paint paint = new Paint();  </div><div class="line">paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));</div><div class="line"></div><div class="line">view.setLayerType(LAYER_TYPE_HARDWARE, paint);</div></pre></td></tr></table></figure>
+<p>另外，由于设置了ViewLayer后，View在初次绘制时以及每次invalidate()后重绘时，需要进行两次的绘制工作(一次绘制到Layer，一次从Layer绘制到显示屏)，所以其实它的每次绘制的效率是被降低了的，所以一定要慎重使用View Layer，在需要用到它的时候再去使用。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本期内容就是这些，就像文章开始说的，本期知识是作为一个完整的补充，并么有太多重要或者高难度的东西，我也没有准备视频或者太多的截图或者GIF 去说明，总结一下：</p>
+<p>硬件加速指使用GPU来完成绘制的计算工作，代替CPU，它从工作分摊和绘制机制优化两个角度提升了绘制速度。</p>
+<p>硬件加速可以使用setLayerType()来关闭硬件加速，但这个方法其实是用来设置View Layer的：</p>
+<ol>
+<li>参数为  <code>LAYER_TYPE_SOFTWARE</code> 时，使用软件来绘制View Layer，绘制到一个Bitmap，并顺便关闭硬件加速；</li>
+<li>参数为 <code>LAYER_TYPE_HARDWARE</code> 时，使用GPU来绘制View Layer，绘制到一个OpenGL texture(如果硬件加速关闭，那么行为和LAYER_TYPE_SOFTWARE一致)；</li>
+<li>参数为 <code>LAYER_TYPE_NONE</code> 时，关闭View Layer。</li>
+</ol>
+<p>View Layer 可以加速无 <code>invalidate()</code> 时的刷新效率，但对于需要调用 <code>invalidate()</code> 的刷新无法加速。</p>
+<p>View Layer 绘制所消耗的实际时间是比不使用 View Layer 时要高的，所以要慎重使用。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/02/07/Android自定义View(八) -- 硬件加速/">Android自定义View(八) -- 硬件加速</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">daidai</a></p>
+        <p><span>发布时间:</span>2018-02-07, 20:33:07</p>
+        <p><span>最后更新:</span>2018-02-08, 14:54:56</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/02/07/Android自定义View(八) -- 硬件加速/" title="Android自定义View(八) -- 硬件加速">http://outofmemory.top/2018/02/07/Android自定义View(八) -- 硬件加速/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://outofmemory.top/2018/02/07/Android自定义View(八) -- 硬件加速/　　作者: daidai" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/02/08/Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料/">
+                    Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/10/30/Privacy/">
+                    Privacy Policy
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#本文计划根据HenCoder系列文章进行学习，所以代码风格及博文素材可能会摘自其中"><span class="toc-number">1.</span> <span class="toc-text">本文计划根据HenCoder系列文章进行学习，所以代码风格及博文素材可能会摘自其中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">2.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">3.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#怎么「加速」了"><span class="toc-number">4.</span> <span class="toc-text">怎么「加速」了</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#限制"><span class="toc-number">5.</span> <span class="toc-text">限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#View-Layer"><span class="toc-number">6.</span> <span class="toc-text">View Layer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">7.</span> <span class="toc-text">总结</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Android自定义View(八) -- 硬件加速　| T9'S Develop Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/02/08/Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料/" title="上一篇: Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/10/30/Privacy/" title="下一篇: Privacy Policy">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/18/Java进阶 ——— Java多线程（三）之多线程同步问题/">Java进阶 ——— Java多线程（三）之多线程同步问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/18/Java进阶 ——— Java多线程（二）之如何开启多线程/">Java进阶 ——— Java多线程（二）之如何开启多线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/17/Java进阶 ——— Java多线程（一）之进程和线程/">Java进阶 ——— Java多线程（一）之进程和线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/16/Java进阶 ——— 局部内部类访问局部变量为什么必须加final关键字/">Java进阶 ——— 局部内部类访问局部变量为什么必须加final关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/16/Java进阶 ——— 如何查看字节码/">Java进阶 ——— 如何查看字节码</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/15/Java进阶 ——— 面试必备 Java单链表反转/">Java进阶 ——— 面试必备 Java单链表反转</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— Android 深入理解AIDL进程间通信/">Android进阶 ——— Android 深入理解AIDL进程间通信</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android 进阶  ------ Android 单元测试/">Android 进阶  ------ Android 单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Flutter初体验（二）---- 创建第一个Flutter APP/">Flutter初体验（二）---- 创建第一个Flutter APP</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Flutter初体验（一）---- 配置安装Flutter/">Flutter初体验（一）---- 配置安装Flutter</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java进阶 ——— 面试常见问题/">Java进阶 ——— 面试常见问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java进阶 ——— HTTP概述/">Java进阶 ——— HTTP概述</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java设计模式  ------ 代理模式/">Java设计模式  ------ 代理模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java 进阶  ------ 垃圾回收机制/">Java 进阶  ------ 垃圾回收机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java 进阶  ------ 时间复杂度对比/">Java 进阶  ------ 时间复杂度对比</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/JVM DVM ART对比/">Android 进阶  ------ JVM DVM ART对比</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Handler系列之创建子线程Handler/">Android 进阶  ------ Handler系列之创建子线程Handler</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap/">Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java设计模式 ——— 工厂模式/">Java设计模式 ——— 工厂模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— Android官方架构组件Lifecycle/">Android进阶 ——— Android官方架构组件Lifecycle</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— Android官方架构组件LiveData/">Android进阶 ——— Android官方架构组件LiveData</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/iOS 自定义View 中跳转UIViewController/">iOS 自定义View 中跳转UIViewController</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/28/Kotlin 学习笔记（八）—— Kotlin类与对象之接口/">Kotlin 学习笔记（八）—— Kotlin类与对象之接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/28/Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段/">Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/27/Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承/">Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/12/Kotlin基础之控制流、返回与跳转、 包与导入/">Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/09/Kotlin基础之基本类型/">Kotlin 学习笔记（四）—— Kotlin基础之基本类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/09/习惯用法/">Kotlin 学习笔记（三）—— 习惯用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/08/Kotlin 学习笔记（二）—— 基础语法/">Kotlin 学习笔记（二）—— 基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/08/Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料/">Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/07/Android自定义View(八) -- 硬件加速/">Android自定义View(八) -- 硬件加速</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Privacy/">Privacy Policy</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/关于Android触摸事件机制/">关于Android触摸事件机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Git常用操作/">Git常用操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/关于Android AIDL 编译报错问题/">关于Android AIDL 编译报错问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Android6.0运行时权限，化繁为简/">Android6.0运行时权限，化繁为简</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2018 daidai
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

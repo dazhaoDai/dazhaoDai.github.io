@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="daidai" />
+
+
+    
+    
+
+
+<meta name="description" content="喜欢探索未知,保持好奇心">
+<meta property="og:type" content="website">
+<meta property="og:title" content="T9&#39;S Develop Blog">
+<meta property="og:url" content="http://outofmemory.top/page/4/index.html">
+<meta property="og:site_name" content="T9&#39;S Develop Blog">
+<meta property="og:description" content="喜欢探索未知,保持好奇心">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="T9&#39;S Develop Blog">
+<meta name="twitter:description" content="喜欢探索未知,保持好奇心">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="T9&#39;S Develop Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="https://s1.ax1x.com/2018/10/12/iNnhCV.gif">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <style> .article { opacity: 0;} </style>
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>T9&#39;S Develop Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: true,
+        isPost: false,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="https://s1.ax1x.com/2018/10/12/iNnhCV.gif" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">daidai</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">不仅有工作，更有生活</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/archives/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="https://daidazhao@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/dazhaoDai" title="GitHub"></a>
+                            
+                                <a class="fa CSDN" href="https://blog.csdn.net/dazhaoDai" title="CSDN"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android官方架构/">Android官方架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android进阶/">Android进阶</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git分支操作/">Git分支操作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java进阶/">Java进阶</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/">Kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin开发/">Kotlin开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-aidl/">android aidl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-permission/">android permission</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-view/">android view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-开发错误/">android 开发错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-权限/">android 权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-自定义view/">android 自定义view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android触摸事件/">android触摸事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/privacy/">privacy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">Developer</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">daidai</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="https://s1.ax1x.com/2018/10/12/iNnhCV.gif" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">daidai</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">不仅有工作，更有生活</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="https://daidazhao@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/dazhaoDai" title="GitHub"></a>
+                            
+                                <a class="fa CSDN" target="_blank" href="https://blog.csdn.net/dazhaoDai" title="CSDN"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap">
+  
+    <article id="post-Android自定义View(八) -- 硬件加速" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/02/07/Android自定义View(八) -- 硬件加速/" class="article-date">
+      <time datetime="2018-02-07T12:33:07.000Z" itemprop="datePublished">2018-02-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/07/Android自定义View(八) -- 硬件加速/">Android自定义View(八) -- 硬件加速</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>前面学习的内容:<br><a href="https://www.jianshu.com/p/c5e5734279aa" target="_blank" rel="external">Android自定义View(一) – 初识</a><br><a href="https://www.jianshu.com/p/d7c3bbaef731" target="_blank" rel="external">Android自定义View(二) – Paint详解</a><br><a href="https://www.jianshu.com/p/89939ede6add" target="_blank" rel="external">Android自定义View(三) – drawText()</a><br><a href="https://www.jianshu.com/p/bef2482c675d" target="_blank" rel="external">Android自定义View(四) – Canvas</a><br><a href="https://www.jianshu.com/p/c186df6140b5" target="_blank" rel="external">Android自定义View(五) – 绘制顺序</a><br><a href="https://www.jianshu.com/p/6f705507097a" target="_blank" rel="external">Android自定义View(六) – 属性动画(上)</a><br><a href="https://www.jianshu.com/p/b0fc1b601f2c" target="_blank" rel="external">Android自定义View(七) – 属性动画(下)</a></p>
+<hr>
+<h2 id="本文计划根据HenCoder系列文章进行学习，所以代码风格及博文素材可能会摘自其中"><a href="#本文计划根据HenCoder系列文章进行学习，所以代码风格及博文素材可能会摘自其中" class="headerlink" title="本文计划根据HenCoder系列文章进行学习，所以代码风格及博文素材可能会摘自其中"></a>本文计划根据<a href="https://link.jianshu.com/?t=http%3A%2F%2Fhencoder.com%2F" target="_blank" rel="external">HenCoder</a>系列文章进行学习，所以代码风格及博文素材可能会摘自其中</h2><hr>
+<p>硬件加速经常被提及，很多人感兴趣，这个词给人的概念大概有两种：快速、不稳定。</p>
+<p>对很多人来说，硬件加速似乎是一个只可远观而不可亵玩的高科技：是，听说很牛逼，但是不敢乱用，甚至不知道什么时候使用</p>
+<p>今天就试着把硬件加速的原理和应用，好好了解一下：</p>
+<p>  1.硬件加速的本质和原理；</p>
+<p>   2.硬件加速在Android中的应用；</p>
+<p>   3.硬件加速在Android正宗的限制。</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>在正式开始之前需要说明一下，作为绘制部分的最后一期，本期内容只是为了内容的完整性做一个补充，因为之前好几期的内容里都有涉及硬件加速的技术点，而一些读者因为不了解硬件加速而产生了一些疑问。所以仅仅从难度上来讲，这期的内容并不难，并且本期的大部分内容你都可以从这两个页面中找到：</p>
+<ol>
+<li><a href="https://developer.android.google.cn/guide/topics/graphics/hardware-accel.html" target="_blank" rel="external">Hardware Acceleration | Android Developers</a></li>
+<li><a href="https://www.youtube.com/watch?v=v9S5EO7CLjo" target="_blank" rel="external">Google I/O 2011: Accelerated Android Rendering</a></li>
+</ol>
+<p>下面进入正题。</p>
+<p>所谓硬件加速，指的是把某些计算工作交给专门的硬件来做，而不是和普通的计算工作一样交给 CPU 来处理。这样不仅减轻了 CPU 的压力，而且由于有了「专人」的处理，这份计算工作的速度也被加快了。这就是「硬件加速」。</p>
+<p>而对于 Android 来说，硬件加速有它专属的意思：在 Android 里，硬件加速专指把 View 中绘制的计算工作交给 GPU 来处理。进一步地再明确一下，这个「绘制的计算工作」指的就是把绘制方法中的那些 <code>Canvas.drawXXX()</code> 变成实际的像素这件事。</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>在硬件加速关闭的时候，<code>Canvas</code> 绘制的工作方式是：把要绘制的内容写进一个 <code>Bitmap</code>，然后在之后的渲染过程中，这个 <code>Bitmap</code> 的像素内容被直接用于渲染到屏幕。这种绘制方式的主要计算工作在于把绘制操作转换为像素的过程（例如由一句 <code>Canvas.drawCircle()</code> 来获得一个具体的圆的像素信息），这个过程的计算是由 CPU 来完成的。大致就像这样：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fjmybsw31fj30nb0iywfq.jpg" alt=""></p>
+<p>而开启硬件加速后，Canvas的工作方式改变了：它把绘制的内容转为GPU的操作保存下来，然后交给GPU来完成显示工作。大致过程：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fjmygtwiutj30nb0o2ta8.jpg" alt=""></p>
+<blockquote>
+<p>如图，硬件加速开启时，CPU的工作是把绘制工作转换为GPU的操作，这个工作量相对来说还是非常小的。</p>
+</blockquote>
+<h2 id="怎么「加速」了"><a href="#怎么「加速」了" class="headerlink" title="怎么「加速」了"></a>怎么「加速」了</h2><p>从上图可以看出，开启硬件加速后，绘制的计算工作有CPU交给GPU，不过这怎么就能起到加速作用，让绘制变快了呢？</p>
+<p>硬件加速能够让绘制变快，主要有三个原因：</p>
+<ol>
+<li>本来CPU的工作，分摊一部分给GPU，自然可以提高效率；</li>
+<li>相对于CPU来说，GPU自身的设计本来就对于很多常见类型内容的计算(例如简单的圆形、方形)具有优势；</li>
+<li>由于绘制流程的不同；硬件加速在界面内容发生重绘的时候绘制流程可以得到优化，避免一些重复操作，从而大幅提升绘制效率。</li>
+</ol>
+<p>其中前两点可以总结为一句话：<strong>用了GPU，绘制就是快</strong>，原因很直观，不再多说。</p>
+<p>关于第三点，它的原理大致说一下：</p>
+<p>前面说到，关闭硬件加速时，绘制内容会被CPU转为实际的像素，然后直接渲染到屏幕，具体来说，这个[实际的像素]，是由bitmap承载的，在界面的某个View由于内容发生改变而调用invalidat()方法时，如果没有开启硬件加速，为了正确计算bitmap的像素，这个View的父View、父View的父View乃至一直向上知道最顶级的View，以及所有和它相交的View，都需要被调用invalidate()来重绘，一个View的改变使得大半个界面甚至整个界面重绘一遍，这个工作量是非常大的。</p>
+<p>而在开启硬件加速时，前面说过，绘制的内容会被转换成GPU的操作保存下来(承载的形式成为displaylist,对应的类也叫作DisplayList)，再转交给GPU。由于所有绘制的内容都没有变成最终的像素，所以它们之间是相互独立的，那么在界面内容发生改变时，只需把发生了改变的View调用invalidate()方法以更新它所对应的GPU就好，至于它的父View和兄弟View，只需要保持原样，那么这个工作量就很小了。</p>
+<p>正是由于上面的原因，硬件加速不仅是由于GPU的引入提高效率，而且因为<strong>绘制机制的改变，而极大的提高了界面内容改变时的刷新效率</strong></p>
+<p>所以把上面三条压缩总结一下，硬件加速更快的原因有两条：</p>
+<ol>
+<li>用了GPU，绘制更快了</li>
+<li>绘制机制的改变，导致界面内容改变时的刷新效率极大提高。</li>
+</ol>
+<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p>如果仅仅是这样，硬件加速只有好处没有坏处，那大家不必要关心其他问题，直接使用就行了，那这篇文章也没有必要了，既然是好东西，关心那么多原理干嘛？</p>
+<p>可事实就是，硬件加速不止有好处，也有限制：收到GPU绘制方式的限制，Canvas的有些方法在硬件加速开启时会失效或者无法正常工作，比如：开启硬件加速，clipPath()在 API 18及以上系统中才有效，具体的 API 限制和 API 版本的关系如下图：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fjn0huxdm5j30lr0q0n25.jpg" alt=""></p>
+<p>所以，如果你对自定义控件有自定义绘制的内容，最好参照一下表格，确保你的绘制操作可以正确地在所有用户手机中正常显示，而不是只在你最新Android系统的 Nexus 或 Pixel 里测试一遍没问题就发布。那就小心被祭天了。</p>
+<p>不过有一点可以放心的是，所有的原生自带控件，都没有用到 API 版本不兼容的绘制操作，可以放心使用。所以你只要检查你写的自定义绘制就好。</p>
+<h2 id="View-Layer"><a href="#View-Layer" class="headerlink" title="View Layer"></a>View Layer</h2><p>在之前几期的内容里我提到过几次，如果你的绘制操作不支持硬件加速，你需要手动关闭硬件加速来绘制界面，关闭的方式是通过这行代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">view.setLayerType(LAYER_TYPE_SOFTWARE, null);</div></pre></td></tr></table></figure>
+<p>很多人有过疑问：什么是layer type？如果这个方法是关闭硬件加速的开关，那么它的参数为什么不是一个LAYER_TYPE_SOFTWARE来关闭硬件加速以及一个LAYER_TYPE_HARDWARE来开启硬件加速，这两个参数，而是三个参数，第三个参数为LAYER_TYPE_NONE，难道还能既不用软件绘制又不用硬件绘制吗？</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcgy1fjnhdt0s41j3069069wep.jpg" alt=""></p>
+<p>事实上，<code>view.setLayerType(LAYER_TYPE_SOFTWARE, null)</code>这个方法的作用并不是关闭硬件加速，只是当它的参数为LAYER_TYPE_SOFTWARE的时候，可以<strong>顺便</strong>把硬件加速关掉而已；并且除了这个方法外，Android并没有提供专门的View级别的硬件加速开关，所以它就<strong>顺便</strong>成了一个开关硬件加速的方法。</p>
+<p><code>setLayerType()</code> 这个方法，它的作用其实就是字面的意思：设置View Layer的类型。所谓ViewLayer，又称为离屏缓冲（off-screen Buffer），它的作用就是单独启用一块地方来绘制这个View，而不是使用绘制软件的Bitmap或者通过硬件加速的GPU，这块地方可能是一块单独的bitmap，也可能是一块OpenGL的纹理（texture，OpenGL的纹理可以简单理解为图像的意思），具体取决于硬件加速是否开启。采取什么来绘制View不是关键，关键在于当设置了View Layer的时候，它的绘制会被缓存下来，而且缓存的是最终的绘制结果，而不是像硬件加速那样只是把GPU的操作保存下来再交给GPU去计算。通过这样更进一步的缓存方式，View的重绘效率进一步提高了:只要绘制的内容没变，那么不论是CPU绘制还是GPU绘制，都不用重新计算，只要用之前缓存的结果就可以了。</p>
+<blockquote>
+<p>多说一句，其实这个离屏缓冲（Off-screen Buffer），更准确的说应该叫做离屏缓存（Off-screen Cache）会更合适一点。原因在上面这一段里已经说过了，因为它其实是缓存而不是缓冲。（这段话仅代表个人意见）</p>
+</blockquote>
+<p>基于这样的原理，在进行移动、旋转等（无需调用 <code>invalidate()</code>）的属性动画的时候开启 Hardware Layer 将会极大地提升动画的效率，因为在动画过程中 View 本身并没有发生改变，只是它的位置或角度改变了，而这种改变是可以由 GPU 通过简单计算就完成的，并不需要重绘整个 View。所以在这种动画的过程中开启 Hardware Layer，可以让本来就依靠硬件加速而变流畅了的动画变得更加流畅。实现方式大概是这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">view.setLayerType(LAYER_TYPE_HARDWARE, null);  </div><div class="line">ObjectAnimator animator = ObjectAnimator.ofFloat(view, &quot;rotationY&quot;, 180);</div><div class="line"></div><div class="line">animator.addListener(new AnimatorListenerAdapter() &#123;  </div><div class="line">    @Override</div><div class="line">    public void onAnimationEnd(Animator animation) &#123;</div><div class="line">        view.setLayerType(LAYER_TYPE_NONE, null);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">animator.start();</div></pre></td></tr></table></figure>
+<p>或者如果是使用 <code>ViewPropertyAnimator</code>，那么更简单：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">view.animate()  </div><div class="line">        .rotationY(90)</div><div class="line">        .withLayer(); // withLayer() 可以自动完成上面这段代码的复杂操作</div></pre></td></tr></table></figure>
+<p>不过一定要注意，只有你在对 <code>translationX</code> <code>translationY</code> <code>rotation</code> <code>alpha</code> 等无需调用 <code>invalidate()</code> 的属性做动画的时候，这种方法才适用，因为这种方法本身利用的就是当界面不发生时，缓存未更新所带来的时间的节省。所以简单地说——</p>
+<p><strong>这种方式不适用于基于自定义属性绘制的动画。</strong>一定记得这句话。</p>
+<p>另外，除了用于关闭硬件加速和辅助属性动画这两项功能外，Layer 还可以用于给 View 增加一些绘制效果，例如设置一个 <code>ColorMatrixColorFilter</code> 来让 View 变成黑白的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ColorMatrix colorMatrix = new ColorMatrix();  </div><div class="line">colorMatrix.setSaturation(0);</div><div class="line"></div><div class="line">Paint paint = new Paint();  </div><div class="line">paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));</div><div class="line"></div><div class="line">view.setLayerType(LAYER_TYPE_HARDWARE, paint);</div></pre></td></tr></table></figure>
+<p>另外，由于设置了ViewLayer后，View在初次绘制时以及每次invalidate()后重绘时，需要进行两次的绘制工作(一次绘制到Layer，一次从Layer绘制到显示屏)，所以其实它的每次绘制的效率是被降低了的，所以一定要慎重使用View Layer，在需要用到它的时候再去使用。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本期内容就是这些，就像文章开始说的，本期知识是作为一个完整的补充，并么有太多重要或者高难度的东西，我也没有准备视频或者太多的截图或者GIF 去说明，总结一下：</p>
+<p>硬件加速指使用GPU来完成绘制的计算工作，代替CPU，它从工作分摊和绘制机制优化两个角度提升了绘制速度。</p>
+<p>硬件加速可以使用setLayerType()来关闭硬件加速，但这个方法其实是用来设置View Layer的：</p>
+<ol>
+<li>参数为  <code>LAYER_TYPE_SOFTWARE</code> 时，使用软件来绘制View Layer，绘制到一个Bitmap，并顺便关闭硬件加速；</li>
+<li>参数为 <code>LAYER_TYPE_HARDWARE</code> 时，使用GPU来绘制View Layer，绘制到一个OpenGL texture(如果硬件加速关闭，那么行为和LAYER_TYPE_SOFTWARE一致)；</li>
+<li>参数为 <code>LAYER_TYPE_NONE</code> 时，关闭View Layer。</li>
+</ol>
+<p>View Layer 可以加速无 <code>invalidate()</code> 时的刷新效率，但对于需要调用 <code>invalidate()</code> 的刷新无法加速。</p>
+<p>View Layer 绘制所消耗的实际时间是比不使用 View Layer 时要高的，所以要慎重使用。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-view/">android view</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-自定义view/">android 自定义view</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Privacy" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/30/Privacy/" class="article-date">
+      <time datetime="2017-10-30T04:53:07.000Z" itemprop="datePublished">2017-10-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/30/Privacy/">Privacy Policy</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="隐私政策"><a href="#隐私政策" class="headerlink" title="隐私政策"></a>隐私政策</h1><h3 id="本应用尊重并保护所有使用服务用户的个人隐私权。为了给您提供更准确、更有个性化的服务，本应用会按照本隐私权政策的规定使用和披露您的个人信息。但本应用将以高度的勤勉、审慎义务对待这些信息。除本隐私权政策另有规定外，在未征得您事先许可的情况下，本应用不会将这些信息对外披露或向第三方提供。本应用会不时更新本隐私权政策。-您在同意本应用服务使用协议之时，即视为您已经同意本隐私权政策全部内容。本隐私权政策属于本应用服务使用协议不可分割的一部分。"><a href="#本应用尊重并保护所有使用服务用户的个人隐私权。为了给您提供更准确、更有个性化的服务，本应用会按照本隐私权政策的规定使用和披露您的个人信息。但本应用将以高度的勤勉、审慎义务对待这些信息。除本隐私权政策另有规定外，在未征得您事先许可的情况下，本应用不会将这些信息对外披露或向第三方提供。本应用会不时更新本隐私权政策。-您在同意本应用服务使用协议之时，即视为您已经同意本隐私权政策全部内容。本隐私权政策属于本应用服务使用协议不可分割的一部分。" class="headerlink" title="本应用尊重并保护所有使用服务用户的个人隐私权。为了给您提供更准确、更有个性化的服务，本应用会按照本隐私权政策的规定使用和披露您的个人信息。但本应用将以高度的勤勉、审慎义务对待这些信息。除本隐私权政策另有规定外，在未征得您事先许可的情况下，本应用不会将这些信息对外披露或向第三方提供。本应用会不时更新本隐私权政策。 您在同意本应用服务使用协议之时，即视为您已经同意本隐私权政策全部内容。本隐私权政策属于本应用服务使用协议不可分割的一部分。"></a>本应用尊重并保护所有使用服务用户的个人隐私权。为了给您提供更准确、更有个性化的服务，本应用会按照本隐私权政策的规定使用和披露您的个人信息。但本应用将以高度的勤勉、审慎义务对待这些信息。除本隐私权政策另有规定外，在未征得您事先许可的情况下，本应用不会将这些信息对外披露或向第三方提供。本应用会不时更新本隐私权政策。 您在同意本应用服务使用协议之时，即视为您已经同意本隐私权政策全部内容。本隐私权政策属于本应用服务使用协议不可分割的一部分。</h3><h4 id="1-适用范围"><a href="#1-适用范围" class="headerlink" title="1. 适用范围"></a>1. 适用范围</h4><h5 id="a-在您注册本应用帐号时，您根据本应用要求提供的个人注册信息；-b-在您使用本应用网络服务，或访问本应用平台网页时，本应用自动接收并记录的您的浏览器和计算机上的信息，包括但不限于您的IP地址、浏览器的类型、使用的语言、访问日期和时间、软硬件特征信息及您需求的网页记录等数据；-c-本应用通过合法途径从商业伙伴处取得的用户个人数据。您了解并同意，以下信息不适用本隐私权政策：-a-您在使用本应用平台提供的搜索服务时输入的关键字信息；-b-本应用收集到的您在本应用发布的有关信息数据，包括但不限于参与活动、成交信息及评价详情；-c-违反法律规定或违反本应用规则行为及本应用已对您采取的措施。"><a href="#a-在您注册本应用帐号时，您根据本应用要求提供的个人注册信息；-b-在您使用本应用网络服务，或访问本应用平台网页时，本应用自动接收并记录的您的浏览器和计算机上的信息，包括但不限于您的IP地址、浏览器的类型、使用的语言、访问日期和时间、软硬件特征信息及您需求的网页记录等数据；-c-本应用通过合法途径从商业伙伴处取得的用户个人数据。您了解并同意，以下信息不适用本隐私权政策：-a-您在使用本应用平台提供的搜索服务时输入的关键字信息；-b-本应用收集到的您在本应用发布的有关信息数据，包括但不限于参与活动、成交信息及评价详情；-c-违反法律规定或违反本应用规则行为及本应用已对您采取的措施。" class="headerlink" title="(a) 在您注册本应用帐号时，您根据本应用要求提供的个人注册信息；(b) 在您使用本应用网络服务，或访问本应用平台网页时，本应用自动接收并记录的您的浏览器和计算机上的信息，包括但不限于您的IP地址、浏览器的类型、使用的语言、访问日期和时间、软硬件特征信息及您需求的网页记录等数据；(c) 本应用通过合法途径从商业伙伴处取得的用户个人数据。您了解并同意，以下信息不适用本隐私权政策：(a) 您在使用本应用平台提供的搜索服务时输入的关键字信息；(b) 本应用收集到的您在本应用发布的有关信息数据，包括但不限于参与活动、成交信息及评价详情；(c) 违反法律规定或违反本应用规则行为及本应用已对您采取的措施。"></a>(a) 在您注册本应用帐号时，您根据本应用要求提供的个人注册信息；(b) 在您使用本应用网络服务，或访问本应用平台网页时，本应用自动接收并记录的您的浏览器和计算机上的信息，包括但不限于您的IP地址、浏览器的类型、使用的语言、访问日期和时间、软硬件特征信息及您需求的网页记录等数据；(c) 本应用通过合法途径从商业伙伴处取得的用户个人数据。您了解并同意，以下信息不适用本隐私权政策：(a) 您在使用本应用平台提供的搜索服务时输入的关键字信息；(b) 本应用收集到的您在本应用发布的有关信息数据，包括但不限于参与活动、成交信息及评价详情；(c) 违反法律规定或违反本应用规则行为及本应用已对您采取的措施。</h5><h4 id="2-信息使用"><a href="#2-信息使用" class="headerlink" title="2. 信息使用"></a>2. 信息使用</h4><h5 id="a-本应用不会向任何无关第三方提供、出售、出租、分享或交易您的个人信息，除非事先得到您的许可，或该第三方和本应用（含本应用关联公司）单独或共同为您提供服务，且在该服务结束后，其将被禁止访问包括其以前能够访问的所有这些资料。-b-本应用亦不允许任何第三方以任何手段收集、编辑、出售或者无偿传播您的个人信息。任何本应用平台用户如从事上述活动，一经发现，本应用有权立即终止与该用户的服务协议。-c-为服务用户的目的，本应用可能通过使用您的个人信息，向您提供您感兴趣的信息，包括但不限于向您发出产品和服务信息，或者与本应用合作伙伴共享信息以便他们向您发送有关其产品和服务的信息（后者需要您的事先同意）。"><a href="#a-本应用不会向任何无关第三方提供、出售、出租、分享或交易您的个人信息，除非事先得到您的许可，或该第三方和本应用（含本应用关联公司）单独或共同为您提供服务，且在该服务结束后，其将被禁止访问包括其以前能够访问的所有这些资料。-b-本应用亦不允许任何第三方以任何手段收集、编辑、出售或者无偿传播您的个人信息。任何本应用平台用户如从事上述活动，一经发现，本应用有权立即终止与该用户的服务协议。-c-为服务用户的目的，本应用可能通过使用您的个人信息，向您提供您感兴趣的信息，包括但不限于向您发出产品和服务信息，或者与本应用合作伙伴共享信息以便他们向您发送有关其产品和服务的信息（后者需要您的事先同意）。" class="headerlink" title="(a)本应用不会向任何无关第三方提供、出售、出租、分享或交易您的个人信息，除非事先得到您的许可，或该第三方和本应用（含本应用关联公司）单独或共同为您提供服务，且在该服务结束后，其将被禁止访问包括其以前能够访问的所有这些资料。(b) 本应用亦不允许任何第三方以任何手段收集、编辑、出售或者无偿传播您的个人信息。任何本应用平台用户如从事上述活动，一经发现，本应用有权立即终止与该用户的服务协议。(c) 为服务用户的目的，本应用可能通过使用您的个人信息，向您提供您感兴趣的信息，包括但不限于向您发出产品和服务信息，或者与本应用合作伙伴共享信息以便他们向您发送有关其产品和服务的信息（后者需要您的事先同意）。"></a>(a)本应用不会向任何无关第三方提供、出售、出租、分享或交易您的个人信息，除非事先得到您的许可，或该第三方和本应用（含本应用关联公司）单独或共同为您提供服务，且在该服务结束后，其将被禁止访问包括其以前能够访问的所有这些资料。(b) 本应用亦不允许任何第三方以任何手段收集、编辑、出售或者无偿传播您的个人信息。任何本应用平台用户如从事上述活动，一经发现，本应用有权立即终止与该用户的服务协议。(c) 为服务用户的目的，本应用可能通过使用您的个人信息，向您提供您感兴趣的信息，包括但不限于向您发出产品和服务信息，或者与本应用合作伙伴共享信息以便他们向您发送有关其产品和服务的信息（后者需要您的事先同意）。</h5><h4 id="3-信息披露"><a href="#3-信息披露" class="headerlink" title="3. 信息披露"></a>3. 信息披露</h4><h5 id="在如下情况下，本应用将依据您的个人意愿或法律的规定全部或部分的披露您的个人信息：-a-经您事先同意，向第三方披露；-b-为提供您所要求的产品和服务，而必须和第三方分享您的个人信息；-c-根据法律的有关规定，或者行政或司法机构的要求，向第三方或者行政、司法机构披露；-d-如您出现违反中国有关法律、法规或者本应用服务协议或相关规则的情况，需要向第三方披露；-e-如您是适格的知识产权投诉人并已提起投诉，应被投诉人要求，向被投诉人披露，以便双方处理可能的权利纠纷；-f-在本应用平台上创建的某一交易中，如交易任何一方履行或部分履行了交易义务并提出信息披露请求的，本应用有权决定向该用户提供其交易对方的联络方式等必要信息，以促成交易的完成或纠纷的解决。-g-其它本应用根据法律、法规或者网站政策认为合适的披露。"><a href="#在如下情况下，本应用将依据您的个人意愿或法律的规定全部或部分的披露您的个人信息：-a-经您事先同意，向第三方披露；-b-为提供您所要求的产品和服务，而必须和第三方分享您的个人信息；-c-根据法律的有关规定，或者行政或司法机构的要求，向第三方或者行政、司法机构披露；-d-如您出现违反中国有关法律、法规或者本应用服务协议或相关规则的情况，需要向第三方披露；-e-如您是适格的知识产权投诉人并已提起投诉，应被投诉人要求，向被投诉人披露，以便双方处理可能的权利纠纷；-f-在本应用平台上创建的某一交易中，如交易任何一方履行或部分履行了交易义务并提出信息披露请求的，本应用有权决定向该用户提供其交易对方的联络方式等必要信息，以促成交易的完成或纠纷的解决。-g-其它本应用根据法律、法规或者网站政策认为合适的披露。" class="headerlink" title="在如下情况下，本应用将依据您的个人意愿或法律的规定全部或部分的披露您的个人信息：(a) 经您事先同意，向第三方披露；(b)为提供您所要求的产品和服务，而必须和第三方分享您的个人信息；(c) 根据法律的有关规定，或者行政或司法机构的要求，向第三方或者行政、司法机构披露；(d) 如您出现违反中国有关法律、法规或者本应用服务协议或相关规则的情况，需要向第三方披露；(e) 如您是适格的知识产权投诉人并已提起投诉，应被投诉人要求，向被投诉人披露，以便双方处理可能的权利纠纷；(f) 在本应用平台上创建的某一交易中，如交易任何一方履行或部分履行了交易义务并提出信息披露请求的，本应用有权决定向该用户提供其交易对方的联络方式等必要信息，以促成交易的完成或纠纷的解决。(g) 其它本应用根据法律、法规或者网站政策认为合适的披露。"></a>在如下情况下，本应用将依据您的个人意愿或法律的规定全部或部分的披露您的个人信息：(a) 经您事先同意，向第三方披露；(b)为提供您所要求的产品和服务，而必须和第三方分享您的个人信息；(c) 根据法律的有关规定，或者行政或司法机构的要求，向第三方或者行政、司法机构披露；(d) 如您出现违反中国有关法律、法规或者本应用服务协议或相关规则的情况，需要向第三方披露；(e) 如您是适格的知识产权投诉人并已提起投诉，应被投诉人要求，向被投诉人披露，以便双方处理可能的权利纠纷；(f) 在本应用平台上创建的某一交易中，如交易任何一方履行或部分履行了交易义务并提出信息披露请求的，本应用有权决定向该用户提供其交易对方的联络方式等必要信息，以促成交易的完成或纠纷的解决。(g) 其它本应用根据法律、法规或者网站政策认为合适的披露。</h5><h4 id="4-信息存储和交换"><a href="#4-信息存储和交换" class="headerlink" title="4. 信息存储和交换"></a>4. 信息存储和交换</h4><h5 id="本应用收集的有关您的信息和资料将保存在本应用及（或）其关联公司的服务器上，这些信息和资料可能传送至您所在国家、地区或本应用收集信息和资料所在地的境外并在境外被访问、存储和展示。"><a href="#本应用收集的有关您的信息和资料将保存在本应用及（或）其关联公司的服务器上，这些信息和资料可能传送至您所在国家、地区或本应用收集信息和资料所在地的境外并在境外被访问、存储和展示。" class="headerlink" title="本应用收集的有关您的信息和资料将保存在本应用及（或）其关联公司的服务器上，这些信息和资料可能传送至您所在国家、地区或本应用收集信息和资料所在地的境外并在境外被访问、存储和展示。"></a>本应用收集的有关您的信息和资料将保存在本应用及（或）其关联公司的服务器上，这些信息和资料可能传送至您所在国家、地区或本应用收集信息和资料所在地的境外并在境外被访问、存储和展示。</h5><h4 id="5-Cookie的使用"><a href="#5-Cookie的使用" class="headerlink" title="5. Cookie的使用"></a>5. Cookie的使用</h4><h5 id="a-在您未拒绝接受cookies的情况下，本应用会在您的计算机上设定或取用cookies-，以便您能登录或使用依赖于cookies的本应用平台服务或功能。本应用使用cookies可为您提供更加周到的个性化服务，包括推广服务。-b-您有权选择接受或拒绝接受cookies。您可以通过修改浏览器设置的方式拒绝接受cookies。但如果您选择拒绝接受cookies，则您可能无法登录或使用依赖于cookies的本应用网络服务或功能。-c-通过本应用所设cookies所取得的有关信息，将适用本政策。"><a href="#a-在您未拒绝接受cookies的情况下，本应用会在您的计算机上设定或取用cookies-，以便您能登录或使用依赖于cookies的本应用平台服务或功能。本应用使用cookies可为您提供更加周到的个性化服务，包括推广服务。-b-您有权选择接受或拒绝接受cookies。您可以通过修改浏览器设置的方式拒绝接受cookies。但如果您选择拒绝接受cookies，则您可能无法登录或使用依赖于cookies的本应用网络服务或功能。-c-通过本应用所设cookies所取得的有关信息，将适用本政策。" class="headerlink" title="(a) 在您未拒绝接受cookies的情况下，本应用会在您的计算机上设定或取用cookies ，以便您能登录或使用依赖于cookies的本应用平台服务或功能。本应用使用cookies可为您提供更加周到的个性化服务，包括推广服务。(b) 您有权选择接受或拒绝接受cookies。您可以通过修改浏览器设置的方式拒绝接受cookies。但如果您选择拒绝接受cookies，则您可能无法登录或使用依赖于cookies的本应用网络服务或功能。(c) 通过本应用所设cookies所取得的有关信息，将适用本政策。"></a>(a) 在您未拒绝接受cookies的情况下，本应用会在您的计算机上设定或取用cookies ，以便您能登录或使用依赖于cookies的本应用平台服务或功能。本应用使用cookies可为您提供更加周到的个性化服务，包括推广服务。(b) 您有权选择接受或拒绝接受cookies。您可以通过修改浏览器设置的方式拒绝接受cookies。但如果您选择拒绝接受cookies，则您可能无法登录或使用依赖于cookies的本应用网络服务或功能。(c) 通过本应用所设cookies所取得的有关信息，将适用本政策。</h5><h4 id="6-信息安全"><a href="#6-信息安全" class="headerlink" title="6. 信息安全"></a>6. 信息安全</h4><h5 id="a-本应用帐号均有安全保护功能，请妥善保管您的用户名及密码信息。本应用将通过对用户密码进行加密等安全措施确保您的信息不丢失，不被滥用和变造。尽管有前述安全措施，但同时也请您注意在信息网络上不存在“完善的安全措施”。-b-在使用本应用网络服务进行网上交易时，您不可避免的要向交易对方或潜在的交易对"><a href="#a-本应用帐号均有安全保护功能，请妥善保管您的用户名及密码信息。本应用将通过对用户密码进行加密等安全措施确保您的信息不丢失，不被滥用和变造。尽管有前述安全措施，但同时也请您注意在信息网络上不存在“完善的安全措施”。-b-在使用本应用网络服务进行网上交易时，您不可避免的要向交易对方或潜在的交易对" class="headerlink" title="(a) 本应用帐号均有安全保护功能，请妥善保管您的用户名及密码信息。本应用将通过对用户密码进行加密等安全措施确保您的信息不丢失，不被滥用和变造。尽管有前述安全措施，但同时也请您注意在信息网络上不存在“完善的安全措施”。(b) 在使用本应用网络服务进行网上交易时，您不可避免的要向交易对方或潜在的交易对"></a>(a) 本应用帐号均有安全保护功能，请妥善保管您的用户名及密码信息。本应用将通过对用户密码进行加密等安全措施确保您的信息不丢失，不被滥用和变造。尽管有前述安全措施，但同时也请您注意在信息网络上不存在“完善的安全措施”。(b) 在使用本应用网络服务进行网上交易时，您不可避免的要向交易对方或潜在的交易对</h5><h4 id="7-本隐私政策的更改"><a href="#7-本隐私政策的更改" class="headerlink" title="7.本隐私政策的更改"></a>7.本隐私政策的更改</h4><h5 id="a-如果决定更改隐私政策，我们会在本政策中、本公司网站中以及我们认为适当的位置发布这些更改，以便您了解我们如何收集、使用您的个人信息，哪些人可以访问这些信息，以及在什么情况下我们会透露这些信息。-b-本公司保留随时修改本政策的权利，因此请经常查看。如对本政策作出重大更改，本公司会通过网站通知的形式告知。"><a href="#a-如果决定更改隐私政策，我们会在本政策中、本公司网站中以及我们认为适当的位置发布这些更改，以便您了解我们如何收集、使用您的个人信息，哪些人可以访问这些信息，以及在什么情况下我们会透露这些信息。-b-本公司保留随时修改本政策的权利，因此请经常查看。如对本政策作出重大更改，本公司会通过网站通知的形式告知。" class="headerlink" title="(a)如果决定更改隐私政策，我们会在本政策中、本公司网站中以及我们认为适当的位置发布这些更改，以便您了解我们如何收集、使用您的个人信息，哪些人可以访问这些信息，以及在什么情况下我们会透露这些信息。(b)本公司保留随时修改本政策的权利，因此请经常查看。如对本政策作出重大更改，本公司会通过网站通知的形式告知。"></a>(a)如果决定更改隐私政策，我们会在本政策中、本公司网站中以及我们认为适当的位置发布这些更改，以便您了解我们如何收集、使用您的个人信息，哪些人可以访问这些信息，以及在什么情况下我们会透露这些信息。(b)本公司保留随时修改本政策的权利，因此请经常查看。如对本政策作出重大更改，本公司会通过网站通知的形式告知。</h5><h4 id="方披露自己的个人信息，如联络方式或者邮政地址。请您妥善保护自己的个人信息，仅在必要的情形下向他人提供。如您发现自己的个人信息泄密，尤其是本应用用户名及密码发生泄露，请您立即联络本应用客服，以便本应用采取相应措施。"><a href="#方披露自己的个人信息，如联络方式或者邮政地址。请您妥善保护自己的个人信息，仅在必要的情形下向他人提供。如您发现自己的个人信息泄密，尤其是本应用用户名及密码发生泄露，请您立即联络本应用客服，以便本应用采取相应措施。" class="headerlink" title="方披露自己的个人信息，如联络方式或者邮政地址。请您妥善保护自己的个人信息，仅在必要的情形下向他人提供。如您发现自己的个人信息泄密，尤其是本应用用户名及密码发生泄露，请您立即联络本应用客服，以便本应用采取相应措施。"></a>方披露自己的个人信息，如联络方式或者邮政地址。请您妥善保护自己的个人信息，仅在必要的情形下向他人提供。如您发现自己的个人信息泄密，尤其是本应用用户名及密码发生泄露，请您立即联络本应用客服，以便本应用采取相应措施。</h4>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Privacy-Policy/">Privacy Policy</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/privacy/">privacy</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/30/hello-world/" class="article-date">
+      <time datetime="2017-10-30T04:53:07.000Z" itemprop="datePublished">2017-10-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/30/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/测试/">测试</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-关于Android触摸事件机制" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/30/关于Android触摸事件机制/" class="article-date">
+      <time datetime="2017-10-30T04:53:07.000Z" itemprop="datePublished">2017-10-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/30/关于Android触摸事件机制/">关于Android触摸事件机制</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://juejin.im/entry/598d4d526fb9a03c467c0bdc/detail" target="_blank" rel="external"><img src="https://badge.juejin.im/entry/598d4d526fb9a03c467c0bdc/likes.svg?style=flat-square" alt=""></a></p>
+<h3 id="关于Android触摸事件机制"><a href="#关于Android触摸事件机制" class="headerlink" title="关于Android触摸事件机制"></a>关于Android触摸事件机制</h3><p>Android触摸事件机制，开发中都是老生常谈，但是惭愧的是，这么久开发，依然对Android触摸事件的具体流程，懵懵懂懂，趁着项目上线间隙，来重新研究一下。</p>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>为了尽可能简单并清晰的展示Android触摸事件的 分发–拦截–消费过程，将根据Activity、ViewGroup以及View的特点，做了一点准备工作。</p>
+<p><strong>触摸事件</strong>:</p>
+<ul>
+<li>actionDown</li>
+<li>actionMove</li>
+<li>actionUp</li>
+</ul>
+<p><strong>对于Android事件处理分为两类</strong>：</p>
+<p><strong>对于Activity和View</strong>： 只有两种事件：</p>
+<ul>
+<li>分发: dispatchTouchEvent函数</li>
+<li>消费: onTouchEvent函数和OnTouchListener函数</li>
+</ul>
+<p><strong>对于ViewGroup</strong>： 全部三种事件：</p>
+<ul>
+<li>分发: dispatchTouchEvent函数</li>
+<li>拦截：onInterceptTouchEvent函数</li>
+<li>消费: onTouchEvent函数和OnTouchListener函数</li>
+</ul>
+<p>所以，重写一个典型的ViewGroup：RelativeLayout和一个典型的View：TextView，针对他们的触摸事件进行改写，来得出触摸事件具体的流程。</p>
+<p>TouchRelativeLayout<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">public class TouchRelativeLayout extends RelativeLayout &#123;</div><div class="line">    public TouchRelativeLayout(Context context) &#123;</div><div class="line">        super(context);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public TouchRelativeLayout(Context context, AttributeSet attrs) &#123;</div><div class="line">        super(context, attrs);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public TouchRelativeLayout(Context context, AttributeSet attrs, int defStyleAttr) &#123;</div><div class="line">        super(context, attrs, defStyleAttr);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public boolean dispatchTouchEvent(MotionEvent ev) &#123;</div><div class="line">        LogUtils.e(&quot;ViewGroup-------dispatchTouchEvent-------&quot;, ev.getAction() + &quot;&quot;);</div><div class="line">        return super.dispatchTouchEvent(ev);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public boolean onInterceptTouchEvent(MotionEvent ev) &#123;</div><div class="line">        LogUtils.e(&quot;ViewGroup-------onInterceptTouchEvent-------&quot;, ev.getAction() + &quot;&quot;);</div><div class="line">        return super.onInterceptTouchEvent(ev);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public boolean onTouchEvent(MotionEvent event) &#123;</div><div class="line">        LogUtils.e(&quot;ViewGroup-------onTouchEvent-------&quot;, event.getAction() + &quot;&quot;);</div><div class="line">        return super.onTouchEvent(event);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>TouchTextView<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">public class TouchTextView extends TextView &#123;</div><div class="line">    public TouchTextView(Context context) &#123;</div><div class="line">        super(context);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public TouchTextView(Context context, @Nullable AttributeSet attrs) &#123;</div><div class="line">        super(context, attrs);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public TouchTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) &#123;</div><div class="line">        super(context, attrs, defStyleAttr);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public boolean dispatchTouchEvent(MotionEvent ev) &#123;</div><div class="line">        LogUtils.e(&quot;View---------dispatchTouchEvent-------&quot;, ev.getAction() + &quot;&quot;);</div><div class="line">        return super.dispatchTouchEvent(ev);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public boolean onTouchEvent(MotionEvent event) &#123;</div><div class="line">        LogUtils.e(&quot;View---------onTouchEvent-------&quot;, event.getAction() + &quot;&quot;);</div><div class="line">        return super.dispatchTouchEvent(event);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>代码里不进行任何操作，只打印出当前控件的触摸事件。<br>继续新建一个Activity，为触摸事件提供入口：</p>
+<p>Activity的布局<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    android:layout_width=&quot;match_parent&quot;</div><div class="line">    android:layout_height=&quot;match_parent&quot;</div><div class="line">    android:fitsSystemWindows=&quot;true&quot;</div><div class="line">    android:orientation=&quot;vertical&quot;&gt;</div><div class="line"></div><div class="line">    &lt;com.ddz.lifestyle.baseview.customview.TouchRelativeLayout</div><div class="line">        android:id=&quot;@+id/rl_touch&quot;</div><div class="line">        android:layout_width=&quot;200dp&quot;</div><div class="line">        android:layout_height=&quot;200dp&quot;</div><div class="line">        android:layout_centerInParent=&quot;true&quot;</div><div class="line">        android:background=&quot;@android:color/holo_blue_light&quot;&gt;</div><div class="line"></div><div class="line">        &lt;com.ddz.lifestyle.baseview.customview.TouchTextView</div><div class="line">            android:id=&quot;@+id/tv_touch&quot;</div><div class="line">            android:layout_width=&quot;100dp&quot;</div><div class="line">            android:layout_height=&quot;100dp&quot;</div><div class="line">            android:layout_centerInParent=&quot;true&quot;</div><div class="line">            android:background=&quot;@color/recy_bg&quot; /&gt;</div><div class="line">    &lt;/com.ddz.lifestyle.baseview.customview.TouchRelativeLayout&gt;</div><div class="line">&lt;/RelativeLayout&gt;</div></pre></td></tr></table></figure></p>
+<p>忽略外层的RelativeLayout，实际就是一个Activity中，一个ViewGroup包裹一个View，Activity中不进行操作，只打印出触摸事件:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line"> public boolean dispatchTouchEvent(MotionEvent ev) &#123;</div><div class="line">     LogUtils.e(&quot;activity-------dispatchTouchEvent-------&quot;, ev.getAction() + &quot;&quot;);</div><div class="line">     return super.dispatchTouchEvent(ev);</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> @Override</div><div class="line"> public boolean onTouchEvent(MotionEvent event) &#123;</div><div class="line">     LogUtils.e(&quot;activity-------onTouchEvent-------&quot;, event.getAction() + &quot;&quot;);</div><div class="line">     return super.onTouchEvent(event);</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p> 运行程序，打开要触摸的Activity，显示效果，蓝色区域为重写的TouchRelativeLayout，其中的灰色区域就是重写的TouchTextView</p>
+<p> <img src="http://upload-images.jianshu.io/upload_images/2789715-adbcbe220fe66cad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<h4 id="开始分析："><a href="#开始分析：" class="headerlink" title="开始分析："></a>开始分析：</h4><p><strong>1、默认不改写任何事件</strong></p>
+<ul>
+<li>1、触摸A区域（按下、抬起）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">08-10 14:58:08.131 11780-11780/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 0</div><div class="line">08-10 14:58:08.132 11780-11780/com.ddz.lifestyle E/activity-------onTouchEvent-------: 0</div><div class="line">08-10 14:58:08.697 11780-11780/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 1</div><div class="line">08-10 14:58:08.697 11780-11780/com.ddz.lifestyle E/activity-------onTouchEvent-------: 1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>根据日志分析：记录下了Activity的分发dispatchTouchEvent和onTouchEvent事件，0为按下动作，1为抬起动作。</p>
+<p>得出结论：默认Activity将触摸事件分发下去，并且没有子View消费情况下， 自己消费；</p>
+<ul>
+<li>2、触摸B区域（按下、移动、抬起）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">08-10 15:11:43.128 11780-11780/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 0</div><div class="line">08-10 15:11:43.129 11780-11780/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 0</div><div class="line">08-10 15:11:43.129 11780-11780/com.ddz.lifestyle E/ViewGroup-------onInterceptTouchEvent-------: 0</div><div class="line">08-10 15:11:43.129 11780-11780/com.ddz.lifestyle E/ViewGroup-------onTouchEvent-------: 0</div><div class="line">08-10 15:11:43.129 11780-11780/com.ddz.lifestyle E/activity-------onTouchEvent-------: 0</div><div class="line">08-10 15:11:43.519 11780-11780/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 15:11:43.519 11780-11780/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 15:11:43.536 11780-11780/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 15:11:43.536 11780-11780/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 15:11:43.553 11780-11780/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 15:11:43.553 11780-11780/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 15:11:43.569 11780-11780/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 15:11:43.570 11780-11780/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 15:11:43.875 11780-11780/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 1</div><div class="line">08-10 15:11:43.875 11780-11780/com.ddz.lifestyle E/activity-------onTouchEvent-------: 1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>分析：</p>
+<p>1、按下后，Activity将事件分发给ViewGroup，ViewGroup返回默认super.dispatchTouchEvent(ev)将事件分发下去并传递给ViewGroup的onInterceptTouchEvent函数；</p>
+<p>2、onInterceptTouchEvent返回默认的super.onInterceptTouchEvent(ev)，事件传递给ViewGroup的onTouchEvent方法</p>
+<p>3、onTouchEvent依然返回默认的super.onTouchEvent(event)，不进行消费，将事件返回给上一层的Activity，Activity调用onTouchEvent，处理了按下事件。</p>
+<p>4、手指移动，Activity的dispatchTouchEvent方法将事件分发。因为按下事件中，已经得知Activity中的ViewGroup不对触摸事件进行任何操作，并将事件返回给Activity，所以聪明的Activity这时候将分发后的事件自己消费了</p>
+<p>5、Activity的onTouchEvent对移动事件自行处理</p>
+<p>6、手指抬起：同样，Activity的dispatchTouchEvent方法将事件分发，自己的onTouchEvent进行消费</p>
+<ul>
+<li>3、触摸C区域（按下、移动、抬起）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">08-10 15:50:20.933 20620-20620/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 0</div><div class="line">08-10 15:50:20.933 20620-20620/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 0</div><div class="line">08-10 15:50:20.934 20620-20620/com.ddz.lifestyle E/ViewGroup-------onInterceptTouchEvent-------: 0</div><div class="line">08-10 15:50:20.934 20620-20620/com.ddz.lifestyle E/View---------dispatchTouchEvent-------: 0</div><div class="line">08-10 15:50:20.934 20620-20620/com.ddz.lifestyle E/View---------onTouchEvent-------: 0</div><div class="line">08-10 15:50:20.943 20620-20620/com.ddz.lifestyle E/ViewGroup-------onTouchEvent-------: 0</div><div class="line">08-10 15:50:20.944 20620-20620/com.ddz.lifestyle E/activity-------onTouchEvent-------: 0</div><div class="line">08-10 15:50:21.441 20620-20620/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 15:50:21.441 20620-20620/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 15:50:21.458 20620-20620/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 15:50:21.458 20620-20620/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 15:50:21.475 20620-20620/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 15:50:21.475 20620-20620/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 15:50:21.492 20620-20620/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 15:50:21.492 20620-20620/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 15:50:21.786 20620-20620/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 15:50:21.786 20620-20620/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 15:50:21.787 20620-20620/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 1</div><div class="line">08-10 15:50:21.787 20620-20620/com.ddz.lifestyle E/activity-------onTouchEvent-------: 1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>分析：结果和在B区域触摸结果类似</p>
+<p>1、按下时，Activity使用dispatchTouchEvent方法将事件分发给ViewGroup</p>
+<p>2、ViewGroup使用dispatchTouchEvent方法默认将事件分发给自己的onInterceptTouchEvent方法，onInterceptTouchEvent方法默认不拦截，将事件传递给其中的View</p>
+<p>3、View的dispatchTouchEvent方法默认将事件分发给自己的onTouchEvent方法，onTouchEvent返回默认super.onTouchEvent(event)，将事件回传给ViewGroup的onTouchEvent方法</p>
+<p>4、ViewGroup的onTouchEvent也默认将事件传递给Activity的onTouchEvent方法</p>
+<p>5、按下事件只好由Activity的onTouchEvent方法自己处理</p>
+<p>6、手指移动，Activity已经知道其中的ViewGroup及View都不处理触摸事件，所以使用自己的dispatchTouchEvent方法将移动事件传递给自己的onTouchEvent方法消费</p>
+<p>7、手指抬起，同第6步一样，自己分发自己处理。</p>
+<p><strong>2、改写ViewGroup的dispatchTouchEvent方法，返回false</strong></p>
+<ul>
+<li>1、触摸B区域（按下、移动、抬起）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">08-10 16:22:05.686 3933-3933/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 0</div><div class="line">08-10 16:22:05.686 3933-3933/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 0</div><div class="line">08-10 16:22:05.686 3933-3933/com.ddz.lifestyle E/activity-------onTouchEvent-------: 0</div><div class="line">08-10 16:22:07.268 3933-3933/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:22:07.268 3933-3933/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 16:22:07.352 3933-3933/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:22:07.352 3933-3933/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 16:22:07.436 3933-3933/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:22:07.436 3933-3933/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 16:22:07.486 3933-3933/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:22:07.486 3933-3933/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 16:22:07.873 3933-3933/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:22:07.873 3933-3933/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 16:22:07.890 3933-3933/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:22:07.890 3933-3933/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 16:22:07.892 3933-3933/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 1</div><div class="line">08-10 16:22:07.892 3933-3933/com.ddz.lifestyle E/activity-------onTouchEvent-------: 1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>分析：</p>
+<p>1、按下时，Activity使用dispatchTouchEvent将事件分发给ViewGroup</p>
+<p>2、因为ViewGroup的dispatchTouchEvent返回false，即事件不再继续向下分发，事件被返回给Activity的onTouchEvent进行消费</p>
+<p>3、手指移动：Activity既然使用dispatchTouchEvent将事件分发，但从按下事件的反馈中，Activity已经得知ViewGroup不再分发事件，并且将事件返回，所以Activity还是自己用onTouchEvent将事件消费了</p>
+<p>4、手指抬起：同手指移动一样，自己分发自己消费</p>
+<ul>
+<li>2、触摸C区域（按下、移动、抬起）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">08-10 16:31:17.409 3933-3933/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 0</div><div class="line">08-10 16:31:17.409 3933-3933/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 0</div><div class="line">08-10 16:31:17.409 3933-3933/com.ddz.lifestyle E/activity-------onTouchEvent-------: 0</div><div class="line">08-10 16:31:17.912 3933-3933/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:31:17.912 3933-3933/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 16:31:17.929 3933-3933/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:31:17.929 3933-3933/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 16:31:17.963 3933-3933/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:31:17.963 3933-3933/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 16:31:18.194 3933-3933/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 1</div><div class="line">08-10 16:31:18.194 3933-3933/com.ddz.lifestyle E/activity-------onTouchEvent-------: 1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>分析：</p>
+<p>1、同触摸B区域一的结果，说明ViewGroupd的ispatchTouchEvent返回false，即不再分发事件，其中任何View得不到触摸事件</p>
+<p><strong>3、改写ViewGroup的dispatchTouchEvent方法，返回true</strong></p>
+<ul>
+<li>1、触摸B区域（按下、移动、抬起）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">08-10 16:43:37.080 3206-3206/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 0</div><div class="line">08-10 16:43:37.080 3206-3206/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 0</div><div class="line">08-10 16:43:37.226 3206-3206/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:43:37.226 3206-3206/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:43:37.243 3206-3206/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:43:37.243 3206-3206/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:43:37.260 3206-3206/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:43:37.411 3206-3206/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:43:37.444 3206-3206/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:43:37.445 3206-3206/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:43:37.464 3206-3206/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 1</div><div class="line">08-10 16:43:37.464 3206-3206/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>分析：<br>1、按下时，Activity使用dispatchTouchEvent方法将事件分发；<br>2、ViewGroup接收到事件，但是ViewGroup的dispatchTouchEvent返回true，即ViewGroup的dispatchTouchEvent将事件消费，不再分发。<br>3、手指移动、手指抬起：同按下状态一下，Activity使用dispatchTouchEvent分发的事件被ViewGroup的dispatchTouchEvent方法消费了。</p>
+<ul>
+<li>2、触摸C区域（按下、移动、抬起）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">08-10 16:43:37.080 3206-3206/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 0</div><div class="line">08-10 16:43:37.080 3206-3206/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 0</div><div class="line">08-10 16:43:37.226 3206-3206/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:43:37.226 3206-3206/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:43:37.243 3206-3206/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:43:37.243 3206-3206/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:43:37.260 3206-3206/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:43:37.411 3206-3206/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:43:37.444 3206-3206/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:43:37.445 3206-3206/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 2</div><div class="line">08-10 16:43:37.464 3206-3206/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 1</div><div class="line">08-10 16:43:37.464 3206-3206/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>分析：View接收不到任何事件，因为ViewGroup的dispatchTouchEvent方法返回true，事件被ViewGroup的dispatchTouchEvent方法消费掉，不再向下传递了</p>
+<p><strong>4、改写ViewGroup的onInterceptTouchEvent方法，返回true</strong></p>
+<ul>
+<li>1、触摸B区域（按下、移动、抬起）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">08-10 17:01:03.576 16009-16009/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 0</div><div class="line">08-10 17:01:03.576 16009-16009/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 0</div><div class="line">08-10 17:01:03.576 16009-16009/com.ddz.lifestyle E/ViewGroup-------onInterceptTouchEvent-------: 0</div><div class="line">08-10 17:01:03.576 16009-16009/com.ddz.lifestyle E/ViewGroup-------onTouchEvent-------: 0</div><div class="line">08-10 17:01:03.576 16009-16009/com.ddz.lifestyle E/activity-------onTouchEvent-------: 0</div><div class="line">08-10 17:01:04.148 16009-16009/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:01:04.148 16009-16009/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 17:01:04.165 16009-16009/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:01:04.165 16009-16009/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 17:01:04.448 16009-16009/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:01:04.448 16009-16009/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 17:01:04.448 16009-16009/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 1</div><div class="line">08-10 17:01:04.448 16009-16009/com.ddz.lifestyle E/activity-------onTouchEvent-------: 1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>分析：<br>1、手指按下：Activity的dispatchTouchEvent将事件分发给ViewGroup<br>2、ViewGroup默认的dispatchTouchEvent方法将事件分发，传递给onInterceptTouchEvent方法，onInterceptTouchEvent方法返回true，将事件拦截，供给自己的onTouchEvent方法消费，<br>3、ViewGroup的onTouchEvent方法默认不消费，将事件返回给Activity的onTouchEvent方法，最终按下事件由Activity的onTouchEvent自己消费<br>4、手指移动：Activity辛辛苦苦分发的按下事件，ViewGroup不领情，那么这次移动事件，Activity使用dispatchTouchEvent将事件分发给自己的onTouchEvent，自己消费掉<br>5、手指抬起：同手指移动一样，Activity自己分发自己消费</p>
+<ul>
+<li>2、触摸C区域（按下、移动、抬起）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">08-10 17:06:27.835 16009-16009/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 0</div><div class="line">08-10 17:06:27.835 16009-16009/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 0</div><div class="line">08-10 17:06:27.835 16009-16009/com.ddz.lifestyle E/ViewGroup-------onInterceptTouchEvent-------: 0</div><div class="line">08-10 17:06:27.835 16009-16009/com.ddz.lifestyle E/ViewGroup-------onTouchEvent-------: 0</div><div class="line">08-10 17:06:27.835 16009-16009/com.ddz.lifestyle E/activity-------onTouchEvent-------: 0</div><div class="line">08-10 17:06:27.998 16009-16009/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:06:27.999 16009-16009/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 17:06:28.015 16009-16009/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:06:28.015 16009-16009/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 17:06:28.300 16009-16009/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:06:28.300 16009-16009/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 17:06:28.357 16009-16009/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 1</div><div class="line">08-10 17:06:28.357 16009-16009/com.ddz.lifestyle E/activity-------onTouchEvent-------: 1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>分析：可以看出，和B区域事件一样，ViewGroup的onInterceptTouchEvent将事件拦截后自己又不消费，返回给Activity，并且ViewGroup中的View接受不到事件消息，因为ViewGroup已经拦截了事件。</p>
+<p><strong>5、改写ViewGroup的onInterceptTouchEvent方法，返回false</strong></p>
+<ul>
+<li>1、触摸B区域（按下、移动、抬起）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">08-10 17:13:47.725 19111-19111/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 0</div><div class="line">08-10 17:13:47.725 19111-19111/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 0</div><div class="line">08-10 17:13:47.725 19111-19111/com.ddz.lifestyle E/ViewGroup-------onInterceptTouchEvent-------: 0</div><div class="line">08-10 17:13:47.725 19111-19111/com.ddz.lifestyle E/ViewGroup-------onTouchEvent-------: 0</div><div class="line">08-10 17:13:47.725 19111-19111/com.ddz.lifestyle E/activity-------onTouchEvent-------: 0</div><div class="line">08-10 17:13:47.786 19111-19111/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:13:47.786 19111-19111/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 17:13:47.803 19111-19111/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:13:47.803 19111-19111/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 17:13:48.005 19111-19111/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:13:48.005 19111-19111/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 17:13:48.009 19111-19111/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 1</div><div class="line">08-10 17:13:48.009 19111-19111/com.ddz.lifestyle E/activity-------onTouchEvent-------: 1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>分析：<br>1、手指按下：Activity的dispatchTouchEvent将事件分发给ViewGroup<br>2、ViewGroup默认的dispatchTouchEvent方法将事件分发，传递给onInterceptTouchEvent方法，onInterceptTouchEvent方法返回false，不再拦截，但是ViewGroup触摸区域没有View，所以事件传递给自己onTouchEvent方法<br>3、ViewGroup的onTouchEvent方法默认不消费，将事件返回给Activity的onTouchEvent方法，最终按下事件由Activity的onTouchEvent自己消费<br>4、手指移动：Activity辛辛苦苦分发的按下事件，ViewGroup不领情，那么这次移动事件，Activity使用dispatchTouchEvent将事件分发给自己的onTouchEvent，自己消费掉<br>5、手指抬起：同手指移动一样，Activity自己分发自己消费</p>
+<ul>
+<li>2、触摸C区域（按下、移动、抬起）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">08-10 17:20:04.767 19111-19111/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 0</div><div class="line">08-10 17:20:04.767 19111-19111/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 0</div><div class="line">08-10 17:20:04.767 19111-19111/com.ddz.lifestyle E/ViewGroup-------onInterceptTouchEvent-------: 0</div><div class="line">08-10 17:20:04.767 19111-19111/com.ddz.lifestyle E/View---------dispatchTouchEvent-------: 0</div><div class="line">08-10 17:20:04.767 19111-19111/com.ddz.lifestyle E/View---------onTouchEvent-------: 0</div><div class="line">08-10 17:20:04.768 19111-19111/com.ddz.lifestyle E/ViewGroup-------onTouchEvent-------: 0</div><div class="line">08-10 17:20:04.768 19111-19111/com.ddz.lifestyle E/activity-------onTouchEvent-------: 0</div><div class="line">08-10 17:20:04.896 19111-19111/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:20:04.896 19111-19111/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 17:20:05.047 19111-19111/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:20:05.047 19111-19111/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 17:20:05.064 19111-19111/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:20:05.064 19111-19111/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 17:20:05.081 19111-19111/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:20:05.081 19111-19111/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 17:20:05.095 19111-19111/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:20:05.095 19111-19111/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 17:20:05.095 19111-19111/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 1</div><div class="line">08-10 17:20:05.095 19111-19111/com.ddz.lifestyle E/activity-------onTouchEvent-------: 1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>分析：<br>1、手指按下：这次流程依然是Activity的dispatchTouchEvent分发事件给ViewGroup<br>2、VIewGroup的dispatchTouchEvent方法返回默认的super.dispatchTouchEvent(ev)，所以事件继续分发，传递给onInterceptTouchEvent；<br>3、这时候onInterceptTouchEvent已经返回false，不再拦截，事件终于被传递给ViewGroup中的View了；<br>4、View接受到事件之后，dispatchTouchEvent方法也是返回默认super.dispatchTouchEvent(ev)，事件传递给自己的onTouchEvent方法<br>5、View的onTouchEvent方法不去消费，事件又被返回给ViewGroup的onTouchEvent方法；<br>6、但是ViewGroup的onTouchEvent方法也不消费，返回给Activity的onTouchEvent方法<br>7、Activity的onTouchEvent方法自己消费按下事件（Activity：都不消费，下次不给你传了）；<br>8、Activity说到做到，手指移动和手指抬起事件：Activity使用dispatchTouchEvent方法将事件分发给自己的onTouchEvent方法消费，自己发给自己消费，（再也不给下面的ViewGroup和View这两个什么都不干的人，哈哈哈）</p>
+<p><strong>6、改写ViewGroup的onTouchEvent方法，返回true</strong></p>
+<ul>
+<li>1、触摸B区域（按下、移动、抬起）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">08-10 17:32:42.158 12826-12826/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 0</div><div class="line">08-10 17:32:42.158 12826-12826/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 0</div><div class="line">08-10 17:32:42.158 12826-12826/com.ddz.lifestyle E/ViewGroup-------onInterceptTouchEvent-------: 0</div><div class="line">08-10 17:32:42.158 12826-12826/com.ddz.lifestyle E/ViewGroup-------onTouchEvent-------: 0</div><div class="line">08-10 17:32:42.194 12826-12826/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:32:42.194 12826-12826/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:32:42.194 12826-12826/com.ddz.lifestyle E/ViewGroup-------onTouchEvent-------: 2</div><div class="line">08-10 17:32:42.227 12826-12826/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:32:42.227 12826-12826/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:32:42.227 12826-12826/com.ddz.lifestyle E/ViewGroup-------onTouchEvent-------: 2</div><div class="line">08-10 17:32:42.428 12826-12826/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:32:42.428 12826-12826/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:32:42.428 12826-12826/com.ddz.lifestyle E/ViewGroup-------onTouchEvent-------: 2</div><div class="line">08-10 17:32:42.442 12826-12826/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 1</div><div class="line">08-10 17:32:42.442 12826-12826/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 1</div><div class="line">08-10 17:32:42.442 12826-12826/com.ddz.lifestyle E/ViewGroup-------onTouchEvent-------: 1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>分析：1、手指按下：Activity的dispatchTouchEvent将事件分发给ViewGroup<br>2、ViewGroup默认的dispatchTouchEvent方法将事件分发，传递给onInterceptTouchEvent方法<br>3、ViewGroup的onInterceptTouchEvent方法默认返回super.onInterceptTouchEvent(ev)，不拦截，但是ViewGroup触摸区域没有View，所以事件传递给自己onTouchEvent方法<br>3、ViewGroup的onTouchEvent方法返回true， 将按下事件消费掉了，不再返回<br>4、手指移动：Activity的dispatchTouchEvent方法依然分发事件给ViewGroup；<br>5、ViewGroup在手指按下事件中已经知道了自己的onInterceptTouchEvent方法默认不拦截，所以移动事件就不再问onInterceptTouchEvent方法了，直接传递给onTouchEvent方法<br>6、ViewGroup的onTouchEvent方法将事件消费<br>7、手指提起：同手指移动一模一样的流程，最终事件由ViewGroup的onTouchEvent方法消费掉</p>
+<ul>
+<li>2、触摸C区域（按下、移动、抬起）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">08-10 17:39:21.134 12826-12826/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 0</div><div class="line">08-10 17:39:21.135 12826-12826/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 0</div><div class="line">08-10 17:39:21.135 12826-12826/com.ddz.lifestyle E/ViewGroup-------onInterceptTouchEvent-------: 0</div><div class="line">08-10 17:39:21.135 12826-12826/com.ddz.lifestyle E/View---------dispatchTouchEvent-------: 0</div><div class="line">08-10 17:39:21.135 12826-12826/com.ddz.lifestyle E/View---------onTouchEvent-------: 0</div><div class="line">08-10 17:39:21.140 12826-12826/com.ddz.lifestyle E/ViewGroup-------onTouchEvent-------: 0</div><div class="line">08-10 17:39:21.261 12826-12826/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:39:21.261 12826-12826/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:39:21.261 12826-12826/com.ddz.lifestyle E/ViewGroup-------onTouchEvent-------: 2</div><div class="line">08-10 17:39:21.277 12826-12826/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:39:21.278 12826-12826/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:39:21.278 12826-12826/com.ddz.lifestyle E/ViewGroup-------onTouchEvent-------: 2</div><div class="line">08-10 17:39:21.428 12826-12826/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:39:21.428 12826-12826/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:39:21.428 12826-12826/com.ddz.lifestyle E/ViewGroup-------onTouchEvent-------: 2</div><div class="line">08-10 17:39:21.435 12826-12826/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 1</div><div class="line">08-10 17:39:21.435 12826-12826/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 1</div><div class="line">08-10 17:39:21.435 12826-12826/com.ddz.lifestyle E/ViewGroup-------onTouchEvent-------: 1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>分析：<br>1、手指按下：Activity的dispatchTouchEvent将事件分发给ViewGroup<br>2、ViewGroup默认的dispatchTouchEvent方法将事件分发，传递给onInterceptTouchEvent方法<br>3、ViewGroup的onInterceptTouchEvent方法默认返回super.onInterceptTouchEvent(ev)，不拦截，这时候ViewGroup中有了View，事件传递给View的dispatchTouchEvent<br>4、View的dispatchTouchEvent将事件分发给自己的onTouchEvent方法<br>5、View的onTouchEvent不想消费事件，将事件返回给ViewGroup的onTouchEvent方法<br>6、ViewGroup的onTouchEvent方法返回true，将事件拿来自己消费掉了，按下事件结束了<br>7、手指移动：Activity的dispatchTouchEvent方法依然分发事件给ViewGroup；<br>8、ViewGroup在手指按下事件中已经知道了自己的onInterceptTouchEvent方法默认不拦截，所以移动事件就不再问onInterceptTouchEvent方法了，而且按下事件的时候，ViewGroup中的View不消费事件，所以这次也不再传递给View了，直接传递给ViewGroup的onTouchEvent<br>9、ViewGroup的onTouchEvent方法返回true，所以消费了移动事件<br>10、手指抬起同手指移动一样</p>
+<p><strong>7、改写ViewGroup的onTouchEvent方法，返回false</strong></p>
+<ul>
+<li>1、触摸B区域（按下、移动、抬起）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">08-10 17:49:17.141 29978-29978/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 0</div><div class="line">08-10 17:49:17.142 29978-29978/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 0</div><div class="line">08-10 17:49:17.142 29978-29978/com.ddz.lifestyle E/ViewGroup-------onInterceptTouchEvent-------: 0</div><div class="line">08-10 17:49:17.142 29978-29978/com.ddz.lifestyle E/ViewGroup-------onTouchEvent-------: 0</div><div class="line">08-10 17:49:17.142 29978-29978/com.ddz.lifestyle E/activity-------onTouchEvent-------: 0</div><div class="line">08-10 17:49:17.245 29978-29978/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:49:17.245 29978-29978/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 17:49:17.295 29978-29978/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:49:17.295 29978-29978/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 17:49:17.409 29978-29978/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:49:17.409 29978-29978/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 17:49:17.409 29978-29978/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 1</div><div class="line">08-10 17:49:17.409 29978-29978/com.ddz.lifestyle E/activity-------onTouchEvent-------: 1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>分析：<br>1、手指按下：Activity的dispatchTouchEvent将事件分发给ViewGroup<br>2、ViewGroup默认的dispatchTouchEvent方法将事件分发，传递给onInterceptTouchEvent方法；<br>3、ViewGroup的onInterceptTouchEvent方法返回默认的super.onInterceptTouchEvent(ev)，即不拦截，但是ViewGroup触摸区域没有View，所以事件传递给自己onTouchEvent方法<br>3、ViewGroup的onTouchEvent方法返回false，不消费事件，将事件返回给Activity的onTouchEvent方法，最终按下事件由Activity的onTouchEvent自己消费<br>4、手指移动：Activity辛辛苦苦分发的按下事件，ViewGroup不领情，那么这次移动事件，Activity使用dispatchTouchEvent将事件分发给自己的onTouchEvent，自己消费掉<br>5、手指抬起：同手指移动一样，Activity自己分发自己消费</p>
+<ul>
+<li>2、触摸C区域（按下、移动、抬起）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">08-10 17:52:32.229 29978-29978/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 0</div><div class="line">08-10 17:52:32.230 29978-29978/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 0</div><div class="line">08-10 17:52:32.230 29978-29978/com.ddz.lifestyle E/ViewGroup-------onInterceptTouchEvent-------: 0</div><div class="line">08-10 17:52:32.230 29978-29978/com.ddz.lifestyle E/View---------dispatchTouchEvent-------: 0</div><div class="line">08-10 17:52:32.230 29978-29978/com.ddz.lifestyle E/View---------onTouchEvent-------: 0</div><div class="line">08-10 17:52:32.230 29978-29978/com.ddz.lifestyle E/ViewGroup-------onTouchEvent-------: 0</div><div class="line">08-10 17:52:32.230 29978-29978/com.ddz.lifestyle E/activity-------onTouchEvent-------: 0</div><div class="line">08-10 17:52:32.331 29978-29978/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:52:32.331 29978-29978/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 17:52:32.348 29978-29978/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:52:32.348 29978-29978/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 17:52:32.735 29978-29978/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 17:52:32.735 29978-29978/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 17:52:32.740 29978-29978/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 1</div><div class="line">08-10 17:52:32.741 29978-29978/com.ddz.lifestyle E/activity-------onTouchEvent-------: 1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>分析：<br>1、手指按下：这次流程依然是Activity的dispatchTouchEvent分发事件给ViewGroup<br>2、VIewGroup的dispatchTouchEvent方法返回默认的super.dispatchTouchEvent(ev)，所以事件继续分发，传递给onInterceptTouchEvent；<br>3、这时候onInterceptTouchEvent也默认不拦截，事件终于被传递给ViewGroup中的View了；<br>4、View接受到事件之后，dispatchTouchEvent方法也是返回默认super.dispatchTouchEvent(ev)，事件传递给自己的onTouchEvent方法<br>5、View的onTouchEvent方法默认不消费，事件又被返回给ViewGroup的onTouchEvent方法；<br>6、但是ViewGroup的onTouchEvent方法返回false，不消费，事件又返回给Activity的onTouchEvent方法<br>7、Activity的onTouchEvent方法自己消费按下事件（Activity：都不消费，下次不给你传了）；<br>8、Activity说到做到，手指移动和手指抬起事件：Activity使用dispatchTouchEvent方法将事件分发给自己的onTouchEvent方法消费，自己发给自己消费，（再也不给下面的ViewGroup和View这两个什么都不干的人，哈哈哈）</p>
+<p><strong>8、改写View的dispatchTouchEvent方法，返回false</strong></p>
+<ul>
+<li>1、触摸C区域（按下、移动、抬起）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">08-10 19:20:06.394 29197-29197/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 0</div><div class="line">08-10 19:20:06.394 29197-29197/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 0</div><div class="line">08-10 19:20:06.394 29197-29197/com.ddz.lifestyle E/ViewGroup-------onInterceptTouchEvent-------: 0</div><div class="line">08-10 19:20:06.394 29197-29197/com.ddz.lifestyle E/View---------dispatchTouchEvent-------: 0</div><div class="line">08-10 19:20:06.394 29197-29197/com.ddz.lifestyle E/ViewGroup-------onTouchEvent-------: 0</div><div class="line">08-10 19:20:06.395 29197-29197/com.ddz.lifestyle E/activity-------onTouchEvent-------: 0</div><div class="line">08-10 19:20:06.529 29197-29197/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 19:20:06.529 29197-29197/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 19:20:06.563 29197-29197/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 19:20:06.563 29197-29197/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 19:20:06.579 29197-29197/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 19:20:06.580 29197-29197/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 19:20:06.634 29197-29197/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 1</div><div class="line">08-10 19:20:06.634 29197-29197/com.ddz.lifestyle E/activity-------onTouchEvent-------: 1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>分析：<br>1、手指按下：Activity的dispatchTouchEvent分发事件给ViewGroup；<br>2、VIewGroup的dispatchTouchEvent方法返回默认的super.dispatchTouchEvent(ev)，所以事件继续分发，传递给onInterceptTouchEvent；<br>3、ViewGroup的onInterceptTouchEvent也默认不拦截，事件终于被传递给ViewGroup中的View了；<br>4、View接受到事件之后，dispatchTouchEvent方法返回false，事件不再分发，返回给ViewGroup的onTouchEvent；<br>5、ViewGroup的onTouchEvent方法默认也不消费，事件再次返回给Activity的onTouchEvent<br>6、最终，按下事件由Activity的onTouchEvent方法消费掉。<br>7、由按下事件可知：事件从View–&gt;ViewGroup–&gt;View，事件最终返回给Activity，所以手指移动、抬起事件，不会再继续向下分发，直接有Activity的dispatchTouchEvent传递给自己的onTouchEvent事件消费</p>
+<p><strong>9、改写View的dispatchTouchEvent方法，返回true</strong></p>
+<ul>
+<li>1、触摸C区域（按下、移动、抬起）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">08-10 19:29:34.275 22834-22834/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 0</div><div class="line">08-10 19:29:34.275 22834-22834/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 0</div><div class="line">08-10 19:29:34.275 22834-22834/com.ddz.lifestyle E/ViewGroup-------onInterceptTouchEvent-------: 0</div><div class="line">08-10 19:29:34.275 22834-22834/com.ddz.lifestyle E/View---------dispatchTouchEvent-------: 0</div><div class="line">08-10 19:29:34.621 22834-22834/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 19:29:34.621 22834-22834/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 2</div><div class="line">08-10 19:29:34.621 22834-22834/com.ddz.lifestyle E/ViewGroup-------onInterceptTouchEvent-------: 2</div><div class="line">08-10 19:29:34.621 22834-22834/com.ddz.lifestyle E/View---------dispatchTouchEvent-------: 2</div><div class="line">08-10 19:29:34.637 22834-22834/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 19:29:34.637 22834-22834/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 2</div><div class="line">08-10 19:29:34.637 22834-22834/com.ddz.lifestyle E/ViewGroup-------onInterceptTouchEvent-------: 2</div><div class="line">08-10 19:29:34.638 22834-22834/com.ddz.lifestyle E/View---------dispatchTouchEvent-------: 2</div><div class="line">08-10 19:29:34.642 22834-22834/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 1</div><div class="line">08-10 19:29:34.642 22834-22834/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 1</div><div class="line">08-10 19:29:34.642 22834-22834/com.ddz.lifestyle E/ViewGroup-------onInterceptTouchEvent-------: 1</div><div class="line">08-10 19:29:34.642 22834-22834/com.ddz.lifestyle E/View---------dispatchTouchEvent-------: 1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>分析：<br>1、手指按下：Activity的dispatchTouchEvent分发事件给ViewGroup；<br>2、VIewGroup的dispatchTouchEvent方法返回默认的super.dispatchTouchEvent(ev)，所以事件继续分发，传递给onInterceptTouchEvent；<br>3、ViewGroup的onInterceptTouchEvent默认不拦截，事件终于被传递给ViewGroup中的View了；<br>4、View接受到事件之后，dispatchTouchEvent方法返回true，事件不再分发，直接被View的dispatchTouchEvent消费，不再传递<br>5、手指移动、手指抬起事件同上，全部被View的dispatchTouchEvent方法消费</p>
+<p><strong>10、改写View的onTouchEvent方法，返回false</strong></p>
+<ul>
+<li>1、触摸C区域（按下、移动、抬起）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">08-10 21:18:33.082 8039-8039/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 0</div><div class="line">08-10 21:18:33.082 8039-8039/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 0</div><div class="line">08-10 21:18:33.082 8039-8039/com.ddz.lifestyle E/ViewGroup-------onInterceptTouchEvent-------: 0</div><div class="line">08-10 21:18:33.082 8039-8039/com.ddz.lifestyle E/View---------dispatchTouchEvent-------: 0</div><div class="line">08-10 21:18:33.082 8039-8039/com.ddz.lifestyle E/View---------onTouchEvent-------: 0</div><div class="line">08-10 21:18:33.082 8039-8039/com.ddz.lifestyle E/ViewGroup-------onTouchEvent-------: 0</div><div class="line">08-10 21:18:33.082 8039-8039/com.ddz.lifestyle E/activity-------onTouchEvent-------: 0</div><div class="line">08-10 21:18:33.108 8039-8039/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 21:18:33.108 8039-8039/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 21:18:33.125 8039-8039/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 21:18:33.125 8039-8039/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 21:18:33.141 8039-8039/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-10 21:18:33.141 8039-8039/com.ddz.lifestyle E/activity-------onTouchEvent-------: 2</div><div class="line">08-10 21:18:33.248 8039-8039/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 1</div><div class="line">08-10 21:18:33.248 8039-8039/com.ddz.lifestyle E/activity-------onTouchEvent-------: 1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>分析：<br>1、手指按下：这次流程依然是Activity的dispatchTouchEvent分发事件给ViewGroup<br>2、VIewGroup的dispatchTouchEvent方法返回默认的super.dispatchTouchEvent(ev)，所以事件继续分发，传递给onInterceptTouchEvent；<br>3、这时候onInterceptTouchEvent也默认不拦截，事件终于被传递给ViewGroup中的View了；<br>4、View接受到事件之后，dispatchTouchEvent方法也是返回默认super.dispatchTouchEvent(ev)，事件传递给自己的onTouchEvent方法<br>5、View的onTouchEvent方法返回false，不消费事件，事件又被返回给ViewGroup的onTouchEvent方法；<br>6、但是ViewGroup的onTouchEvent方法默认不消费，事件又返回给Activity的onTouchEvent方法<br>7、最后Activity的onTouchEvent方法自己消费按下事件（Activity：都不消费，下次不给你传了）；<br>8、手指移动：Activity已经知道ViewGroup和View都不消费事件，所以手指移动事件就自己使用dispatchTouchEvent传递给自己的onTouchEvent方法消费掉<br>9、手指抬起：同手指移动</p>
+<p><strong>11、改写View的onTouchEvent方法，返回true</strong></p>
+<ul>
+<li>1、触摸C区域（按下、移动、抬起）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">08-11 13:33:27.684 11900-11900/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 0</div><div class="line">08-11 13:33:27.684 11900-11900/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 0</div><div class="line">08-11 13:33:27.684 11900-11900/com.ddz.lifestyle E/ViewGroup-------onInterceptTouchEvent-------: 0</div><div class="line">08-11 13:33:27.684 11900-11900/com.ddz.lifestyle E/View---------dispatchTouchEvent-------: 0</div><div class="line">08-11 13:33:27.685 11900-11900/com.ddz.lifestyle E/View---------onTouchEvent-------: 0</div><div class="line">08-11 13:33:27.761 11900-11900/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-11 13:33:27.761 11900-11900/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 2</div><div class="line">08-11 13:33:27.761 11900-11900/com.ddz.lifestyle E/ViewGroup-------onInterceptTouchEvent-------: 2</div><div class="line">08-11 13:33:27.761 11900-11900/com.ddz.lifestyle E/View---------dispatchTouchEvent-------: 2</div><div class="line">08-11 13:33:27.761 11900-11900/com.ddz.lifestyle E/View---------onTouchEvent-------: 2</div><div class="line">08-11 13:33:27.962 11900-11900/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 2</div><div class="line">08-11 13:33:27.962 11900-11900/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 2</div><div class="line">08-11 13:33:27.962 11900-11900/com.ddz.lifestyle E/ViewGroup-------onInterceptTouchEvent-------: 2</div><div class="line">08-11 13:33:27.962 11900-11900/com.ddz.lifestyle E/View---------dispatchTouchEvent-------: 2</div><div class="line">08-11 13:33:27.962 11900-11900/com.ddz.lifestyle E/View---------onTouchEvent-------: 2</div><div class="line">08-11 13:33:27.993 11900-11900/com.ddz.lifestyle E/activity-------dispatchTouchEvent-------: 1</div><div class="line">08-11 13:33:27.994 11900-11900/com.ddz.lifestyle E/ViewGroup-------dispatchTouchEvent-------: 1</div><div class="line">08-11 13:33:27.994 11900-11900/com.ddz.lifestyle E/ViewGroup-------onInterceptTouchEvent-------: 1</div><div class="line">08-11 13:33:27.994 11900-11900/com.ddz.lifestyle E/View---------dispatchTouchEvent-------: 1</div><div class="line">08-11 13:33:27.994 11900-11900/com.ddz.lifestyle E/View---------onTouchEvent-------: 1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>分析：<br>1、手指按下：这次流程依然是Activity的dispatchTouchEvent分发事件给ViewGroup<br>2、VIewGroup的dispatchTouchEvent方法返回默认的super.dispatchTouchEvent(ev)，所以事件继续分发，传递给onInterceptTouchEvent；<br>3、这时候onInterceptTouchEvent也默认不拦截，事件终于被传递给ViewGroup中的View了；<br>4、View接受到事件之后，dispatchTouchEvent方法也是返回默认super.dispatchTouchEvent(ev)，事件传递给自己的onTouchEvent方法<br>5、View的onTouchEvent方法返回true，消费事件按下事件结束<br>6、手指移动：Activity已经知道ViewGroup中的View的onTouchEvent方法要消费事件，手指移动事件就重复按下事件的流程，一直传递给View的onTouchEvent方法，直到事件被消费；<br>7、手指抬起：同手指移动一样</p>
+<p>###总结</p>
+<p>####ViewGroup：<br><strong>dispatchTouchEvent 分发</strong><br>ViewGroup接收到事件之后，根据dispatchTouchEvent决定是否分发下去</p>
+<ul>
+<li>1、默认返回 super.dispatchTouchEvent(ev)方法，即默认分发事件</li>
+<li>2、如果返回false；事件将不再分发，直接返回给上一层的onTouch方法，并且后面的事件将不再分发给当前ViewGroup，上层直接自己分发并消费掉</li>
+<li>3、如果返回true，事件将不再分发并且由ViewGroup的dispatchTouchEvent 消费掉，后面的触摸事件也会同样被ViewGroup的dispatchTouchEvent 消费</li>
+</ul>
+<p><strong>onInterceptTouchEvent 拦截</strong><br>ViewGroup的dispatchTouchEvent如果默认将事件分发下去，传递给onInterceptTouchEvent方法，由onInterceptTouchEvent方法决定是否拦截</p>
+<ul>
+<li>1、默认返回super.onInterceptTouchEvent(ev)  即不拦截，事件继续传递</li>
+<li>2、改为返回true，事件直接传递给ViewGroup的onTouchEvent方法消费，不再传递给ViewGroup中的View</li>
+<li>3、如果返回false，事件将传递给ViewGroup中的View去处理</li>
+</ul>
+<p><strong>onTouchEvent 消费</strong><br>如果ViewGroup中的onInterceptTouchEvent 默认不拦截事件，这时根据ViewGroup的onTouchEvent返回值来判断</p>
+<ul>
+<li>1、默认返回super.onTouchEvent(event)，事件将传递给ViewGroup中的View进行处理，如果ViewGroup中View不消费事件，事件将会返回给ViewGroup的onTouchEvent方法处理，ViewGroup的onTouchEvent方法默认不处理，返回给上层的onTouchEvent方法处理</li>
+<li>2 、如果返回true，，事件也会传递给ViewGroup中的View进行处理，如果ViewGroup中View不消费事件，事件将会返回给ViewGroup的onTouchEvent方法，这时ViewGroup的onTouchEvent直接将事件消费掉，不返回上层的onTouchEvent方法了</li>
+<li>3、如果返回false，事件将默认由ViewGroup传递给View，View不处理又返回给ViewGroup的onTouchEvent，ViewGroup的onTouchEvent返回false，所以事件又返回给上层的onTouchEvent方法</li>
+</ul>
+<p>####View：<br><strong>dispatchTouchEvent 分发</strong><br>View接收到事件后，根据dispatchTouchEvent方法返回值，判断是否继续分发</p>
+<ul>
+<li>1、默认返回super.dispatchTouchEvent(ev)，事件将分发下去，传递给View自己的onTouchEvent进行处理，</li>
+<li>2、如果返回false，事件将不分发，直接返回给上层ViewGroup的onTouchEvent方法进行处理</li>
+<li>3、如果返回true，事件也不再分发，直接由View的dispatchTouchEvent 进行消费，并且以后的事件同样直接被View的dispatchTouchEvent 方法消费了</li>
+</ul>
+<p><strong>onTouchEvent 消费</strong><br>如果View的dispatchTouchEvent 将事件传递给onTouchEvent方法，将根据onTouchEvent方法的返回值决定是否消费事件</p>
+<ul>
+<li>1、默认返回super.onTouchEvent(event)，默认不消费事件，事件将返回给上层ViewGroup的onTouchEvent方法处理</li>
+<li>2、如果改为true，将事件消费，不再返回，以后其他事件同样被onTouchEvent方法消费</li>
+<li>3 、如果改为false，同默认方法一样，不再消费，返回给上层处理</li>
+</ul>
+<p>所以，触摸事件的所有流程已经很清晰了</p>
+<p>对于事件分发：（dispatchTouchEvent）<br><strong>如果想事件不向下传递，自己消费掉</strong>  ：将当前的dispatchTouchEvent返回true；<br><strong>如果想事件不向下传递，返回给上层</strong>  ：将当前的dispatchTouchEvent返回false；<br>对于事件拦截：（onInterceptTouchEvent）<br><strong>如果想拦截事件，给自己的onTouchEvent方法消费</strong> ：将onInterceptTouchEvent返回true<br><strong>如果不拦截事件，默认向下传递</strong> ：将onInterceptTouchEvent返回false或者返回默认值<br>对于事件消费：（onTouchEvent）<br><strong>如果不想消费，返回给上层</strong> ：将onTouchEvent返回默认或者返回false；<br><strong>如果想消费，不再返回</strong> ：将onTouchEvent返回true；</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-view/">android view</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android触摸事件/">android触摸事件</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Git常用操作" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/30/Git常用操作/" class="article-date">
+      <time datetime="2017-10-30T04:53:07.000Z" itemprop="datePublished">2017-10-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/30/Git常用操作/">Git常用操作</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>  Git作为日常开发的版本管理系统，功能强大，操作简单，简直不要太方便，但是，常用口令，却是我们必须要掌握的，比较AS安装Git插件，使用命令行才是最快捷方便的</p>
+<h3 id="正文："><a href="#正文：" class="headerlink" title="正文："></a>正文：</h3><p>  开发中：常用操作就那么几个，那就一一罗列出来：</p>
+<h5 id="1-从远程服务器Clone分支"><a href="#1-从远程服务器Clone分支" class="headerlink" title="1.从远程服务器Clone分支"></a>1.从远程服务器Clone分支</h5><p>见我之前文章  <a href="http://www.jianshu.com/p/1a03c3637091" target="_blank" rel="external">Git从远端服务器Clone分支到本地</a></p>
+<h5 id="2-将本地分支推送到远端新分支"><a href="#2-将本地分支推送到远端新分支" class="headerlink" title="2.将本地分支推送到远端新分支"></a>2.将本地分支推送到远端新分支</h5><p>开发中遇到一种情况，本地分支Local1是从远端某分支Remote1 Clone下来的，但是开发之后，想将本地分支保存到远端的新分支Remote2上，而远端仓库是没有这个Remote2分支的，那么执行以下命令：<code>git push origin &lt;local_branch_name&gt;:&lt;remote_branch_name&gt;</code>，<br>例如我当前操作：<code>git push origin Local1:Remote2</code></p>
+<h5 id="3-删除本地仓库某个分支"><a href="#3-删除本地仓库某个分支" class="headerlink" title="3.删除本地仓库某个分支"></a>3.删除本地仓库某个分支</h5><p>想删除本地仓库某个分支，执行：<code>git branch -D &lt;local_branch_name&gt;</code>,例如：想删除本地仓库widget2分支，执行命令：<code>git branch -D widget2</code>；</p>
+<h5 id="4-删除远端仓库某分支"><a href="#4-删除远端仓库某分支" class="headerlink" title="4.删除远端仓库某分支"></a>4.删除远端仓库某分支</h5><p>删除远端仓库分支和删除本地类似：<code>git push origin :{remote_branch_name}</code>，例如删除远端develop分支：<code>git push origin :develop</code></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Git/">Git</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git分支操作/">Git分支操作</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-关于Android AIDL 编译报错问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/30/关于Android AIDL 编译报错问题/" class="article-date">
+      <time datetime="2017-10-30T04:53:07.000Z" itemprop="datePublished">2017-10-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/30/关于Android AIDL 编译报错问题/">关于Android AIDL 编译报错问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h3><p> 在做一个音乐项目中，使用到了AIDL跨进程通信组件，编写一个简单的AIDL时候，编译一直无法通过，报错内容</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Error:Execution failed <span class="keyword">for</span> task <span class="string">':app:compileDebugAidl'</span>.</div><div class="line"></div><div class="line">java.lang.RuntimeException: com.android.ide.common.process.ProcessException: Error <span class="keyword">while</span> executing process E:\SDK\build-tools\<span class="number">25.0</span>.2\aidl.exe with arguments &#123;-pE:\SDK\platforms\android-<span class="number">25</span>\framework.aidl -oE:\Project\LifeStyle\app\build\generated\source\aidl\debug -IE:\Project\LifeStyle\app\src\main\aidl -IE:\Project\LifeStyle\app\src\debug\aidl -IC:\Users\yun.android\build-cache\bd2b26450777017e058ddff21ee3c3ce84e4a7bf\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">2</span>ea784cc81ce0926ea68faf50edaf3063b660d0e\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">5</span>b0533eca8fabee2573210d5a6db0ef9c0c55098\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">4</span>aff7d24ca88b5fbfe9cecf19662277ee6b67028\output\aidl -IC:\Users\yun.android\build-cache\b99b113aa0b77b7431d57c24286f1c8e8eab3ac8\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">4529918</span>ad206e483048c7e77ddeb67757631979d\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">3044</span>c80427502394b2a5a4f143d6cff3e658c021\output\aidl -IC:\Users\yun.android\build-cache\b5f3194e152b8cd07a05991ec812dffa1d8cb041\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">38</span>ea6e0a6326b10847dbffa39bb99db561e2d206\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">8</span>b120b0a8440e62fa16bb4d6105e23babda95bac\output\aidl -IC:\Users\yun.android\build-cache\f7ecc1e5d6327684b86b316a5b8d8656ab31a562\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">555508f</span>307eda5e323eab911e97c525ed5d5df39\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">89763</span>dd7cc6d960b99b1b369e1e4cacfb0a31de4\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">7</span>ade3d874bb02876c4dbec5f11f4f6e45fb740a9\output\aidl -IC:\Users\yun.android\build-cache\d146a875e535f7ef213ac298ff9c7562980017e2\output\aidl -IC:\Users\yun.android\build-cache\b7e59e7515f5465f0bdcddcb2373d90d2f734f9e\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">7</span>d9f182c861cca1c8561cf15680698fccb00cd6b\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">700509</span>b55aea82f4d612ac1262f62676e4b903a8\output\aidl -IC:\Users\yun.android\build-cache\abe96579d37055680246e88ec8e5202f311a7682\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">6</span>a4a8f6c11eb14ee244b1c31f215a78b80a8772f\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">9</span>acdeaf56617b78c0869aec47ac34c9f74876025\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">7560</span>a7d14537f4d91e192c3bf5482b4f43fa71b7\output\aidl -IC:\Users\yun.android\build-cache\f07b74a7bc4f977ae6e648a0b0c6273da95a15d3\output\aidl -IC:\Users\yun.android\build-cache\e916c7e89b0437bc49caaa56819cb6420b1df388\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">98e02</span>d16b6f5edc105354f1b8731dbb8996766a6\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">0</span>de94c2965cbd469e50e04f8b11f3f3a54fb105c\output\aidl -IC:\Users\yun.android\build-cache\e3570cee326ac234ab7a645a61cc67e5f4aaba25\output\aidl -IC:\Users\yun.android\build-cache\af33f12b5828ec7d29cdc70bd0113ea8de920816\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">70727</span>cf612c37ae60ba16fdf9dde9dd2be59839d\output\aidl -IC:\Users\yun.android\build-cache\a70928a5a1cbea562f1bd432d010447ec910b87c\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">1e4</span>a7240c43a860a0f8c255418d94983c100aacf\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">17f</span>28128f57674af28605d6308b0c053b944c5e8\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">995</span>b0dfa92490fcf0f8815d039702fbe5bce10a8\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">15938</span>a94ee6db7edc48dcf60da42083cf7a1bc6c\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">29</span>c97a53c8bc6293d81f08917bfd65d3f697d79e\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">1005f</span>94c0d904c86565f1d4db92c798c70837c1c\output\aidl -IC:\Users\yun.android\build-cache\bf586708fe17232a5869c4b61e020557d355d3d6\output\aidl -IC:\Users\yun.android\build-cache\<span class="number">9</span>b42fe08f88e56de3c951e7c80c399b9f94078a1\output\aidl -IC:\Users\yun.android\build-cache\cd0824ff26bcc093fac07fa62e9800ef96d334aa\output\aidl -dC:\Users\yun\AppData\Local\Temp\aidl3827942310160614195.d E:\Project\LifeStyle\app\src\main\aidl\com\ddz\lifestyle\IPlayService.aidl&#125;</div></pre></td></tr></table></figure>
+<p>绞尽脑汁，又是google又是度娘，都没有合适解决办法，最终发现有两个问题:</p>
+<ul>
+<li><p>实体类没有使用<code>in</code> 、<code>out</code> 、<code>inout</code> 中任何一种方法修饰，导致编译失败</p>
+<p>后来为添加了<code>in</code> 修饰后，依然无法通过，最终发现问题所在</p>
+</li>
+<li><p>在设置方法时候， 设置了同名不同参数方法，在AIDL中不可以这样命名，导致编译无法通过，懊恼不已，浪费大量时间</p>
+</li>
+</ul>
+<h3 id="后记："><a href="#后记：" class="headerlink" title="后记："></a>后记：</h3><p>开发中一定要够自信，够清醒，不然真是浪费时间</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-aidl/">android aidl</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-开发错误/">android 开发错误</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Android6.0运行时权限，化繁为简" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/30/Android6.0运行时权限，化繁为简/" class="article-date">
+      <time datetime="2017-10-30T04:53:07.000Z" itemprop="datePublished">2017-10-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/30/Android6.0运行时权限，化繁为简/">Android6.0运行时权限，化繁为简</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>权限申请效果</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2789715-d887dece89fa9748.gif?imageMogr2/auto-orient/strip" alt="GIF.gif"></p>
+<p><strong>GitHub地址</strong>：<a href="https://github.com/dazhaoDai/PermissionUtils" target="_blank" rel="external">PermissionUtils</a></p>
+<p>Android8.0昨天已经发布，但是关于Android版本的最新统计，来看看图</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2789715-e8a7e0e3a716365f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>很明显，6.0版本目前比重最高，从6.0开始的运行时权限，是每个Android开发者绕不过的问题</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>虽然Google大佬允许我们将targetSdkVersion 设置为22及以下，但是向来紧跟Google大佬步伐的我们，怎么会用这种投机取消的方式呢。</p>
+<p>关于Android权限，Google分为两类，一类为普通权限，默认在AndroidManifest中注册即可，主要为以下，这类权限默认不需要用户授权，比如震动、访问网络权限：</p>
+<p><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#ACCESS_LOCATION_EXTRA_COMMANDS" target="_blank" rel="external">ACCESS_LOCATION_EXTRA_COMMANDS</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#ACCESS_NETWORK_STATE" target="_blank" rel="external">ACCESS_NETWORK_STATE</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#ACCESS_NOTIFICATION_POLICY" target="_blank" rel="external">ACCESS_NOTIFICATION_POLICY</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#ACCESS_WIFI_STATE" target="_blank" rel="external">ACCESS_WIFI_STATE</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#BLUETOOTH" target="_blank" rel="external">BLUETOOTH</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#BLUETOOTH_ADMIN" target="_blank" rel="external">BLUETOOTH_ADMIN</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#BROADCAST_STICKY" target="_blank" rel="external">BROADCAST_STICKY</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#CHANGE_NETWORK_STATE" target="_blank" rel="external">CHANGE_NETWORK_STATE</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#CHANGE_WIFI_MULTICAST_STATE" target="_blank" rel="external">CHANGE_WIFI_MULTICAST_STATE</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#CHANGE_WIFI_STATE" target="_blank" rel="external">CHANGE_WIFI_STATE</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#DISABLE_KEYGUARD" target="_blank" rel="external">DISABLE_KEYGUARD</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#EXPAND_STATUS_BAR" target="_blank" rel="external">EXPAND_STATUS_BAR</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#GET_PACKAGE_SIZE" target="_blank" rel="external">GET_PACKAGE_SIZE</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#INSTALL_SHORTCUT" target="_blank" rel="external">INSTALL_SHORTCUT</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#INTERNET" target="_blank" rel="external">INTERNET</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#KILL_BACKGROUND_PROCESSES" target="_blank" rel="external">KILL_BACKGROUND_PROCESSES</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#MODIFY_AUDIO_SETTINGS" target="_blank" rel="external">MODIFY_AUDIO_SETTINGS</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#NFC" target="_blank" rel="external">NFC</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#READ_SYNC_SETTINGS" target="_blank" rel="external">READ_SYNC_SETTINGS</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#READ_SYNC_STATS" target="_blank" rel="external">READ_SYNC_STATS</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#RECEIVE_BOOT_COMPLETED" target="_blank" rel="external">RECEIVE_BOOT_COMPLETED</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#REORDER_TASKS" target="_blank" rel="external">REORDER_TASKS</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" target="_blank" rel="external">REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#REQUEST_INSTALL_PACKAGES" target="_blank" rel="external">REQUEST_INSTALL_PACKAGES</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#SET_ALARM" target="_blank" rel="external">SET_ALARM</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#SET_TIME_ZONE" target="_blank" rel="external">SET_TIME_ZONE</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#SET_WALLPAPER" target="_blank" rel="external">SET_WALLPAPER</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#SET_WALLPAPER_HINTS" target="_blank" rel="external">SET_WALLPAPER_HINTS</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#TRANSMIT_IR" target="_blank" rel="external">TRANSMIT_IR</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#UNINSTALL_SHORTCUT" target="_blank" rel="external">UNINSTALL_SHORTCUT</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#USE_FINGERPRINT" target="_blank" rel="external">USE_FINGERPRINT</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#VIBRATE" target="_blank" rel="external">VIBRATE</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#WAKE_LOCK" target="_blank" rel="external">WAKE_LOCK</a><br><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#WRITE_SYNC_SETTINGS" target="_blank" rel="external">WRITE_SYNC_SETTINGS</a></p>
+<p>而另一类就是危险权限，涉及用户隐私或影响设备安全<br>根据表中可以看出，危险权限都是成组出现的，那么在授权时，如果申请一组中某个权限，权限申请弹窗会提示整组权限的说明，而且如果一组权限中的某个权限已经被授权，那么在申请同组其他权限时，系统立即授权，不需要通过用户允许。<br><strong>注意:</strong> 运行时权限依然要在AndroidManifest中注册</p>
+<table>
+<thead>
+<tr>
+<th>Permission Group</th>
+<th>Permissions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.android.com/reference/android/Manifest.permission_group.html?hl=zh-cn#CALENDAR" target="_blank" rel="external">CALENDAR</a></td>
+<td><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#READ_CALENDAR" target="_blank" rel="external">READ_CALENDAR</a> 和  <a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#WRITE_CALENDAR" target="_blank" rel="external">WRITE_CALENDAR</a></td>
+</tr>
+<tr>
+<td><a href="https://developer.android.com/reference/android/Manifest.permission_group.html?hl=zh-cn#CAMERA" target="_blank" rel="external">CAMERA</a></td>
+<td><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#CAMERA" target="_blank" rel="external">CAMERA</a></td>
+</tr>
+<tr>
+<td><a href="https://developer.android.com/reference/android/Manifest.permission_group.html?hl=zh-cn#CONTACTS" target="_blank" rel="external">CONTACTS</a></td>
+<td><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#READ_CONTACTS" target="_blank" rel="external">READ_CONTACTS</a>、<a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#WRITE_CONTACTS" target="_blank" rel="external">WRITE_CONTACTS</a>、<a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#GET_ACCOUNTS" target="_blank" rel="external">GET_ACCOUNTS</a></td>
+</tr>
+<tr>
+<td><a href="https://developer.android.com/reference/android/Manifest.permission_group.html?hl=zh-cn#LOCATION" target="_blank" rel="external">LOCATION</a></td>
+<td><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#ACCESS_FINE_LOCATION" target="_blank" rel="external">ACCESS_FINE_LOCATION</a>、<a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#ACCESS_COARSE_LOCATION" target="_blank" rel="external">ACCESS_COARSE_LOCATION</a></td>
+</tr>
+<tr>
+<td><a href="https://developer.android.com/reference/android/Manifest.permission_group.html?hl=zh-cn#MICROPHONE" target="_blank" rel="external">MICROPHONE</a></td>
+<td><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#RECORD_AUDIO" target="_blank" rel="external">RECORD_AUDIO</a></td>
+</tr>
+<tr>
+<td><a href="https://developer.android.com/reference/android/Manifest.permission_group.html?hl=zh-cn#PHONE" target="_blank" rel="external">PHONE</a></td>
+<td><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#READ_PHONE_STATE" target="_blank" rel="external">READ_PHONE_STATE</a>、<a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#CALL_PHONE" target="_blank" rel="external">CALL_PHONE</a>、<a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#READ_CALL_LOG" target="_blank" rel="external">READ_CALL_LOG</a>、<a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#WRITE_CALL_LOG" target="_blank" rel="external">WRITE_CALL_LOG</a>、<a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#ADD_VOICEMAIL" target="_blank" rel="external">ADD_VOICEMAIL</a>、<a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#USE_SIP" target="_blank" rel="external">USE_SIP</a>、<a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#PROCESS_OUTGOING_CALLS" target="_blank" rel="external">PROCESS_OUTGOING_CALLS</a></td>
+</tr>
+<tr>
+<td><a href="https://developer.android.com/reference/android/Manifest.permission_group.html?hl=zh-cn#SENSORS" target="_blank" rel="external">SENSORS</a></td>
+<td><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#BODY_SENSORS" target="_blank" rel="external">BODY_SENSORS</a></td>
+</tr>
+<tr>
+<td><a href="https://developer.android.com/reference/android/Manifest.permission_group.html?hl=zh-cn#SMS" target="_blank" rel="external">SMS</a></td>
+<td><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#SEND_SMS" target="_blank" rel="external">SEND_SMS</a>、 <a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#RECEIVE_SMS" target="_blank" rel="external">RECEIVE_SMS</a>、 <a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#READ_SMS" target="_blank" rel="external">READ_SMS</a>、<a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#RECEIVE_WAP_PUSH" target="_blank" rel="external">RECEIVE_WAP_PUSH</a>、<a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#RECEIVE_MMS" target="_blank" rel="external">RECEIVE_MMS</a></td>
+</tr>
+<tr>
+<td><a href="https://developer.android.com/reference/android/Manifest.permission_group.html?hl=zh-cn#STORAGE" target="_blank" rel="external">STORAGE</a></td>
+<td><a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#READ_EXTERNAL_STORAGE" target="_blank" rel="external">READ_EXTERNAL_STORAGE</a>、<a href="https://developer.android.com/reference/android/Manifest.permission.html?hl=zh-cn#WRITE_EXTERNAL_STORAGE" target="_blank" rel="external">WRITE_EXTERNAL_STORAGE</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>开始适配</strong><br>这里举例适配Manifest.permission.ACCESS_FINE_LOCATION位置权限</p>
+<ul>
+<li>1、在AndroidManifest中注册权限</li>
+<li><p>2、检查权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ContextCompat.checkSelfPermission(thisActivity,</div><div class="line">                Manifest.permission.ACCESS_FINE_LOCATION)</div><div class="line">        != PackageManager.PERMISSION_GRANTED</div></pre></td></tr></table></figure>
+</li>
+<li><p>3、申请权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ActivityCompat.requestPermissions(thisActivity,</div><div class="line">               new String[]&#123;Manifest.permission.ACCESS_FINE_LOCATION&#125;,</div><div class="line">               myRequestCode);</div></pre></td></tr></table></figure>
+</li>
+<li><p>4、申请回调的处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">public void onRequestPermissionsResult(int requestCode,</div><div class="line">        String permissions[], int[] grantResults) &#123;</div><div class="line">    switch (requestCode) &#123;</div><div class="line">        case myRequestCode: &#123;</div><div class="line">            if (grantResults.length &gt; 0</div><div class="line">                &amp;&amp; grantResults[0] == PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line">            //申请通过</div><div class="line"></div><div class="line">            &#125; else &#123;</div><div class="line">           //申请失败</div><div class="line"></div><div class="line">            //是否需要向用户解释申请的原因，在用户点击拒绝后，弹出dialog，给用户解释</div><div class="line">            if (ActivityCompat.shouldShowRequestPermissionRationale(thisActivity,</div><div class="line">            Manifest.permission.ACCESS_FINE_LOCATION)) </div><div class="line"></div><div class="line"></div><div class="line">              &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>封装</strong><br>运行时权限的流程很清晰，那么开发中每次写这么多固定代码，为何不进行封装一下呢？那就来分析申请的流程和特点，进行处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div></pre></td><td class="code"><pre><div class="line">package com.ddz.lifestyle.utils;</div><div class="line"></div><div class="line">import android.Manifest;</div><div class="line">import android.app.Activity;</div><div class="line">import android.content.Context;</div><div class="line">import android.content.DialogInterface;</div><div class="line">import android.content.Intent;</div><div class="line">import android.content.pm.PackageManager;</div><div class="line">import android.net.Uri;</div><div class="line">import android.os.Build;</div><div class="line">import android.provider.Settings;</div><div class="line">import android.support.annotation.IntRange;</div><div class="line">import android.support.annotation.NonNull;</div><div class="line">import android.support.v4.app.ActivityCompat;</div><div class="line">import android.support.v4.app.Fragment;</div><div class="line">import android.support.v4.content.ContextCompat;</div><div class="line">import android.support.v7.app.AlertDialog;</div><div class="line">import android.util.SparseArray;</div><div class="line"></div><div class="line">import com.ddz.lifestyle.LifeStyle;</div><div class="line">import com.ddz.lifestyle.http.GankApiStores;</div><div class="line">import com.ddz.lifestyle.http.bean.BookBean;</div><div class="line">import com.tencent.smtt.sdk.QbSdk;</div><div class="line"></div><div class="line">import org.jetbrains.annotations.NotNull;</div><div class="line"></div><div class="line">/**</div><div class="line"> * @Author: ddz</div><div class="line"> * Creation time: 17.8.11 17:11</div><div class="line"> * describe:&#123;Android权限申请的封装，并在内部实现申请结果的处理&#125;</div><div class="line"> */</div><div class="line"></div><div class="line">public class PermissionUtils &#123;</div><div class="line"></div><div class="line">    private static PermissionUtils permission;</div><div class="line">    private String[] permissions;</div><div class="line">    private Activity mActivity;</div><div class="line">    private RequestPermissionListener PermissionListener;</div><div class="line"></div><div class="line"></div><div class="line">    public static int requestCode = 100;  //requestCode传值为100</div><div class="line"></div><div class="line"></div><div class="line">    public static PermissionUtils getInstance() &#123;</div><div class="line">        if (null == permission) &#123;</div><div class="line">            synchronized (PermissionUtils.class) &#123;</div><div class="line">                if (null == permission) &#123;</div><div class="line">                    permission = new PermissionUtils();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return permission;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 权限检查</div><div class="line">     *</div><div class="line">     * @param permission</div><div class="line">     * @return</div><div class="line">     */</div><div class="line">    public boolean checkPermission(@NonNull String permission) &#123;</div><div class="line">        if (Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.M) &#123;</div><div class="line">            return true;</div><div class="line">        &#125; else &#123;</div><div class="line">            return ContextCompat.checkSelfPermission(LifeStyle.getContext(), permission) == PackageManager.PERMISSION_GRANTED;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * Activity 页面申请权限</div><div class="line">     *</div><div class="line">     * @param activity</div><div class="line">     * @param permissions</div><div class="line">     * @param requestCode</div><div class="line">     * @param requestPermissionListener</div><div class="line">     */</div><div class="line">    public void requestPermissiion(final @NonNull Activity activity,</div><div class="line">                                   final @NonNull String[] permissions, final @IntRange(from = 0) int requestCode, @NonNull RequestPermissionListener requestPermissionListener) &#123;</div><div class="line">        this.mActivity = activity;</div><div class="line">        PermissionListener = requestPermissionListener;</div><div class="line">        this.permissions = permissions;</div><div class="line">        ActivityCompat.requestPermissions(activity, permissions, requestCode);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    /**</div><div class="line">     * Fragment页面申请权限</div><div class="line">     *</div><div class="line">     * @param fragment</div><div class="line">     * @param permissions</div><div class="line">     * @param requestCode</div><div class="line">     * @param requestPermissionListener</div><div class="line">     */</div><div class="line">    public void requestFragmentPermission(final @NonNull Fragment fragment,</div><div class="line">                                          final @NonNull String[] permissions, final @IntRange(from = 0) int requestCode, @NonNull RequestPermissionListener requestPermissionListener) &#123;</div><div class="line">        PermissionListener = requestPermissionListener;</div><div class="line">        this.permissions = permissions;</div><div class="line">        fragment.requestPermissions(permissions, requestCode);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    /**</div><div class="line">     * 权限申请结果的回调</div><div class="line">     *</div><div class="line">     * @param activity</div><div class="line">     * @param requestCode</div><div class="line">     * @param permissions</div><div class="line">     * @param grantResults</div><div class="line">     */</div><div class="line">    public void onRequestPermissionResult(final @NonNull Activity activity, int requestCode, @NonNull String[] permissions,</div><div class="line">                                          @NonNull int[] grantResults) &#123;</div><div class="line">        this.mActivity = activity;</div><div class="line">        if (null != PermissionListener) &#123;</div><div class="line">            if (requestCode == PermissionUtils.requestCode &amp;&amp; grantResults.length &gt; 0 &amp;&amp; grantResults[0] == PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line">                PermissionListener.requestConfirm();</div><div class="line">            &#125; else &#123;</div><div class="line">                if (ActivityCompat.shouldShowRequestPermissionRationale(activity, permissions[0])) &#123;</div><div class="line">                    PermissionListener.requestCancel();</div><div class="line">                &#125; else &#123;</div><div class="line">                    PermissionListener.requestCancelAgain();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    /**</div><div class="line">     * 用户点击拒绝，弹出申请权限的说明弹窗，也可以自定义实现</div><div class="line">     *</div><div class="line">     * @param context Context</div><div class="line">     * @param title   弹窗标题</div><div class="line">     * @param message 申请权限解释说明</div><div class="line">     * @param confirm 确认按钮的文字，默认OK</div><div class="line">     * @param cancel  取消按钮呢的文字，默认不显示取消按钮</div><div class="line">     */</div><div class="line"></div><div class="line">    public void requestDialog(Context context, @NonNull String title, @NonNull String message, String confirm, String cancel) &#123;</div><div class="line">        try &#123;</div><div class="line">            AlertDialog.Builder builder = new AlertDialog.Builder(context).setTitle(title).setMessage(message);</div><div class="line">            builder.setPositiveButton(confirm == null ? &quot;OK&quot; : confirm, new DialogInterface.OnClickListener() &#123;</div><div class="line">                @Override</div><div class="line">                public void onClick(DialogInterface dialog, int which) &#123;</div><div class="line">                    requestPermissiion(mActivity, permissions, requestCode, PermissionListener);</div><div class="line">                    dialog.dismiss();</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">            if (null != cancel) &#123;</div><div class="line">                builder.setNegativeButton(cancel, new DialogInterface.OnClickListener() &#123;</div><div class="line">                    @Override</div><div class="line">                    public void onClick(DialogInterface dialog, int which) &#123;</div><div class="line">                        dialog.dismiss();</div><div class="line">                    &#125;</div><div class="line">                &#125;);</div><div class="line">            &#125;</div><div class="line">            builder.setCancelable(false);</div><div class="line">            builder.show();</div><div class="line">        &#125; catch (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 用户勾选不再显示并点击拒绝，弹出打开设置页面申请权限，也可以自定义实现</div><div class="line">     *</div><div class="line">     * @param context Context</div><div class="line">     * @param title   弹窗标题</div><div class="line">     * @param message 申请权限解释说明</div><div class="line">     * @param confirm 确认按钮的文字，默认OK</div><div class="line">     * @param cancel  取消按钮呢的文字，默认不显示取消按钮</div><div class="line">     */</div><div class="line"></div><div class="line">    public void requestDialogAgain(Context context, @NonNull String title, @NonNull String message, String confirm, String cancel) &#123;</div><div class="line">        try &#123;</div><div class="line">            AlertDialog.Builder builder = new AlertDialog.Builder(context).setTitle(title).setMessage(message);</div><div class="line">            builder.setPositiveButton(confirm == null ? &quot;OK&quot; : confirm, new DialogInterface.OnClickListener() &#123;</div><div class="line">                @Override</div><div class="line">                public void onClick(DialogInterface dialog, int which) &#123;</div><div class="line">                    startSettingActivity(mActivity);</div><div class="line">                    dialog.dismiss();</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">            if (null != cancel) &#123;</div><div class="line">                builder.setNegativeButton(cancel, new DialogInterface.OnClickListener() &#123;</div><div class="line">                    @Override</div><div class="line">                    public void onClick(DialogInterface dialog, int which) &#123;</div><div class="line">                        dialog.dismiss();</div><div class="line">                    &#125;</div><div class="line">                &#125;);</div><div class="line">            &#125;</div><div class="line">            builder.setCancelable(false);</div><div class="line">            builder.show();</div><div class="line">        &#125; catch (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 打开设置页面打开权限</div><div class="line">     *</div><div class="line">     * @param context</div><div class="line">     */</div><div class="line">    public void startSettingActivity(@NonNull Activity context) &#123;</div><div class="line"></div><div class="line">        try &#123;</div><div class="line">            Intent intent =</div><div class="line">                    new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse(&quot;package:&quot; +</div><div class="line">                            context.getPackageName()));</div><div class="line">            intent.addCategory(Intent.CATEGORY_DEFAULT);</div><div class="line">            context.startActivityForResult(intent, 10); //这里的requestCode和onActivityResult中requestCode要一致</div><div class="line">        &#125; catch (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 打开设置页面的回调</div><div class="line">     *</div><div class="line">     * @param requestCode</div><div class="line">     * @param resultCode</div><div class="line">     * @param data</div><div class="line">     */</div><div class="line">    public void onActivityResult(int requestCode, int resultCode, Intent data) &#123;</div><div class="line">        switch (requestCode) &#123;</div><div class="line">            case 10:  //这里值是打开设置页面申请权限的RequestCode，默认为10</div><div class="line">                try &#123;</div><div class="line">                    if (null != PermissionListener) &#123;</div><div class="line">                        if (null != permissions &amp;&amp; permissions.length &gt; 0) &#123;</div><div class="line">                            for (String permission : permissions) &#123;</div><div class="line">                                if (checkPermission(permission)) &#123;</div><div class="line">                                    PermissionListener.requestConfirm();</div><div class="line">                                &#125; else &#123;</div><div class="line">                                    PermissionListener.requestFailed();</div><div class="line">                                &#125;</div><div class="line">                            &#125;</div><div class="line">                        &#125; else &#123;</div><div class="line">                            PermissionListener.requestFailed();</div><div class="line">                        &#125;</div><div class="line">                    &#125; else &#123;</div><div class="line">                        PermissionListener.requestFailed();</div><div class="line">                    &#125;</div><div class="line">                &#125; catch (Exception e) &#123;</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">                break;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 权限申请回调</div><div class="line">     */</div><div class="line">    public interface RequestPermissionListener &#123;</div><div class="line">        void requestConfirm();  //申请成功</div><div class="line"></div><div class="line">        void requestCancel();  //拒绝</div><div class="line"></div><div class="line">        void requestCancelAgain();  //勾选不再提示并拒绝</div><div class="line"></div><div class="line">        void requestFailed();  //在设置页面申请权限失败</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>封装的工具类使用</strong> （分为四步）</p>
+<p> <em>检查权限</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PermissionUtils.getInstance().checkPermission(Manifest.permission.ACCESS_FINE_LOCATION)</div></pre></td></tr></table></figure></p>
+<p><em>申请权限</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">PermissionUtils.getInstance().requestPermissiion(this, new String[]&#123;Manifest.permission.ACCESS_FINE_LOCATION&#125;, PermissionUtils.requestCode, new PermissionUtils.RequestPermissionListener() &#123;</div><div class="line">               @Override</div><div class="line">               public void requestConfirm() &#123;</div><div class="line">                   //申请成功</div><div class="line">                   toast(null);</div><div class="line">               &#125;</div><div class="line">               @Override</div><div class="line">               public void requestCancel() &#123;</div><div class="line">                   //用户拒绝，对用户解释申请理由</div><div class="line">                   //如果想使用封装好的弹窗提示</div><div class="line">                   PermissionUtils.getInstance().requestDialog(TestActivity.this, &quot;申请权限&quot;, &quot;需要位置权限&quot;, null, null);</div><div class="line">               &#125;</div><div class="line">               @Override</div><div class="line">               public void requestCancelAgain() &#123;</div><div class="line">                   //用户勾选不再提示并拒绝，申请打开应用设置页面申请权限，具体逻辑自己写</div><div class="line">                   //使用默认封装好的提示,并打开设置页面</div><div class="line">                   PermissionUtils.getInstance().requestDialogAgain(TestActivity.this, &quot;申请权限&quot;, &quot;去设置页面打开位置限才能正常使用&quot;, null, null);</div><div class="line">               &#125;</div><div class="line">               @Override</div><div class="line">               public void requestFailed() &#123;</div><div class="line">                   //申请失败</div><div class="line">                   toast(&quot;对不起，没有权限，退出&quot;);</div><div class="line">               &#125;</div><div class="line">           &#125;);</div></pre></td></tr></table></figure></p>
+<p><em>权限回调的处理</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">PermissionUtils.getInstance().onRequestPermissionResult(TestActivity.this, requestCode, permissions, grantResults);</div><div class="line">      super.onRequestPermissionsResult(requestCode, permissions, grantResults);</div></pre></td></tr></table></figure></p>
+<p><em>打开设置页面申请权限的处理</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PermissionUtils.getInstance().onActivityResult(requestCode, resultCode, data);</div></pre></td></tr></table></figure></p>
+<p><strong>根据封装好的工具类，写个简单例子</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line">package com.ddz.lifestyle.view.activity;</div><div class="line">import android.Manifest;</div><div class="line">import android.content.Intent;</div><div class="line">import android.os.Bundle;</div><div class="line">import android.os.PersistableBundle;</div><div class="line">import android.support.annotation.NonNull;</div><div class="line">import android.support.annotation.Nullable;</div><div class="line">import android.support.v7.app.AppCompatActivity;</div><div class="line">import android.widget.Toast;</div><div class="line">import com.ddz.lifestyle.R;</div><div class="line">import com.ddz.lifestyle.utils.PermissionUtils;</div><div class="line"></div><div class="line">/**</div><div class="line"> * @Author: ddz</div><div class="line"> * Creation time: 17.8.11 16:07</div><div class="line"> * describe:()</div><div class="line"> */</div><div class="line"></div><div class="line">public class TestActivity extends AppCompatActivity &#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onCreate(@Nullable Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        initPremission();</div><div class="line">    &#125;</div><div class="line">	</div><div class="line">    private void initPremission() &#123;</div><div class="line">        if (PermissionUtils.getInstance().checkPermission(Manifest.permission.ACCESS_FINE_LOCATION)) &#123;</div><div class="line">            toast(null);</div><div class="line">        &#125; else &#123;</div><div class="line">            PermissionUtils.getInstance().requestPermissiion(this, new String[]&#123;Manifest.permission.ACCESS_FINE_LOCATION&#125;, PermissionUtils.requestCode, new PermissionUtils.RequestPermissionListener() &#123;</div><div class="line">                @Override</div><div class="line">                public void requestConfirm() &#123;</div><div class="line">                    //申请成功</div><div class="line">                    toast(null);</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                @Override</div><div class="line">                public void requestCancel() &#123;</div><div class="line">                    //用户拒绝，对用户解释申请理由</div><div class="line"></div><div class="line">                    //如果想使用封装好的弹窗提示</div><div class="line">                    PermissionUtils.getInstance().requestDialog(TestActivity.this, &quot;申请权限&quot;, &quot;需要位置权限&quot;, null, null);</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                @Override</div><div class="line">                public void requestCancelAgain() &#123;</div><div class="line">                    //用户勾选不再提示并拒绝，申请打开应用设置页面申请权限，具体逻辑自己写</div><div class="line"></div><div class="line">                    //使用默认封装好的提示,并打开设置页面</div><div class="line">                    PermissionUtils.getInstance().requestDialogAgain(TestActivity.this, &quot;申请权限&quot;, &quot;去设置页面打开位置限才能正常使用&quot;, null, null);</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                @Override</div><div class="line">                public void requestFailed() &#123;</div><div class="line">                    //申请失败</div><div class="line">                    toast(&quot;对不起，没有权限，退出&quot;);</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //一定要对权限回调进行处理</div><div class="line">    @Override</div><div class="line">    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) &#123;</div><div class="line">        PermissionUtils.getInstance().onRequestPermissionResult(TestActivity.this, requestCode, permissions, grantResults);</div><div class="line">        super.onRequestPermissionsResult(requestCode, permissions, grantResults);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //如果打开了设置页面申请权限，一定要对回调进行处理</div><div class="line">    @Override</div><div class="line">    protected void onActivityResult(int requestCode, int resultCode, Intent data) &#123;</div><div class="line">        PermissionUtils.getInstance().onActivityResult(requestCode, resultCode, data);</div><div class="line">        super.onActivityResult(requestCode, resultCode, data);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private void toast(String message) &#123;</div><div class="line">        Toast.makeText(TestActivity.this, message == null ? &quot;权限申请成功&quot; : message, Toast.LENGTH_SHORT).show();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h4><p>封装后的权限申请，结构更加清晰，根据回调结果的不同可以做出相应处理，也封装了权限申请的说明弹窗，如果没有特殊的设计要求，即可满足日常开发的权限申请工作。<br>GitHub地址：<a href="https://github.com/dazhaoDai/PermissionUtils" target="_blank" rel="external">PermissionUtils</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-permission/">android permission</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-权限/">android 权限</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
+  
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2018 daidai
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

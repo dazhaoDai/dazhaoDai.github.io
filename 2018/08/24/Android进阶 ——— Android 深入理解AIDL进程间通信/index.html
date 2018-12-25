@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="daidai" />
+
+
+
+<meta name="description" content="前言关于AIDL的资料，层出不穷，但是能让人简单明了理解的文章不多，那么我们就自己撸一遍，清晰明了的理解一下AIDL的原理。 准备在理解AIDL原理之前，先写一个简单的使用AIDL进行进程间通信的例子，根据这个例子来由浅及深的理解AIDL。 先来定义实体类：UserBean.java注意：如果要在AIDL中使用实体类，实体类必须要实现序列化接口，这里实现的是Android自带的Parcelable">
+<meta name="keywords" content="Android进阶">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android进阶 ——— Android 深入理解AIDL进程间通信">
+<meta property="og:url" content="http://outofmemory.top/2018/08/24/Android进阶 ——— Android 深入理解AIDL进程间通信/index.html">
+<meta property="og:site_name" content="T9&#39;S Develop Blog">
+<meta property="og:description" content="前言关于AIDL的资料，层出不穷，但是能让人简单明了理解的文章不多，那么我们就自己撸一遍，清晰明了的理解一下AIDL的原理。 准备在理解AIDL原理之前，先写一个简单的使用AIDL进行进程间通信的例子，根据这个例子来由浅及深的理解AIDL。 先来定义实体类：UserBean.java注意：如果要在AIDL中使用实体类，实体类必须要实现序列化接口，这里实现的是Android自带的Parcelable">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/8f176eddly1fw5j8ufq7xj20no0mo77l.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/8f176eddly1fw5j8ufs5uj20pq0jawh5.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/8f176eddly1fw5jaijka0j211806gq8a.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/8f176eddly1fw5jahze2hj210407mdi3.jpg">
+<meta property="og:updated_time" content="2018-10-12T08:50:25.051Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android进阶 ——— Android 深入理解AIDL进程间通信">
+<meta name="twitter:description" content="前言关于AIDL的资料，层出不穷，但是能让人简单明了理解的文章不多，那么我们就自己撸一遍，清晰明了的理解一下AIDL的原理。 准备在理解AIDL原理之前，先写一个简单的使用AIDL进行进程间通信的例子，根据这个例子来由浅及深的理解AIDL。 先来定义实体类：UserBean.java注意：如果要在AIDL中使用实体类，实体类必须要实现序列化接口，这里实现的是Android自带的Parcelable">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/8f176eddly1fw5j8ufq7xj20no0mo77l.jpg">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="T9&#39;S Develop Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="https://s1.ax1x.com/2018/10/12/iNnhCV.gif">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Android进阶 ——— Android 深入理解AIDL进程间通信 | T9&#39;S Develop Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="https://s1.ax1x.com/2018/10/12/iNnhCV.gif" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">daidai</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">不仅有工作，更有生活</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/archives/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="https://daidazhao@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/dazhaoDai" title="GitHub"></a>
+                            
+                                <a class="fa CSDN" href="https://blog.csdn.net/dazhaoDai" title="CSDN"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android官方架构/">Android官方架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android进阶/">Android进阶</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git分支操作/">Git分支操作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java进阶/">Java进阶</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/">Kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin开发/">Kotlin开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-aidl/">android aidl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-permission/">android permission</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-view/">android view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-开发错误/">android 开发错误</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-权限/">android 权限</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-自定义view/">android 自定义view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android触摸事件/">android触摸事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/privacy/">privacy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">Developer</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">daidai</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="https://s1.ax1x.com/2018/10/12/iNnhCV.gif" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">daidai</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">不仅有工作，更有生活</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="https://daidazhao@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/dazhaoDai" title="GitHub"></a>
+                            
+                                <a class="fa CSDN" target="_blank" href="https://blog.csdn.net/dazhaoDai" title="CSDN"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-Android进阶 ——— Android 深入理解AIDL进程间通信" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/24/Android进阶 ——— Android 深入理解AIDL进程间通信/" class="article-date">
+      <time datetime="2018-08-24T07:23:07.051Z" itemprop="datePublished">2018-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android进阶 ——— Android 深入理解AIDL进程间通信
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android进阶/">Android进阶</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>关于AIDL的资料，层出不穷，但是能让人简单明了理解的文章不多，那么我们就自己撸一遍，清晰明了的理解一下AIDL的原理。</p>
+<h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><p>在理解AIDL原理之前，先写一个简单的使用AIDL进行进程间通信的例子，根据这个例子来由浅及深的理解AIDL。</p>
+<p>先来定义实体类：UserBean.java<br>注意：<strong>如果要在AIDL中使用实体类，实体类必须要实现序列化接口，这里实现的是Android自带的Parcelable接口</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">package com.t9.news.Model;</div><div class="line"></div><div class="line">import android.os.Parcel;</div><div class="line">import android.os.Parcelable;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Created by dai</div><div class="line"> * Created time 2018/5/11</div><div class="line"> * function:com.t9.news.Model</div><div class="line"> */</div><div class="line"></div><div class="line">public class UserBean implements Parcelable&#123;</div><div class="line"></div><div class="line">	private int age;</div><div class="line">	private String name;</div><div class="line"></div><div class="line">	public int getAge() &#123;</div><div class="line">		return age;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setAge(int age) &#123;</div><div class="line">		this.age = age;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public String getName() &#123;</div><div class="line">		return name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setName(String name) &#123;</div><div class="line">		this.name = name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	protected UserBean(Parcel in) &#123;</div><div class="line">		age = in.readInt();</div><div class="line">		name = in.readString();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void writeToParcel(Parcel dest, int flags) &#123;</div><div class="line">		dest.writeInt(age);</div><div class="line">		dest.writeString(name);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public int describeContents() &#123;</div><div class="line">		return 0;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public static final Creator&lt;UserBean&gt; CREATOR = new Creator&lt;UserBean&gt;() &#123;</div><div class="line">		@Override</div><div class="line">		public UserBean createFromParcel(Parcel in) &#123;</div><div class="line">			return new UserBean(in);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		@Override</div><div class="line">		public UserBean[] newArray(int size) &#123;</div><div class="line">			return new UserBean[size];</div><div class="line">		&#125;</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>声明好了实体类，就需要额外在AIDL中声明实体类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// UserBean.aidl</div><div class="line">package com.t9.news.Model;</div><div class="line"></div><div class="line">parcelable UserBean;</div></pre></td></tr></table></figure></p>
+<p>在AIDL 中使用实体类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// IMyAidlInterface.aidl</div><div class="line">package com.t9.news;</div><div class="line"></div><div class="line">// Declare any non-default types here with import statements</div><div class="line">import com.t9.news.Model.UserBean;</div><div class="line">interface IUser &#123;</div><div class="line"></div><div class="line">    List&lt;UserBean&gt; getUser();</div><div class="line"></div><div class="line">    void addUser(in UserBean user);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>看一下项目的结构<br><img src="http://ww1.sinaimg.cn/large/8f176eddly1fw5j8ufq7xj20no0mo77l.jpg" alt=""></p>
+<p>然后Build 一下 Project，结束之后就生成了Binder代码，来看看Binder代码生成的位置<br><img src="http://ww1.sinaimg.cn/large/8f176eddly1fw5j8ufs5uj20pq0jawh5.jpg" alt=""></p>
+<p>这时候可以点开看一下这个类，十有八九会被吓到，先不去管它，稍后再来分析。</p>
+<p>来声明一个Service：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">package com.t9.news;</div><div class="line"></div><div class="line">import android.app.Service;</div><div class="line">import android.content.Intent;</div><div class="line">import android.os.IBinder;</div><div class="line">import android.os.RemoteException;</div><div class="line">import android.support.annotation.Nullable;</div><div class="line">import android.util.Log;</div><div class="line"></div><div class="line">import com.t9.news.Model.UserBean;</div><div class="line"></div><div class="line">import java.util.ArrayList;</div><div class="line">import java.util.List;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Created by dai</div><div class="line"> * Created time 2018/5/11</div><div class="line"> * function:com.t9.news</div><div class="line"> */</div><div class="line"></div><div class="line">public class MyService extends Service &#123;</div><div class="line"></div><div class="line">	private String TAG = this.getClass().getName();</div><div class="line">	@Override</div><div class="line">	public void onCreate() &#123;</div><div class="line">		super.onCreate();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	</div><div class="line">	List&lt;UserBean&gt; list = new ArrayList&lt;&gt;();</div><div class="line">	</div><div class="line">	private IBinder binder = new IUser.Stub() &#123;</div><div class="line">		@Override</div><div class="line">		public List&lt;UserBean&gt; getUser() throws RemoteException &#123;</div><div class="line">			if (list.size() &lt;= 0)&#123;</div><div class="line">				for(int i = 0; i &lt; 5; i++)&#123;</div><div class="line">					UserBean bean = new UserBean();</div><div class="line">					bean.setAge(5 * i);</div><div class="line">					bean.setName(&quot;android-&quot; + i);</div><div class="line">					list.add(bean);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">			return list;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		@Override</div><div class="line">		public void addUser(UserBean user) throws RemoteException &#123;</div><div class="line">			Log.e(TAG, user.getName());</div><div class="line">			list.add(user);</div><div class="line">		&#125;</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	@Nullable</div><div class="line">	@Override</div><div class="line">	public IBinder onBind(Intent intent) &#123;</div><div class="line">		return binder;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>定义的Service比较简单。new 了一个 IUser.Stub()并把它向上转型成了IBinder，最后在onBind方法中返回回去。在 IUser.Stub()的内部我们重写getUser()、addUser(UserBean user)方法，这就是AIDL中声明的IUser接口中的两个方法。<br>既然是跨进程通信，那么将Service设置到另一个进程中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;service</div><div class="line">    android:name=&quot;com.t9.news.MyService&quot;</div><div class="line">    android:process=&quot;:newProcess&quot;</div><div class="line">    /&gt;</div></pre></td></tr></table></figure></p>
+<p>定义为启动在新进程中，只需要在AndroidMainfest.xml中声明是加上一个process属性即可,不过这里有两个地方值得注意：<br>1.组件默认的进程名就是包名；<br>2.定义新的进程名的时候需要以包的形式(eg: com.xu.aidl)。</p>
+<p>好，准备工作完成，在Activity中绑定Service</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">package com.t9.News.HomePage.View.Activity</div><div class="line">import android.Manifest</div><div class="line">import android.content.ComponentName</div><div class="line">import android.content.Context</div><div class="line">import android.content.Intent</div><div class="line">import android.content.ServiceConnection</div><div class="line">import android.os.IBinder</div><div class="line">import android.os.RemoteException</div><div class="line">import android.util.Log</div><div class="line">import com.t9.news.Application</div><div class="line">import com.t9.news.R</div><div class="line">import com.t9.news.IUser</div><div class="line">import com.t9.news.Model.UserBean</div><div class="line">import com.t9.news.MyService</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * Created by dai</div><div class="line"> * Created time 19:06</div><div class="line"> * function:com.t9.news.Main.View.Activity</div><div class="line"> */</div><div class="line">class MainActivity : BaseActivity() &#123;</div><div class="line"></div><div class="line">    private val TAG = this.javaClass.simpleName;</div><div class="line"></div><div class="line">    override fun getLayoutId(): Int &#123;</div><div class="line">        return R.layout.activity_main</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    override fun initView() &#123;</div><div class="line">        initService()</div><div class="line">    &#125;</div><div class="line">    fun initService()&#123;</div><div class="line">        val service = Intent(this@MainActivity, MyService::class.java)</div><div class="line">        bindService(service, serviceConnection, Context.BIND_AUTO_CREATE)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private var iUser : IUser? = null</div><div class="line">    private val serviceConnection = object : ServiceConnection &#123;</div><div class="line">        override fun onServiceConnected(name: ComponentName, service: IBinder) &#123;</div><div class="line">            iUser = IUser.Stub.asInterface(service)</div><div class="line">            Log.e(TAG,&quot;连接Service成功&quot;)</div><div class="line">            try &#123;</div><div class="line">               val list : List&lt;UserBean&gt;  = iUser!!.user</div><div class="line">                for (user in list)&#123;</div><div class="line">                    Log.e(TAG, &quot;name = &quot; + user.name + &quot; age: = &quot; + user.age)</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                val user:UserBean = UserBean();</div><div class="line">                user.name = &quot;张三&quot;</div><div class="line">                user.age = 111</div><div class="line">                iUser!!.addUser(user)</div><div class="line">            &#125; catch (e: RemoteException) &#123;</div><div class="line">                e.printStackTrace()</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        override fun onServiceDisconnected(name: ComponentName) &#123;</div><div class="line">            Log.e(TAG,&quot;连接Service断开&quot;)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>由于主要是Service和Activity间的通信，所以为了让代码整洁就没有写UI了。</p>
+<p>在onCreate(Bundle savedInstanceState)中，我们调用了自己定义的一个方法initService()，这个方法里面我们生成了一个Intent，然后 bindService了这个Intent传入了三个参数分别是Intent、ServiceConnection、Flag。</p>
+<p>Intent我们就不用说了，我们看看后面两个参数：<br>在Activity中，我们new了一个ServiceConnection并实现了他的两个方法onServiceConnected、onServiceDisconnected。在onServiceConnected中我们通过IUser.Stub.asInterface(service)把传来的IBinder转换成了我们定义的iUser。然后我们调用了getUser方法，传递了个字符串和获取从MyService传来的字符串，并且打印了Log。<br>然后又new 一个UserBean对象，传递给MyService。</p>
+<p>然后，我们的编码就完成了，运行并观察Log:</p>
+<ul>
+<li><p>MainActivity 中 Log：<br><img src="http://ww1.sinaimg.cn/large/8f176eddly1fw5jaijka0j211806gq8a.jpg" alt=""></p>
+</li>
+<li><p>MyService中Log：<br><img src="http://ww1.sinaimg.cn/large/8f176eddly1fw5jahze2hj210407mdi3.jpg" alt=""></p>
+</li>
+</ul>
+<p>根据运行结果，在这两个不同的进程中都得到了我们想要的结果，所以，一个用aidl实现的跨进程通信就这样完成了。</p>
+<h4 id="AIDL的理解"><a href="#AIDL的理解" class="headerlink" title="AIDL的理解"></a>AIDL的理解</h4><p>回过头来，我们再来分析之前的 debug 目录下的 IUser.java 类</p>
+<ul>
+<li><strong>先来看MyService 中 Binder</strong></li>
+</ul>
+<p>还记得我们在MyService中利用new IUser.Stub()向上转型成了IBinder然后在onBind方法中返回的。那我们就看看IUser.Stub()吧：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public static abstract class Stub extends android.os.Binder implements com.t9.news.IUser&#123;</div><div class="line">		......</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Stub 是 IUser 中静态抽象类，继承了 Binder，并且 实现 IUser接口，这就说明我们定义IUser.Stub的时候为什么需要实现IUser中的方法了，也说明了为什么我们可以把IUser.Stub向上转型成IBinder了。</p>
+<ul>
+<li><strong>Activity中的IMyInterface </strong><br>在Activity中，通过ServiceConnection连接MyService并成功回调onServiceConnected中我们把传回来的IBinder通过IUser.Stub.asInterface(service)转换成为IUser，那就来看看这里是如何转换的吧:<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">//这个接口里 有一个静态的抽象类Stub(注意这个名字是固定的 永远都是Stub 不会是其他)</div><div class="line"> //并且这个Stub是Binder的子类，并且实现了IUser 这个接口</div><div class="line">public static abstract class Stub extends android.os.Binder implements com.t9.news.IUser&#123;</div><div class="line">	//这个东西就是唯一的binder标示 可以看到就是IUser的全路径名</div><div class="line">	private static final java.lang.String DESCRIPTOR = &quot;com.t9.news.IUser&quot;;</div><div class="line">	/** Construct the stub at attach it to the interface. */</div><div class="line">	/**</div><div class="line">	   * 这个就是Stub的构造方法，回顾一下 我们如果写好aidl文件以后 写的service里面 是怎么写的？</div><div class="line">       * private final IUser.Stub mBinder = new IUser.Stub() &#123;&#125;</div><div class="line">        * 我们都是这么写的 对吧~~所以想想我们的service里面的代码 就能辅助理解 这里的代码了</div><div class="line">        */</div><div class="line">	public Stub()</div><div class="line">	&#123;</div><div class="line">	this.attachInterface(this, DESCRIPTOR);</div><div class="line">	&#125;</div><div class="line">	 //这个方法 其实就做了一件事，如果是同一个进程，那么就返回Stub对象本身</div><div class="line">    //如果不是同一个进程，就返回Stub.Proxy这个代理对象了</div><div class="line">	public static com.t9.news.IUser asInterface(android.os.IBinder obj)&#123;</div><div class="line">		if ((obj==null)) &#123;</div><div class="line">			return null;</div><div class="line">		&#125;</div><div class="line">		//检查Binder是不是在当前进程</div><div class="line">		android.os.IInterface iin = obj.queryLocalInterface(DESCRIPTOR);</div><div class="line">		//如果是同1个进程，也就是说进程内通信的话 我们就返回括号内里的对象</div><div class="line">		if (((iin!=null)&amp;&amp;(iin instanceof com.t9.news.IUser))) &#123;</div><div class="line">			return ((com.t9.news.IUser)iin);</div><div class="line">		&#125;</div><div class="line">		 //如果不是同一进程，是2个进程之间相互通信，那我们就得返回这个Stub.Proxy 看上去叫Stub 代理的对象了</div><div class="line">		return new com.t9.news.IUser.Stub.Proxy(obj);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>首先，我们因该明白的是，传回来的IBinder就是我们在Service的onBind( )方法所return的IBinder，然后我们调用Stub中的静态方法asInterface并把返回来的IBinder当参数传进去。<br>在asInterface方法中，首先判断了传进来的IBinder是不是null，如果为null就返回一个null;接着就判断传进来的IBinder是不是就在当前进程里面，如果是的话就直接返回IUser，不是的话就返回IUser.Stub.Proxy(obj)。<br>这里我觉得需要明白的是：直接返回的IUser是实现了定义的接口方法getUser、AddUser的。因为在IUser.Stub中所实现的。当然如果是在同一进程中，那么我们调用IUser的方法时就是在本地调用方法，直接调用就可以了。</p>
+<p>如果没在同一进程，就会返回IUser.Stub.Proxy(obj):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">//注意这里的Proxy 这个类名也是不变的，从前文我们知道 只有在多进程通信的情况下  才会返回这个代理的对象</div><div class="line">private static class Proxy implements com.t9.news.IUser&#123;</div><div class="line">	private android.os.IBinder mRemote;</div><div class="line">	Proxy(android.os.IBinder remote)&#123;</div><div class="line">		mRemote = remote;</div><div class="line">	&#125;</div><div class="line">	@Override public android.os.IBinder asBinder()&#123;</div><div class="line">		return mRemote;</div><div class="line">	&#125;</div><div class="line">	public java.lang.String getInterfaceDescriptor()&#123;</div><div class="line">		return DESCRIPTOR;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">   //这里我们一共有2个方法 一个getUser 一个addUser 我们就分析一个方法就可以了</div><div class="line">        //并且要知道 这2个方法运行在客户端！！！！！！！！！！！！！！！！</div><div class="line">         //首先就是创建了3个对象_data 输入对象，_reply输出对象，_result返回值对象</div><div class="line">         //然后把参数信息 写入到_data里，接着就调用了transact这个方法 来发送rpc请求，然后接着</div><div class="line">         //当前线程挂起， 服务端的onTransace方法才被调用，调用结束以后 当前线程继续执行，直到</div><div class="line">         //从_reply中取出rpc的返回结果 然后返回_reply的数据</div><div class="line"></div><div class="line">        //所以这里我们就要注意了，客户端发起调用远程请求时，当前客户端的线程就会被挂起了，</div><div class="line">        //所以如果一个远程方法 很耗时，我们客户端就一定不能在ui main线程里在发起这个rpc请求，不然就anr了。</div><div class="line">	@Override public java.util.List&lt;com.t9.news.Model.UserBean&gt; getUser() throws android.os.RemoteException&#123;</div><div class="line">		android.os.Parcel _data = android.os.Parcel.obtain();</div><div class="line">		android.os.Parcel _reply = android.os.Parcel.obtain();</div><div class="line">		java.util.List&lt;com.t9.news.Model.UserBean&gt; _result;</div><div class="line">		try &#123;</div><div class="line">			_data.writeInterfaceToken(DESCRIPTOR);</div><div class="line">			//传送数据到服务端</div><div class="line">			mRemote.transact(Stub.TRANSACTION_getUser, _data, _reply, 0);</div><div class="line">			_reply.readException();</div><div class="line">			//接受从服务端传回的数据</div><div class="line">			_result = _reply.createTypedArrayList(com.t9.news.Model.UserBean.CREATOR);</div><div class="line">		&#125;</div><div class="line">		finally &#123;</div><div class="line">			_reply.recycle();</div><div class="line">			_data.recycle();</div><div class="line">		&#125;</div><div class="line">		return _result;</div><div class="line">	&#125;</div><div class="line">	@Override public void addUser(com.t9.news.Model.UserBean user) throws android.os.RemoteException&#123;</div><div class="line">		android.os.Parcel _data = android.os.Parcel.obtain();</div><div class="line">		android.os.Parcel _reply = android.os.Parcel.obtain();</div><div class="line">		try &#123;</div><div class="line">			_data.writeInterfaceToken(DESCRIPTOR);</div><div class="line">			if ((user!=null)) &#123;</div><div class="line">			_data.writeInt(1);</div><div class="line">			user.writeToParcel(_data, 0);</div><div class="line">		&#125;</div><div class="line">		else &#123;</div><div class="line">			_data.writeInt(0);</div><div class="line">		&#125;</div><div class="line">			mRemote.transact(Stub.TRANSACTION_addUser, _data, _reply, 0);</div><div class="line">			_reply.readException();</div><div class="line">		&#125;</div><div class="line">		finally &#123;</div><div class="line">			_reply.recycle();</div><div class="line">			_data.recycle();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在Proxy中，我们首先把Service连接成功返回的IBinder它的内部变量mRemote,这里在提一下，这里得IBinder还是是MyService中onBind所返回的。然后，当我们调用IMyInterface的方法的时候，其实就是调用的Proxy的方法了，这也是为什么这个类叫做Porxy的原因了。</p>
+<p>当调用IUser.getUser() ，我们就看Proxy中的getInfor,先获取了两个Parcel对象 _data、_data，从变量名就可以看出，一个是传送数据的，另一个则是接受返回数据的。接着，向_data中写入了DESCRIPTOR(也就是这个类的全名)，再写入了方法参数。然后就到了最重要的一步了，</p>
+<p>mRemote.transact(Stub.TRANSACTION_getInfor, _data, _reply, 0);<br>这里我们调用了IBinder的transact方法，来把数据传给远端的服务器。然后在我们远程的MyService中，里面的Stub中就会回调onTransact（）（因为你把数据传个远程的服务，远端的服务收到数据也就回调了）</p>
+<p>注意：这里是在远程的服务里调用的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"> //只有在多进程通信的时候 才会调用这个方法 ，同一个进程是不会调用的。</div><div class="line"></div><div class="line">     //首先 我们要明白 这个方法 一般情况下 都是返回true的，也只有返回true的时候才有意义，如果返回false了 就代表这个方法执行失败，</div><div class="line">     //所以我们通常是用这个方法来做权限认证的，其实也很好理解，既然是多进程通信，那么我们服务端的进程当然不希望谁都能过来调用</div><div class="line">     //所以权限认证是必须的，关于权限认证的代码 以后我再讲 先略过。</div><div class="line"> </div><div class="line">     //除此之外 ，onTransact 这个方法 就是运行在Binder线程池中的，一般就是客户端发起请求，然后android底层代码把这个客户端发起的</div><div class="line">     //请求 封装成3个参数 来调用这个onTransact方法，第一个参数code 就代表客户端想要调用服务端 方法的 标志位。</div><div class="line">     //其实也很好理解 服务端可能有n个方法 每个方法 都有一个对应的int值来代表，这个code就是这个int值，用来标示客户端想调用的服务端的方法</div><div class="line">     //data就是方法参数，reply就是方法返回值。都很好理解</div><div class="line"> </div><div class="line">     //其实隐藏了很重要的一点，这个方法既然是运行在binder线程池中的，所以在这个方法里面调用的服务器方法也是运行在Binder线程池中的，</div><div class="line">     //所以我们要记得 如果你的服务端程序 有可能和多个客户端相联的话，你方法里使用的那些参数 必须要是支持异步的，否则的话</div><div class="line">     //值就会错乱了！这点一定要记住！结论就是Binder方法 一定要是同步方法！！！！！！</div><div class="line">@Override public boolean onTransact(int code, android.os.Parcel data, android.os.Parcel reply, int flags) throws android.os.RemoteException&#123;</div><div class="line">	switch (code)&#123;</div><div class="line">		case INTERFACE_TRANSACTION:&#123;</div><div class="line">			reply.writeString(DESCRIPTOR);</div><div class="line">			return true;</div><div class="line">		&#125;</div><div class="line">		case TRANSACTION_getUser:&#123;</div><div class="line">			data.enforceInterface(DESCRIPTOR);</div><div class="line">			// 远程服务调用自己本地实现的方法获取返回值</div><div class="line">			java.util.List&lt;com.t9.news.Model.UserBean&gt; _result = this.getUser();</div><div class="line">			reply.writeNoException();</div><div class="line">			//写入返回值</div><div class="line">			reply.writeTypedList(_result);</div><div class="line">			return true;</div><div class="line">		&#125;</div><div class="line">		case TRANSACTION_addUser:&#123;</div><div class="line">			data.enforceInterface(DESCRIPTOR);</div><div class="line">			com.t9.news.Model.UserBean _arg0;</div><div class="line">			if ((0!=data.readInt())) &#123;</div><div class="line">				_arg0 = com.t9.news.Model.UserBean.CREATOR.createFromParcel(data);</div><div class="line">			&#125;</div><div class="line">			else &#123;</div><div class="line">				_arg0 = null;</div><div class="line">			&#125;</div><div class="line">			this.addUser(_arg0);</div><div class="line">			reply.writeNoException();</div><div class="line">			return true;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return super.onTransact(code, data, reply, flags);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>nTransact方法是在Stub的内部实现的。</p>
+<p>先看一下它的四个参数： </p>
+<ul>
+<li>code：每个方法都有一个int类型的数字用来区分（后面中的swicth），在我们例子中也就是我们Proxy中的Stub.TRANSACTION_geIUser。 </li>
+<li>data:传过来的数据，其中包含我们的参数，以及类的描述。 </li>
+<li>reply:传回的数据，我们要写入是否发生了Exception,以及返回值 </li>
+<li>flags:该方法是否有返回值 ，0表示有返回值。</li>
+</ul>
+<p>调用onTransact就表示有数据传来，首先就会通过swicth判断是哪个方法，然后取出方法参数，调用本地实现的方法获取返回值，写入返回值到reply。最后，返回true，才会把数据发送出去，发挥false就不会把结果返回给Activity了。这里也就是说，只有返回true,我们Proxy中才能接受从远端传回的数据。</p>
+<p>注意：Service也是把数据发送出来，让客户端接受的。</p>
+<p>Service发出了数据，客户端接收到了，就会一层一层返回去。所以，当我们简单的调用IUser的getUser时候，先是Proxy的transact发送出数据，然后服务端的onTransact接受并处理传来的数据，再把处理得到的数据写入返回值并发送给客户端，客户端读取值后就成为调用方法的返回值返回了。</p>
+<p>到这里 相信大家 至少在应用层上面，就对Binder就一个很直观的理解了，对于进程间通信来说，具体的流程就分为如下几步：</p>
+<ul>
+<li><p>1.Client 发起远程调用请求 也就是RPC 到Binder。同时将自己挂起，挂起的原因是要等待RPC调用结束以后返回的结果</p>
+</li>
+<li><p>2.Binder 收到RPC请求以后 把参数收集一下，调用transact方法，把RPC请求转发给service端。</p>
+</li>
+<li><p>3.service端 收到rpc请求以后 就去线程池里 找一个空闲的线程去走service端的 onTransact方法 ，实际上也就是真正在运行service端的 方法了，等方法运行结束 就把结果 写回到binder中。</p>
+</li>
+<li><p>4.Binder 收到返回数据以后 就唤醒原来的Client 线程，返回结果。至此，一次进程间通信 的过程就结束了</p>
+</li>
+</ul>
+<p>关于AIDL的基本原理就是这样了，看明白了AIDL，才发现原来AIDL不过就是帮我们生成了那些数据写入，传送，读取的方法而已。</p>
+<hr>
+<p>参考<br><a href="https://www.cnblogs.com/punkisnotdead/p/5163464.html" target="_blank" rel="external">https://www.cnblogs.com/punkisnotdead/p/5163464.html</a><br><a href="https://blog.csdn.net/u011974987/article/details/51243539" target="_blank" rel="external">https://blog.csdn.net/u011974987/article/details/51243539</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/08/24/Android进阶 ——— Android 深入理解AIDL进程间通信/">Android进阶 ——— Android 深入理解AIDL进程间通信</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">daidai</a></p>
+        <p><span>发布时间:</span>2018-08-24, 15:23:07</p>
+        <p><span>最后更新:</span>2018-10-12, 16:50:25</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/24/Android进阶 ——— Android 深入理解AIDL进程间通信/" title="Android进阶 ——— Android 深入理解AIDL进程间通信">http://outofmemory.top/2018/08/24/Android进阶 ——— Android 深入理解AIDL进程间通信/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://outofmemory.top/2018/08/24/Android进阶 ——— Android 深入理解AIDL进程间通信/　　作者: daidai" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/10/15/Java进阶 ——— 面试必备 Java单链表反转/">
+                    Java进阶 ——— 面试必备 Java单链表反转
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/08/24/Android 进阶  ------ Android 单元测试/">
+                    Android 进阶  ------ Android 单元测试
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#准备"><span class="toc-number">2.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AIDL的理解"><span class="toc-number">3.</span> <span class="toc-text">AIDL的理解</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Android进阶 ——— Android 深入理解AIDL进程间通信　| T9'S Develop Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/10/15/Java进阶 ——— 面试必备 Java单链表反转/" title="上一篇: Java进阶 ——— 面试必备 Java单链表反转">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/08/24/Android 进阶  ------ Android 单元测试/" title="下一篇: Android 进阶  ------ Android 单元测试">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/18/Java进阶 ——— Java多线程（三）之多线程同步问题/">Java进阶 ——— Java多线程（三）之多线程同步问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/18/Java进阶 ——— Java多线程（二）之如何开启多线程/">Java进阶 ——— Java多线程（二）之如何开启多线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/17/Java进阶 ——— Java多线程（一）之进程和线程/">Java进阶 ——— Java多线程（一）之进程和线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/16/Java进阶 ——— 局部内部类访问局部变量为什么必须加final关键字/">Java进阶 ——— 局部内部类访问局部变量为什么必须加final关键字</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/16/Java进阶 ——— 如何查看字节码/">Java进阶 ——— 如何查看字节码</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/15/Java进阶 ——— 面试必备 Java单链表反转/">Java进阶 ——— 面试必备 Java单链表反转</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— Android 深入理解AIDL进程间通信/">Android进阶 ——— Android 深入理解AIDL进程间通信</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android 进阶  ------ Android 单元测试/">Android 进阶  ------ Android 单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Flutter初体验（二）---- 创建第一个Flutter APP/">Flutter初体验（二）---- 创建第一个Flutter APP</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Flutter初体验（一）---- 配置安装Flutter/">Flutter初体验（一）---- 配置安装Flutter</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java进阶 ——— 面试常见问题/">Java进阶 ——— 面试常见问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java进阶 ——— HTTP概述/">Java进阶 ——— HTTP概述</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java设计模式  ------ 代理模式/">Java设计模式  ------ 代理模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java 进阶  ------ 垃圾回收机制/">Java 进阶  ------ 垃圾回收机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java 进阶  ------ 时间复杂度对比/">Java 进阶  ------ 时间复杂度对比</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/JVM DVM ART对比/">Android 进阶  ------ JVM DVM ART对比</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Handler系列之创建子线程Handler/">Android 进阶  ------ Handler系列之创建子线程Handler</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap/">Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Java设计模式 ——— 工厂模式/">Java设计模式 ——— 工厂模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— Android官方架构组件Lifecycle/">Android进阶 ——— Android官方架构组件Lifecycle</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/Android进阶 ——— Android官方架构组件LiveData/">Android进阶 ——— Android官方架构组件LiveData</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/iOS 自定义View 中跳转UIViewController/">iOS 自定义View 中跳转UIViewController</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/28/Kotlin 学习笔记（八）—— Kotlin类与对象之接口/">Kotlin 学习笔记（八）—— Kotlin类与对象之接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/28/Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段/">Kotlin 学习笔记（七）—— Kotlin类与对象之属性与字段</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/27/Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承/">Kotlin 学习笔记（六）—— Kotlin类与对象之类和继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/12/Kotlin基础之控制流、返回与跳转、 包与导入/">Kotlin 学习笔记（五）—— Kotlin基础之控制流、返回与跳转、 包与导入</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/09/Kotlin基础之基本类型/">Kotlin 学习笔记（四）—— Kotlin基础之基本类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/09/习惯用法/">Kotlin 学习笔记（三）—— 习惯用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/08/Kotlin 学习笔记（二）—— 基础语法/">Kotlin 学习笔记（二）—— 基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/08/Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料/">Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/07/Android自定义View(八) -- 硬件加速/">Android自定义View(八) -- 硬件加速</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Privacy/">Privacy Policy</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/关于Android触摸事件机制/">关于Android触摸事件机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Git常用操作/">Git常用操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/关于Android AIDL 编译报错问题/">关于Android AIDL 编译报错问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/Android6.0运行时权限，化繁为简/">Android6.0运行时权限，化繁为简</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2018 daidai
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
