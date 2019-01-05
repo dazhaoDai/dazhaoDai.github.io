@@ -15,22 +15,18 @@
 
 
 
-<meta name="description" content="简单工厂模式简单工厂模式的模型非常简单，定义一个抽象类及抽象方法，具体产品类继承抽象类，在简单工厂类中提供具体产品，供给客户端使用 例如，一家餐馆，可以提供多种食品，供用户选择：  定义抽象类 123456789/**抽象类*/public abstract class SimpleFood &amp;#123;	/**	 * 提供食物	 */	public abstract void food();&amp;#">
+<meta name="description" content="在了解ThreadLocal之前，一定要确定一个概念：ThreadLocal不是用来解决共享对象的多线程访问问题的那么ThreadLocal在多线程的作用是什么呢？从下面几个方面来了解 ThreadLocal的作用ThreadLocal可以理解为：线程局部变量， 是每一个线程所单独持有的。其他线程不能对其进行访问， 通常是类中的 private static 字段,是对该字段初始值的一个拷贝，它们">
 <meta name="keywords" content="Java进阶">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java设计模式 ——— 工厂模式">
-<meta property="og:url" content="http://outofmemory.top/2018/08/24/Java设计模式 ——— 工厂模式/index.html">
+<meta property="og:title" content="Java进阶 ——— Java多线程（4）之多线程局部变量TreadLocal">
+<meta property="og:url" content="http://outofmemory.top/2019/01/05/Java进阶 ——— Java多线程（4）之多线程局部变量/index.html">
 <meta property="og:site_name" content="T9&#39;S Develop Blog">
-<meta property="og:description" content="简单工厂模式简单工厂模式的模型非常简单，定义一个抽象类及抽象方法，具体产品类继承抽象类，在简单工厂类中提供具体产品，供给客户端使用 例如，一家餐馆，可以提供多种食品，供用户选择：  定义抽象类 123456789/**抽象类*/public abstract class SimpleFood &amp;#123;	/**	 * 提供食物	 */	public abstract void food();&amp;#">
+<meta property="og:description" content="在了解ThreadLocal之前，一定要确定一个概念：ThreadLocal不是用来解决共享对象的多线程访问问题的那么ThreadLocal在多线程的作用是什么呢？从下面几个方面来了解 ThreadLocal的作用ThreadLocal可以理解为：线程局部变量， 是每一个线程所单独持有的。其他线程不能对其进行访问， 通常是类中的 private static 字段,是对该字段初始值的一个拷贝，它们">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://images2015.cnblogs.com/blog/364303/201608/364303-20160818224552500-264215677.png">
-<meta property="og:image" content="https://images2015.cnblogs.com/blog/364303/201608/364303-20160818230715265-504425871.png">
-<meta property="og:image" content="http://hi.csdn.net/attachment/201203/16/0_13318591595Q24.gif">
-<meta property="og:updated_time" content="2018-08-24T07:16:45.229Z">
+<meta property="og:updated_time" content="2019-01-05T06:44:38.863Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java设计模式 ——— 工厂模式">
-<meta name="twitter:description" content="简单工厂模式简单工厂模式的模型非常简单，定义一个抽象类及抽象方法，具体产品类继承抽象类，在简单工厂类中提供具体产品，供给客户端使用 例如，一家餐馆，可以提供多种食品，供用户选择：  定义抽象类 123456789/**抽象类*/public abstract class SimpleFood &amp;#123;	/**	 * 提供食物	 */	public abstract void food();&amp;#">
-<meta name="twitter:image" content="https://images2015.cnblogs.com/blog/364303/201608/364303-20160818224552500-264215677.png">
+<meta name="twitter:title" content="Java进阶 ——— Java多线程（4）之多线程局部变量TreadLocal">
+<meta name="twitter:description" content="在了解ThreadLocal之前，一定要确定一个概念：ThreadLocal不是用来解决共享对象的多线程访问问题的那么ThreadLocal在多线程的作用是什么呢？从下面几个方面来了解 ThreadLocal的作用ThreadLocal可以理解为：线程局部变量， 是每一个线程所单独持有的。其他线程不能对其进行访问， 通常是类中的 private static 字段,是对该字段初始值的一个拷贝，它们">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -62,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Java设计模式 ——— 工厂模式 | T9&#39;S Develop Blog</title>
+<title>Java进阶 ——— Java多线程（4）之多线程局部变量TreadLocal | T9&#39;S Develop Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -273,11 +269,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Java设计模式 ——— 工厂模式" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Java进阶 ——— Java多线程（4）之多线程局部变量" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/08/24/Java设计模式 ——— 工厂模式/" class="article-date">
-      <time datetime="2018-08-24T07:05:45.715Z" itemprop="datePublished">2018-08-24</time>
+      <a href="/2019/01/05/Java进阶 ——— Java多线程（4）之多线程局部变量/" class="article-date">
+      <time datetime="2019-01-05T06:44:38.862Z" itemprop="datePublished">2019-01-05</time>
 </a>
 
 
@@ -292,7 +288,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Java设计模式 ——— 工厂模式
+      Java进阶 ——— Java多线程（4）之多线程局部变量TreadLocal
     </h1>
   
 
@@ -317,57 +313,50 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h3><p>简单工厂模式的模型非常简单，定义一个抽象类及抽象方法，具体产品类继承抽象类，在简单工厂类中提供具体产品，供给客户端使用<br><img src="https://images2015.cnblogs.com/blog/364303/201608/364303-20160818224552500-264215677.png" alt=""></p>
-<p>例如，一家餐馆，可以提供多种食品，供用户选择：</p>
+        <p>在了解ThreadLocal之前，一定要确定一个概念：<strong>ThreadLocal不是用来解决共享对象的多线程访问问题的</strong><br>那么ThreadLocal在多线程的作用是什么呢？从下面几个方面来了解</p>
+<h3 id="ThreadLocal的作用"><a href="#ThreadLocal的作用" class="headerlink" title="ThreadLocal的作用"></a>ThreadLocal的作用</h3><p>ThreadLocal可以理解为：线程局部变量， 是每一个线程所单独持有的。其他线程不能对其进行访问， 通常是类中的 private static 字段,是对该字段初始值的一个拷贝，它们希望将状态与某一个线程（例如，用户 ID 或事务 ID）相关联，</p>
+<p>在并发编程的时候，成员变量如果不做任何处理其实是线程不安全的，各个线程都在操作同一个变量，显然是不行的，并且我们也知道volatile这个关键字也是不能保证线程安全的。当然我们可以使用synchorinized 关键字来为此变量加锁，进行同步处理，从而限制只能有一个线程来使用此变量，但是加锁会大大影响程序执行效率，此外我们还可以使用ThreadLocal来解决对某一个变量的访问冲突问题。</p>
+<p>当使用ThreadLocal维护变量的时候 为每一个使用该变量的线程提供一个独立的变量副本，即每个线程内部都会有一个该变量，这样同时多个线程访问该变量并不会彼此相互影响，因此他们使用的都是自己从内存中拷贝过来的变量的副本， 这样就不存在线程安全问题，也不会影响程序的执行性能。</p>
+<h3 id="深入了解ThreadLocal使用"><a href="#深入了解ThreadLocal使用" class="headerlink" title="深入了解ThreadLocal使用"></a>深入了解ThreadLocal使用</h3><p>先不去分析源码，仅仅写个例子，根据例子学习ThreadLocal的简单使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public class ThreadTest &#123;</div><div class="line">  //定义一个全局ThreadLocal</div><div class="line">	public static ThreadLocal&lt;String&gt; locals= new ThreadLocal&lt;String&gt;();</div><div class="line">  </div><div class="line">  //开启三个线程</div><div class="line">	public void threadLocalTest()&#123;</div><div class="line">		ThreadLocalTest test1 = new ThreadLocalTest(&quot;AA&quot;);</div><div class="line">		ThreadLocalTest test2 = new ThreadLocalTest(&quot;BB&quot;);</div><div class="line">		ThreadLocalTest test3 = new ThreadLocalTest(&quot;CC&quot;);</div><div class="line">		test1.start();</div><div class="line">		test2.start();</div><div class="line">		test3.start();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在线程里往ThreadLocal塞值，再打印出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">public class ThreadLocalTest extends Thread &#123;</div><div class="line"></div><div class="line">	private int a = 5;</div><div class="line"></div><div class="line">	public ThreadLocalTest(String name) &#123;</div><div class="line">		super(name);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public void run() &#123;</div><div class="line">		super.run();</div><div class="line">		try &#123;</div><div class="line">			for (int i = 0; i &lt; 5; i++) &#123;</div><div class="line">				a += 1;</div><div class="line">				ThreadTest.locals.set(a + &quot;&quot;);</div><div class="line">				Log.e(this.getName(), &quot;value ===== &quot; + ThreadTest.locals.get());</div><div class="line">				Thread.sleep(300);</div><div class="line">			&#125;</div><div class="line">		&#125; catch (InterruptedException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>查看运行结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">10-24 10:31:46.340 9307-9350/com.t9.news E/AA: value ===== 6</div><div class="line">10-24 10:31:46.340 9307-9351/com.t9.news E/BB: value ===== 6</div><div class="line">10-24 10:31:46.343 9307-9352/com.t9.news E/CC: value ===== 6</div><div class="line">10-24 10:31:46.640 9307-9350/com.t9.news E/AA: value ===== 7</div><div class="line">10-24 10:31:46.641 9307-9351/com.t9.news E/BB: value ===== 7</div><div class="line">10-24 10:31:46.644 9307-9352/com.t9.news E/CC: value ===== 7</div><div class="line">10-24 10:31:46.940 9307-9350/com.t9.news E/AA: value ===== 8</div><div class="line">10-24 10:31:46.941 9307-9351/com.t9.news E/BB: value ===== 8</div><div class="line">10-24 10:31:46.944 9307-9352/com.t9.news E/CC: value ===== 8</div><div class="line">10-24 10:31:47.240 9307-9350/com.t9.news E/AA: value ===== 9</div><div class="line">10-24 10:31:47.241 9307-9351/com.t9.news E/BB: value ===== 9</div><div class="line">10-24 10:31:47.244 9307-9352/com.t9.news E/CC: value ===== 9</div><div class="line">10-24 10:31:47.540 9307-9350/com.t9.news E/AA: value ===== 10</div><div class="line">10-24 10:31:47.541 9307-9351/com.t9.news E/BB: value ===== 10</div><div class="line">10-24 10:31:47.545 9307-9352/com.t9.news E/CC: value ===== 10</div></pre></td></tr></table></figure></p>
+<p>看到每个线程的里都有自己的String，并且互不影响—-,不存在一个线程修改另一个线程中值得情况，<strong>对于同一个ThreadLocal对象而言，内部数据仅为自己独有，其他线程无法修改</strong></p>
+<h3 id="ThreadLocal的理解"><a href="#ThreadLocal的理解" class="headerlink" title="ThreadLocal的理解"></a>ThreadLocal的理解</h3><p>了解了ThreadLocal的使用，接下来肯定要看看源码，分析内部实现方式。</p>
+<p>就从ThreadLocal 几个主要方法来学习<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public T get()</div><div class="line">public void set(T value) </div><div class="line">public void remove()</div></pre></td></tr></table></figure></p>
+<p>get()方法是用来获取ThreadLocal在当前线程中保存的变量副本，set()用来设置当前线程中变量的副本，remove()用来移除当前线程中变量的副本</p>
+<p>首先我们来看一下ThreadLocal类是如何为每个线程创建一个变量的副本的。</p>
+<h4 id="先来看get方法："><a href="#先来看get方法：" class="headerlink" title="先来看get方法："></a>先来看get方法：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">    * Returns the value in the current thread&apos;s copy of this</div><div class="line">    * thread-local variable.  If the variable has no value for the</div><div class="line">    * current thread, it is first initialized to the value returned</div><div class="line">    * by an invocation of the &#123;@link #initialValue&#125; method.</div><div class="line">    *</div><div class="line">    * @return the current thread&apos;s value of this thread-local</div><div class="line">    */</div><div class="line">   public T get() &#123;</div><div class="line">       //先获取当前线程</div><div class="line">       Thread t = Thread.currentThread();</div><div class="line">       //然后getMap(t)方法获取到一个map，类型为ThreadLocalMap</div><div class="line">       ThreadLocalMap map = getMap(t);</div><div class="line">       //不为空</div><div class="line">       if (map != null) &#123;</div><div class="line">       //然后接着下面获取到&lt;key,value&gt;键值对，注意这里获取键值对传进去的是  this，而不是当前线程t。</div><div class="line">           ThreadLocalMap.Entry e = map.getEntry(this);</div><div class="line">           if (e != null) &#123;</div><div class="line">           //如果获取成功，则返回value值</div><div class="line">               @SuppressWarnings(&quot;unchecked&quot;)</div><div class="line">               T result = (T)e.value;</div><div class="line">               return result;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">       //否则调用setInitialValue方法返回value</div><div class="line">       return setInitialValue();</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>仔细看看每一步的操作：</p>
 <ul>
-<li><p>定义抽象类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">抽象类</div><div class="line">*/</div><div class="line">public abstract class SimpleFood &#123;</div><div class="line">	/**</div><div class="line">	 * 提供食物</div><div class="line">	 */</div><div class="line">	public abstract void food();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>提供面条–具体产品类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 具体产品类</div><div class="line"> */</div><div class="line">public class Noodles extends SimpleFood &#123;</div><div class="line">	@Override</div><div class="line">	public void food() &#123;</div><div class="line">		System.out.println(&quot;面条&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>提供米饭–具体产品类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 具体产品类</div><div class="line"> */</div><div class="line">public class Rice extends SimpleFood &#123;</div><div class="line">	@Override</div><div class="line">	public void food() &#123;</div><div class="line">		System.out.println(&quot;米饭&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>准备工作结束，创建餐馆–简单工厂类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">public class SimpleFoodFactory &#123;</div><div class="line"></div><div class="line">	public static final int TYPE_NOODLES = 1;//面条</div><div class="line">	public static final int TYPE_RICE = 2;//米饭</div><div class="line"></div><div class="line"></div><div class="line">	public static SimpleFood createFood(int type) &#123;</div><div class="line">		switch (type) &#123;</div><div class="line">			case TYPE_NOODLES:</div><div class="line">				return new Noodles();</div><div class="line">			case TYPE_RICE:</div><div class="line">				return new Rice();</div><div class="line">			default:</div><div class="line">				return new Rice();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>客人点餐，指明要吃的食物，只要有原料，就可以提供：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SimpleFood food =  SimpleFoodFactory.createFood(SimpleFoodFactory.TYPE_RICE);</div><div class="line">food.food();</div></pre></td></tr></table></figure>
+<li>getMap(t)<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">     * Get the map associated with a ThreadLocal. Overridden in</div><div class="line">     * InheritableThreadLocal.</div><div class="line">     *</div><div class="line">     * @param  t the current thread</div><div class="line">     * @return the map</div><div class="line">     */</div><div class="line">    ThreadLocalMap getMap(Thread t) &#123;</div><div class="line">    //返回当前线程中的成员变量threadLocals</div><div class="line">        return t.threadLocals;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h3><p>这个和简单工厂有区别，简单工厂模式只有一个工厂，工厂方法模式对每一个产品都有相应的工厂。<br><img src="https://images2015.cnblogs.com/blog/364303/201608/364303-20160818230715265-504425871.png" alt=""></p>
-<p>同样是一家餐馆，可以提供食物</p>
+<p>那么继续查看，进入Thread.class ，成员变量threadLocals是什么<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/* ThreadLocal values pertaining to this thread. This map is maintained</div><div class="line">     * by the ThreadLocal class. */</div><div class="line">    ThreadLocal.ThreadLocalMap threadLocals = null;</div></pre></td></tr></table></figure></p>
+<p>ThreadLocalMap是ThreadLocal类的一个内部类，我们继续取看ThreadLocalMap的实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">static class ThreadLocalMap &#123;</div><div class="line"></div><div class="line">        /**</div><div class="line">         * The entries in this hash map extend WeakReference, using</div><div class="line">         * its main ref field as the key (which is always a</div><div class="line">         * ThreadLocal object).  Note that null keys (i.e. entry.get()</div><div class="line">         * == null) mean that the key is no longer referenced, so the</div><div class="line">         * entry can be expunged from table.  Such entries are referred to</div><div class="line">         * as &quot;stale entries&quot; in the code that follows.</div><div class="line">         */</div><div class="line">        static class Entry extends WeakReference&lt;ThreadLocal&lt;?&gt;&gt; &#123;</div><div class="line">            /** The value associated with this ThreadLocal. */</div><div class="line">            Object value;</div><div class="line"></div><div class="line">            Entry(ThreadLocal&lt;?&gt; k, Object v) &#123;</div><div class="line">                super(k);</div><div class="line">                value = v;</div><div class="line">            &#125;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<p>ThreadLocalMap的Entry继承了WeakReference，并且使用ThreadLocal作为键值</p>
+<p>如果getMap为null,则返回setInitialValue()</p>
 <ul>
-<li><p>创建基类，声明创建食物的方法 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public abstract class Food &#123;</div><div class="line">	public abstract void createFood();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><p>setInitialValue()方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Variant of set() to establish initialValue. Used instead</div><div class="line"> * of set() in case user has overridden the set() method.</div><div class="line"> *</div><div class="line"> * @return the initial value</div><div class="line"> */</div><div class="line">private T setInitialValue() &#123;</div><div class="line">    T value = initialValue();</div><div class="line">    Thread t = Thread.currentThread();</div><div class="line">    ThreadLocalMap map = getMap(t);</div><div class="line">    //就是如果map不为空，就设置键值对，</div><div class="line">    if (map != null)</div><div class="line">        map.set(this, value);</div><div class="line">    else</div><div class="line">    //为空，再创建Map</div><div class="line">        createMap(t, value);</div><div class="line">    return value;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>声明工厂类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public abstract class FoodStore &#123;</div><div class="line">	public abstract Food createFood(String type);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>构建两个窗口，一个卖面工厂，一个卖盖饭工厂</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">public class NoodlesStore extends FoodStore &#123;</div><div class="line">	@Override</div><div class="line">	public Food createFood(String type) &#123;</div><div class="line">		if (type.equals(&quot;lznoodles&quot;)) &#123;</div><div class="line">			return new LZNoodles();</div><div class="line">		&#125; else if (type.equals(&quot;cqnoodles&quot;)) &#123;</div><div class="line">			return new CQNoodles();</div><div class="line">		&#125; else return null;</div><div class="line"></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">public class RiceStore extends FoodStore &#123;</div><div class="line">	@Override</div><div class="line">	public Food createFood(String type) &#123;</div><div class="line">		if (type.equals(&quot;yuxiangrousi&quot;)) &#123;</div><div class="line">			return new YXRSRice();</div><div class="line">		&#125; else if (type.equals(&quot;huiguorou&quot;)) &#123;</div><div class="line">			return new HGRRice();</div><div class="line">		&#125; else return null;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>客户端，点餐：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> RiceStore store = new RiceStore();</div><div class="line"> Food food = store.createFood(&quot;YXRS&quot;);</div><div class="line"></div><div class="line">NoodlesStore noodlesStore = new NoodlesStore();</div><div class="line">Food food1 =  noodlesStore.createFood(&quot;CQNoodles&quot;);</div></pre></td></tr></table></figure>
+<li><p>createMap(t, value)的实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Create the map associated with a ThreadLocal. Overridden in</div><div class="line"> * InheritableThreadLocal.</div><div class="line"> *</div><div class="line"> * @param t the current thread</div><div class="line"> * @param firstValue value for the initial entry of the map</div><div class="line"> */</div><div class="line">void createMap(Thread t, T firstValue) &#123;</div><div class="line">    t.threadLocals = new ThreadLocalMap(this, firstValue);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="抽象工厂模式："><a href="#抽象工厂模式：" class="headerlink" title="抽象工厂模式："></a>抽象工厂模式：</h3><p>定义：为创建一组相关或相互依赖的对象提供一个接口，而且无需指定他们的具体类。</p>
-<p><img src="http://hi.csdn.net/attachment/201203/16/0_13318591595Q24.gif" alt=""></p>
-<p>现在餐馆不仅有食物，还有饮料，提供饮料抽象类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public abstract class IDrinks &#123;</div><div class="line">	/**</div><div class="line">	 * 饮料价格</div><div class="line">	 */</div><div class="line">	public abstract void prices();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>创建ThreadLocalMap对象并赋值给Thread中的threadLocals</p>
+<p>经过这一系列流程，ThreadLocal是为每个线程创建变量的副本就很清晰：</p>
 <ul>
-<li><p>具体产品类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public class ColaDrinks extends IDrinks &#123;</div><div class="line">	@Override</div><div class="line">	public void prices() &#123;</div><div class="line">		System.out.println(&quot;可乐三块五&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">public class WaterDrinks extends IDrinks &#123;</div><div class="line">	@Override</div><div class="line">	public void prices() &#123;</div><div class="line">		System.out.println(&quot;开水免费！&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><p>首先，在每个线程Thread内部有一个ThreadLocal.ThreadLocalMap类型的成员变量threadLocals，这个threadLocals就是用来存储实际的变量副本的，键值为当前ThreadLocal变量，value为变量副本（即T类型的变量）。</p>
 </li>
-<li><p>为食物和饮料创建总工厂</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public abstract class RestaurantFactory &#123;</div><div class="line">	public abstract Food getFood(String type);</div><div class="line">	public abstract IDrinks getDrink(String price) ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><p>初始化Thread时，threadLocals为空，当通过ThreadLocal变量调用get()方法或者set()方法，就会对Thread类中的threadLocals进行初始化，并且以当前ThreadLocal变量为键值，以ThreadLocal要保存的副本变量为value，存到threadLocals。</p>
 </li>
-<li><p>具体的食物工厂</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public class FoodFactory extends RestaurantFactory &#123;</div><div class="line">	@Override</div><div class="line">	public Food getFood(String type) &#123;</div><div class="line">		if (type.equals(&quot;yuxiangrousi&quot;)) &#123;</div><div class="line">			return new YXRSRice();</div><div class="line">		&#125; else if (type.equals(&quot;huiguorou&quot;)) &#123;</div><div class="line">			return new HGRRice();</div><div class="line">		&#125; else if (type.equals(&quot;lznoodles&quot;)) &#123;</div><div class="line">			return new LZNoodles();</div><div class="line">		&#125; else if (type.equals(&quot;cqnoodles&quot;)) &#123;</div><div class="line">			return new CQNoodles();</div><div class="line">		&#125; else return null;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public IDrinks getDrink(String price) &#123;</div><div class="line">		return null;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>饮料工厂</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public class DrinkFactory extends RestaurantFactory &#123;</div><div class="line">	@Override</div><div class="line">	public Food getFood(String type) &#123;</div><div class="line">		return null;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public IDrinks getDrink(int price) &#123;</div><div class="line">		if(price &lt; 3 )&#123;</div><div class="line">			return new WaterDrinks();</div><div class="line">		&#125;else  if (price &gt;= 3)&#123;</div><div class="line">			return new ColaDrinks();</div><div class="line">		&#125;</div><div class="line">		return null;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+<li>然后在当前线程里面，如果要使用副本变量，就可以通过get方法在threadLocals里面查找。</li>
 </ul>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>1。每个线程中都有一个自己的ThreadLocalMap类对象，可以将线程自己的对象保持到其中，各管各的，线程可以正确的访问到自己的对象。<br>2。将一个共用的ThreadLocal静态实例作为key，将不同对象的引用保存到不同线程的ThreadLocalMap中，然后在线程执行的各处通过这个静态ThreadLocal实例的get()方法取得自己线程保存的那个对象，避免了将这个对象作为参数传递的麻烦<br>3.通过ThreadLocal创建的副本是存储在每个线程自己的threadLocals中<br>4.为何threadLocals的类型ThreadLocalMap的键值为ThreadLocal对象，因为每个线程中可有多个threadLocal变量<br>5.在进行get之前，必须先set，否则会报空指针异常；如果想在get之前不需要调用set就能正常访问的话，必须重写initialValue()方法。<br>因为get方法中，getMap()默认为null，则返回setInitialValue(),setInitialValue()方法中， T value = initialValue() 默认返回null，最终会报空指针异常</p>
+<hr>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="http://www.cnblogs.com/dolphin0520/p/3920407.html" target="_blank" rel="external">http://www.cnblogs.com/dolphin0520/p/3920407.html</a></p>
 
       
     </div>
@@ -376,13 +365,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/24/Java设计模式 ——— 工厂模式/">Java设计模式 ——— 工厂模式</a></p>
+        <p><span>本文标题:</span><a href="/2019/01/05/Java进阶 ——— Java多线程（4）之多线程局部变量/">Java进阶 ——— Java多线程（4）之多线程局部变量TreadLocal</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">daidai</a></p>
-        <p><span>发布时间:</span>2018-08-24, 15:05:45</p>
-        <p><span>最后更新:</span>2018-08-24, 15:16:45</p>
+        <p><span>发布时间:</span>2019-01-05, 14:44:38</p>
+        <p><span>最后更新:</span>2019-01-05, 14:44:38</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/24/Java设计模式 ——— 工厂模式/" title="Java设计模式 ——— 工厂模式">http://outofmemory.top/2018/08/24/Java设计模式 ——— 工厂模式/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://outofmemory.top/2018/08/24/Java设计模式 ——— 工厂模式/　　作者: daidai" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/01/05/Java进阶 ——— Java多线程（4）之多线程局部变量/" title="Java进阶 ——— Java多线程（4）之多线程局部变量TreadLocal">http://outofmemory.top/2019/01/05/Java进阶 ——— Java多线程（4）之多线程局部变量/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://outofmemory.top/2019/01/05/Java进阶 ——— Java多线程（4）之多线程局部变量/　　作者: daidai" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -394,16 +383,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/24/Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap/">
-                    Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/24/Android进阶 ——— Android官方架构组件Lifecycle/">
-                    Android进阶 ——— Android官方架构组件Lifecycle
+                <a href="/2018/10/18/Java进阶 ——— Java多线程（三）之多线程同步问题/">
+                    Java进阶 ——— Java多线程（三）之多线程同步问题
                 </a>
             </div>
         
@@ -415,7 +398,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单工厂模式"><span class="toc-number">1.</span> <span class="toc-text">简单工厂模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工厂方法模式"><span class="toc-number">2.</span> <span class="toc-text">工厂方法模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#抽象工厂模式："><span class="toc-number">3.</span> <span class="toc-text">抽象工厂模式：</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ThreadLocal的作用"><span class="toc-number">1.</span> <span class="toc-text">ThreadLocal的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深入了解ThreadLocal使用"><span class="toc-number">2.</span> <span class="toc-text">深入了解ThreadLocal使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ThreadLocal的理解"><span class="toc-number">3.</span> <span class="toc-text">ThreadLocal的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#先来看get方法："><span class="toc-number">3.1.</span> <span class="toc-text">先来看get方法：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结"><span class="toc-number">3.2.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考"><span class="toc-number">3.3.</span> <span class="toc-text">参考</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -451,7 +434,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Java设计模式 ——— 工厂模式　| T9'S Develop Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Java进阶 ——— Java多线程（4）之多线程局部变量TreadLocal　| T9'S Develop Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -471,15 +454,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/24/Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap/" title="上一篇: Android进阶 ——— 使用SparseArray和ArrayMap代替HashMap">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/24/Android进阶 ——— Android官方架构组件Lifecycle/" title="下一篇: Android进阶 ——— Android官方架构组件Lifecycle">
+            <a href="/2018/10/18/Java进阶 ——— Java多线程（三）之多线程同步问题/" title="下一篇: Java进阶 ——— Java多线程（三）之多线程同步问题">
                 <i class="fa fa-angle-right"></i>
             </a>
         
