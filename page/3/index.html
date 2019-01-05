@@ -274,6 +274,120 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Java设计模式 ——— 工厂模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/08/24/Java设计模式 ——— 工厂模式/" class="article-date">
+      <time datetime="2018-08-24T07:05:45.715Z" itemprop="datePublished">2018-08-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/24/Java设计模式 ——— 工厂模式/">Java设计模式 ——— 工厂模式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h3><p>简单工厂模式的模型非常简单，定义一个抽象类及抽象方法，具体产品类继承抽象类，在简单工厂类中提供具体产品，供给客户端使用<br><img src="https://images2015.cnblogs.com/blog/364303/201608/364303-20160818224552500-264215677.png" alt=""></p>
+<p>例如，一家餐馆，可以提供多种食品，供用户选择：</p>
+<ul>
+<li><p>定义抽象类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">抽象类</div><div class="line">*/</div><div class="line">public abstract class SimpleFood &#123;</div><div class="line">	/**</div><div class="line">	 * 提供食物</div><div class="line">	 */</div><div class="line">	public abstract void food();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>提供面条–具体产品类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 具体产品类</div><div class="line"> */</div><div class="line">public class Noodles extends SimpleFood &#123;</div><div class="line">	@Override</div><div class="line">	public void food() &#123;</div><div class="line">		System.out.println(&quot;面条&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>提供米饭–具体产品类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 具体产品类</div><div class="line"> */</div><div class="line">public class Rice extends SimpleFood &#123;</div><div class="line">	@Override</div><div class="line">	public void food() &#123;</div><div class="line">		System.out.println(&quot;米饭&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>准备工作结束，创建餐馆–简单工厂类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">public class SimpleFoodFactory &#123;</div><div class="line"></div><div class="line">	public static final int TYPE_NOODLES = 1;//面条</div><div class="line">	public static final int TYPE_RICE = 2;//米饭</div><div class="line"></div><div class="line"></div><div class="line">	public static SimpleFood createFood(int type) &#123;</div><div class="line">		switch (type) &#123;</div><div class="line">			case TYPE_NOODLES:</div><div class="line">				return new Noodles();</div><div class="line">			case TYPE_RICE:</div><div class="line">				return new Rice();</div><div class="line">			default:</div><div class="line">				return new Rice();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>客人点餐，指明要吃的食物，只要有原料，就可以提供：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SimpleFood food =  SimpleFoodFactory.createFood(SimpleFoodFactory.TYPE_RICE);</div><div class="line">food.food();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h3><p>这个和简单工厂有区别，简单工厂模式只有一个工厂，工厂方法模式对每一个产品都有相应的工厂。<br><img src="https://images2015.cnblogs.com/blog/364303/201608/364303-20160818230715265-504425871.png" alt=""></p>
+<p>同样是一家餐馆，可以提供食物</p>
+<ul>
+<li><p>创建基类，声明创建食物的方法 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public abstract class Food &#123;</div><div class="line">	public abstract void createFood();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>声明工厂类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public abstract class FoodStore &#123;</div><div class="line">	public abstract Food createFood(String type);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>构建两个窗口，一个卖面工厂，一个卖盖饭工厂</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">public class NoodlesStore extends FoodStore &#123;</div><div class="line">	@Override</div><div class="line">	public Food createFood(String type) &#123;</div><div class="line">		if (type.equals(&quot;lznoodles&quot;)) &#123;</div><div class="line">			return new LZNoodles();</div><div class="line">		&#125; else if (type.equals(&quot;cqnoodles&quot;)) &#123;</div><div class="line">			return new CQNoodles();</div><div class="line">		&#125; else return null;</div><div class="line"></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">public class RiceStore extends FoodStore &#123;</div><div class="line">	@Override</div><div class="line">	public Food createFood(String type) &#123;</div><div class="line">		if (type.equals(&quot;yuxiangrousi&quot;)) &#123;</div><div class="line">			return new YXRSRice();</div><div class="line">		&#125; else if (type.equals(&quot;huiguorou&quot;)) &#123;</div><div class="line">			return new HGRRice();</div><div class="line">		&#125; else return null;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>客户端，点餐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> RiceStore store = new RiceStore();</div><div class="line"> Food food = store.createFood(&quot;YXRS&quot;);</div><div class="line"></div><div class="line">NoodlesStore noodlesStore = new NoodlesStore();</div><div class="line">Food food1 =  noodlesStore.createFood(&quot;CQNoodles&quot;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="抽象工厂模式："><a href="#抽象工厂模式：" class="headerlink" title="抽象工厂模式："></a>抽象工厂模式：</h3><p>定义：为创建一组相关或相互依赖的对象提供一个接口，而且无需指定他们的具体类。</p>
+<p><img src="http://hi.csdn.net/attachment/201203/16/0_13318591595Q24.gif" alt=""></p>
+<p>现在餐馆不仅有食物，还有饮料，提供饮料抽象类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public abstract class IDrinks &#123;</div><div class="line">	/**</div><div class="line">	 * 饮料价格</div><div class="line">	 */</div><div class="line">	public abstract void prices();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>具体产品类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public class ColaDrinks extends IDrinks &#123;</div><div class="line">	@Override</div><div class="line">	public void prices() &#123;</div><div class="line">		System.out.println(&quot;可乐三块五&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">public class WaterDrinks extends IDrinks &#123;</div><div class="line">	@Override</div><div class="line">	public void prices() &#123;</div><div class="line">		System.out.println(&quot;开水免费！&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>为食物和饮料创建总工厂</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public abstract class RestaurantFactory &#123;</div><div class="line">	public abstract Food getFood(String type);</div><div class="line">	public abstract IDrinks getDrink(String price) ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>具体的食物工厂</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public class FoodFactory extends RestaurantFactory &#123;</div><div class="line">	@Override</div><div class="line">	public Food getFood(String type) &#123;</div><div class="line">		if (type.equals(&quot;yuxiangrousi&quot;)) &#123;</div><div class="line">			return new YXRSRice();</div><div class="line">		&#125; else if (type.equals(&quot;huiguorou&quot;)) &#123;</div><div class="line">			return new HGRRice();</div><div class="line">		&#125; else if (type.equals(&quot;lznoodles&quot;)) &#123;</div><div class="line">			return new LZNoodles();</div><div class="line">		&#125; else if (type.equals(&quot;cqnoodles&quot;)) &#123;</div><div class="line">			return new CQNoodles();</div><div class="line">		&#125; else return null;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public IDrinks getDrink(String price) &#123;</div><div class="line">		return null;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>饮料工厂</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public class DrinkFactory extends RestaurantFactory &#123;</div><div class="line">	@Override</div><div class="line">	public Food getFood(String type) &#123;</div><div class="line">		return null;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	public IDrinks getDrink(int price) &#123;</div><div class="line">		if(price &lt; 3 )&#123;</div><div class="line">			return new WaterDrinks();</div><div class="line">		&#125;else  if (price &gt;= 3)&#123;</div><div class="line">			return new ColaDrinks();</div><div class="line">		&#125;</div><div class="line">		return null;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java进阶/">Java进阶</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Android进阶 ——— Android官方架构组件Lifecycle" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1288,111 +1402,6 @@
 </blockquote>
 <hr>
 <p>个人博客地址：<a href="http://outofmemory.top/">http://outofmemory.top/</a><br>CSDN地址：<a href="http://blog.csdn.net/dazhaoDai" target="_blank" rel="external">http://blog.csdn.net/dazhaoDai</a><br>GitHub地址：<a href="https://github.com/dazhaoDai" target="_blank" rel="external">https://github.com/dazhaoDai</a></p>
-<hr>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Kotlin/">Kotlin</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin/">Kotlin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin开发/">Kotlin开发</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Kotlin 学习笔记（二）—— 基础语法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/02/08/Kotlin 学习笔记（二）—— 基础语法/" class="article-date">
-      <time datetime="2018-02-08T12:59:43.000Z" itemprop="datePublished">2018-02-08</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/08/Kotlin 学习笔记（二）—— 基础语法/">Kotlin 学习笔记（二）—— 基础语法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <hr>
-<h3 id="Kotlin学习笔记系列教程"><a href="#Kotlin学习笔记系列教程" class="headerlink" title="Kotlin学习笔记系列教程"></a>Kotlin学习笔记系列教程</h3><blockquote>
-<p><a href="http://blog.csdn.net/dazhaoDai/article/details/79293475" target="_blank" rel="external">Kotlin 学习笔记（一）—— 概述、学习曲线、开发工具、参考资料</a></p>
-</blockquote>
-<hr>
-<h2 id="1-基础语法"><a href="#1-基础语法" class="headerlink" title="1. 基础语法"></a>1. 基础语法</h2><h4 id="定义包"><a href="#定义包" class="headerlink" title="定义包"></a>定义包</h4><p>包的声明应该处于源文件顶部：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">package hard.uistudy.dai.uifinaltest.main.view.fragment</div><div class="line"></div><div class="line">import android.os.Bundle</div><div class="line">import android.support.v4.app.Fragment</div></pre></td></tr></table></figure></p>
-<h4 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h4><p>带有两个Int 参数、返回Int 的函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fun addNumber(a : Int, b: Int) : Int &#123;</div><div class="line">    return a + b</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>将表达式作为函数体、返回值类型自动推断的函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fun addNumber(a: Int, b: Int) = a + b</div></pre></td></tr></table></figure></p>
-<p>函数返回无意义的值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fun printSum(a: Int, b: Int): Unit &#123;</div><div class="line">    println(&quot;sum of $a and $b is $&#123;a + b&#125;&quot;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>Unit 返回类型可以省略：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fun printSum(a: Int, b: Int) &#123;</div><div class="line">    println(&quot;sum of $a and $b is $&#123;a + b&#125;&quot;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h4><p>一次赋值（只读不可写）的局部变量,使用<code>val</code>修饰:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val a : Int =5  //立即赋值</div><div class="line">val text  = &quot;aaa&quot;  //自动推断类型</div></pre></td></tr></table></figure></p>
-<p>可变变量（可读可写）,使用<code>var</code>修饰:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var b = 5 // 自动推断出 `Int` 类型</div><div class="line">b = 6</div><div class="line"></div><div class="line">/**</div><div class="line"> * 定义暂不赋值，lateinit不能用在可空的属性上和java的基本类型上,lateinit只能修饰var</div><div class="line"> */</div><div class="line">lateinit var open : String</div><div class="line">...</div><div class="line">open = &quot;aaa&quot;</div></pre></td></tr></table></figure></p>
-<p>  顶层变量：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">  val PI = 3.14</div><div class="line">var x = 0</div><div class="line"></div><div class="line">fun incrementX() &#123; </div><div class="line">    x += 1 </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><p>同Java一样，kotlin也支持行注释 及 块注释<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 这是一个行注释</div><div class="line"></div><div class="line">/* 这是一个多行的</div><div class="line">   块注释。 */</div></pre></td></tr></table></figure></p>
-<h4 id="使用字符串模板"><a href="#使用字符串模板" class="headerlink" title="使用字符串模板"></a>使用字符串模板</h4><p>使用$符号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var a = 1</div><div class="line">// 模板中的简单名称：</div><div class="line">val s1 = &quot;a is $a&quot; </div><div class="line"></div><div class="line">a = 2</div><div class="line">// 模板中的任意表达式：</div><div class="line">val s2 = &quot;$&#123;s1.replace(&quot;is&quot;, &quot;was&quot;)&#125;, but now is $a&quot;</div></pre></td></tr></table></figure></p>
-<h4 id="使用条件表达式"><a href="#使用条件表达式" class="headerlink" title="使用条件表达式"></a>使用条件表达式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">fun maxOf(a: Int, b: Int): Int &#123;</div><div class="line">    if (a &gt; b) &#123;</div><div class="line">        return a</div><div class="line">    &#125; else &#123;</div><div class="line">        return b</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>使用 if 作为表达式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fun maxOf(a: Int, b: Int) = if (a &gt; b) a else b</div></pre></td></tr></table></figure></p>
-<h4 id="使用可空值及-null-检测"><a href="#使用可空值及-null-检测" class="headerlink" title="使用可空值及 null 检测"></a>使用可空值及 null 检测</h4><p>当某个变量的值可能为null时，必须在声明处的类型后添加<code>?</code>来标识该引用可为空。<br>如果<code>text</code>的内容不是数字返回null：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fun parseInt(string: String) : Int?&#123;</div><div class="line">  return  if (string.toInt() != null) string.toInt() else null</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>使用返回可空值的函数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">fun  getProduct(str1: String, str2: String)&#123;</div><div class="line">    val x = parseInt(str1)</div><div class="line">    val y = parseInt(str2)</div><div class="line"></div><div class="line">    if (x != null &amp;&amp; y != null)&#123;</div><div class="line">        print(x + y)</div><div class="line">    &#125; else&#123;</div><div class="line">        println(&quot;either &apos;$str1&apos; or &apos;$str2&apos; is not a number&quot;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>或者 分别分析<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// ……</div><div class="line">if (x == null) &#123;</div><div class="line">    println(&quot;Wrong number format in arg1: &apos;$arg1&apos;&quot;)</div><div class="line">    return</div><div class="line">&#125;</div><div class="line">if (y == null) &#123;</div><div class="line">    println(&quot;Wrong number format in arg2: &apos;$arg2&apos;&quot;)</div><div class="line">    return</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 在空检测后，x 和 y 会自动转换为非空值</div><div class="line">println(x * y)</div></pre></td></tr></table></figure></p>
-<h4 id="使用类型检测及自动类型转换"><a href="#使用类型检测及自动类型转换" class="headerlink" title="使用类型检测及自动类型转换"></a>使用类型检测及自动类型转换</h4><p>is 运算符检测一个表达式是否为某类型的一个实例。如果一个不可变的局部变量或者属性已经判断出为某类型，那么检测后的 分支直接当做该类型使用，无需显示转换：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">fun getStrigLength(obj:Any): Int?&#123;</div><div class="line">    if (obj is String)&#123;</div><div class="line">        // `obj` 在该条件分支内自动转换成 `String`</div><div class="line">        return obj.length</div><div class="line">    &#125;</div><div class="line">    // 在离开类型检测分支后，`obj` 仍然是 `Any` 类型</div><div class="line">    return null</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>或者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">fun getStringLength(obj: Any): Int? &#123;</div><div class="line">    if (obj !is String) return null</div><div class="line">​</div><div class="line">    // `obj` 在这一分支自动转换为 `String`</div><div class="line">    return obj.length</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>甚至</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">fun getStringLength(obj: Any): Int? &#123;</div><div class="line">    // `obj` 在 `&amp;&amp;` 右边自动转换成 `String` 类型</div><div class="line">    if (obj is String &amp;&amp; obj.length &gt; 0) &#123;</div><div class="line">        return obj.length</div><div class="line">    &#125;</div><div class="line">​</div><div class="line">    return null</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="使用-for-循环"><a href="#使用-for-循环" class="headerlink" title="使用 for 循环"></a>使用 for 循环</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">val list  = arrayListOf(&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;)</div><div class="line"></div><div class="line">fun printList()&#123;</div><div class="line">    for (item in list)&#123;</div><div class="line">        print(item)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">val list  = arrayListOf(&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;)</div><div class="line"></div><div class="line">fun printList()&#123;</div><div class="line">    for (index in list.indices)&#123;</div><div class="line">        print(&quot;$list at $index value is $&#123;list[index]&#125; &quot; )</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="使用While循环"><a href="#使用While循环" class="headerlink" title="使用While循环"></a>使用While循环</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">val list  = arrayListOf(&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;)</div><div class="line"></div><div class="line">fun printList()&#123;</div><div class="line">    var index = 0</div><div class="line">   while (index &lt; list.size)&#123;</div><div class="line">       print(&quot;$index,$&#123;list[index]&#125;&quot;)</div><div class="line">       index++</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="使用When循环"><a href="#使用When循环" class="headerlink" title="使用When循环"></a>使用When循环</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">fun printList(index : Int) : String =</div><div class="line">    when (index )&#123;</div><div class="line">        1 -&gt; &quot;$index value is 1&quot;</div><div class="line">        2 -&gt; &quot;$index value is 2&quot;</div><div class="line">        3 -&gt; &quot;$index value is 3&quot;</div><div class="line">        4 -&gt; &quot;$index value is 4&quot;</div><div class="line">        else  -&gt; &quot;null&quot;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<h4 id="使用区间（range）"><a href="#使用区间（range）" class="headerlink" title="使用区间（range）"></a>使用区间（range）</h4><p>使用 in 运算符来检测某个数字是否在指定区间内：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">val startIndex = 10</div><div class="line">val endIndex = 20</div><div class="line"></div><div class="line">fun sortNum()&#123;</div><div class="line">    if (startIndex in 1.. endIndex)&#123;</div><div class="line">        print(&quot;$startIndex is in range&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>区间迭代:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fun sortNum()&#123;</div><div class="line">    for (index in startIndex .. endIndex)&#123;</div><div class="line">        print(index)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>数列迭代<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//每次跳过3个元素</div><div class="line">for (index in startIndex .. endIndex step 3)&#123;</div><div class="line">    print(index)</div><div class="line">&#125;</div><div class="line"></div><div class="line">//降序遍历，每次跳过3个元素</div><div class="line">for (index in endIndex downTo startIndex step 3)&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>检测某个数字是否在指定区间外:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">val list = listOf(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)</div><div class="line"></div><div class="line">if (-1 !in 0..list.lastIndex) &#123;</div><div class="line">    println(&quot;-1 is out of range&quot;)</div><div class="line">&#125;</div><div class="line">if (list.size !in list.indices) &#123;</div><div class="line">    println(&quot;list size is out of valid list indices range too&quot;)</div><div class="line">&#125;</div><div class="line">val list = listOf(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)</div><div class="line">​</div><div class="line">if (-1 !in 0..list.lastIndex) &#123;</div><div class="line">    println(&quot;-1 is out of range&quot;)</div><div class="line">&#125;</div><div class="line">if (list.size !in list.indices) &#123;</div><div class="line">    println(&quot;list size is out of valid list indices range too&quot;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="使用集合"><a href="#使用集合" class="headerlink" title="使用集合"></a>使用集合</h4><p>对集合进行迭代:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">val lists = listOf(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)</div><div class="line"></div><div class="line">fun sortList()&#123;</div><div class="line">    for (item in lists)&#123;</div><div class="line">        print(item)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>使用in 运算符来判断集合内是否包含某实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">val lists = listOf(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)</div><div class="line"></div><div class="line">fun sortList()&#123;</div><div class="line">    when&#123;</div><div class="line">        &quot;a&quot; in lists -&gt; print(&quot;a&quot;)</div><div class="line">        &quot;b&quot; in lists -&gt; print(&quot;b&quot;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>使用lambda 表达式来过滤（filter）和映射(map)集合：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">val lists = listOf(&quot;aa&quot;, &quot;ab&quot;, &quot;ac&quot;,&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;)</div><div class="line"></div><div class="line">fun sortList()&#123;</div><div class="line">   lists.filter &#123; it.startsWith(&quot;a&quot;)&#125;  //过滤出 a 开头的元素</div><div class="line">           .sortedBy &#123; it &#125;   //排序</div><div class="line">           .map &#123; it.toUpperCase() &#125;  //将字符串转为大写</div><div class="line">           .forEach &#123; print(it) &#125;  //遍历输出字符串</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="创建基本类及其实例"><a href="#创建基本类及其实例" class="headerlink" title="创建基本类及其实例"></a>创建基本类及其实例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val rectangele = Rectangle()  //不需要 new 关键字</div><div class="line">val triangle = Triangle()</div></pre></td></tr></table></figure>
-<hr>
-<h2 id="gt-以上就是第二篇的全部内容，先学习到这里，第三篇继续学习基础教程"><a href="#gt-以上就是第二篇的全部内容，先学习到这里，第三篇继续学习基础教程" class="headerlink" title="&gt;以上就是第二篇的全部内容，先学习到这里，第三篇继续学习基础教程"></a>&gt;以上就是第二篇的全部内容，先学习到这里，第三篇继续学习基础教程</h2><p>个人博客地址：<a href="http://outofmemory.top/">http://outofmemory.top/</a><br>CSDN地址：<a href="http://blog.csdn.net/dazhaoDai" target="_blank" rel="external">http://blog.csdn.net/dazhaoDai</a><br>GitHub地址：<a href="https://github.com/dazhaoDai" target="_blank" rel="external">https://github.com/dazhaoDai</a></p>
 <hr>
 
       
